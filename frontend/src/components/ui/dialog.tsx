@@ -8,20 +8,26 @@ export function Dialog({
   open, onClose, title, children, testId, tone,
 }: { open: boolean; onClose: () => void; title: ReactNode; children: ReactNode; testId?: string; tone?: "danger" }) {
   const box = useRef<HTMLDivElement>(null);
+  // Keep the latest onClose without re-running the focus effect: parents re-render on every
+  // desk poll, and re-running it bounced focus out of the dialog while the user was typing.
+  const closeRef = useRef(onClose);
+  useEffect(() => {
+    closeRef.current = onClose;
+  }, [onClose]);
   useEffect(() => {
     if (!open) return;
     const prev = document.activeElement as HTMLElement | null;
     const el = box.current?.querySelector<HTMLElement>("[data-autofocus], input, textarea, button");
     el?.focus();
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") closeRef.current();
     };
     window.addEventListener("keydown", onKey);
     return () => {
       window.removeEventListener("keydown", onKey);
       prev?.focus?.();
     };
-  }, [open, onClose]);
+  }, [open]);
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">

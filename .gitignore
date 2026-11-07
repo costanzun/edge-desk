@@ -18,3 +18,5 @@ frontend/playwright-report/
 *.duckdb
 *.duckdb.wal
 .DS_Store
+docs/media/raw/
+frontend/.next-demo/

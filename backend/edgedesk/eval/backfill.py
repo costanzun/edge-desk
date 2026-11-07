@@ -253,10 +253,18 @@ def analyse(rows: list[dict]) -> dict[str, Any]:
 
 
 def _ts_close(event: str) -> int:
-    # KXBTCD-26NOV0517 -> 2026-11-05 17:00 EST (UTC-5 after Nov 1 2026; EDT before)
-    tag = event.split("-")[1]
-    dt = datetime.strptime(tag, "%y%b%d%H")
+    """Close time from a Kalshi event ticker, e.g. KXBTCD-26NOV0517 or KXBTCD-26NOV0517EST.
+
+    The hour is New York time. Some tickers carry an explicit EST/EDT suffix; it is stripped
+    and the offset comes from zoneinfo America/New_York (DST-aware), which agrees with the
+    suffix. Analysis uses each market's close_time; this is for tickers on their own."""
     from zoneinfo import ZoneInfo
+    tag = event.split("-")[1].upper()
+    for suffix in ("EST", "EDT", "ET"):
+        if tag.endswith(suffix):
+            tag = tag[: -len(suffix)]
+            break
+    dt = datetime.strptime(tag, "%y%b%d%H")
     return int(dt.replace(tzinfo=ZoneInfo("America/New_York")).timestamp())
 
 
