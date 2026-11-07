@@ -3,7 +3,7 @@
 import { CheckCircle2, XCircle } from "lucide-react";
 import { BigKillSwitch } from "@/components/shell/kill-switch";
 import {
-  Badge, cn, Dot, Empty, ErrorNote, Loading, PageHeader, Panel, Stats, Table, Td, Th, UsageBar,
+  Badge, cn, Dot, Empty, feedStatus, StatusPill, ErrorNote, Loading, PageHeader, Panel, Stats, Table, Td, Th, UsageBar,
 } from "@/components/ui/kit";
 import * as api from "@/lib/api";
 import { useDesk } from "@/lib/desk-context";
@@ -69,10 +69,10 @@ export function RiskView() {
       <ErrorNote error={risk.error} />
 
       <div className="grid gap-4 xl:grid-cols-12">
-        <Panel title="Kill switch" className="xl:col-span-7" testId="kill-panel" bodyClass="p-5">
+        <Panel title="Kill switch" info="Stops all new paper orders at once. Use it if data looks wrong. Market data keeps recording." className="xl:col-span-7" testId="kill-panel" bodyClass="p-5">
           <BigKillSwitch />
         </Panel>
-        <Panel title="Risk decisions" className="xl:col-span-5" testId="decisions-panel">
+        <Panel title="Risk decisions" info="Every signal is checked before it becomes an order. Blocked signals are not errors: most are sized to zero by the cautious Kelly rule." className="xl:col-span-5" testId="decisions-panel">
           <div className="mb-3 grid grid-cols-3 gap-2 text-center">
             <Stat label="Signals checked" v={num(dec.total)} />
             <Stat label="Accepted" v={num(dec.accepted)} tone="pos" />
@@ -96,7 +96,7 @@ export function RiskView() {
         </Panel>
       </div>
 
-      <Panel title="Limits and current usage" testId="limits-table" bodyClass="py-0">
+      <Panel title="Limits and current usage" info="Caps on how much money can be at risk. Bars show how much of each cap is used; green is comfortable, amber close, red at the limit (new orders there are refused)." testId="limits-table" bodyClass="py-0">
         {rows.length === 0 ? <Empty>No limits reported.</Empty> : (
           <Table>
             <thead><tr><Th>Limit</Th><Th className="hidden md:table-cell">Key</Th><Th right>Current</Th><Th right>Cap</Th><Th className="w-[34%]">Usage</Th></tr></thead>
@@ -116,7 +116,7 @@ export function RiskView() {
       </Panel>
 
       <div className="grid gap-4 lg:grid-cols-3">
-        <Panel title="Reconciliation" testId="recon-panel">
+        <Panel title="Reconciliation" info="An independent ledger re-computes positions and cash and must agree with the trading engine. Agree = good." testId="recon-panel">
           <div className="mb-3 flex items-center gap-2">
             {r.recon?.ok !== false ? <CheckCircle2 className="size-5 text-pos" /> : <XCircle className="size-5 text-neg" />}
             <span className="text-[14px] font-semibold">{r.recon?.ok !== false ? "Books agree" : "Break detected"}</span>
@@ -128,7 +128,7 @@ export function RiskView() {
           ]} />
           <p className="mt-3 text-[11.5px] leading-relaxed text-ink-3">Positions folded from fills are compared with an independent double-entry ledger after every fill and settlement. A break halts trading.</p>
         </Panel>
-        <Panel title="Ingest rejects" testId="rejects-panel">
+        <Panel title="Ingest rejects" info="Market data messages thrown away because they were duplicates, malformed, out of order or stale. A few is normal; many means a feed problem." testId="rejects-panel">
           {rejects.length === 0 ? (
             <Empty className="min-h-0 py-3">No rejected messages.</Empty>
           ) : (
@@ -136,11 +136,11 @@ export function RiskView() {
           )}
           <p className="mt-2 text-[11.5px] leading-relaxed text-ink-3">Guards on every market-data message: duplicates, schema violations, out-of-order sequence, stale timestamps, clock skew.</p>
         </Panel>
-        <Panel title="Halts" testId="halts-panel" bodyClass="p-0">
+        <Panel title="Halts" info="Times trading was stopped (kill switch, loss limit, reconciliation break) and resumed." testId="halts-panel" bodyClass="p-0">
           {halts.length === 0 ? <Empty className="min-h-0 py-6">No halts in this session.</Empty> : (
-            <ul className="max-h-56 divide-y divide-line overflow-y-auto">
+            <ul className="max-h-56 divide-y divide-line border-t border-line overflow-y-auto">
               {[...halts].reverse().map((h, i) => (
-                <li key={i} className="flex items-center gap-2 px-3.5 py-1.5 text-[12px]">
+                <li key={i} className="flex items-center gap-2 px-4 py-2 text-[12px]">
                   <span className="num w-24 shrink-0 whitespace-nowrap text-ink-3">{utcTime(h.t)}</span>
                   <Badge tone={h.halted ? "neg" : "pos"}>{h.halted ? "halt" : "resume"}</Badge>
                   <span className="truncate text-ink-2">{h.reason || "—"}</span>
@@ -152,17 +152,20 @@ export function RiskView() {
       </div>
 
       <div className="grid gap-4 xl:grid-cols-12">
-        <Panel title="Feed health" testId="risk-feeds" className="xl:col-span-5" bodyClass="py-0">
+        <Panel title="Market data feeds" info="Live = messages arriving normally; Slow = quiet for a while; Down = disconnected. Signals on a venue with a stale feed are blocked." testId="risk-feeds" className="xl:col-span-5" bodyClass="py-0">
           <Table>
-            <thead><tr><Th>Feed</Th><Th right>Last msg</Th><Th right>RTT</Th><Th right>Msgs</Th><Th right>Errors</Th></tr></thead>
+            <thead><tr><Th>Feed</Th><Th>Status</Th><Th right>Updated</Th><Th right>Latency</Th><Th right>Messages</Th></tr></thead>
             <tbody>
               {(r.feeds ?? []).map((f) => (
                 <tr key={f.name}>
-                  <Td><span className="flex items-center gap-2"><Dot ok={f.ok} warn={(f.last_msg_age_s ?? 0) > 30} /> <span className="capitalize">{f.name}</span>{f.reason ? <span className="text-[11px] text-neg">{f.reason}</span> : null}</span></Td>
-                  <Td right className="text-ink-2">{age(f.last_msg_age_s)}</Td>
+                  <Td title={f.reason || undefined}>
+                    <div className="font-medium">{f.label ?? f.name}</div>
+                    <div className="text-[11px] text-ink-3">{f.transport ?? (f.websocket ? "WebSocket" : "REST")}</div>
+                  </Td>
+                  <Td><StatusPill status={feedStatus(f)} /></Td>
+                  <Td right className="text-ink-2">{age(f.last_msg_age_s)} ago</Td>
                   <Td right>{ms(f.rtt_ms)}</Td>
                   <Td right className="text-ink-3">{num(f.messages)}</Td>
-                  <Td right className={cn((f.errors ?? 0) > 0 && "text-warn")}>{num(f.errors)}</Td>
                 </tr>
               ))}
             </tbody>
@@ -181,11 +184,11 @@ export function RiskView() {
             </ul>
           )}
         </Panel>
-        <Panel title="Recent risk decisions" testId="recent-decisions" className="xl:col-span-7" bodyClass="p-0">
+        <Panel title="Recent risk decisions" info="The last signals and whether they passed. Hover a row to see all 15 checks." testId="recent-decisions" className="xl:col-span-7" bodyClass="p-0">
           {(r.recent ?? []).length === 0 ? <Empty>No decisions yet.</Empty> : (
-            <ul className="max-h-[360px] divide-y divide-line overflow-y-auto">
+            <ul className="max-h-[360px] divide-y divide-line border-t border-line overflow-y-auto">
               {(r.recent ?? []).slice(0, 30).map((d, i) => (
-                <li key={d.seq ?? i} className="flex items-center gap-2.5 px-3.5 py-1.5 text-[12px]" title={(d.checks ?? []).map((c) => `${c.ok ? "✓" : "✗"} ${c.check}: ${c.detail ?? ""}`).join("\n")}>
+                <li key={d.seq ?? i} className="flex items-center gap-2.5 px-4 py-2 text-[12px]" title={(d.checks ?? []).map((c) => `${c.ok ? "✓" : "✗"} ${c.check}: ${c.detail ?? ""}`).join("\n")}>
                   <span className="num w-16 shrink-0 text-ink-3">{utcTime(d.t).replace(" UTC", "")}</span>
                   {d.ok ? <Badge tone="pos">pass</Badge> : <Badge tone="neg">block</Badge>}
                   <span className="num min-w-0 truncate">{d.cid}</span>

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { EdgeDecayChart } from "@/components/charts/analytics-charts";
 import { EquityChart } from "@/components/charts/equity-chart";
 import { Waterfall } from "@/components/charts/bars";
-import { Badge, Button, cn, Empty, ErrorNote, Kpi, PageHeader, Panel, Segmented, Signed } from "@/components/ui/kit";
+import { Badge, Button, cn, Empty, ErrorNote, HeroKpi, Kpi, KpiRow, PageHeader, Panel, Segmented, Signed } from "@/components/ui/kit";
 import * as api from "@/lib/api";
 import { usePoll } from "@/lib/hooks";
 import { bytes, compact, num, pct, usd } from "@/lib/format";
@@ -82,11 +82,11 @@ export function ReplayView() {
       <div className="grid gap-4 xl:grid-cols-12">
         <Panel title="Recorded hours" testId="periods" className="xl:col-span-4" bodyClass="p-0">
           {hours.length === 0 ? <Empty>No recorded hours yet.</Empty> : (
-            <ul className="max-h-[380px] divide-y divide-line overflow-y-auto">
+            <ul className="max-h-[380px] divide-y divide-line border-t border-line overflow-y-auto">
               {hours.map((h) => {
                 const inWin = mode === "window" && h.hour >= fromH && h.hour <= toH;
                 return (
-                  <li key={h.hour} className={cn("flex items-center gap-2.5 px-3.5 py-1.5 text-[12.5px]", inWin && "bg-brand-soft/60")}>
+                  <li key={h.hour} className={cn("flex items-center gap-2.5 px-4 py-2 text-[12.5px]", inWin && "bg-brand-soft/60")}>
                     <span className={cn("inline-block size-1.5 rounded-full", inWin ? "bg-brand" : "bg-line")} />
                     <span className="num">{h.hour.replace("T", " ").replace("Z", " UTC")}</span>
                     <span className="num ml-auto text-ink-3">{bytes(h.bytes)}</span>
@@ -169,14 +169,16 @@ export function ReplayView() {
       {res ? (
         <div data-testid="replay-result" className="fade-in space-y-4">
           <Digest digest={res.digest} events={res.events} seconds={res.seconds} />
-          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 xl:grid-cols-6">
-            <Kpi label="Net P&L" value={<Signed value={res.summary?.net_total}>{usd(res.summary?.net_total, { sign: true })}</Signed>} sub={`settled ${usd(res.summary?.net_settled)}`} />
-            <Kpi label="Trades" value={num(res.summary?.trades)} sub={`${num(res.summary?.settled)} settled`} />
-            <Kpi label="Win rate" value={pct(res.summary?.win_rate)} />
-            <Kpi label="Fees" value={usd(res.summary?.fees)} />
-            <Kpi label="Signals → orders" value={`${compact(res.summary?.signals)} → ${compact(res.summary?.orders)}`} />
-            <Kpi label="Return on cost" value={pct(res.summary?.return_on_cost)} />
-          </div>
+          <KpiRow
+            hero={<HeroKpi label="Net P&L after fees" hint="What this replay's paper account made or lost after fees. Positive is good." value={<Signed value={res.summary?.net_total}>{usd(res.summary?.net_total, { sign: true })}</Signed>} detail={<>{usd(res.summary?.net_settled, { sign: true })} settled</>} />}
+          >
+            <Kpi label="Trades" hint="Paper orders that bought at least one contract." value={num(res.summary?.trades)} sub={`${num(res.summary?.settled)} settled`} />
+            <Kpi label="Win rate" hint="Share of settled paper trades that made money." value={pct(res.summary?.win_rate)} />
+            <Kpi label="Fees" hint="Venue fees paid in this replay." value={usd(res.summary?.fees)} />
+            <Kpi label="Signals → orders" hint="Gaps big enough to act on, and how many became orders after the risk checks." value={`${compact(res.summary?.signals)} → ${compact(res.summary?.orders)}`} />
+            <Kpi label="Return on cost" hint="Net P&L divided by money spent on contracts." value={pct(res.summary?.return_on_cost)} />
+            <Kpi label="Equity" hint="Final paper account value." value={usd(res.summary?.equity, { digits: 0 })} />
+          </KpiRow>
           <div className="grid gap-4 xl:grid-cols-12">
             <Panel title="Equity curve" className="xl:col-span-7"><EquityChart points={res.equity_curve ?? []} bankroll={res.summary?.bankroll} testId="replay-equity" /></Panel>
             <Panel title="Attribution" className="xl:col-span-5">{res.attribution?.total ? <Waterfall total={res.attribution.total} height={300} testId="replay-waterfall" /> : <Empty>No trades.</Empty>}</Panel>

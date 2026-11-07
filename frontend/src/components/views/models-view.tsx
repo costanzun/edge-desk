@@ -67,7 +67,7 @@ export function ModelsView() {
       <ErrorNote error={models.error} />
 
       <div className="grid gap-4 xl:grid-cols-12">
-        <Panel title="Reliability diagram" testId="reliability-panel" className="xl:col-span-7" sub="Predicted probability (binned) vs the share of contracts that settled YES. On the diagonal = calibrated. Dot size = snapshots in the bin.">
+        <Panel title="Reliability diagram" info="If a model says 30%, the event should happen about 30% of the time. Points on the dashed diagonal mean honest probabilities; above it the model was too pessimistic, below too optimistic." testId="reliability-panel" className="xl:col-span-7" sub="Predicted probability (binned) vs the share of contracts that settled YES. On the diagonal = calibrated. Dot size = snapshots in the bin.">
           {keys.length ? (
             <>
               <ReliabilityDiagram models={ms} labels={labels} hidden={hidden} />
@@ -93,7 +93,7 @@ export function ModelsView() {
         </Panel>
 
         <div className="space-y-4 xl:col-span-5">
-          <Panel title="Sample" testId="sample-panel">
+          <Panel title="Sample" info="How much resolved data the scores are based on. More hourly events = more trustworthy comparison." testId="sample-panel">
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               <Mini label="Snapshots" v={num(cal?.n_snapshots)} />
               <Mini label="Contracts" v={num(cal?.n_contracts)} />
@@ -105,14 +105,14 @@ export function ModelsView() {
               ({num(cal?.n_events)}) than to the number of snapshots. Treat small differences between models as noise.
             </p>
           </Panel>
-          <Panel title="KumoRFM" testId="kumo-panel" right={d.kumo?.available ? <Badge tone={d.kumo.enabled ? "pos" : "muted"}>{d.kumo.enabled ? "on" : "off"}</Badge> : <Badge tone="muted">disabled</Badge>}>
+          <Panel title="KumoRFM" info="An optional extra model from Kumo. Off unless an API key is set." testId="kumo-panel" right={d.kumo?.available ? <Badge tone={d.kumo.enabled ? "pos" : "muted"}>{d.kumo.enabled ? "on" : "off"}</Badge> : <Badge tone="muted">disabled</Badge>}>
             <KumoCard kumo={d.kumo} onToggle={toggleKumo} busy={busy} />
             {kErr ? <p className="mt-2 text-[12px] text-neg">{kErr}</p> : null}
           </Panel>
         </div>
       </div>
 
-      <Panel title={`Scores · ${cur.label}`} testId="scores-table" bodyClass="py-0">
+      <Panel title={`Scores · ${cur.label}`} info="Brier score and log loss measure probability error; lower is better. Skill vs mid compares each model with the market price itself: positive means the model forecast better than the market." testId="scores-table" bodyClass="py-0">
         {keys.length === 0 ? <Empty>No scores yet.</Empty> : (
           <Table>
             <thead>

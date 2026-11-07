@@ -70,7 +70,7 @@ export function EquityChart({ points, height = 300, bankroll, testId = "equity-c
               <text x={M.l - 6} y={yd(ddMin) + 3} textAnchor="end">{usd(ddMin, { digits: 0 })}</text>
               <text x={M.l} y={yd(0) - 4}>drawdown</text>
               <line x1={M.l} x2={w - M.r} y1={yd(0)} y2={yd(0)} style={{ stroke: "var(--line)" }} />
-              <path d={dd} style={{ fill: "var(--neg)", opacity: 0.35 }} />
+              <path d={dd} style={{ fill: "var(--neg)", opacity: 0.2 }} />
               {xt.map((t) => (
                 <text key={t} x={x(t)} y={height - 8} textAnchor="middle">{fmtT(t)}</text>
               ))}

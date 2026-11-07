@@ -123,7 +123,7 @@ export function Waterfall({ total, height = 260, testId = "waterfall" }: { total
                 return (
                   <g key={s.label} onPointerEnter={() => setHover(i)} data-testid="waterfall-bar">
                     <rect x={cx - slot / 2} y={M.t} width={slot} height={height - M.t - M.b} fill="transparent" />
-                    <rect x={cx - bw / 2} y={top} width={bw} height={h} rx={2} style={{ fill, opacity: hover == null || hover === i ? 0.9 : 0.55 }} />
+                    <rect x={cx - bw / 2} y={top} width={bw} height={h} rx={2} style={{ fill, opacity: hover == null || hover === i ? 0.78 : 0.5 }} />
                     {next && !s.net ? (
                       <line x1={cx + bw / 2} x2={cx + slot - bw / 2} y1={y(s.to)} y2={y(s.to)} style={{ stroke: "var(--ink-3)" }} strokeDasharray="2 2" />
                     ) : null}

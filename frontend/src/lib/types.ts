@@ -46,6 +46,9 @@ export interface Summary {
 
 export interface Feed {
   name: string;
+  label?: string;
+  status?: "live" | "slow" | "down" | null;
+  transport?: string | null;
   ok?: boolean;
   reason?: string | null;
   last_msg_age_s?: number | null;

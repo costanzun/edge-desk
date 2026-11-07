@@ -4,11 +4,13 @@ import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import { useMemo, useState } from "react";
 import { ProbabilityCurve, curveModel } from "@/components/charts/probability-curve";
 import {
-  Badge, cn, Dot, Empty, ErrorNote, Kpi, Loading, PageHeader, Panel, Segmented, SideChip, Signed, Stats, Table, Td, Th, VenueTag,
+  Badge, Button, cn, Empty, ErrorNote, feedStatus, HeroKpi, Info, Kpi, KpiRow, Loading, PageHeader, Panel, Segmented, SideChip, Signed, StatusPill,
+  Table, Td, Th, VenueTag,
 } from "@/components/ui/kit";
+import { Explainer } from "./explainer";
 import { useDesk } from "@/lib/desk-context";
 import {
-  age, cents, compact, contractLabel, edgeCents, ms, num, pct, strike as fmtStrike, toMs, tte, tteLong, usd, utcTime,
+  age, cents, compact, contractLabel, edgeCents, ms, num, pct, strike as fmtStrike, symName, toMs, tte, tteLong, usd, utcTime, venueLabel,
 } from "@/lib/format";
 import type { Desk, Opportunity } from "@/lib/types";
 
@@ -18,25 +20,37 @@ export function DeskView() {
   const s = desk.summary ?? {};
   const ret = s.equity != null && s.bankroll ? s.equity / s.bankroll - 1 : null;
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <PageHeader
         title="Desk"
-        sub="Kalshi and Polymarket “Bitcoin above $X” contracts against the probability implied by Deribit options. Every quote, model output, signal and paper order is an event in one replayable log."
+        sub="Live comparison of prediction-market prices with the probability implied by the options market, and the paper trades that follow."
         right={<DeskStatus desk={desk} />}
       />
       <ErrorNote error={error} />
-      <div data-testid="kpis" className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 xl:grid-cols-6">
-        <Kpi label="Net P&L after fees" value={<Signed value={s.net_total}>{usd(s.net_total, { sign: true })}</Signed>} sub={`settled ${usd(s.net_settled, { digits: 0 })} · open ${usd(s.unrealized, { digits: 0 })}`} />
-        <Kpi label="Fees paid" value={usd(s.fees)} sub={s.cost ? `${pct((s.fees ?? 0) / s.cost)} of cost` : undefined} />
-        <Kpi label="Trades" value={num(s.trades)} sub={`${num(s.settled)} settled · ${num(s.open)} open`} />
-        <Kpi label="Win rate" value={pct(s.win_rate)} sub="settled trades" />
-        <Kpi label="Equity" value={usd(s.equity, { digits: 0 })} sub={<Signed value={ret}>{ret != null ? `${ret >= 0 ? "+" : "−"}${pct(Math.abs(ret))} on ${usd(s.bankroll, { digits: 0 })}` : "—"}</Signed>} />
-        <Kpi label="Signals → orders" value={`${compact(s.signals)} → ${compact(s.orders)}`} sub="paper orders" />
-      </div>
+      <Explainer />
+      <KpiRow
+        testId="kpis"
+        hero={
+          <HeroKpi
+            label="Net P&L after fees"
+            hint="What the paper account made or lost, after every venue fee. Positive is good."
+            value={<Signed value={s.net_total}>{usd(s.net_total, { sign: true })}</Signed>}
+            detail={<>{usd(s.net_settled, { sign: true, digits: 0 })} settled · {usd(s.unrealized, { sign: true, digits: 0 })} still open (at market price)</>}
+            caption="Paper money: no real orders are sent."
+          />
+        }
+      >
+        <Kpi label="Equity" hint="Paper bankroll plus everything won or lost so far. Above the starting bankroll is good." value={usd(s.equity, { digits: 0 })} sub={<Signed value={ret}>{ret != null ? `${ret >= 0 ? "+" : "−"}${pct(Math.abs(ret))} on ${usd(s.bankroll, { digits: 0 })}` : "—"}</Signed>} />
+        <Kpi label="Win rate" hint="Share of settled paper trades that made money. Above 50% is good, but size and price matter too." value={pct(s.win_rate)} sub={`of ${num(s.settled)} settled trades`} />
+        <Kpi label="Trades" hint="Paper orders that bought at least one contract. Settled = the hour has resolved." value={num(s.trades)} sub={`${num(s.settled)} settled · ${num(s.open)} open`} />
+        <Kpi label="Fees paid" hint="Venue taker fees, about 7% × price × (1 − price) per contract. Lower is better; fees eat most small gaps." value={usd(s.fees)} sub={s.cost ? `${pct((s.fees ?? 0) / s.cost)} of money spent` : undefined} />
+        <Kpi label="Signals → orders" hint="Signals are price gaps big enough to act on; orders are the ones that passed the 15 risk checks and got a non-zero size." value={`${compact(s.signals)} → ${compact(s.orders)}`} sub="gaps found → paper orders" />
+        <Kpi label="Contracts watched" hint="Open Kalshi and Polymarket contracts the desk is pricing right now." value={num(desk.contracts)} sub={`${(desk.curves ?? []).length} expiries on the chart`} />
+      </KpiRow>
 
-      <div className="grid gap-4 xl:grid-cols-12">
+      <div className="grid items-start gap-5 xl:grid-cols-12">
         <CurvePanel desk={desk} />
-        <div className="space-y-4 xl:col-span-4">
+        <div className="space-y-5 xl:col-span-4">
           <FeedHealth desk={desk} />
           <ConfigPanel desk={desk} />
         </div>
@@ -44,7 +58,7 @@ export function DeskView() {
 
       <Opportunities rows={desk.opportunities ?? []} now={desk.t} />
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid gap-5 lg:grid-cols-2">
         <SignalsFeed desk={desk} />
         <OrdersFeed desk={desk} />
       </div>
@@ -55,11 +69,11 @@ export function DeskView() {
 function DeskStatus({ desk }: { desk: Desk }) {
   const d = desk.desk ?? {};
   return (
-    <div className="flex flex-wrap items-center gap-2 text-[11.5px] text-ink-3">
-      <span className="num">engine {utcTime(desk.t)}</span>
+    <div className="flex flex-wrap items-center gap-2 text-[12px] text-ink-3" title="Engine clock = time of the last event processed (event time, UTC).">
+      <span>engine clock <span className="num text-ink-2">{utcTime(desk.t)}</span></span>
       <span aria-hidden>·</span>
-      <span className="num">{compact(d.records)} events</span>
-      {d.lag_s != null ? <><span aria-hidden>·</span><span className="num">lag {age(d.lag_s)}</span></> : null}
+      <span><span className="num text-ink-2">{compact(d.records)}</span> events</span>
+      {d.lag_s != null ? <><span aria-hidden>·</span><span>lag <span className="num text-ink-2">{age(d.lag_s)}</span></span></> : null}
       {d.caught_up === false ? <Badge tone="warn">catching up</Badge> : null}
     </div>
   );
@@ -73,24 +87,26 @@ function CurvePanel({ desk }: { desk: Desk }) {
   const idx = Math.min(sel ?? richest, Math.max(0, curves.length - 1));
   const c = curves[idx];
   const m = curveModel(desk.config?.trade_model);
+  const signals = c ? (desk.opportunities ?? []).filter((o) => o.signal && o.sym === c.sym && o.expiry_ms === c.expiry_ms) : [];
   return (
     <Panel
       testId="curve-panel"
       className="xl:col-span-8"
-      title={c ? `P(${c.sym} above strike at ${utcTime(c.expiry_ms, false)})` : "Probability curve"}
-      sub={c ? `${m.label} model vs live venue quotes · spot ${num(c.spot, 2)}` : undefined}
+      title={c ? `Chance ${symName(c.sym)} ends above each price at ${utcTime(c.expiry_ms, false)}` : "Chance of ending above each price"}
+      info="Each dot is the model's probability that the price at expiry is above that strike, P(S_T > K), with its error band shaded. The bars are what Kalshi and Polymarket charge for the same contract (bid to ask). A trade needs the bar to sit clearly outside the band, by more than the fee."
+      sub={c ? <>{m.label} model vs live venue prices · spot <span className="num">{num(c.spot, 0)}</span> · {tteLong(c.tte_s)} to go</> : undefined}
       right={
         curves.length > 1 ? (
           <Segmented
             value={String(idx)}
             onChange={(v) => setSel(Number(v))}
             testIdPrefix="curve-tab"
-            options={curves.map((cv, i) => ({ value: String(i), label: <span className="num">{cv.sym} · {tteLong(cv.tte_s)}</span> }))}
+            options={curves.map((cv, i) => ({ value: String(i), label: <span>{cv.sym} · <span className="num">{tteLong(cv.tte_s)}</span></span> }))}
           />
         ) : null
       }
     >
-      {c ? <ProbabilityCurve key={`${c.sym}-${c.expiry_ms}`} curve={c} tradeModel={desk.config?.trade_model} /> : <Empty className="h-[360px]">No live contracts with both a venue quote and an options-implied price yet.</Empty>}
+      {c ? <ProbabilityCurve key={`${c.sym}-${c.expiry_ms}`} curve={c} tradeModel={desk.config?.trade_model} signals={signals} /> : <Empty className="h-[360px]">No live contracts with both a venue quote and an options-implied price yet.</Empty>}
     </Panel>
   );
 }
@@ -98,44 +114,57 @@ function CurvePanel({ desk }: { desk: Desk }) {
 function FeedHealth({ desk }: { desk: Desk }) {
   const feeds = desk.feeds ?? [];
   return (
-    <Panel title="Feed health" testId="feed-health" bodyClass="p-0">
+    <Panel title="Market data feeds" testId="feed-health" bodyClass="p-0" info="Public price feeds the desk listens to. Live = messages arriving normally; Slow = nothing for a while; Down = disconnected. Latency is the measured network round trip.">
       {feeds.length === 0 ? <Empty>No feeds reporting.</Empty> : (
-        <ul className="divide-y divide-line">
-          {feeds.map((f) => {
-            const stale = (f.last_msg_age_s ?? 0) > 30;
-            return (
-              <li key={f.name} className="flex items-center gap-2.5 px-3.5 py-2 text-[12.5px]">
-                <Dot ok={f.ok} warn={stale} />
-                <span className="w-24 font-medium capitalize">{f.name}</span>
-                <span className="text-[11px] text-ink-3">{f.websocket ? "ws" : "rest"}</span>
-                <span className="num ml-auto text-ink-2" title="round-trip time">{ms(f.rtt_ms)}</span>
-                <span className="num w-14 text-right text-ink-3" title="last message">{age(f.last_msg_age_s)} ago</span>
-                <span className={cn("num w-10 text-right", (f.errors ?? 0) > 0 ? "text-warn" : "text-ink-3")} title="errors">{num(f.errors)}✕</span>
-              </li>
-            );
-          })}
+        <ul className="divide-y divide-line border-t border-line">
+          {feeds.map((f) => (
+            <li key={f.name} data-testid="feed-row" className="flex items-center gap-3 px-4 py-2.5 text-[13px]" title={f.reason || undefined}>
+              <div className="min-w-0 flex-1">
+                <div className="font-medium">{f.label ?? venueLabel(f.name)}</div>
+                <div className="text-[11.5px] text-ink-3">{f.transport ?? (f.websocket ? "WebSocket" : "REST")}</div>
+              </div>
+              <StatusPill status={feedStatus(f)} testId="feed-status" />
+              <div className="w-[104px] whitespace-nowrap text-right">
+                <div className="num text-ink-2">{ms(f.rtt_ms)}</div>
+                <div className="text-[11.5px] text-ink-3">updated <span className="num">{age(f.last_msg_age_s)}</span> ago</div>
+              </div>
+            </li>
+          ))}
         </ul>
       )}
     </Panel>
   );
 }
 
+const MODEL_NAME: Record<string, string> = {
+  hybrid: "Hybrid (options smile + recent volatility)",
+  options: "Options-implied (Deribit smile)",
+  realized: "Recent volatility only (spot prices)",
+  ensemble: "Ensemble (models + market prices)",
+};
+
 function ConfigPanel({ desk }: { desk: Desk }) {
   const c = desk.config ?? {};
+  const delays = Object.entries(c.latency_ms ?? {}).map(([k, v]) => `${venueLabel(k)} ${ms(v)}`).join(", ");
+  const rows: [string, React.ReactNode, string][] = [
+    ["Pricing model", MODEL_NAME[c.trade_model ?? ""] ?? c.trade_model ?? "—", "Which probability the desk trusts when it compares with market prices."],
+    ["Minimum edge after fees", <span key="e" className="num">{edgeCents(c.min_edge)}</span>, "The gap between model and price must beat the fee and the safety margin by at least this much per contract."],
+    ["Safety margin", <><span className="num">{num(c.band_k, c.band_k != null && c.band_k % 1 ? 2 : 0)}×</span> model uncertainty</>, "How many error bands the gap has to clear. Higher = fewer, safer trades."],
+    ["Order style", c.order_style === "maker" ? "Rest a limit order (maker)" : "Take the best available price (taker)", "Taker orders fill at once at the best price shown, and pay the taker fee."],
+    ["Assumed network delay", delays || "—", "One-way delay added between deciding and reaching the venue. Prices can move meanwhile."],
+    ["Extra delay (stress test)", <span key="x" className="num">{ms(c.added_latency_ms)}</span>, "Added on purpose to see how much edge survives being slower."],
+    ["Event-log fingerprint", <span key="d" className="num" title={desk.digest ?? ""}>{desk.digest ? `${desk.digest.slice(0, 10)}…` : "—"}</span>, "SHA-256 over every event. Replaying the same data with the same settings gives the same fingerprint."],
+  ];
   return (
-    <Panel title="Strategy" testId="config-panel">
-      <Stats
-        rows={[
-          ["Trade model", <span key="m" className="capitalize">{c.trade_model ?? "—"}</span>],
-          ["Min edge (after fees)", edgeCents(c.min_edge)],
-          ["Band multiplier k", num(c.band_k, 2)],
-          ["Order style", c.order_style ?? "—"],
-          ["One-way latency", Object.entries(c.latency_ms ?? {}).map(([k, v]) => `${k.slice(0, 1).toUpperCase()} ${ms(v)}`).join(" · ") || "—"],
-          ["Added latency", ms(c.added_latency_ms)],
-          ["Contracts tracked", num(desk.contracts)],
-          ["Log digest", <span key="d" title={desk.digest ?? ""}>{desk.digest ? `${desk.digest.slice(0, 12)}…` : "—"}</span>],
-        ]}
-      />
+    <Panel title="Strategy settings" testId="config-panel" info="The rules the paper trader follows right now. Change them on Settings; the desk then replays the log with the new rules.">
+      <dl className="divide-y divide-line/70">
+        {rows.map(([k, v, hint]) => (
+          <div key={k} className="flex items-baseline justify-between gap-4 py-2 first:pt-0 last:pb-0">
+            <dt className="flex shrink-0 items-center gap-1 text-[12.5px] text-ink-3">{k}<Info text={hint} /></dt>
+            <dd className="min-w-0 text-right text-[13px] text-ink">{v}</dd>
+          </div>
+        ))}
+      </dl>
     </Panel>
   );
 }
@@ -143,14 +172,14 @@ function ConfigPanel({ desk }: { desk: Desk }) {
 type SortKey = "contract" | "tte" | "bid" | "ask" | "fair" | "edge_yes" | "edge_no" | "best_edge" | "book";
 const COLS: { key: SortKey; label: string; right?: boolean }[] = [
   { key: "contract", label: "Contract" },
-  { key: "tte", label: "TTE", right: true },
+  { key: "tte", label: "Time left", right: true },
   { key: "bid", label: "Bid × size", right: true },
   { key: "ask", label: "Ask × size", right: true },
-  { key: "fair", label: "Fair ± band", right: true },
+  { key: "fair", label: "Model ± error", right: true },
   { key: "edge_yes", label: "Edge YES", right: true },
   { key: "edge_no", label: "Edge NO", right: true },
-  { key: "best_edge", label: "Best", right: true },
-  { key: "book", label: "Book age", right: true },
+  { key: "best_edge", label: "Best edge", right: true },
+  { key: "book", label: "Quote age", right: true },
 ];
 const sortVal = (o: Opportunity, k: SortKey): number | string => {
   switch (k) {
@@ -181,6 +210,8 @@ function Opportunities({ rows, now }: { rows: Opportunity[]; now?: number }) {
   const minEdge = desk?.config?.min_edge ?? 0.02;
   const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 }>({ key: "best_edge", dir: -1 });
   const [venue, setVenue] = useState<"all" | "kalshi" | "polymarket">("all");
+  const [showAll, setShowAll] = useState(false);
+  const LIMIT = 15;
   const sorted = useMemo(() => {
     const r = rows.filter((o) => venue === "all" || o.venue === venue);
     return r.sort((a, b) => {
@@ -190,12 +221,14 @@ function Opportunities({ rows, now }: { rows: Opportunity[]; now?: number }) {
     });
   }, [rows, sort, venue]);
   const nSignals = rows.filter((o) => o.signal).length;
+  const shown = showAll ? sorted : sorted.slice(0, LIMIT);
 
   return (
     <Panel
       testId="opportunities"
-      title={`Opportunities · ${rows.length} contracts`}
-      sub={`Edge = model probability − price − fee − k × band, per side. Signal when it clears ${edgeCents(minEdge)}. ${nSignals ? `${nSignals} live signal${nSignals > 1 ? "s" : ""}.` : "No contract clears the bar right now."}`}
+      title="Opportunities"
+      info="Edge = model probability − price − fee − safety margin, for buying YES or buying NO. Positive and above the minimum edge means the desk would trade. Negative means the market price is fair or better than our model, after costs."
+      sub={`${rows.length} open contracts, best gaps first. A trade needs an edge above ${edgeCents(minEdge)}. ${nSignals ? `${nSignals} live signal${nSignals > 1 ? "s" : ""}.` : "No contract clears the bar right now: the markets agree with the model, after fees."}`}
       right={
         <Segmented
           value={venue}
@@ -204,7 +237,7 @@ function Opportunities({ rows, now }: { rows: Opportunity[]; now?: number }) {
           options={[{ value: "all", label: "All" }, { value: "kalshi", label: "Kalshi" }, { value: "polymarket", label: "Polymarket" }]}
         />
       }
-      bodyClass="pb-0 pt-0"
+      bodyClass="pb-0"
     >
       {rows.length === 0 ? <Empty>No open contracts with a model price.</Empty> : (
         <Table testId="opps-table">
@@ -219,7 +252,7 @@ function Opportunities({ rows, now }: { rows: Opportunity[]; now?: number }) {
                       type="button"
                       data-testid={`sort-${c.key}`}
                       onClick={() => setSort((s) => ({ key: c.key, dir: s.key === c.key ? (s.dir === 1 ? -1 : 1) : c.key === "contract" || c.key === "tte" || c.key === "book" ? 1 : -1 }))}
-                      className={cn("inline-flex items-center gap-1 uppercase hover:text-ink", active && "text-ink", c.right && "flex-row-reverse")}
+                      className={cn("inline-flex items-center gap-1 hover:text-ink", active && "text-ink", c.right && "flex-row-reverse")}
                     >
                       {c.label}
                       <Icon className={cn("size-3", !active && "opacity-40")} />
@@ -231,7 +264,7 @@ function Opportunities({ rows, now }: { rows: Opportunity[]; now?: number }) {
             </tr>
           </thead>
           <tbody>
-            {sorted.map((o) => (
+            {shown.map((o) => (
               <tr key={o.cid} data-testid="opp-row" className={cn("hover:bg-panel-2", o.signal && "bg-brand-soft/60")}>
                 <Td>
                   <div className="flex items-center gap-2" title={`${o.cid}${o.ref ? `\nsettles on: ${o.ref}` : ""}`}>
@@ -254,7 +287,14 @@ function Opportunities({ rows, now }: { rows: Opportunity[]; now?: number }) {
           </tbody>
         </Table>
       )}
-      {now ? <p className="num py-2 text-right text-[10.5px] text-ink-3">as of {utcTime(toMs(now))}</p> : null}
+      <div className="flex items-center justify-between gap-3 py-2.5">
+        {sorted.length > LIMIT ? (
+          <Button size="sm" variant="ghost" data-testid="opps-toggle" onClick={() => setShowAll((v) => !v)}>
+            {showAll ? `Show top ${LIMIT}` : `Show all ${sorted.length}`}
+          </Button>
+        ) : <span />}
+        {now ? <p className="text-[11px] text-ink-3">as of <span className="num">{utcTime(toMs(now))}</span></p> : null}
+      </div>
     </Panel>
   );
 }
@@ -262,11 +302,11 @@ function Opportunities({ rows, now }: { rows: Opportunity[]; now?: number }) {
 function SignalsFeed({ desk }: { desk: Desk }) {
   const rows = (desk.signals ?? []).slice(0, 14);
   return (
-    <Panel title="Recent signals" testId="signals-feed" bodyClass="p-0" sub="Model edge cleared the bar; each one goes through the risk checks.">
+    <Panel title="Recent signals" testId="signals-feed" bodyClass="p-0" sub="Gaps big enough to act on; each goes through the risk checks." info="A signal means model probability minus price minus fee minus safety margin was above the minimum edge. The green number is that edge per contract.">
       {rows.length === 0 ? <Empty>No signals yet.</Empty> : (
-        <ul className="divide-y divide-line">
+        <ul className="divide-y divide-line border-t border-line">
           {rows.map((s, i) => (
-            <li key={s.seq ?? i} className="flex items-center gap-2.5 px-3.5 py-1.5 text-[12px]">
+            <li key={s.seq ?? i} className="flex items-center gap-2.5 px-4 py-2 text-[12px]">
               <span className="num w-16 shrink-0 text-ink-3">{utcTime(s.t).replace(" UTC", "")}</span>
               <SideChip side={s.side} />
               <VenueTag venue={s.venue} short />
@@ -288,11 +328,11 @@ const EVENT_TONE: Record<string, "pos" | "neg" | "warn" | "muted" | "brand"> = {
 function OrdersFeed({ desk }: { desk: Desk }) {
   const rows = (desk.orders ?? []).slice(0, 14);
   return (
-    <Panel title="Order events" testId="orders-feed" bodyClass="p-0" sub="Paper order state machine: new → acked → filled / partially filled / expired (IOC).">
+    <Panel title="Paper order events" testId="orders-feed" bodyClass="p-0" sub="Each order goes new → acked → filled, partly filled or expired." info="Orders are immediate-or-cancel: whatever the book can fill at the limit price fills, the rest expires. Nothing is sent to a real exchange.">
       {rows.length === 0 ? <Empty>No paper orders yet.</Empty> : (
-        <ul className="divide-y divide-line">
+        <ul className="divide-y divide-line border-t border-line">
           {rows.map((o, i) => (
-            <li key={`${o.seq}-${i}`} className="flex items-center gap-2.5 px-3.5 py-1.5 text-[12px]">
+            <li key={`${o.seq}-${i}`} className="flex items-center gap-2.5 px-4 py-2 text-[12px]">
               <span className="num w-16 shrink-0 text-ink-3">{utcTime(o.t).replace(" UTC", "")}</span>
               <Badge tone={EVENT_TONE[o.event ?? ""] ?? "muted"} className="w-[70px] justify-center">{(o.event ?? o.state ?? "") === "partially_filled" ? "partial" : (o.event ?? o.state ?? "").replace("_", " ")}</Badge>
               <span className="num shrink-0 text-ink-3">#{o.oid}</span>

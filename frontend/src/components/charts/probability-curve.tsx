@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { cents, edgeCents, pct, price, strike as fmtStrike, venueLabel } from "@/lib/format";
-import type { Curve, CurvePoint } from "@/lib/types";
+import { cents, edgeCents, pct, price, strike as fmtStrike, symName, venueLabel } from "@/lib/format";
+import type { Curve, CurvePoint, Opportunity } from "@/lib/types";
 import { AxisX, ChartBox, GridY, Legend, linear, niceTicks, pathOf, Tip, TipRow } from "./core";
 
 const VENUE_COLOR: Record<string, string> = { kalshi: "var(--kalshi)", polymarket: "var(--poly)" };
@@ -22,7 +22,18 @@ interface Group {
   quotes: CurvePoint[];
 }
 
-export function ProbabilityCurve({ curve, tradeModel, height = 360 }: { curve: Curve; tradeModel?: string; height?: number }) {
+const SANS = { fontFamily: "var(--font-sans)", fontSize: 11 } as const;
+
+/** Plain-English one-liner for a live signal. */
+export function signalText(o: Opportunity): string {
+  const v = venueLabel(o.venue);
+  if (o.signal === "no") return `Model ${pct(o.fair != null ? 1 - o.fair : null, 0)} chance of NO · ${v} NO at ${cents(o.bid != null ? 1 - o.bid : null)}`;
+  return `Model ${pct(o.fair, 0)} · ${v} sells YES at ${cents(o.ask)}`;
+}
+
+export function ProbabilityCurve({
+  curve, tradeModel, height = 430, signals = [],
+}: { curve: Curve; tradeModel?: string; height?: number; signals?: Opportunity[] }) {
   const [hover, setHover] = useState<number | null>(null);
   const m = curveModel(tradeModel);
   const pts = [...(curve.points ?? [])].filter((p) => Number.isFinite(p.strike)).sort((a, b) => a.strike - b.strike);
@@ -41,9 +52,9 @@ export function ProbabilityCurve({ curve, tradeModel, height = 360 }: { curve: C
 
   return (
     <div>
-      <ChartBox height={height} testId="curve-chart" label={`Probability BTC finishes above each strike, ${m.label} model vs venue quotes`}>
+      <ChartBox height={height} testId="curve-chart" label={`Chance ${symName(curve.sym)} ends above each strike: ${m.label} model vs Kalshi and Polymarket prices`}>
         {(w) => {
-          const M = { l: 46, r: 14, t: 22, b: 34 };
+          const M = { l: 46, r: 14, t: 30, b: 40 };
           const strikes = groups.map((g) => g.strike);
           const spot = curve.spot ?? null;
           const all = spot != null ? [...strikes, spot] : strikes;
@@ -60,6 +71,14 @@ export function ProbabilityCurve({ curve, tradeModel, height = 360 }: { curve: C
           const band = upper.length ? `${pathOf([...upper, ...lower])}Z` : "";
           const xt = niceTicks(lo - padX, hi + padX, Math.max(3, Math.floor(w / 110)));
           const hg = hover != null ? groups[hover] : null;
+          // live signals: shade their strike, mark the venue price, annotate the best one or two
+          const sigs = [...signals]
+            .filter((o) => o.strike != null)
+            .sort((a, b) => (b.best_edge ?? 0) - (a.best_edge ?? 0))
+            .map((o, rank) => {
+              const px = o.signal === "no" ? o.bid : o.ask;
+              return { o, rank, sx: x(o.strike as number), sy: px != null ? y(px) : null, text: signalText(o) };
+            });
 
           function onMove(e: React.PointerEvent<SVGSVGElement>) {
             const r = e.currentTarget.getBoundingClientRect();
@@ -77,14 +96,17 @@ export function ProbabilityCurve({ curve, tradeModel, height = 360 }: { curve: C
             <>
               <svg width={w} height={height} onPointerMove={onMove} onPointerLeave={() => setHover(null)} className="block touch-none">
                 <GridY ticks={[0, 0.25, 0.5, 0.75, 1]} y={y} x0={M.l} x1={w - M.r} fmt={(v) => `${v * 100}%`} />
-                <AxisX ticks={xt} x={x} y={height - M.b} fmt={(v) => `${(v / 1000).toFixed(v % 1000 ? 1 : 0)}k`} />
-                <text x={M.l} y={12} textAnchor="start" style={{ fontSize: 10 }}>P(above strike)</text>
-                <text x={w - M.r} y={height - 4} textAnchor="end" style={{ fontSize: 10 }}>strike (USD)</text>
+                <AxisX ticks={xt} x={x} y={height - M.b} fmt={(v) => `$${(v / 1000).toFixed(v % 1000 ? 1 : 0)}k`} />
+                <text x={M.l - 40} y={12} textAnchor="start" style={SANS}>Chance of ending above</text>
+                <text x={(M.l + w - M.r) / 2} y={height - 4} textAnchor="middle" style={SANS}>{symName(curve.sym)} price at expiry (strike)</text>
+                {sigs.map(({ o, sx }) => (
+                  <rect key={`band-${o.cid}`} data-testid="signal-band" x={sx - 11} y={M.t} width={22} height={height - M.t - M.b} rx={3} style={{ fill: "var(--brand)", opacity: 0.08 }} />
+                ))}
                 {spot != null ? (
                   <g data-testid="spot-marker">
                     <line x1={x(spot)} x2={x(spot)} y1={M.t} y2={height - M.b} style={{ stroke: "var(--ink-2)" }} strokeDasharray="3 3" />
                     <rect x={x(spot) - 42} y={M.t - 13} width={84} height={14} rx={2} style={{ fill: "var(--ink)" }} />
-                    <text x={x(spot)} y={M.t - 3} textAnchor="middle" style={{ fill: "var(--bg)", fontSize: 10 }}>spot {price(spot, 0)}</text>
+                    <text x={x(spot)} y={M.t - 3} textAnchor="middle" style={{ fill: "var(--bg)", fontSize: 10 }}>now {price(spot, 0)}</text>
                   </g>
                 ) : null}
                 {hg ? <line x1={x(hg.strike)} x2={x(hg.strike)} y1={M.t} y2={height - M.b} style={{ stroke: "var(--ink-3)" }} strokeWidth={1} opacity={0.5} /> : null}
@@ -107,6 +129,25 @@ export function ProbabilityCurve({ curve, tradeModel, height = 360 }: { curve: C
                     );
                   }),
                 )}
+                {sigs.map(({ o, sx, sy }) =>
+                  sy == null ? null : (
+                    <g key={`m-${o.cid}`} data-testid="signal-marker">
+                      <circle cx={sx} cy={sy} r={8} style={{ fill: "none", stroke: "var(--brand)" }} strokeWidth={1.5} strokeDasharray="2 2" />
+                    </g>
+                  ),
+                )}
+                {sigs.filter((g) => g.rank < 2 && g.sy != null).map(({ o, rank, sx, sy, text }) => {
+                  const bw = Math.min(w - M.l - M.r, text.length * 6 + 18);
+                  const by = rank === 0 ? M.t + 6 : height - M.b - 30;
+                  const bx = Math.max(M.l, Math.min(w - M.r - bw, sx - bw / 2));
+                  return (
+                    <g key={`a-${o.cid}`} data-testid="signal-annotation">
+                      <line x1={sx} x2={sx} y1={rank === 0 ? by + 22 : by} y2={(sy as number) + (rank === 0 ? -9 : 9)} style={{ stroke: "var(--brand)" }} strokeWidth={1} />
+                      <rect x={bx} y={by} width={bw} height={22} rx={5} style={{ fill: "var(--panel)", stroke: "var(--brand)" }} strokeWidth={1} />
+                      <text x={bx + bw / 2} y={by + 14.5} textAnchor="middle" style={{ ...SANS, fill: "var(--ink)", fontWeight: 500 }}>{text}</text>
+                    </g>
+                  );
+                })}
                 {modelPts.map((g) => (
                   <circle
                     key={g.strike}
@@ -121,15 +162,15 @@ export function ProbabilityCurve({ curve, tradeModel, height = 360 }: { curve: C
               </svg>
               {hg ? (
                 <Tip x={x(hg.strike)} y={y(hg.p ?? 0.5)} w={w}>
-                  <div className="num mb-1 font-semibold text-ink">{curve.sym} &gt; {fmtStrike(hg.strike)}</div>
-                  <TipRow k={`${m.label} model`} v={hg.p != null ? `${pct(hg.p)} ± ${pct(hg.band)}` : "—"} color="var(--brand)" />
+                  <div className="mb-1 font-semibold text-ink">{symName(curve.sym)} above <span className="num">{fmtStrike(hg.strike)}</span> at expiry?</div>
+                  <TipRow k={`Model chance, P(S_T > K)`} v={hg.p != null ? `${pct(hg.p)} ± ${pct(hg.band)}` : "—"} color="var(--brand)" />
                   {hg.quotes.map((q) => {
                     const edgeYes = hg.p != null && q.ask != null ? hg.p - q.ask : null;
                     const edgeNo = hg.p != null && q.bid != null ? q.bid - hg.p : null;
                     return (
                       <div key={q.cid ?? q.venue}>
-                        <TipRow k={`${venueLabel(q.venue)} bid–ask`} v={`${cents(q.bid)} – ${cents(q.ask)}`} color={venueColor(q.venue)} />
-                        <TipRow k="  raw gap YES / NO" v={`${edgeCents(edgeYes)} / ${edgeCents(edgeNo)}`} />
+                        <TipRow k={`${venueLabel(q.venue)} buy / sell YES`} v={`${cents(q.ask)} / ${cents(q.bid)}`} color={venueColor(q.venue)} />
+                        <TipRow k="gap before fees YES / NO" v={`${edgeCents(edgeYes)} / ${edgeCents(edgeNo)}`} />
                       </div>
                     );
                   })}
@@ -142,14 +183,14 @@ export function ProbabilityCurve({ curve, tradeModel, height = 360 }: { curve: C
       <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
         <Legend
           items={[
-            { label: `${m.label} model P(S_T > K)`, color: "var(--brand)" },
-            { label: "± error band", color: "var(--band)", kind: "box" },
-            { label: "Kalshi bid–ask", color: "var(--kalshi)", kind: "whisker" },
-            { label: "Polymarket bid–ask", color: "var(--poly)", kind: "whisker" },
-            { label: "spot", color: "var(--ink-2)", kind: "dash" },
+            { label: `Model chance (${m.label.toLowerCase()})`, color: "var(--brand)" },
+            { label: "model error band", color: "var(--band)", kind: "box" },
+            { label: "Kalshi price (bid–ask)", color: "var(--kalshi)", kind: "whisker" },
+            { label: "Polymarket price (bid–ask)", color: "var(--poly)", kind: "whisker" },
+            { label: `${symName(curve.sym)} now`, color: "var(--ink-2)", kind: "dash" },
           ]}
         />
-        <span className="text-[11px] text-ink-3">Gap before fees. A trade needs model − ask (YES) or bid − model (NO) above fees + band + min edge.</span>
+        {signals.length ? <span className="text-[11.5px] text-brand">Shaded: strikes with a live trade signal.</span> : <span className="text-[11.5px] text-ink-3">Hover a strike for prices. No live signal on this expiry.</span>}
       </div>
     </div>
   );

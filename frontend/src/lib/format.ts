@@ -155,3 +155,6 @@ export function contractLabel(c: { sym?: string; strike?: number; expiry_ms?: nu
   const exp = c.expiry_ms ? ` · ${utcTime(c.expiry_ms, false).replace(" UTC", "")}` : "";
   return `${c.sym ?? ""} > ${strike(c.strike)}${exp}`.trim();
 }
+
+/** "BTC" -> "Bitcoin", "ETH" -> "Ether". */
+export const symName = (s?: string | null) => (s === "BTC" ? "Bitcoin" : s === "ETH" ? "Ether" : s ?? "");

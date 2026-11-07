@@ -4,7 +4,7 @@ import { useState } from "react";
 import { EquityChart } from "@/components/charts/equity-chart";
 import { Waterfall } from "@/components/charts/bars";
 import {
-  Badge, Button, Empty, ErrorNote, Kpi, Loading, PageHeader, Panel, SideChip, Signed, Table, Td, Th, VenueTag,
+  Badge, Button, Empty, ErrorNote, HeroKpi, Kpi, KpiRow, Loading, PageHeader, Panel, SideChip, Signed, Table, Td, Th, VenueTag,
 } from "@/components/ui/kit";
 import * as api from "@/lib/api";
 import { useDesk } from "@/lib/desk-context";
@@ -31,29 +31,40 @@ export function PositionsView() {
         sub="Paper fills against the venue book at the moment the order would have arrived. Contracts are held to settlement; open positions are marked to the current book."
       />
       <ErrorNote error={error} />
-      <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 xl:grid-cols-6">
-        <Kpi label="Net P&L" value={<Signed value={s.net_total}>{usd(s.net_total, { sign: true })}</Signed>} sub="after fees, open at mark" />
-        <Kpi label="Settled" value={<Signed value={s.net_settled}>{usd(s.net_settled, { sign: true })}</Signed>} sub={`${num(s.settled)} trades`} />
-        <Kpi label="Unrealized" value={<Signed value={s.unrealized}>{usd(s.unrealized, { sign: true })}</Signed>} sub={`${num(s.open)} open`} />
-        <Kpi label="Max drawdown" value={<Signed value={data.max_drawdown}>{usd(data.max_drawdown)}</Signed>} sub="peak to trough" />
-        <Kpi label="Return on cost" value={pct(s.return_on_cost)} sub={`cost ${usd(s.cost, { digits: 0 })}`} />
-        <Kpi label="Contracts" value={num(s.contracts)} sub={`fees ${usd(s.fees)}`} />
-      </div>
+      <KpiRow
+        testId="positions-kpis"
+        hero={
+          <HeroKpi
+            label="Net P&L after fees"
+            hint="What the paper account made or lost, after every fee, including open positions at today's market price. Positive is good."
+            value={<Signed value={s.net_total}>{usd(s.net_total, { sign: true })}</Signed>}
+            detail={<>{num(s.trades)} trades · {usd(s.fees)} in fees</>}
+            caption="Settled hours plus open positions marked to the market."
+          />
+        }
+      >
+        <Kpi label="Settled" hint="Profit or loss on contracts whose hour has resolved. This part is final." value={<Signed value={s.net_settled}>{usd(s.net_settled, { sign: true })}</Signed>} sub={`${num(s.settled)} trades`} />
+        <Kpi label="Unrealized" hint="Open positions valued at the current market price. Can still change until the hour resolves." value={<Signed value={s.unrealized}>{usd(s.unrealized, { sign: true })}</Signed>} sub={`${num(s.open)} open`} />
+        <Kpi label="Max drawdown" hint="Largest fall from a previous high in account value. Smaller is better." value={<Signed value={data.max_drawdown}>{usd(data.max_drawdown)}</Signed>} sub="peak to trough" />
+        <Kpi label="Return on cost" hint="Net P&L divided by the money spent buying contracts. Higher is better." value={pct(s.return_on_cost)} sub={`on ${usd(s.cost, { digits: 0 })} spent`} />
+        <Kpi label="Contracts" hint="Total contracts bought across all trades (each pays $1 if it wins)." value={num(s.contracts)} sub={`fees ${usd(s.fees)}`} />
+        <Kpi label="Win rate" hint="Share of settled paper trades that made money." value={pct(s.win_rate)} sub="settled trades" />
+      </KpiRow>
 
       <div className="grid gap-4 xl:grid-cols-12">
-        <Panel title="Equity curve" sub="Realised P&L at settlement plus open positions at mark; drawdown below." className="xl:col-span-7" testId="equity-panel">
+        <Panel title="Equity curve" info="Account value over time. The red area below shows drawdown: how far it sits under its previous high. Rising line and small red area are good." sub="Account value over time; drawdown below." className="xl:col-span-7" testId="equity-panel">
           <EquityChart points={data.equity_curve ?? []} bankroll={s.bankroll} height={300} />
         </Panel>
-        <Panel title="P&L attribution" sub="Where the money came from: expected edge at decision, then what latency, slippage, fees and the outcome did to it." className="xl:col-span-5" testId="attribution-panel">
+        <Panel title="Where the P&L came from" info="Edge = profit expected when the trade was made. Latency and slippage = price lost by being slow or filling deeper in the book. Fees = venue fees. Model/luck = what the actual outcomes added or took away versus expectation." sub="Where the money came from: expected edge at decision, then what latency, slippage, fees and the outcome did to it." className="xl:col-span-5" testId="attribution-panel">
           {total ? <Waterfall total={total} height={300} /> : <Empty>No trades yet.</Empty>}
         </Panel>
       </div>
 
-      <Panel title="Attribution breakdown" testId="attribution-breakdown" bodyClass="pb-0">
+      <Panel title="Breakdown" info="The same attribution split by venue, by venue pair, by time left to expiry and by size of the edge at entry." testId="attribution-breakdown" bodyClass="pb-0">
         <AttributionTable attribution={data.attribution} />
       </Panel>
 
-      <Panel title={`Open positions · ${positions.length}`} testId="positions-table" bodyClass="py-0">
+      <Panel title={`Open positions · ${positions.length}`} info="Contracts held until their hour settles. Unrealized = value at the current market price minus what was paid." testId="positions-table" bodyClass="py-0">
         {positions.length === 0 ? <Empty>Flat: no open paper positions.</Empty> : (
           <Table>
             <thead>

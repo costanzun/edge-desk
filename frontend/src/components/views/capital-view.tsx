@@ -30,11 +30,12 @@ export function CapitalView() {
       />
       <ErrorNote error={error} />
       <div className="grid gap-4 xl:grid-cols-12">
-        <Panel title="Kelly calculator" testId="kelly-panel" className="xl:col-span-5">
+        <Panel title="Kelly calculator" info="How many contracts to buy given your probability, the price and the fee. Kelly maximises long-run growth; the desk bets only a fraction of it, on the cautious probability (p − error band)." sub="Bet size from probability, price and fee." testId="kelly-panel" className="xl:col-span-5">
           <KellyCalculator bankroll={data.bankroll ?? 10000} fraction={data.kelly_fraction ?? 0.25} />
         </Panel>
         <Panel
           title="Joint vs independent Kelly"
+          info="Sizing related bets together. Strikes on the same coin and hour are one bet in disguise, so sizing each alone over-bets. Lower joint bars are the safer, correct total."
           testId="allocation-panel"
           className="xl:col-span-7"
           sub={alloc ? `${alloc.sym ?? ""} ${alloc.expiry_ms ? `· expiry ${utcTime(alloc.expiry_ms, false)}` : ""} · ${alloc.venue ?? ""} · fraction of bankroll per strike` : undefined}
@@ -69,7 +70,7 @@ export function CapitalView() {
       </div>
 
       <div className="grid gap-4 xl:grid-cols-12">
-        <Panel title="Risk of ruin" testId="ruin-panel" className="xl:col-span-5" sub={ror?.n_source_trades ? `Bootstrap of ${num(ror.n_source_trades)} trade returns · ${num(ror.paths)} paths × ${num(ror.n_trades)} trades` : undefined}>
+        <Panel title="Risk of ruin" info="Chance the account ever falls below half its starting value, simulated by reshuffling past trade returns thousands of times. Near 0% is good, but the simulation is optimistic." testId="ruin-panel" className="xl:col-span-5" sub={ror?.n_source_trades ? `Bootstrap of ${num(ror.n_source_trades)} trade returns · ${num(ror.paths)} paths × ${num(ror.n_trades)} trades` : undefined}>
           {ror?.n_source_trades ? (
             <>
               <div className="mb-4 flex items-end gap-6">
@@ -89,7 +90,7 @@ export function CapitalView() {
             </>
           ) : <Empty>Needs settled trades.</Empty>}
         </Panel>
-        <Panel title="Per-trade statistics" testId="stats-panel" className="xl:col-span-3">
+        <Panel title="Per-trade statistics" info="Average return per trade, its spread, and their ratio (a per-trade Sharpe). Higher mean and Sharpe are better; see the caveat." testId="stats-panel" className="xl:col-span-3">
           <Stats rows={[
             ["Trades", num(st?.n)],
             ["Mean return", signedPct(st?.mean, 2)],
@@ -99,7 +100,7 @@ export function CapitalView() {
           ]} />
           {st?.caveat ? <p data-testid="stats-caveat" className="mt-3 rounded-[5px] border border-warn/30 bg-warn-soft px-2.5 py-2 text-[11.5px] leading-relaxed text-ink-2">{st.caveat}</p> : null}
         </Panel>
-        <Panel title="Equity" className="xl:col-span-4" sub={`Max drawdown ${usd(data.max_drawdown)}`}>
+        <Panel title="Equity" info="Paper account value over time, with drawdown below." className="xl:col-span-4" sub={`Max drawdown ${usd(data.max_drawdown)}`}>
           <EquityChart points={data.equity_curve ?? []} bankroll={data.bankroll} height={240} testId="capital-equity" />
         </Panel>
       </div>

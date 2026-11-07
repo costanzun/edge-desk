@@ -11,8 +11,8 @@ test.describe("shell", () => {
   test("ticker, paper badge, mode badge and footer on every page", async ({ page }) => {
     await open(page, "/", "kpis");
     await expect(page.getByTestId("ticker")).toContainText("BTC");
-    await expect(page.getByTestId("ticker")).toContainText("76,838.07");
-    await expect(page.getByTestId("ticker")).toContainText("kalshi");
+    await expect(page.getByTestId("ticker")).toContainText("76,838");
+    await expect(page.getByTestId("ticker")).toContainText("5 of 5 feeds live");
     await expect(page.getByTestId("paper-badge")).toContainText(/paper only/i);
     await expect(page.getByTestId("mode-badge")).toHaveText(/mock/i);
     await expect(page.getByText("Paper trading research. No real orders. Public market data only.").last()).toBeVisible();
@@ -21,6 +21,7 @@ test.describe("shell", () => {
   test("sidebar navigates between all pages", async ({ page }) => {
     await open(page, "/", "kpis");
     const pages: [string, string, string][] = [
+      ["how-it-works", "/how-it-works", "pipeline"],
       ["positions", "/positions", "blotter"],
       ["latency", "/latency", "edge-decay"],
       ["risk", "/risk", "limits-table"],
@@ -77,8 +78,8 @@ test.describe("desk", () => {
     await pt.hover();
     const tip = page.getByTestId("chart-tooltip");
     await expect(tip).toBeVisible();
-    await expect(tip).toContainText("model");
-    await expect(tip).toContainText("bid–ask");
+    await expect(tip).toContainText("Model chance");
+    await expect(tip).toContainText("buy / sell YES");
   });
 
   test("KPI tiles, feeds, signals and orders", async ({ page }) => {
@@ -93,6 +94,8 @@ test.describe("desk", () => {
   test("opportunities table sorts and filters", async ({ page }) => {
     await open(page, "/", "opps-table");
     const rows = page.getByTestId("opp-row");
+    await expect(rows).toHaveCount(15);
+    await page.getByTestId("opps-toggle").click();
     await expect(rows).toHaveCount(18);
     const edges = async () => (await page.getByTestId("best-edge").evaluateAll((els) => els.map((e) => Number(e.getAttribute("data-value")))));
     const desc = await edges();
@@ -104,6 +107,49 @@ test.describe("desk", () => {
     await page.getByTestId("opps-venue-polymarket").click();
     await expect(rows).toHaveCount(6);
     await expect(rows.first()).toContainText("PM");
+  });
+});
+
+test.describe("explainer and how it works", () => {
+  test("explainer is visible, dismisses, and stays dismissed after reload", async ({ page }) => {
+    await open(page, "/", "explainer");
+    await expect(page.getByTestId("explainer")).toContainText("Prediction markets");
+    await expect(page.getByTestId("explainer")).toContainText("options market");
+    await expect(page.getByTestId("explainer-finding")).toContainText("Kalshi is usually right");
+    await page.getByTestId("explainer-dismiss").click();
+    await expect(page.getByTestId("explainer")).toHaveCount(0);
+    await page.reload();
+    await expect(page.getByTestId("kpis")).toBeVisible();
+    await expect(page.getByTestId("explainer-show")).toBeVisible();
+    await expect(page.getByTestId("explainer")).toHaveCount(0);
+    await page.getByTestId("explainer-show").click();
+    await expect(page.getByTestId("explainer")).toBeVisible();
+  });
+
+  test("explainer links to How it works", async ({ page }) => {
+    await open(page, "/", "explainer");
+    await page.getByTestId("explainer-link").click();
+    await expect(page).toHaveURL(/\/how-it-works$/);
+    await expect(page.getByTestId("how-it-works")).toBeVisible();
+  });
+
+  test("How it works: pipeline diagram, page list, glossary, paper note", async ({ page }) => {
+    await open(page, "/how-it-works", "how-it-works");
+    await expect(page.getByTestId("pipeline-diagram")).toContainText("Public market feeds");
+    await expect(page.getByTestId("pipeline-diagram")).toContainText("Event log / replay");
+    await expect(page.getByTestId("pipeline-stage")).toHaveCount(7);
+    await expect(page.getByTestId("glossary")).toContainText("Kelly sizing");
+    await expect(page.getByTestId("glossary")).toContainText("Brier");
+    await expect(page.getByTestId("pages-list")).toContainText("Replay");
+    await expect(page.getByTestId("paper-note")).toContainText("not investment advice");
+  });
+
+  test("KPI and chart captions explain themselves", async ({ page }) => {
+    await open(page, "/", "kpis");
+    await expect(page.getByRole("button", { name: /share of settled paper trades that made money/i })).toBeVisible();
+    await expect(page.getByTestId("curve-panel")).toContainText("Chance Bitcoin ends above each price");
+    await expect(page.getByTestId("feed-status")).toHaveCount(5);
+    await expect(page.getByTestId("config-panel")).toContainText("Take the best available price (taker)");
   });
 });
 
@@ -222,7 +268,7 @@ test.describe("analytics pages", () => {
 });
 
 test.describe("mobile", () => {
-  test.use({ viewport: { width: 390, height: 844 } });
+  test.use({ viewport: { width: 375, height: 812 } });
 
   test("top bar + nav drawer", async ({ page }) => {
     await open(page, "/", "kpis");

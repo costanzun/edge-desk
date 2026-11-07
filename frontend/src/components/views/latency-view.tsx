@@ -61,6 +61,7 @@ export function LatencyView() {
       <ErrorNote error={error} />
 
       <Panel
+        info="If every order arrived later, how much profit would remain? Each point replays the same data with extra delay. A line that stays high means the edge is not about speed."
         testId="edge-decay"
         title="Edge decay: net P&L vs added latency"
         sub={data.edge_decay_meta?.data ? `Same event log replayed with extra delay on every order · data: ${String(data.edge_decay_meta.data)}` : "Same event log replayed with extra delay on every order"}
@@ -100,12 +101,12 @@ export function LatencyView() {
         </div>
       </Panel>
 
-      <Panel title="Network round-trip time" sub="Measured by the recorder per source: request → response (REST) or ping → pong (WebSocket). Bins in ms; label = share of samples." testId="rtt-panel">
+      <Panel title="Network round-trip time" info="Time for a message to reach the venue and come back. Lower is better; the median (p50) is typical, p99 is a bad moment." sub="Measured by the recorder per source: request → response (REST) or ping → pong (WebSocket). Bins in ms; label = share of samples." testId="rtt-panel">
         <DistGrid dists={rtt} unit={ms} kind="rtt" />
       </Panel>
 
       <div className="grid gap-4 xl:grid-cols-12">
-        <Panel title="Internal per-hop latency" sub={`CPU time per stage of the pipeline (µs). Sum of medians ≈ ${us(p50sum)} per tick; the network dominates.`} className="xl:col-span-7" testId="hops-panel">
+        <Panel title="Internal per-hop latency" info="Time the desk itself spends on each step, in microseconds (millionths of a second). Tiny next to network delays, which is good." sub={`CPU time per stage of the pipeline (µs). Sum of medians ≈ ${us(p50sum)} per tick; the network dominates.`} className="xl:col-span-7" testId="hops-panel">
           <RangeBars rows={hopRows} unit={us} testId="hops-chart" />
           <p className="mb-2 mt-1 text-[11px] text-ink-3">Bar: p50 → p95 (darker) → p99 (lighter). Label: p50.</p>
           <Table>
@@ -124,7 +125,7 @@ export function LatencyView() {
             </tbody>
           </Table>
         </Panel>
-        <Panel title="Feed lag" sub="Venue event timestamp → local receive time, where the venue provides one. Negative values are clock offset between the venue and this Mac." className="xl:col-span-5" testId="feed-lag-panel">
+        <Panel title="Feed lag" info="Delay between the venue stamping a message and the desk receiving it. Lower is better." sub="Venue event timestamp → local receive time, where the venue provides one. Negative values are clock offset between the venue and this Mac." className="xl:col-span-5" testId="feed-lag-panel">
           <DistGrid dists={lag} unit={ms} kind="lag" cols="single" />
         </Panel>
       </div>
