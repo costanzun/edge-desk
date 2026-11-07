@@ -69,7 +69,10 @@ class RawLog:
                    "t_exch": t_exch, "rtt_ms": None if rtt_ms is None else round(rtt_ms, 3),
                    "data": data}
             path = _hour_path(self.root, t_recv)
-            if path != self._path:
+            # Never rotate backwards: a record received a few ms before the hour boundary can
+            # reach the lock after one received just after it. It goes into the current file
+            # (readers sort by receive time); rotating back would compress the live file.
+            if self._path is None or path > self._path:
                 self._rotate(path)
             assert self._fh is not None
             self._fh.write(orjson.dumps(rec) + b"\n")
@@ -96,6 +99,8 @@ class RawLog:
 
 def compress(path: Path) -> None:
     gz = path.with_suffix(".jsonl.gz")
+    if gz.exists():  # a previous partial hour (e.g. before a restart): keep both, never clobber
+        gz = path.with_name(f"{path.stem}.{int(time.time())}.jsonl.gz")
     tmp = gz.with_suffix(".gz.tmp")
     with open(path, "rb") as src, gzip.open(tmp, "wb", compresslevel=6) as dst:
         shutil.copyfileobj(src, dst)

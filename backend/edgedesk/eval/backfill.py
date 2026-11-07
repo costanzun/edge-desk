@@ -20,7 +20,7 @@ import math
 import random
 import time
 from collections import defaultdict
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -38,6 +38,10 @@ KALSHI = "https://api.elections.kalshi.com/trade-api/v2"
 SERIES = {"KXBTCD": "BTC", "KXETHD": "ETH"}
 HORIZONS_MIN = (45, 30, 15, 5)
 BAND = {"BTC": 0.008, "ETH": 0.010}  # strikes within this fraction of the settlement value
+
+
+def _iso(t: float) -> str:
+    return datetime.fromtimestamp(t, tz=UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def _ts(s: str) -> int:
@@ -117,8 +121,8 @@ async def fetch(days: float) -> None:
                 while t < end:
                     t2 = min(end, t + 300 * 60)
                     r = await http.get(f"https://api.exchange.coinbase.com/products/{sym}-USD/candles", granularity=60,
-                                       start=datetime.utcfromtimestamp(t).isoformat() + "Z",
-                                       end=datetime.utcfromtimestamp(t2).isoformat() + "Z")
+                                       start=_iso(t),
+                                       end=_iso(t2))
                     for c in r.data:
                         rows[int(c[0])] = float(c[4])
                     t = t2
@@ -242,8 +246,8 @@ def analyse(rows: list[dict]) -> dict[str, Any]:
             ivs[r["sym"]].append(x / (z * math.sqrt(T)))
     out["market_implied_vol_median"] = {s: round(sorted(v)[len(v) // 2], 4) for s, v in ivs.items() if v}
     ts = sorted(_ts_close(r["event"]) for r in rows)
-    out["period"] = {"from": datetime.utcfromtimestamp(ts[0] - 3600).isoformat() + "Z",
-                     "to": datetime.utcfromtimestamp(ts[-1]).isoformat() + "Z"} if ts else None
+    out["period"] = {"from": _iso(ts[0] - 3600),
+                     "to": _iso(ts[-1])} if ts else None
     return out
 
 
