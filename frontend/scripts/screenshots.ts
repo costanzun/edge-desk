@@ -49,9 +49,7 @@ async function main() {
   const light = await ctxFor(browser, { theme: "light" });
   const p = await light.newPage();
 
-  await go(p, "/", "curve-chart");
-  await p.getByTestId("curve-point").nth(3).hover();
-  await p.waitForTimeout(300);
+  await go(p, "/", "curve-chart"); // top of the Desk: the dot-matrix P&L hero and the stat cards
   await shot(p, "desk-light");
 
   await go(p, "/how-it-works", "how-it-works");
@@ -103,9 +101,7 @@ async function main() {
 
   const dark = await ctxFor(browser, { theme: "dark" });
   const d = await dark.newPage();
-  await go(d, "/", "curve-chart");
-  await d.getByTestId("curve-point").nth(3).hover();
-  await d.waitForTimeout(300);
+  await go(d, "/", "curve-chart"); // top of the Desk: the dot-matrix P&L hero and the stat cards
   await shot(d, "desk-dark");
   await go(d, "/latency", "edge-decay-chart");
   await shot(d, "latency-dark");
