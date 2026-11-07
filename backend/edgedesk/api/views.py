@@ -71,6 +71,33 @@ def opportunities(eng: Engine, limit: int = 60) -> list[dict]:
     return rows[:limit]
 
 
+def curves(eng: Engine, max_groups: int = 6) -> list[dict]:
+    """Per underlying + expiry: model P(above strike) with its band against each venue's quotes."""
+    groups: dict[tuple[str, int], list[dict]] = defaultdict(list)
+    now = eng.t
+    for cid, s in eng.last_fair.items():
+        c = eng.contracts[cid]
+        if c["expiry_ms"] * 1_000_000 <= now or eng.outcomes.get(cid) is not None:
+            continue
+        b = eng.books.get(cid)
+        groups[(c["sym"], c["expiry_ms"])].append({
+            "strike": c["strike"], "venue": c["venue"], "cid": cid,
+            "bid": b.bids[0][0] if b and b.bids else None, "ask": b.asks[0][0] if b and b.asks else None,
+            "p_options": s.get("p_options"), "p_hybrid": s.get("p_hybrid"), "band": s.get("band"),
+            "band_hybrid": s.get("band_hybrid"), "p_realized": s.get("p_realized")})
+    out = []
+    for (sym, exp), pts in sorted(groups.items(), key=lambda kv: kv[0][1]):
+        pts = [p for p in pts if p["p_options"] is not None and 0.01 < p["p_options"] < 0.99]
+        if len(pts) < 3:
+            continue
+        pts.sort(key=lambda p: p["strike"])
+        spot = eng.spots.get(("coinbase", sym))
+        out.append({"sym": sym, "expiry_ms": exp, "tte_s": round((exp * 1_000_000 - now) / NS),
+                    "spot": round(spot[0], 2) if spot else None,
+                    "venues": sorted({p["venue"] for p in pts}), "points": pts})
+    return out[:max_groups]
+
+
 def _event_rows(eng: Engine, kinds: tuple[str, ...], limit: int) -> list[dict]:
     evs = [ev for ev in eng.log.events if ev.kind in kinds][-limit:]
     return [{"seq": ev.seq, "t": _ms(ev.t), "kind": ev.kind, **ev.data} for ev in reversed(evs)]
@@ -82,6 +109,7 @@ def desk(eng: Engine, recorder: dict | None = None, mode: str = "live") -> dict[
     spots = {f"{src}:{sym}": round(v[0], 2) for (src, sym), v in eng.spots.items()}
     return {"t": _ms(eng.t), "mode": mode, "halted": eng.halted, "halt_reason": eng.halt_reason,
             "summary": s, "spots": spots, "feeds": feeds(eng, recorder), "opportunities": opportunities(eng),
+            "curves": curves(eng),
             "signals": _event_rows(eng, (E.SIGNAL,), 25), "orders": _event_rows(eng, (E.ORDER,), 25),
             "config": {"trade_model": eng.cfg.trade_model, "min_edge": eng.cfg.min_edge, "band_k": eng.cfg.band_k,
                        "order_style": eng.cfg.order_style, "latency_ms": eng.cfg.latency_ms,

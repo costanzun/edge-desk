@@ -102,7 +102,7 @@ class Desk:
                 self._run_paced(self._history())
             else:
                 self._run_live()
-        except Exception:  # noqa: BLE001
+        except Exception:
             log.exception("desk thread crashed")
 
     # ------------------------------------------------------------------ sources

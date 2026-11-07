@@ -567,6 +567,248 @@
       "ref": "CF BRTI, 60 s average before expiry"
     }
   ],
+  "curves": [
+    {
+      "sym": "BTC",
+      "expiry_ms": 1794067200000,
+      "tte_s": 1441,
+      "spot": 76838.07,
+      "venues": [
+        "kalshi",
+        "polymarket"
+      ],
+      "points": [
+        {
+          "strike": 76499.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0716-T76499.99",
+          "bid": 0.95,
+          "ask": 0.98,
+          "p_options": 0.924825,
+          "p_hybrid": 0.917191,
+          "band": 0.039083,
+          "band_hybrid": 0.040675,
+          "p_realized": 0.918215
+        },
+        {
+          "strike": 76500.0,
+          "venue": "polymarket",
+          "cid": "bitcoin-above-synthetic-26nov0716-76500",
+          "bid": 0.95,
+          "ask": 0.98,
+          "p_options": 0.941469,
+          "p_hybrid": 0.93459,
+          "band": 0.034897,
+          "band_hybrid": 0.036794,
+          "p_realized": 0.935694
+        },
+        {
+          "strike": 76749.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0716-T76749.99",
+          "bid": 0.68,
+          "ask": 0.71,
+          "p_options": 0.646736,
+          "p_hybrid": 0.641653,
+          "band": 0.028393,
+          "band_hybrid": 0.027535,
+          "p_realized": 0.641025
+        },
+        {
+          "strike": 76999.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0716-T76999.99",
+          "bid": 0.26,
+          "ask": 0.29,
+          "p_options": 0.245324,
+          "p_hybrid": 0.253286,
+          "band": 0.043825,
+          "band_hybrid": 0.04305,
+          "p_realized": 0.252256
+        },
+        {
+          "strike": 77000.0,
+          "venue": "polymarket",
+          "cid": "bitcoin-above-synthetic-26nov0716-77000",
+          "bid": 0.34,
+          "ask": 0.37,
+          "p_options": 0.288412,
+          "p_hybrid": 0.295366,
+          "band": 0.047803,
+          "band_hybrid": 0.046974,
+          "p_realized": 0.294197
+        },
+        {
+          "strike": 77249.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0716-T77249.99",
+          "bid": 0.03,
+          "ask": 0.06,
+          "p_options": 0.039614,
+          "p_hybrid": 0.045367,
+          "band": 0.028556,
+          "band_hybrid": 0.03076,
+          "p_realized": 0.045258
+        }
+      ]
+    },
+    {
+      "sym": "BTC",
+      "expiry_ms": 1794070800000,
+      "tte_s": 5041,
+      "spot": 76838.07,
+      "venues": [
+        "kalshi",
+        "polymarket"
+      ],
+      "points": [
+        {
+          "strike": 75999.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0717-T75999.99",
+          "bid": 0.96,
+          "ask": 0.99,
+          "p_options": 0.972041,
+          "p_hybrid": 0.967583,
+          "band": 0.023441,
+          "band_hybrid": 0.025595,
+          "p_realized": 0.967997
+        },
+        {
+          "strike": 76000.0,
+          "venue": "polymarket",
+          "cid": "bitcoin-above-synthetic-26nov0717-76000",
+          "bid": 0.95,
+          "ask": 0.98,
+          "p_options": 0.976204,
+          "p_hybrid": 0.972149,
+          "band": 0.022047,
+          "band_hybrid": 0.024301,
+          "p_realized": 0.972567
+        },
+        {
+          "strike": 76249.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0717-T76249.99",
+          "bid": 0.91,
+          "ask": 0.94,
+          "p_options": 0.910524,
+          "p_hybrid": 0.902818,
+          "band": 0.042177,
+          "band_hybrid": 0.04344,
+          "p_realized": 0.90262
+        },
+        {
+          "strike": 76499.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0717-T76499.99",
+          "bid": 0.76,
+          "ask": 0.79,
+          "p_options": 0.780306,
+          "p_hybrid": 0.772376,
+          "band": 0.046103,
+          "band_hybrid": 0.045517,
+          "p_realized": 0.77124
+        },
+        {
+          "strike": 76500.0,
+          "venue": "polymarket",
+          "cid": "bitcoin-above-synthetic-26nov0717-76500",
+          "bid": 0.81,
+          "ask": 0.84,
+          "p_options": 0.80037,
+          "p_hybrid": 0.792186,
+          "band": 0.047311,
+          "band_hybrid": 0.046897,
+          "p_realized": 0.791188
+        },
+        {
+          "strike": 76749.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0717-T76749.99",
+          "bid": 0.59,
+          "ask": 0.62,
+          "p_options": 0.579899,
+          "p_hybrid": 0.577158,
+          "band": 0.016266,
+          "band_hybrid": 0.015742,
+          "p_realized": 0.575759
+        },
+        {
+          "strike": 76999.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0717-T76999.99",
+          "bid": 0.35,
+          "ask": 0.38,
+          "p_options": 0.355577,
+          "p_hybrid": 0.360286,
+          "band": 0.028389,
+          "band_hybrid": 0.027548,
+          "p_realized": 0.359785
+        },
+        {
+          "strike": 77000.0,
+          "venue": "polymarket",
+          "cid": "bitcoin-above-synthetic-26nov0717-77000",
+          "bid": 0.39,
+          "ask": 0.42,
+          "p_options": 0.382064,
+          "p_hybrid": 0.385959,
+          "band": 0.028957,
+          "band_hybrid": 0.028234,
+          "p_realized": 0.385355
+        },
+        {
+          "strike": 77249.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0717-T77249.99",
+          "bid": 0.2,
+          "ask": 0.23,
+          "p_options": 0.173142,
+          "p_hybrid": 0.181522,
+          "band": 0.048087,
+          "band_hybrid": 0.047945,
+          "p_realized": 0.182114
+        },
+        {
+          "strike": 77499.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0717-T77499.99",
+          "bid": 0.08,
+          "ask": 0.11,
+          "p_options": 0.065254,
+          "p_hybrid": 0.07213,
+          "band": 0.037014,
+          "band_hybrid": 0.038715,
+          "p_realized": 0.072991
+        },
+        {
+          "strike": 77500.0,
+          "venue": "polymarket",
+          "cid": "bitcoin-above-synthetic-26nov0717-77500",
+          "bid": 0.06,
+          "ask": 0.09,
+          "p_options": 0.074718,
+          "p_hybrid": 0.081986,
+          "band": 0.041288,
+          "band_hybrid": 0.042968,
+          "p_realized": 0.082814
+        },
+        {
+          "strike": 77749.99,
+          "venue": "kalshi",
+          "cid": "KXBTCD-26NOV0717-T77749.99",
+          "bid": 0.01,
+          "ask": 0.03,
+          "p_options": 0.018768,
+          "p_hybrid": 0.022309,
+          "band": 0.018328,
+          "band_hybrid": 0.020433,
+          "p_realized": 0.022824
+        }
+      ]
+    }
+  ],
   "signals": [
     {
       "seq": 294573,
