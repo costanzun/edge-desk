@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-kumo = ["kumoai"]
+kumo = ["kumoai", "pandas"]
 
 [dependency-groups]
 dev = ["pytest>=8", "pytest-asyncio>=0.24", "ruff>=0.6", "matplotlib>=3.9"]

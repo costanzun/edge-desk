@@ -184,6 +184,18 @@ def get_events(kinds: str = "signal,order,fill,settle,risk,halt,feed,recon", lim
         return V._event_rows(d.engine, ks, min(limit, 2000))
 
 
+@app.post("/api/models/kumo/run")
+def run_kumo() -> dict[str, Any]:
+    """Ask KumoRFM for the open contracts (only with the setting on and a key in .env)."""
+    st = kumo.status(STATE["settings"].get("kumo_enabled", False))
+    if not st["active"]:
+        raise HTTPException(409, st["message"])
+    d = desk()
+    with d.lock:
+        res = kumo.predict_open(d.engine)
+    return {k: v for k, v in res.items() if k != "predictions"}
+
+
 # ---------------------------------------------------------------------- control
 class ControlBody(BaseModel):
     reason: str = ""

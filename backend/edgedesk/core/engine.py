@@ -99,7 +99,8 @@ class Engine:
     def __init__(self, cfg: Config | None = None, log: EventLog | None = None, measure: bool = True) -> None:
         self.cfg = cfg or Config()
         self.log = log or EventLog(keep_kinds={E.SIGNAL, E.ORDER, E.FILL, E.SETTLE, E.RISK, E.HALT, E.RECON,
-                                               E.FEED, E.MODEL, E.CONTROL, E.REJECT_INPUT})
+                                               E.FEED, E.MODEL, E.CONTROL, E.REJECT_INPUT,
+                                               E.MD_OUTCOME})
         self.guard = IngestGuard(self._emit)
         self.options = OptionsImplied()
         self.realized = RealizedVol()
@@ -217,8 +218,13 @@ class Engine:
     def _new_day(self, t: int) -> None:
         day = t // (86400 * NS)
         if day != self.day:
+            first = self.day is None
             self.day = day
             self.day_start_equity = self.equity()
+            if not first and self.halted and self.halt_reason.startswith("daily loss"):
+                # a daily limit resets with the day; operator and reconciliation halts do not
+                self.halted, self.halt_reason = False, ""
+                self._emit(t, E.HALT, {"halted": False, "reason": "new trading day (daily loss limit reset)"})
 
     # ------------------------------------------------------------------ control
     def _control(self, t: int, d: dict) -> None:
@@ -574,13 +580,17 @@ class Engine:
 
     # ------------------------------------------------------------------ valuation
     def mark(self, cid: str, side: str) -> float | None:
+        """Mid when the book is tight (spread <= 10c); otherwise the conservative exit price
+        (the best bid for the side we hold). None when there is no book at all."""
         b = self.books.get(cid)
         if not b:
             return None
-        m = M.mid(b.bids, b.asks, 0.5)
-        if m is None:
-            return None
-        return m if side == "yes" else 1 - m
+        m = M.mid(b.bids, b.asks, 0.10)
+        if m is not None:
+            return m if side == "yes" else 1 - m
+        if side == "yes":
+            return b.bids[0][0] if b.bids else 0.0
+        return round(1 - b.asks[0][0], 6) if b.asks else 0.0
 
     def equity(self) -> float:
         eq = self.pf.cash

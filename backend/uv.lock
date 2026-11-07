@@ -496,6 +496,7 @@ dependencies = [
 [package.optional-dependencies]
 kumo = [
     { name = "kumoai" },
+    { name = "pandas" },
 ]
 
 [package.dev-dependencies]
@@ -514,6 +515,7 @@ requires-dist = [
     { name = "kumoai", marker = "extra == 'kumo'" },
     { name = "numpy", specifier = ">=2.0" },
     { name = "orjson", specifier = ">=3.10" },
+    { name = "pandas", marker = "extra == 'kumo'" },
     { name = "pydantic", specifier = ">=2.8" },
     { name = "python-dotenv", specifier = ">=1.0" },
     { name = "scipy", specifier = ">=1.13" },
