@@ -43,13 +43,13 @@ def test_late_record_at_hour_boundary_never_rotates_backwards(tmp_path):
     rotate back (which used to compress and unlink the file being written)."""
     raw = tmp_path / "raw"
     log = RawLog(raw)
-    t_hour = 1_794_052_800 * 1_000_000_000  # 15:00:00 UTC
+    t_hour = 1_794_052_800 * 1_000_000_000  # 13:00:00 UTC
     log.append("a", "x", {}, t_recv=t_hour - 5_000_000)
-    log.append("a", "x", {}, t_recv=t_hour + 1_000)        # rotates to 15:00
-    log.append("a", "x", {}, t_recv=t_hour - 1_000)        # late: stays in the 15:00 file
+    log.append("a", "x", {}, t_recv=t_hour + 1_000)        # rotates to 13:00
+    log.append("a", "x", {}, t_recv=t_hour - 1_000)        # late: stays in the 13:00 file
     log.append("a", "x", {}, t_recv=t_hour + 2_000)
     log.close()
     import time as _t
-    _t.sleep(0.3)  # let the background compression of the 14:00 file finish
-    assert (raw / "2026-11-07" / "15.jsonl").exists()
+    _t.sleep(0.3)  # let the background compression of the 12:00 file finish
+    assert (raw / "2026-11-07" / "13.jsonl").exists()
     assert [r["seq"] for r in records(tmp_path)] == [1, 3, 2, 4]  # ordered by receive time
