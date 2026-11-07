@@ -11,7 +11,7 @@ test.describe("shell", () => {
   test("ticker, paper badge, mode badge and footer on every page", async ({ page }) => {
     await open(page, "/", "kpis");
     await expect(page.getByTestId("ticker")).toContainText("BTC");
-    await expect(page.getByTestId("ticker")).toContainText("76,838");
+    await expect(page.getByTestId("ticker")).toContainText("76,904");
     await expect(page.getByTestId("ticker")).toContainText("5 of 5 feeds live");
     await expect(page.getByTestId("paper-badge")).toContainText(/paper only/i);
     await expect(page.getByTestId("mode-badge")).toHaveText(/mock/i);
@@ -59,13 +59,27 @@ test.describe("shell", () => {
 });
 
 test.describe("desk", () => {
+  test("live trade signals are highlighted on the probability curve", async ({ page }) => {
+    await open(page, "/", "curve-chart");
+    const tabs = page.locator('[data-testid^="curve-tab-"]');
+    const n = Math.max(1, await tabs.count());
+    let found = false;
+    for (let i = 0; i < n && !found; i++) {
+      if (await tabs.count()) await tabs.nth(i).click();
+      found = await page.getByTestId("signal-annotation").first().waitFor({ timeout: 4000 }).then(() => true, () => false);
+    }
+    expect(found).toBe(true);
+    await expect(page.getByTestId("signal-band").first()).toBeAttached();
+    await expect(page.getByTestId("signal-annotation").first()).toContainText("%");
+  });
+
   test("probability curve renders model points, venue quotes and spot", async ({ page }) => {
     await open(page, "/", "curve-chart");
     const chart = page.getByTestId("curve-chart");
     await expect(chart.locator("svg")).toBeVisible();
     expect(await chart.getByTestId("curve-point").count()).toBeGreaterThan(3);
     expect(await chart.getByTestId("venue-quote").count()).toBeGreaterThan(3);
-    await expect(chart.getByTestId("spot-marker")).toContainText("76,838");
+    await expect(chart.getByTestId("spot-marker")).toContainText("76,904");
     // the other expiry tab redraws the chart
     const before = await chart.getByTestId("curve-point").count();
     await page.getByTestId("curve-tab-0").click();
@@ -84,7 +98,7 @@ test.describe("desk", () => {
 
   test("KPI tiles, feeds, signals and orders", async ({ page }) => {
     await open(page, "/", "kpis");
-    await expect(page.getByTestId("kpis")).toContainText("+$2,938.25");
+    await expect(page.getByTestId("kpis")).toContainText("+$2,942.87");
     await expect(page.getByTestId("kpis")).toContainText("64.3%");
     await expect(page.getByTestId("feed-health")).toContainText(/polymarket/i);
     await expect(page.getByTestId("signals-feed")).toContainText("BUY YES");

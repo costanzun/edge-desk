@@ -218,8 +218,8 @@
       "drawdown": 0.0
     },
     {
-      "t": 1794065759000,
-      "equity": 12938.25,
+      "t": 1794065770000,
+      "equity": 12942.87,
       "mark": true,
       "drawdown": 0.0
     }
@@ -227,9 +227,9 @@
   "max_drawdown": -132.33,
   "stats": {
     "n": 113,
-    "mean": 0.0026,
-    "sd": 0.00502,
-    "sharpe_per_trade": 0.518,
+    "mean": 0.002604,
+    "sd": 0.005021,
+    "sharpe_per_trade": 0.5186,
     "hit_rate": 0.6726,
     "caveat": "Per-trade, not annualised: trades overlap in time and share underlyings, so they are not independent and a daily Sharpe needs many more days of data."
   },
@@ -239,11 +239,11 @@
     "paths": 2000,
     "ruin_level": 0.5,
     "p_ruin": 0.0,
-    "final_p5": 3.0147,
-    "final_p50": 3.6369,
-    "final_p95": 4.3809,
-    "max_dd_p50": -0.0181,
-    "max_dd_p5": -0.0283
+    "final_p5": 3.0221,
+    "final_p50": 3.6433,
+    "final_p95": 4.3894,
+    "max_dd_p50": -0.0182,
+    "max_dd_p5": -0.0282
   },
   "attribution": {
     "total": {
@@ -251,7 +251,7 @@
       "latency": -1.81,
       "slippage": -3.0,
       "fees": -143.54,
-      "model_luck": 2442.77
+      "model_luck": 2447.39
     },
     "by": {
       "venue": {
@@ -260,8 +260,8 @@
           "latency": -1.81,
           "slippage": -0.0,
           "fees": -130.6,
-          "model_luck": 1999.84,
-          "pnl": 2446.75,
+          "model_luck": 2005.18,
+          "pnl": 2452.09,
           "n": 97
         },
         "polymarket": {
@@ -269,8 +269,8 @@
           "latency": 0.0,
           "slippage": -3.0,
           "fees": -12.94,
-          "model_luck": 442.93,
-          "pnl": 491.5,
+          "model_luck": 442.21,
+          "pnl": 490.78,
           "n": 16
         }
       },
@@ -280,8 +280,8 @@
           "latency": -1.81,
           "slippage": -0.0,
           "fees": -130.6,
-          "model_luck": 1999.84,
-          "pnl": 2446.75,
+          "model_luck": 2005.18,
+          "pnl": 2452.09,
           "n": 97
         },
         "BTC polymarket": {
@@ -289,8 +289,8 @@
           "latency": 0.0,
           "slippage": -3.0,
           "fees": -12.94,
-          "model_luck": 442.93,
-          "pnl": 491.5,
+          "model_luck": 442.21,
+          "pnl": 490.78,
           "n": 16
         }
       },
@@ -300,8 +300,8 @@
           "latency": -1.81,
           "slippage": -3.0,
           "fees": -143.54,
-          "model_luck": 2442.77,
-          "pnl": 2938.25,
+          "model_luck": 2447.39,
+          "pnl": 2942.87,
           "n": 113
         }
       },
@@ -311,8 +311,8 @@
           "latency": -1.81,
           "slippage": -3.0,
           "fees": -66.25,
-          "model_luck": 1834.57,
-          "pnl": 2082.46,
+          "model_luck": 1836.68,
+          "pnl": 2084.57,
           "n": 56
         },
         "1-6 h": {
@@ -320,8 +320,8 @@
           "latency": 0.0,
           "slippage": -0.0,
           "fees": -77.29,
-          "model_luck": 608.21,
-          "pnl": 855.79,
+          "model_luck": 610.72,
+          "pnl": 858.3,
           "n": 57
         }
       },
@@ -331,8 +331,8 @@
           "latency": 0.0,
           "slippage": -0.0,
           "fees": -108.71,
-          "model_luck": 1385.67,
-          "pnl": 1748.52,
+          "model_luck": 1386.52,
+          "pnl": 1749.37,
           "n": 87
         },
         "3-5c": {
@@ -340,8 +340,8 @@
           "latency": -0.61,
           "slippage": -3.0,
           "fees": -33.01,
-          "model_luck": 983.12,
-          "pnl": 1108.15,
+          "model_luck": 986.91,
+          "pnl": 1111.94,
           "n": 24
         },
         "5-10c": {
@@ -349,14 +349,33 @@
           "latency": -1.2,
           "slippage": 0.0,
           "fees": -1.82,
-          "model_luck": 73.99,
-          "pnl": 81.58,
+          "model_luck": 73.97,
+          "pnl": 81.56,
           "n": 2
         }
       }
     }
   },
-  "allocation": null,
+  "allocation": {
+    "sym": "BTC",
+    "expiry_ms": 1794067200000,
+    "venue": "polymarket",
+    "opps": [
+      {
+        "id": "bitcoin-above-synthetic-26nov0716-77000",
+        "strike": 77000.0,
+        "side": "yes",
+        "cost": 0.3352,
+        "p": 0.3944,
+        "joint": 0.02332,
+        "independent": 0.02226
+      }
+    ],
+    "joint_total": 0.02332,
+    "independent_total": 0.02226,
+    "expected_log_growth": 0.008395,
+    "converged": true
+  },
   "kelly_example": {
     "cost_per_contract": 0.5673,
     "edge": 0.0527,

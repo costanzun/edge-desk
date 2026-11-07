@@ -60,7 +60,7 @@ export function Panel({
             </h2>
             {sub ? <p className="mt-0.5 text-[12.5px] leading-snug text-ink-3">{sub}</p> : null}
           </div>
-          {right ? <div className="flex flex-wrap items-center gap-2">{right}</div> : null}
+          {right ? <div className="flex min-w-0 max-w-full flex-wrap items-center gap-2">{right}</div> : null}
         </header>
       ) : null}
       <div className={cn("p-4", (title || right) && "pt-3", bodyClass)}>{children}</div>

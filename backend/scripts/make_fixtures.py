@@ -31,12 +31,14 @@ def main() -> None:
     recs = generate(sc)
     stream = list(md_stream(recs))
     cfg = Config(trade_model="hybrid")
+    # snapshot the desk at the first moment after 4.6 h where live opportunities carry a
+    # signal, so the mock UI shows (and the e2e tests cover) the chart's signal callouts
     cut = recs[0]["t_recv"] + int(4.6 * 3600 * NS)
     eng = Engine(cfg, measure=True)
     for t, k, d in stream:
-        if t > cut:
-            break
         eng.process(t, k, d)
+        if t > cut and k == "md.book" and any(o["signal"] for o in V.opportunities(eng)):
+            break
     recorder = {"health": {"kalshi": {"ok": 4210, "err": 0, "last_rtt_ms": 124.6},
                            "polymarket": {"ok": 1730, "err": 1, "last_rtt_ms": 61.2},
                            "polymarket_ws": {"ok": 98211, "err": 0}, "deribit": {"ok": 2120, "err": 0, "last_rtt_ms": 41.8},

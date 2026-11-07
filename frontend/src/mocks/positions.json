@@ -46,7 +46,7 @@
       "fees": 5.97,
       "mark": 0.98,
       "unrealized": 205.15,
-      "fair": 0.999878
+      "fair": 0.999813
     },
     {
       "cid": "KXBTCD-26NOV0716-T75749.99",
@@ -62,7 +62,7 @@
       "fees": 3.12,
       "mark": 0.98,
       "unrealized": 82.32,
-      "fair": 0.999999
+      "fair": 0.999998
     },
     {
       "cid": "KXBTCD-26NOV0716-T76249.99",
@@ -78,7 +78,7 @@
       "fees": 2.3,
       "mark": 0.98,
       "unrealized": 66.05,
-      "fair": 0.995846
+      "fair": 0.994176
     },
     {
       "cid": "KXBTCD-26NOV0716-T76499.99",
@@ -92,9 +92,9 @@
       "cost": 93.53,
       "avg_px": 0.3818,
       "fees": 4.05,
-      "mark": 0.965,
-      "unrealized": 138.84,
-      "fair": 0.924825
+      "mark": 0.9450000000000001,
+      "unrealized": 133.94,
+      "fair": 0.957521
     },
     {
       "cid": "KXBTCD-26NOV0716-T76249.99",
@@ -110,7 +110,7 @@
       "fees": 0.39,
       "mark": 0.020000000000000018,
       "unrealized": -9.36,
-      "fair": 0.995846
+      "fair": 0.994176
     },
     {
       "cid": "KXBTCD-26NOV0716-T76749.99",
@@ -124,9 +124,9 @@
       "cost": 65.89,
       "avg_px": 0.3345,
       "fees": 3.08,
-      "mark": 0.6950000000000001,
-      "unrealized": 67.95,
-      "fair": 0.646736
+      "mark": 0.705,
+      "unrealized": 69.91,
+      "fair": 0.745563
     },
     {
       "cid": "KXBTCD-26NOV0716-T74249.99",
@@ -156,9 +156,9 @@
       "cost": 2.19,
       "avg_px": 0.3129,
       "fees": 0.12,
-      "mark": 0.03500000000000003,
-      "unrealized": -2.06,
-      "fair": 0.924825
+      "mark": 0.05499999999999994,
+      "unrealized": -1.93,
+      "fair": 0.957521
     },
     {
       "cid": "KXBTCD-26NOV0717-T76499.99",
@@ -172,9 +172,9 @@
       "cost": 77.26,
       "avg_px": 0.333,
       "fees": 3.44,
-      "mark": 0.775,
-      "unrealized": 99.1,
-      "fair": 0.780306
+      "mark": 0.8049999999999999,
+      "unrealized": 106.06,
+      "fair": 0.822355
     },
     {
       "cid": "KXBTCD-26NOV0717-T76249.99",
@@ -190,7 +190,7 @@
       "fees": 4.75,
       "mark": 0.925,
       "unrealized": 135.93,
-      "fair": 0.910524
+      "fair": 0.932484
     },
     {
       "cid": "bitcoin-above-synthetic-26nov0717-76000",
@@ -204,9 +204,9 @@
       "cost": 34.56,
       "avg_px": 0.48,
       "fees": 1.26,
-      "mark": 0.03500000000000003,
-      "unrealized": -33.3,
-      "fair": 0.976204
+      "mark": 0.025000000000000022,
+      "unrealized": -34.02,
+      "fair": 0.981634
     },
     {
       "cid": "bitcoin-above-synthetic-26nov0717-78000",
@@ -222,7 +222,7 @@
       "fees": 0.05,
       "mark": 0.98,
       "unrealized": 0.21,
-      "fair": 0.005646
+      "fair": 0.006032
     },
     {
       "cid": "KXBTCD-26NOV0717-T76249.99",
@@ -238,7 +238,7 @@
       "fees": 1.23,
       "mark": 0.07499999999999996,
       "unrealized": -26.07,
-      "fair": 0.910524
+      "fair": 0.932484
     },
     {
       "cid": "KXBTCD-26NOV0717-T76749.99",
@@ -252,9 +252,9 @@
       "cost": 107.7,
       "avg_px": 0.4703,
       "fees": 3.99,
-      "mark": 0.605,
-      "unrealized": 26.85,
-      "fair": 0.579899
+      "mark": 0.615,
+      "unrealized": 29.15,
+      "fair": 0.637912
     },
     {
       "cid": "KXBTCD-26NOV0717-T76749.99",
@@ -268,9 +268,9 @@
       "cost": 58.24,
       "avg_px": 0.52,
       "fees": 1.96,
-      "mark": 0.395,
-      "unrealized": -15.96,
-      "fair": 0.579899
+      "mark": 0.385,
+      "unrealized": -17.08,
+      "fair": 0.637912
     }
   ],
   "trades": [
@@ -296,13 +296,13 @@
       "touch_arrival": 0.52,
       "outcome": null,
       "settled": false,
-      "pnl": -15.96,
+      "pnl": -17.08,
       "attr": {
         "edge": 6.102543999999995,
         "latency": 0.0,
         "slippage": 0.0,
         "fees": -1.96,
-        "model_luck": -20.102543999999995
+        "model_luck": -21.222543999999996
       },
       "state": "expired",
       "tte_bucket": "1-6 h",
@@ -330,13 +330,13 @@
       "touch_arrival": 0.21,
       "outcome": null,
       "settled": false,
-      "pnl": -0.195,
+      "pnl": -0.175,
       "attr": {
         "edge": 0.07285500000000003,
         "latency": 0.0,
         "slippage": 0.0,
         "fees": -0.02,
-        "model_luck": -0.247855
+        "model_luck": -0.22785500000000009
       },
       "state": "filled",
       "tte_bucket": "15-60 min",
@@ -364,13 +364,13 @@
       "touch_arrival": 0.5,
       "outcome": null,
       "settled": false,
-      "pnl": 8.135,
+      "pnl": 9.065,
       "attr": {
         "edge": 4.765319999999996,
         "latency": 0.0,
         "slippage": 0.0,
         "fees": -1.63,
-        "model_luck": 4.999680000000003
+        "model_luck": 5.929680000000004
       },
       "state": "expired",
       "tte_bucket": "1-6 h",
@@ -398,13 +398,13 @@
       "touch_arrival": 0.45,
       "outcome": null,
       "settled": false,
-      "pnl": 18.72,
+      "pnl": 20.08,
       "attr": {
         "edge": 6.739343999999998,
         "latency": 0.0,
         "slippage": 0.0,
         "fees": -2.36,
-        "model_luck": 14.340655999999997
+        "model_luck": 15.700655999999999
       },
       "state": "expired",
       "tte_bucket": "1-6 h",
@@ -432,13 +432,13 @@
       "touch_arrival": 0.48,
       "outcome": null,
       "settled": false,
-      "pnl": 21.365,
+      "pnl": 23.675,
       "attr": {
         "edge": 4.807495000000001,
         "latency": 0.0,
         "slippage": -4.274358644806853e-15,
         "fees": -1.35,
-        "model_luck": 17.907505
+        "model_luck": 20.217504999999996
       },
       "state": "expired",
       "tte_bucket": "1-6 h",
@@ -466,13 +466,13 @@
       "touch_arrival": 0.33,
       "outcome": null,
       "settled": false,
-      "pnl": -1.87,
+      "pnl": -1.75,
       "attr": {
         "edge": 0.3887100000000002,
         "latency": 0.11999999999999977,
         "slippage": 0.0,
         "fees": -0.1,
-        "model_luck": -2.27871
+        "model_luck": -2.1587100000000006
       },
       "state": "filled",
       "tte_bucket": "15-60 min",
@@ -534,13 +534,13 @@
       "touch_arrival": 0.37,
       "outcome": null,
       "settled": false,
-      "pnl": 17.585,
+      "pnl": 18.155,
       "attr": {
         "edge": 3.168060000000001,
         "latency": 0.0,
         "slippage": 0.0,
         "fees": -0.9399999999999998,
-        "model_luck": 15.356940000000003
+        "model_luck": 15.926939999999997
       },
       "state": "expired",
       "tte_bucket": "15-60 min",
@@ -568,13 +568,13 @@
       "touch_arrival": 0.32,
       "outcome": null,
       "settled": false,
-      "pnl": 50.36,
+      "pnl": 51.76,
       "attr": {
         "edge": 8.809780000000002,
         "latency": 0.0,
         "slippage": 0.0,
         "fees": -2.14,
-        "model_luck": 43.690220000000004
+        "model_luck": 45.090219999999995
       },
       "state": "expired",
       "tte_bucket": "15-60 min",
@@ -602,13 +602,13 @@
       "touch_arrival": 0.37,
       "outcome": null,
       "settled": false,
-      "pnl": 0.575,
+      "pnl": 0.555,
       "attr": {
         "edge": 0.08245800000000003,
         "latency": 0.0,
         "slippage": 0.0,
         "fees": -0.02,
-        "model_luck": 0.5125419999999999
+        "model_luck": 0.49254200000000004
       },
       "state": "filled",
       "tte_bucket": "1-6 h",
@@ -704,13 +704,13 @@
       "touch_arrival": 0.34,
       "outcome": null,
       "settled": false,
-      "pnl": 45.08,
+      "pnl": 43.6,
       "attr": {
         "edge": 4.590294,
         "latency": 0.0,
         "slippage": 0.0,
         "fees": -1.17,
-        "model_luck": 41.65970599999999
+        "model_luck": 40.179706
       },
       "state": "expired",
       "tte_bucket": "1-6 h",
@@ -772,13 +772,13 @@
       "touch_arrival": 0.4,
       "outcome": null,
       "settled": false,
-      "pnl": 93.19,
+      "pnl": 89.79,
       "attr": {
         "edge": 8.89219,
         "latency": 0.0,
         "slippage": 0.0,
         "fees": -2.86,
-        "model_luck": 87.15781
+        "model_luck": 83.75781
       },
       "state": "expired",
       "tte_bucket": "1-6 h",
@@ -2778,13 +2778,13 @@
       "touch_arrival": 0.48,
       "outcome": null,
       "settled": false,
-      "pnl": -33.298,
+      "pnl": -34.018,
       "attr": {
         "edge": 2.9920320000000027,
         "latency": 0.0,
         "slippage": -3.9968028886505635e-15,
         "fees": -1.25798,
-        "model_luck": -35.032032
+        "model_luck": -35.752032
       },
       "state": "expired",
       "tte_bucket": "1-6 h",
@@ -4070,13 +4070,13 @@
       "touch_arrival": 0.26,
       "outcome": null,
       "settled": false,
-      "pnl": 77.735,
+      "pnl": 82.385,
       "attr": {
         "edge": 11.067155,
         "latency": 0.0,
         "slippage": 0.0,
         "fees": -2.09,
-        "model_luck": 68.757845
+        "model_luck": 73.407845
       },
       "state": "expired",
       "tte_bucket": "1-6 h",
@@ -4126,11 +4126,11 @@
     "gross_settled": 2348.31,
     "fees": 143.54,
     "net_settled": 2244.8,
-    "unrealized": 693.44,
-    "net_total": 2938.25,
+    "unrealized": 698.06,
+    "net_total": 2942.87,
     "win_rate": 0.643,
-    "return_on_cost": 0.7001,
-    "equity": 12938.25,
+    "return_on_cost": 0.7012,
+    "equity": 12942.87,
     "bankroll": 10000.0,
     "signals": 536,
     "orders": 124,
@@ -4354,8 +4354,8 @@
       "drawdown": 0.0
     },
     {
-      "t": 1794065759000,
-      "equity": 12938.25,
+      "t": 1794065770000,
+      "equity": 12942.87,
       "mark": true,
       "drawdown": 0.0
     }
@@ -4367,7 +4367,7 @@
       "latency": -1.81,
       "slippage": -3.0,
       "fees": -143.54,
-      "model_luck": 2442.77
+      "model_luck": 2447.39
     },
     "by": {
       "venue": {
@@ -4376,8 +4376,8 @@
           "latency": -1.81,
           "slippage": -0.0,
           "fees": -130.6,
-          "model_luck": 1999.84,
-          "pnl": 2446.75,
+          "model_luck": 2005.18,
+          "pnl": 2452.09,
           "n": 97
         },
         "polymarket": {
@@ -4385,8 +4385,8 @@
           "latency": 0.0,
           "slippage": -3.0,
           "fees": -12.94,
-          "model_luck": 442.93,
-          "pnl": 491.5,
+          "model_luck": 442.21,
+          "pnl": 490.78,
           "n": 16
         }
       },
@@ -4396,8 +4396,8 @@
           "latency": -1.81,
           "slippage": -0.0,
           "fees": -130.6,
-          "model_luck": 1999.84,
-          "pnl": 2446.75,
+          "model_luck": 2005.18,
+          "pnl": 2452.09,
           "n": 97
         },
         "BTC polymarket": {
@@ -4405,8 +4405,8 @@
           "latency": 0.0,
           "slippage": -3.0,
           "fees": -12.94,
-          "model_luck": 442.93,
-          "pnl": 491.5,
+          "model_luck": 442.21,
+          "pnl": 490.78,
           "n": 16
         }
       },
@@ -4416,8 +4416,8 @@
           "latency": -1.81,
           "slippage": -3.0,
           "fees": -143.54,
-          "model_luck": 2442.77,
-          "pnl": 2938.25,
+          "model_luck": 2447.39,
+          "pnl": 2942.87,
           "n": 113
         }
       },
@@ -4427,8 +4427,8 @@
           "latency": -1.81,
           "slippage": -3.0,
           "fees": -66.25,
-          "model_luck": 1834.57,
-          "pnl": 2082.46,
+          "model_luck": 1836.68,
+          "pnl": 2084.57,
           "n": 56
         },
         "1-6 h": {
@@ -4436,8 +4436,8 @@
           "latency": 0.0,
           "slippage": -0.0,
           "fees": -77.29,
-          "model_luck": 608.21,
-          "pnl": 855.79,
+          "model_luck": 610.72,
+          "pnl": 858.3,
           "n": 57
         }
       },
@@ -4447,8 +4447,8 @@
           "latency": 0.0,
           "slippage": -0.0,
           "fees": -108.71,
-          "model_luck": 1385.67,
-          "pnl": 1748.52,
+          "model_luck": 1386.52,
+          "pnl": 1749.37,
           "n": 87
         },
         "3-5c": {
@@ -4456,8 +4456,8 @@
           "latency": -0.61,
           "slippage": -3.0,
           "fees": -33.01,
-          "model_luck": 983.12,
-          "pnl": 1108.15,
+          "model_luck": 986.91,
+          "pnl": 1111.94,
           "n": 24
         },
         "5-10c": {
@@ -4465,8 +4465,8 @@
           "latency": -1.2,
           "slippage": 0.0,
           "fees": -1.82,
-          "model_luck": 73.99,
-          "pnl": 81.58,
+          "model_luck": 73.97,
+          "pnl": 81.56,
           "n": 2
         }
       }
