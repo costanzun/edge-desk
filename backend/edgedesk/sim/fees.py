@@ -1,4 +1,5 @@
-"""Venue fee schedules (as published; see docs/fees.md for sources).
+"""Venue fee schedules, as published (sources: docs.kalshi.com/api-reference/market/get-series,
+docs.kalshi.com/getting_started/fee_rounding, docs.polymarket.com/trading/fees).
 
 Kalshi (docs.kalshi.com get-series + fee_rounding; KXBTCD/KXETHD are fee_type "quadratic",
 fee_multiplier 1, which charges takers only):
