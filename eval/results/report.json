@@ -1,0 +1,5037 @@
+{
+  "generated": "2026-11-07 15:30 UTC",
+  "period": {
+    "from": "2026-11-07 14:21 UTC",
+    "to": "2026-11-07 15:30 UTC",
+    "hours": 1.14
+  },
+  "gaps": [
+    {
+      "from": "2026-11-07 14:59 UTC",
+      "to": "2026-11-07 15:05 UTC",
+      "minutes": 5.7
+    }
+  ],
+  "records": 51232,
+  "md_events": 60739,
+  "engine_events": 70172,
+  "contracts": 714,
+  "resolved": {
+    "kalshi": 242,
+    "polymarket": 36
+  },
+  "config": {
+    "trade_model": "hybrid",
+    "venues": [
+      "kalshi",
+      "polymarket"
+    ],
+    "syms": [
+      "BTC",
+      "ETH"
+    ],
+    "min_edge": 0.02,
+    "band_k": 1.0,
+    "kelly_fraction": 0.25,
+    "bankroll": 10000.0,
+    "latency_ms": {
+      "kalshi": 68.3,
+      "polymarket": 39.2
+    },
+    "added_latency_ms": 0.0,
+    "decision_us": 500,
+    "depth_haircut": 0.5,
+    "cooldown_s": 30.0,
+    "min_tte_s": 300.0,
+    "max_tte_s": 259200.0,
+    "order_style": "taker",
+    "maker_ttl_s": 60.0,
+    "model_log_every_s": 60.0,
+    "spot_eval_bps": 2.0,
+    "trade": true,
+    "recon_every": 1,
+    "limits": {
+      "max_cost_per_market": 250.0,
+      "max_cost_per_expiry": 750.0,
+      "max_cost_per_underlying": 1500.0,
+      "max_gross": 3000.0,
+      "max_open_orders": 8,
+      "daily_loss_limit": 300.0,
+      "max_book_age_s": 30.0,
+      "max_spot_age_s": 10.0,
+      "max_chain_age_s": 120.0,
+      "min_price": 0.03,
+      "max_price": 0.97,
+      "max_edge": 0.3,
+      "max_limit_vs_fair": 0.25
+    }
+  },
+  "deterministic": true,
+  "digest": "189fc5690fc947280b27de4c3d8d17669744010e3b6c0d02cae1a38f600eb219",
+  "summary": {
+    "trades": 73,
+    "settled": 15,
+    "open": 58,
+    "contracts": 4946,
+    "cost": 2685.01,
+    "gross_settled": 114.42,
+    "fees": 49.65,
+    "net_settled": 105.34,
+    "unrealized": 30.9,
+    "net_total": 136.24,
+    "win_rate": 0.533,
+    "return_on_cost": 0.0507,
+    "equity": 10136.24,
+    "bankroll": 10000.0,
+    "signals": 495,
+    "orders": 83,
+    "halted": false,
+    "halt_reason": ""
+  },
+  "by_venue": {
+    "kalshi": {
+      "trades": 55,
+      "settled": 15,
+      "open": 40,
+      "contracts": 4050,
+      "cost": 2192.48,
+      "gross_settled": 114.42,
+      "fees": 34.71,
+      "net_settled": 105.34,
+      "unrealized": 1.99,
+      "net_total": 107.33,
+      "win_rate": 0.533,
+      "return_on_cost": 0.049,
+      "equity": 10136.24,
+      "bankroll": 10000.0,
+      "signals": 495,
+      "orders": 83,
+      "halted": false,
+      "halt_reason": ""
+    },
+    "polymarket": {
+      "trades": 18,
+      "settled": 0,
+      "open": 18,
+      "contracts": 896,
+      "cost": 492.53,
+      "gross_settled": 0,
+      "fees": 14.94,
+      "net_settled": 0,
+      "unrealized": 28.91,
+      "net_total": 28.91,
+      "win_rate": null,
+      "return_on_cost": 0.0587,
+      "equity": 10136.24,
+      "bankroll": 10000.0,
+      "signals": 495,
+      "orders": 83,
+      "halted": false,
+      "halt_reason": ""
+    }
+  },
+  "per_model": {
+    "options": {
+      "trades": 65,
+      "settled": 62,
+      "open": 3,
+      "contracts": 9320,
+      "cost": 1232.12,
+      "gross_settled": -982.6,
+      "fees": 65.07,
+      "net_settled": -1040.49,
+      "unrealized": -51.54,
+      "net_total": -1092.03,
+      "win_rate": 0.0,
+      "return_on_cost": -0.8863,
+      "equity": 8907.97,
+      "bankroll": 10000.0,
+      "signals": 615,
+      "orders": 66,
+      "halted": true,
+      "halt_reason": "daily loss limit hit (-300.87)"
+    },
+    "hybrid": {
+      "trades": 73,
+      "settled": 15,
+      "open": 58,
+      "contracts": 4946,
+      "cost": 2685.01,
+      "gross_settled": 114.42,
+      "fees": 49.65,
+      "net_settled": 105.34,
+      "unrealized": 30.9,
+      "net_total": 136.24,
+      "win_rate": 0.533,
+      "return_on_cost": 0.0507,
+      "equity": 10136.24,
+      "bankroll": 10000.0,
+      "signals": 495,
+      "orders": 83,
+      "halted": false,
+      "halt_reason": ""
+    },
+    "ensemble": {
+      "trades": 98,
+      "settled": 24,
+      "open": 74,
+      "contracts": 8613,
+      "cost": 3029.46,
+      "gross_settled": -144.45,
+      "fees": 66.23,
+      "net_settled": -167.53,
+      "unrealized": -145.53,
+      "net_total": -313.06,
+      "win_rate": 0.25,
+      "return_on_cost": -0.1033,
+      "equity": 9686.94,
+      "bankroll": 10000.0,
+      "signals": 389,
+      "orders": 101,
+      "halted": true,
+      "halt_reason": "daily loss limit hit (-312.56)"
+    },
+    "hybrid (maker orders)": {
+      "trades": 3,
+      "settled": 0,
+      "open": 3,
+      "contracts": 645,
+      "cost": 428.09,
+      "gross_settled": 0,
+      "fees": 0.0,
+      "net_settled": 0,
+      "unrealized": 63.5,
+      "net_total": 63.5,
+      "win_rate": null,
+      "return_on_cost": 0.1483,
+      "equity": 10063.5,
+      "bankroll": 10000.0,
+      "signals": 2595,
+      "orders": 473,
+      "halted": false,
+      "halt_reason": ""
+    }
+  },
+  "attribution": {
+    "total": {
+      "edge": 361.25,
+      "latency": 0.0,
+      "slippage": -3.19,
+      "fees": -49.65,
+      "model_luck": -172.18
+    },
+    "by": {
+      "venue": {
+        "polymarket": {
+          "edge": 54.55,
+          "latency": 0.0,
+          "slippage": -0.91,
+          "fees": -14.94,
+          "model_luck": -9.79,
+          "pnl": 28.91,
+          "n": 18
+        },
+        "kalshi": {
+          "edge": 306.7,
+          "latency": 0.0,
+          "slippage": -2.28,
+          "fees": -34.71,
+          "model_luck": -162.39,
+          "pnl": 107.33,
+          "n": 55
+        }
+      },
+      "pairing": {
+        "BTC polymarket": {
+          "edge": 54.55,
+          "latency": 0.0,
+          "slippage": -0.91,
+          "fees": -14.94,
+          "model_luck": -9.79,
+          "pnl": 28.91,
+          "n": 18
+        },
+        "BTC kalshi": {
+          "edge": 239.97,
+          "latency": 0.0,
+          "slippage": -0.0,
+          "fees": -22.11,
+          "model_luck": -76.86,
+          "pnl": 141.0,
+          "n": 18
+        },
+        "ETH kalshi": {
+          "edge": 66.73,
+          "latency": 0.0,
+          "slippage": -2.28,
+          "fees": -12.6,
+          "model_luck": -85.52,
+          "pnl": -33.67,
+          "n": 37
+        }
+      },
+      "model": {
+        "hybrid": {
+          "edge": 361.25,
+          "latency": 0.0,
+          "slippage": -3.19,
+          "fees": -49.65,
+          "model_luck": -172.18,
+          "pnl": 136.24,
+          "n": 73
+        }
+      },
+      "tte_bucket": {
+        "> 1 day": {
+          "edge": 24.23,
+          "latency": 0.0,
+          "slippage": -0.18,
+          "fees": -9.16,
+          "model_luck": -45.05,
+          "pnl": -30.17,
+          "n": 7
+        },
+        "15-60 min": {
+          "edge": 127.56,
+          "latency": 0.0,
+          "slippage": -1.24,
+          "fees": -13.93,
+          "model_luck": 84.73,
+          "pnl": 197.12,
+          "n": 22
+        },
+        "6-24 h": {
+          "edge": 100.31,
+          "latency": 0.0,
+          "slippage": -0.88,
+          "fees": -18.55,
+          "model_luck": -141.15,
+          "pnl": -60.27,
+          "n": 25
+        },
+        "1-6 h": {
+          "edge": 30.32,
+          "latency": 0.0,
+          "slippage": -0.72,
+          "fees": -5.78,
+          "model_luck": 35.26,
+          "pnl": 59.08,
+          "n": 11
+        },
+        "< 15 min": {
+          "edge": 78.83,
+          "latency": 0.0,
+          "slippage": -0.16,
+          "fees": -2.23,
+          "model_luck": -105.96,
+          "pnl": -29.52,
+          "n": 8
+        }
+      },
+      "edge_bucket": {
+        "2-3c": {
+          "edge": 98.96,
+          "latency": 0.0,
+          "slippage": -0.24,
+          "fees": -21.49,
+          "model_luck": -64.14,
+          "pnl": 13.1,
+          "n": 44
+        },
+        "10c+": {
+          "edge": 79.26,
+          "latency": 0.0,
+          "slippage": 0.0,
+          "fees": -6.09,
+          "model_luck": 44.42,
+          "pnl": 117.59,
+          "n": 4
+        },
+        "3-5c": {
+          "edge": 99.81,
+          "latency": 0.0,
+          "slippage": -1.95,
+          "fees": -18.57,
+          "model_luck": -71.1,
+          "pnl": 8.19,
+          "n": 15
+        },
+        "5-10c": {
+          "edge": 83.22,
+          "latency": 0.0,
+          "slippage": -1.0,
+          "fees": -3.5,
+          "model_luck": -81.36,
+          "pnl": -2.64,
+          "n": 10
+        }
+      }
+    }
+  },
+  "equity_curve": [
+    {
+      "t": 1794062176521,
+      "equity": 10000.0,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794063948982,
+      "equity": 10009.7,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794063948982,
+      "equity": 10012.96,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794063948982,
+      "equity": 9989.81,
+      "drawdown": -23.15
+    },
+    {
+      "t": 1794063948982,
+      "equity": 9989.53,
+      "drawdown": -23.43
+    },
+    {
+      "t": 1794063948982,
+      "equity": 10110.92,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794063949114,
+      "equity": 10101.4,
+      "drawdown": -9.52
+    },
+    {
+      "t": 1794063949114,
+      "equity": 10105.34,
+      "drawdown": -5.58
+    },
+    {
+      "t": 1794065402856,
+      "equity": 10136.24,
+      "mark": true,
+      "drawdown": 0.0
+    }
+  ],
+  "max_drawdown": -23.43,
+  "stats": {
+    "n": 73,
+    "mean": 0.000187,
+    "sd": 0.001529,
+    "sharpe_per_trade": 0.1221,
+    "hit_rate": 0.4795,
+    "caveat": "Per-trade, not annualised: trades overlap in time and share underlyings, so they are not independent and a daily Sharpe needs many more days of data."
+  },
+  "risk_of_ruin": {
+    "n_source_trades": 73,
+    "n_trades": 500,
+    "paths": 5000,
+    "ruin_level": 0.5,
+    "p_ruin": 0.0,
+    "final_p5": 1.0392,
+    "final_p50": 1.0959,
+    "final_p95": 1.1609,
+    "max_dd_p50": -0.0129,
+    "max_dd_p5": -0.0235
+  },
+  "risk": {
+    "decisions": 495,
+    "halts": [],
+    "recon_checks": 109,
+    "recon_ok": true,
+    "input_rejects": 123
+  },
+  "latency": {
+    "one_way_ms": {
+      "kalshi": 68.3,
+      "polymarket": 39.2
+    },
+    "network": {
+      "rtt": {
+        "coinbase": {
+          "n": 1892,
+          "p50": 28.967,
+          "p95": 98.108,
+          "p99": 133.883,
+          "mean": 36.365,
+          "max": 211.34,
+          "hist": [
+            {
+              "lo": 0,
+              "hi": 25,
+              "n": 733
+            },
+            {
+              "lo": 25,
+              "hi": 50,
+              "n": 900
+            },
+            {
+              "lo": 50,
+              "hi": 100,
+              "n": 165
+            },
+            {
+              "lo": 100,
+              "hi": 150,
+              "n": 87
+            },
+            {
+              "lo": 150,
+              "hi": 200,
+              "n": 6
+            },
+            {
+              "lo": 200,
+              "hi": 300,
+              "n": 1
+            },
+            {
+              "lo": 300,
+              "hi": 500,
+              "n": 0
+            },
+            {
+              "lo": 500,
+              "hi": 1000,
+              "n": 0
+            },
+            {
+              "lo": 1000,
+              "hi": 2000,
+              "n": 0
+            },
+            {
+              "lo": 2000,
+              "hi": null,
+              "n": 0
+            }
+          ]
+        },
+        "binance": {
+          "n": 1906,
+          "p50": 231.107,
+          "p95": 257.941,
+          "p99": 361.211,
+          "mean": 235.995,
+          "max": 664.328,
+          "hist": [
+            {
+              "lo": 0,
+              "hi": 25,
+              "n": 0
+            },
+            {
+              "lo": 25,
+              "hi": 50,
+              "n": 0
+            },
+            {
+              "lo": 50,
+              "hi": 100,
+              "n": 0
+            },
+            {
+              "lo": 100,
+              "hi": 150,
+              "n": 0
+            },
+            {
+              "lo": 150,
+              "hi": 200,
+              "n": 0
+            },
+            {
+              "lo": 200,
+              "hi": 300,
+              "n": 1868
+            },
+            {
+              "lo": 300,
+              "hi": 500,
+              "n": 32
+            },
+            {
+              "lo": 500,
+              "hi": 1000,
+              "n": 6
+            },
+            {
+              "lo": 1000,
+              "hi": 2000,
+              "n": 0
+            },
+            {
+              "lo": 2000,
+              "hi": null,
+              "n": 0
+            }
+          ]
+        },
+        "kalshi": {
+          "n": 9143,
+          "p50": 136.572,
+          "p95": 377.566,
+          "p99": 400.982,
+          "mean": 207.492,
+          "max": 967.582,
+          "hist": [
+            {
+              "lo": 0,
+              "hi": 25,
+              "n": 527
+            },
+            {
+              "lo": 25,
+              "hi": 50,
+              "n": 333
+            },
+            {
+              "lo": 50,
+              "hi": 100,
+              "n": 159
+            },
+            {
+              "lo": 100,
+              "hi": 150,
+              "n": 4585
+            },
+            {
+              "lo": 150,
+              "hi": 200,
+              "n": 254
+            },
+            {
+              "lo": 200,
+              "hi": 300,
+              "n": 58
+            },
+            {
+              "lo": 300,
+              "hi": 500,
+              "n": 3213
+            },
+            {
+              "lo": 500,
+              "hi": 1000,
+              "n": 14
+            },
+            {
+              "lo": 1000,
+              "hi": 2000,
+              "n": 0
+            },
+            {
+              "lo": 2000,
+              "hi": null,
+              "n": 0
+            }
+          ]
+        },
+        "deribit": {
+          "n": 1754,
+          "p50": 42.585,
+          "p95": 68.932,
+          "p99": 91.616,
+          "mean": 45.831,
+          "max": 195.195,
+          "hist": [
+            {
+              "lo": 0,
+              "hi": 25,
+              "n": 0
+            },
+            {
+              "lo": 25,
+              "hi": 50,
+              "n": 1525
+            },
+            {
+              "lo": 50,
+              "hi": 100,
+              "n": 220
+            },
+            {
+              "lo": 100,
+              "hi": 150,
+              "n": 7
+            },
+            {
+              "lo": 150,
+              "hi": 200,
+              "n": 2
+            },
+            {
+              "lo": 200,
+              "hi": 300,
+              "n": 0
+            },
+            {
+              "lo": 300,
+              "hi": 500,
+              "n": 0
+            },
+            {
+              "lo": 500,
+              "hi": 1000,
+              "n": 0
+            },
+            {
+              "lo": 1000,
+              "hi": 2000,
+              "n": 0
+            },
+            {
+              "lo": 2000,
+              "hi": null,
+              "n": 0
+            }
+          ]
+        },
+        "polymarket": {
+          "n": 741,
+          "p50": 78.305,
+          "p95": 122.666,
+          "p99": 161.626,
+          "mean": 82.843,
+          "max": 242.078,
+          "hist": [
+            {
+              "lo": 0,
+              "hi": 25,
+              "n": 0
+            },
+            {
+              "lo": 25,
+              "hi": 50,
+              "n": 15
+            },
+            {
+              "lo": 50,
+              "hi": 100,
+              "n": 578
+            },
+            {
+              "lo": 100,
+              "hi": 150,
+              "n": 136
+            },
+            {
+              "lo": 150,
+              "hi": 200,
+              "n": 11
+            },
+            {
+              "lo": 200,
+              "hi": 300,
+              "n": 1
+            },
+            {
+              "lo": 300,
+              "hi": 500,
+              "n": 0
+            },
+            {
+              "lo": 500,
+              "hi": 1000,
+              "n": 0
+            },
+            {
+              "lo": 1000,
+              "hi": 2000,
+              "n": 0
+            },
+            {
+              "lo": 2000,
+              "hi": null,
+              "n": 0
+            }
+          ]
+        }
+      },
+      "feed_lag": {
+        "deribit index (ws)": {
+          "n": 3485,
+          "p50": -8.57,
+          "p95": 102.845,
+          "p99": 660.279,
+          "mean": 8.708,
+          "max": 953.443,
+          "hist": [
+            {
+              "lo": -200,
+              "hi": 0,
+              "n": 3164
+            },
+            {
+              "lo": 0,
+              "hi": 50,
+              "n": 121
+            },
+            {
+              "lo": 50,
+              "hi": 100,
+              "n": 24
+            },
+            {
+              "lo": 100,
+              "hi": 200,
+              "n": 39
+            },
+            {
+              "lo": 200,
+              "hi": 500,
+              "n": 71
+            },
+            {
+              "lo": 500,
+              "hi": 1000,
+              "n": 66
+            },
+            {
+              "lo": 1000,
+              "hi": 5000,
+              "n": 0
+            },
+            {
+              "lo": 5000,
+              "hi": null,
+              "n": 0
+            }
+          ]
+        },
+        "polymarket book (ws)": {
+          "n": 29784,
+          "p50": -10.669,
+          "p95": 6.281,
+          "p99": 202.848,
+          "mean": 1352.241,
+          "max": 1528177.787,
+          "hist": [
+            {
+              "lo": -200,
+              "hi": 0,
+              "n": 27490
+            },
+            {
+              "lo": 0,
+              "hi": 50,
+              "n": 1820
+            },
+            {
+              "lo": 50,
+              "hi": 100,
+              "n": 113
+            },
+            {
+              "lo": 100,
+              "hi": 200,
+              "n": 54
+            },
+            {
+              "lo": 200,
+              "hi": 500,
+              "n": 39
+            },
+            {
+              "lo": 500,
+              "hi": 1000,
+              "n": 8
+            },
+            {
+              "lo": 1000,
+              "hi": 5000,
+              "n": 45
+            },
+            {
+              "lo": 5000,
+              "hi": null,
+              "n": 215
+            }
+          ]
+        },
+        "coinbase trade (ws)": {
+          "n": 2020,
+          "p50": 33.413,
+          "p95": 41.706,
+          "p99": 86.136,
+          "mean": 31.462,
+          "max": 3575.122,
+          "hist": [
+            {
+              "lo": -200,
+              "hi": 0,
+              "n": 0
+            },
+            {
+              "lo": 0,
+              "hi": 50,
+              "n": 1961
+            },
+            {
+              "lo": 50,
+              "hi": 100,
+              "n": 42
+            },
+            {
+              "lo": 100,
+              "hi": 200,
+              "n": 12
+            },
+            {
+              "lo": 200,
+              "hi": 500,
+              "n": 2
+            },
+            {
+              "lo": 500,
+              "hi": 1000,
+              "n": 1
+            },
+            {
+              "lo": 1000,
+              "hi": 5000,
+              "n": 2
+            },
+            {
+              "lo": 5000,
+              "hi": null,
+              "n": 0
+            }
+          ]
+        }
+      }
+    },
+    "hops": {
+      "parse": {
+        "n": 0
+      },
+      "guard": {
+        "n": 60616,
+        "p50": 2.792,
+        "p95": 4.75,
+        "p99": 6.25,
+        "mean": 3.1,
+        "max": 220.542,
+        "hist": [
+          {
+            "lo": 0,
+            "hi": 1,
+            "n": 4480
+          },
+          {
+            "lo": 1,
+            "hi": 2,
+            "n": 15374
+          },
+          {
+            "lo": 2,
+            "hi": 5,
+            "n": 38531
+          },
+          {
+            "lo": 5,
+            "hi": 10,
+            "n": 1832
+          },
+          {
+            "lo": 10,
+            "hi": 20,
+            "n": 57
+          },
+          {
+            "lo": 20,
+            "hi": 50,
+            "n": 74
+          },
+          {
+            "lo": 50,
+            "hi": 100,
+            "n": 12
+          },
+          {
+            "lo": 100,
+            "hi": 200,
+            "n": 255
+          },
+          {
+            "lo": 200,
+            "hi": 500,
+            "n": 1
+          },
+          {
+            "lo": 500,
+            "hi": null,
+            "n": 0
+          }
+        ]
+      },
+      "model": {
+        "n": 50967,
+        "p50": 13.875,
+        "p95": 24.292,
+        "p99": 28.833,
+        "mean": 15.009,
+        "max": 267.042,
+        "hist": [
+          {
+            "lo": 0,
+            "hi": 1,
+            "n": 0
+          },
+          {
+            "lo": 1,
+            "hi": 2,
+            "n": 341
+          },
+          {
+            "lo": 2,
+            "hi": 5,
+            "n": 60
+          },
+          {
+            "lo": 5,
+            "hi": 10,
+            "n": 5129
+          },
+          {
+            "lo": 10,
+            "hi": 20,
+            "n": 37849
+          },
+          {
+            "lo": 20,
+            "hi": 50,
+            "n": 7554
+          },
+          {
+            "lo": 50,
+            "hi": 100,
+            "n": 24
+          },
+          {
+            "lo": 100,
+            "hi": 200,
+            "n": 9
+          },
+          {
+            "lo": 200,
+            "hi": 500,
+            "n": 1
+          },
+          {
+            "lo": 500,
+            "hi": null,
+            "n": 0
+          }
+        ]
+      },
+      "signal": {
+        "n": 35592,
+        "p50": 4.959,
+        "p95": 7.084,
+        "p99": 8.625,
+        "mean": 5.174,
+        "max": 96.875,
+        "hist": [
+          {
+            "lo": 0,
+            "hi": 1,
+            "n": 0
+          },
+          {
+            "lo": 1,
+            "hi": 2,
+            "n": 0
+          },
+          {
+            "lo": 2,
+            "hi": 5,
+            "n": 17978
+          },
+          {
+            "lo": 5,
+            "hi": 10,
+            "n": 17436
+          },
+          {
+            "lo": 10,
+            "hi": 20,
+            "n": 163
+          },
+          {
+            "lo": 20,
+            "hi": 50,
+            "n": 13
+          },
+          {
+            "lo": 50,
+            "hi": 100,
+            "n": 2
+          },
+          {
+            "lo": 100,
+            "hi": 200,
+            "n": 0
+          },
+          {
+            "lo": 200,
+            "hi": 500,
+            "n": 0
+          },
+          {
+            "lo": 500,
+            "hi": null,
+            "n": 0
+          }
+        ]
+      },
+      "risk": {
+        "n": 495,
+        "p50": 20.666,
+        "p95": 26.959,
+        "p99": 35.625,
+        "mean": 21.183,
+        "max": 41.875,
+        "hist": [
+          {
+            "lo": 0,
+            "hi": 1,
+            "n": 0
+          },
+          {
+            "lo": 1,
+            "hi": 2,
+            "n": 0
+          },
+          {
+            "lo": 2,
+            "hi": 5,
+            "n": 0
+          },
+          {
+            "lo": 5,
+            "hi": 10,
+            "n": 0
+          },
+          {
+            "lo": 10,
+            "hi": 20,
+            "n": 191
+          },
+          {
+            "lo": 20,
+            "hi": 50,
+            "n": 304
+          },
+          {
+            "lo": 50,
+            "hi": 100,
+            "n": 0
+          },
+          {
+            "lo": 100,
+            "hi": 200,
+            "n": 0
+          },
+          {
+            "lo": 200,
+            "hi": 500,
+            "n": 0
+          },
+          {
+            "lo": 500,
+            "hi": null,
+            "n": 0
+          }
+        ]
+      },
+      "order": {
+        "n": 83,
+        "p50": 7.542,
+        "p95": 11.541,
+        "p99": 16.833,
+        "mean": 8.216,
+        "max": 23.0,
+        "hist": [
+          {
+            "lo": 0,
+            "hi": 1,
+            "n": 0
+          },
+          {
+            "lo": 1,
+            "hi": 2,
+            "n": 0
+          },
+          {
+            "lo": 2,
+            "hi": 5,
+            "n": 0
+          },
+          {
+            "lo": 5,
+            "hi": 10,
+            "n": 75
+          },
+          {
+            "lo": 10,
+            "hi": 20,
+            "n": 7
+          },
+          {
+            "lo": 20,
+            "hi": 50,
+            "n": 1
+          },
+          {
+            "lo": 50,
+            "hi": 100,
+            "n": 0
+          },
+          {
+            "lo": 100,
+            "hi": 200,
+            "n": 0
+          },
+          {
+            "lo": 200,
+            "hi": 500,
+            "n": 0
+          },
+          {
+            "lo": 500,
+            "hi": null,
+            "n": 0
+          }
+        ]
+      }
+    }
+  },
+  "calibration": {
+    "all": {
+      "models": {
+        "p_options": {
+          "n": 238,
+          "brier": 0.01464,
+          "log_loss": 0.07306,
+          "bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 112,
+              "p_mean": 0.0049,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 17,
+              "p_mean": 0.1606,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 13,
+              "p_mean": 0.2499,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 11,
+              "p_mean": 0.3428,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 1,
+              "p_mean": 0.4111,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 7,
+              "p_mean": 0.7859,
+              "y_rate": 1.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 15,
+              "p_mean": 0.8434,
+              "y_rate": 1.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 62,
+              "p_mean": 0.9889,
+              "y_rate": 1.0
+            }
+          ],
+          "label": "Options-implied (Deribit)"
+        },
+        "p_hybrid": {
+          "n": 238,
+          "brier": 0.00407,
+          "log_loss": 0.03076,
+          "bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 136,
+              "p_mean": 0.0118,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 10,
+              "p_mean": 0.1505,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 7,
+              "p_mean": 0.2455,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 1,
+              "p_mean": 0.3221,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 84,
+              "p_mean": 0.9808,
+              "y_rate": 1.0
+            }
+          ],
+          "label": "Hybrid (Deribit smile + realized vol)"
+        },
+        "p_realized": {
+          "n": 238,
+          "brier": 0.00311,
+          "log_loss": 0.02302,
+          "bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 139,
+              "p_mean": 0.0088,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 8,
+              "p_mean": 0.1563,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 7,
+              "p_mean": 0.244,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 84,
+              "p_mean": 0.9897,
+              "y_rate": 1.0
+            }
+          ],
+          "label": "Realized vol (spot)"
+        },
+        "p_ensemble": {
+          "n": 238,
+          "brier": 0.0065,
+          "log_loss": 0.03944,
+          "bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 127,
+              "p_mean": 0.0088,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 15,
+              "p_mean": 0.1513,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 7,
+              "p_mean": 0.2154,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 4,
+              "p_mean": 0.3357,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 1,
+              "p_mean": 0.4372,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 5,
+              "p_mean": 0.8499,
+              "y_rate": 1.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 79,
+              "p_mean": 0.9871,
+              "y_rate": 1.0
+            }
+          ],
+          "label": "Market ensemble"
+        },
+        "mid": {
+          "n": 238,
+          "brier": 0.00558,
+          "log_loss": 0.04555,
+          "bins": [
+            {
+              "lo": 0.0,
+              "hi": 0.1,
+              "n": 130,
+              "p_mean": 0.0259,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.1,
+              "hi": 0.2,
+              "n": 12,
+              "p_mean": 0.1458,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 8,
+              "p_mean": 0.2356,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 4,
+              "p_mean": 0.3312,
+              "y_rate": 0.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 84,
+              "p_mean": 0.9796,
+              "y_rate": 1.0
+            }
+          ],
+          "label": "Market mid (baseline)"
+        }
+      },
+      "n_snapshots": 238,
+      "n_contracts": 26,
+      "n_events": 4,
+      "base_rate": 0.3529
+    },
+    "by_venue": {
+      "polymarket": {
+        "models": {
+          "p_options": {
+            "n": 166,
+            "brier": 0.00119,
+            "log_loss": 0.01084,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 101,
+                "p_mean": 0.0011,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 8,
+                "p_mean": 0.1506,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 57,
+                "p_mean": 0.9934,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Options-implied (Deribit)"
+          },
+          "p_hybrid": {
+            "n": 166,
+            "brier": 0.00012,
+            "log_loss": 0.00285,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 109,
+                "p_mean": 0.0035,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 57,
+                "p_mean": 0.9987,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Hybrid (Deribit smile + realized vol)"
+          },
+          "p_realized": {
+            "n": 166,
+            "brier": 0.00011,
+            "log_loss": 0.00226,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 109,
+                "p_mean": 0.0033,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 57,
+                "p_mean": 1.0,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Realized vol (spot)"
+          },
+          "p_ensemble": {
+            "n": 166,
+            "brier": 0.00012,
+            "log_loss": 0.00347,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 109,
+                "p_mean": 0.004,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 57,
+                "p_mean": 0.9978,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Market ensemble"
+          },
+          "mid": {
+            "n": 166,
+            "brier": 0.00047,
+            "log_loss": 0.01983,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 109,
+                "p_mean": 0.0237,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 57,
+                "p_mean": 0.9883,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Market mid (baseline)"
+          }
+        },
+        "n_snapshots": 166,
+        "n_contracts": 18,
+        "n_events": 2,
+        "base_rate": 0.3434
+      },
+      "kalshi": {
+        "models": {
+          "p_options": {
+            "n": 72,
+            "brier": 0.04566,
+            "log_loss": 0.21653,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 11,
+                "p_mean": 0.0397,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 9,
+                "p_mean": 0.1695,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 13,
+                "p_mean": 0.2499,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 11,
+                "p_mean": 0.3428,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 1,
+                "p_mean": 0.4111,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 7,
+                "p_mean": 0.7859,
+                "y_rate": 1.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 15,
+                "p_mean": 0.8434,
+                "y_rate": 1.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 5,
+                "p_mean": 0.9378,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Options-implied (Deribit)"
+          },
+          "p_hybrid": {
+            "n": 72,
+            "brier": 0.01317,
+            "log_loss": 0.09509,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 27,
+                "p_mean": 0.0451,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 10,
+                "p_mean": 0.1505,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 7,
+                "p_mean": 0.2455,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 1,
+                "p_mean": 0.3221,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 27,
+                "p_mean": 0.9432,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Hybrid (Deribit smile + realized vol)"
+          },
+          "p_realized": {
+            "n": 72,
+            "brier": 0.01001,
+            "log_loss": 0.0709,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 30,
+                "p_mean": 0.0288,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 8,
+                "p_mean": 0.1563,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 7,
+                "p_mean": 0.244,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 27,
+                "p_mean": 0.968,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Realized vol (spot)"
+          },
+          "p_ensemble": {
+            "n": 72,
+            "brier": 0.02122,
+            "log_loss": 0.12239,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 18,
+                "p_mean": 0.0377,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 15,
+                "p_mean": 0.1513,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 7,
+                "p_mean": 0.2154,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 4,
+                "p_mean": 0.3357,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 1,
+                "p_mean": 0.4372,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 5,
+                "p_mean": 0.8499,
+                "y_rate": 1.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 22,
+                "p_mean": 0.9596,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Market ensemble"
+          },
+          "mid": {
+            "n": 72,
+            "brier": 0.01735,
+            "log_loss": 0.10485,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 21,
+                "p_mean": 0.0374,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 12,
+                "p_mean": 0.1458,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 8,
+                "p_mean": 0.2356,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 4,
+                "p_mean": 0.3312,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 27,
+                "p_mean": 0.9611,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Market mid (baseline)"
+          }
+        },
+        "n_snapshots": 72,
+        "n_contracts": 8,
+        "n_events": 2,
+        "base_rate": 0.375
+      }
+    },
+    "by_sym": {
+      "BTC": {
+        "models": {
+          "p_options": {
+            "n": 155,
+            "brier": 0.01163,
+            "log_loss": 0.0579,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 75,
+                "p_mean": 0.004,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 4,
+                "p_mean": 0.1646,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 7,
+                "p_mean": 0.2426,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 5,
+                "p_mean": 0.3408,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 1,
+                "p_mean": 0.4111,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 7,
+                "p_mean": 0.7859,
+                "y_rate": 1.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 6,
+                "p_mean": 0.8358,
+                "y_rate": 1.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 50,
+                "p_mean": 0.9879,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Options-implied (Deribit)"
+          },
+          "p_hybrid": {
+            "n": 155,
+            "brier": 0.00256,
+            "log_loss": 0.02091,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 85,
+                "p_mean": 0.008,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 4,
+                "p_mean": 0.1376,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 2,
+                "p_mean": 0.2334,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 1,
+                "p_mean": 0.3221,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 63,
+                "p_mean": 0.9843,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Hybrid (Deribit smile + realized vol)"
+          },
+          "p_realized": {
+            "n": 155,
+            "brier": 0.00105,
+            "log_loss": 0.01022,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 88,
+                "p_mean": 0.0052,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 3,
+                "p_mean": 0.1511,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 1,
+                "p_mean": 0.2298,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 63,
+                "p_mean": 0.9944,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Realized vol (spot)"
+          },
+          "p_ensemble": {
+            "n": 155,
+            "brier": 0.00632,
+            "log_loss": 0.033,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 77,
+                "p_mean": 0.0037,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 6,
+                "p_mean": 0.1431,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 4,
+                "p_mean": 0.2033,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 4,
+                "p_mean": 0.3357,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 1,
+                "p_mean": 0.4372,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 63,
+                "p_mean": 0.9881,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Market ensemble"
+          },
+          "mid": {
+            "n": 155,
+            "brier": 0.00497,
+            "log_loss": 0.04094,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 80,
+                "p_mean": 0.0238,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 6,
+                "p_mean": 0.1475,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 3,
+                "p_mean": 0.2417,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 3,
+                "p_mean": 0.3417,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 63,
+                "p_mean": 0.9788,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Market mid (baseline)"
+          }
+        },
+        "n_snapshots": 155,
+        "n_contracts": 16,
+        "n_events": 2,
+        "base_rate": 0.4065
+      },
+      "ETH": {
+        "models": {
+          "p_options": {
+            "n": 83,
+            "brier": 0.02027,
+            "log_loss": 0.10138,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 37,
+                "p_mean": 0.0067,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 13,
+                "p_mean": 0.1594,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 6,
+                "p_mean": 0.2585,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 6,
+                "p_mean": 0.3445,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 9,
+                "p_mean": 0.8485,
+                "y_rate": 1.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 12,
+                "p_mean": 0.9933,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Options-implied (Deribit)"
+          },
+          "p_hybrid": {
+            "n": 83,
+            "brier": 0.00688,
+            "log_loss": 0.04914,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 51,
+                "p_mean": 0.0181,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 6,
+                "p_mean": 0.1591,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 5,
+                "p_mean": 0.2503,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 21,
+                "p_mean": 0.9705,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Hybrid (Deribit smile + realized vol)"
+          },
+          "p_realized": {
+            "n": 83,
+            "brier": 0.00695,
+            "log_loss": 0.04693,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 51,
+                "p_mean": 0.0151,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 5,
+                "p_mean": 0.1594,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 6,
+                "p_mean": 0.2464,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 21,
+                "p_mean": 0.9755,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Realized vol (spot)"
+          },
+          "p_ensemble": {
+            "n": 83,
+            "brier": 0.00682,
+            "log_loss": 0.05148,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 50,
+                "p_mean": 0.0166,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 9,
+                "p_mean": 0.1568,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 3,
+                "p_mean": 0.2316,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 5,
+                "p_mean": 0.8499,
+                "y_rate": 1.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 16,
+                "p_mean": 0.9834,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Market ensemble"
+          },
+          "mid": {
+            "n": 83,
+            "brier": 0.00671,
+            "log_loss": 0.05416,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 50,
+                "p_mean": 0.0293,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 6,
+                "p_mean": 0.1442,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 5,
+                "p_mean": 0.232,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 1,
+                "p_mean": 0.3,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 21,
+                "p_mean": 0.9819,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Market mid (baseline)"
+          }
+        },
+        "n_snapshots": 83,
+        "n_contracts": 10,
+        "n_events": 2,
+        "base_rate": 0.253
+      }
+    }
+  },
+  "edge_decay": [
+    {
+      "added_ms": 0,
+      "net": 136.24,
+      "net_settled": 105.34,
+      "fees": 49.65,
+      "trades": 73,
+      "contracts": 4946,
+      "signals": 495,
+      "expected_edge": 361.25,
+      "latency_cost": 0.0,
+      "digest": "189fc5690fc9"
+    },
+    {
+      "added_ms": 100,
+      "net": 127.55,
+      "net_settled": 105.34,
+      "fees": 48.71,
+      "trades": 72,
+      "contracts": 4890,
+      "signals": 495,
+      "expected_edge": 357.66,
+      "latency_cost": 0.0,
+      "digest": "e13370202012"
+    },
+    {
+      "added_ms": 250,
+      "net": 108.8,
+      "net_settled": 105.6,
+      "fees": 47.42,
+      "trades": 66,
+      "contracts": 4848,
+      "signals": 495,
+      "expected_edge": 353.07,
+      "latency_cost": 0.05,
+      "digest": "21f7987c9e54"
+    },
+    {
+      "added_ms": 500,
+      "net": 87.48,
+      "net_settled": 70.07,
+      "fees": 50.04,
+      "trades": 68,
+      "contracts": 5591,
+      "signals": 495,
+      "expected_edge": 386.42,
+      "latency_cost": 0.09,
+      "digest": "d05a8318ca13"
+    },
+    {
+      "added_ms": 1000,
+      "net": 81.35,
+      "net_settled": 69.51,
+      "fees": 50.13,
+      "trades": 68,
+      "contracts": 5591,
+      "signals": 495,
+      "expected_edge": 386.12,
+      "latency_cost": 0.2,
+      "digest": "32645532c9bd"
+    },
+    {
+      "added_ms": 2000,
+      "net": 80.72,
+      "net_settled": 69.51,
+      "fees": 49.58,
+      "trades": 66,
+      "contracts": 5556,
+      "signals": 495,
+      "expected_edge": 383.94,
+      "latency_cost": 0.16,
+      "digest": "1907046becf5"
+    },
+    {
+      "added_ms": 5000,
+      "net": 127.14,
+      "net_settled": 107.99,
+      "fees": 47.15,
+      "trades": 61,
+      "contracts": 4787,
+      "signals": 495,
+      "expected_edge": 349.43,
+      "latency_cost": 1.46,
+      "digest": "e0d683453f9e"
+    },
+    {
+      "added_ms": 10000,
+      "net": 99.02,
+      "net_settled": 96.21,
+      "fees": 42.92,
+      "trades": 55,
+      "contracts": 3490,
+      "signals": 495,
+      "expected_edge": 262.56,
+      "latency_cost": -20.04,
+      "digest": "0703e2106e30"
+    },
+    {
+      "added_ms": 30000,
+      "net": 54.5,
+      "net_settled": 90.8,
+      "fees": 40.88,
+      "trades": 46,
+      "contracts": 3264,
+      "signals": 495,
+      "expected_edge": 241.15,
+      "latency_cost": -16.84,
+      "digest": "903d41bfa9d5"
+    },
+    {
+      "added_ms": 60000,
+      "net": 52.98,
+      "net_settled": 89.42,
+      "fees": 38.89,
+      "trades": 41,
+      "contracts": 3107,
+      "signals": 495,
+      "expected_edge": 244.55,
+      "latency_cost": -16.79,
+      "digest": "4acbdd580e2a"
+    }
+  ],
+  "sweep": {
+    "cut_ms": 1794063342984,
+    "rows": [
+      {
+        "trade_model": "options",
+        "min_edge": 0.01,
+        "band_k": 0.0,
+        "train_net": -1035.28,
+        "train_trades": 55,
+        "test_net": -563.72,
+        "test_trades": 90
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.01,
+        "band_k": 1.0,
+        "train_net": -1056.65,
+        "train_trades": 80,
+        "test_net": -421.08,
+        "test_trades": 89
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.01,
+        "band_k": 2.0,
+        "train_net": -964.6,
+        "train_trades": 61,
+        "test_net": -258.47,
+        "test_trades": 86
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.02,
+        "band_k": 0.0,
+        "train_net": -1142.76,
+        "train_trades": 43,
+        "test_net": -605.84,
+        "test_trades": 38
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.02,
+        "band_k": 1.0,
+        "train_net": -1001.34,
+        "train_trades": 65,
+        "test_net": -346.36,
+        "test_trades": 67
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.02,
+        "band_k": 2.0,
+        "train_net": -824.01,
+        "train_trades": 43,
+        "test_net": -212.58,
+        "test_trades": 72
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.04,
+        "band_k": 0.0,
+        "train_net": -1000.01,
+        "train_trades": 59,
+        "test_net": -345.71,
+        "test_trades": 72
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.04,
+        "band_k": 1.0,
+        "train_net": -901.32,
+        "train_trades": 48,
+        "test_net": -188.3,
+        "test_trades": 67
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.04,
+        "band_k": 2.0,
+        "train_net": -755.12,
+        "train_trades": 40,
+        "test_net": -65.69,
+        "test_trades": 31
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.01,
+        "band_k": 0.0,
+        "train_net": -7.15,
+        "train_trades": 52,
+        "test_net": 29.0,
+        "test_trades": 55
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.01,
+        "band_k": 1.0,
+        "train_net": 53.47,
+        "train_trades": 42,
+        "test_net": 41.42,
+        "test_trades": 52
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.01,
+        "band_k": 2.0,
+        "train_net": 77.63,
+        "train_trades": 50,
+        "test_net": 16.26,
+        "test_trades": 37
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.02,
+        "band_k": 0.0,
+        "train_net": 47.88,
+        "train_trades": 48,
+        "test_net": 42.03,
+        "test_trades": 52
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.02,
+        "band_k": 1.0,
+        "train_net": 66.68,
+        "train_trades": 52,
+        "test_net": -0.86,
+        "test_trades": 36
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.02,
+        "band_k": 2.0,
+        "train_net": 33.32,
+        "train_trades": 25,
+        "test_net": 69.78,
+        "test_trades": 27
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.04,
+        "band_k": 0.0,
+        "train_net": -13.74,
+        "train_trades": 29,
+        "test_net": 162.74,
+        "test_trades": 34
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.04,
+        "band_k": 1.0,
+        "train_net": -13.52,
+        "train_trades": 17,
+        "test_net": 126.35,
+        "test_trades": 24
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.04,
+        "band_k": 2.0,
+        "train_net": 98.18,
+        "train_trades": 9,
+        "test_net": -9.88,
+        "test_trades": 14
+      },
+      {
+        "trade_model": "ensemble",
+        "min_edge": 0.01,
+        "band_k": 0.0,
+        "train_net": -164.33,
+        "train_trades": 74,
+        "test_net": -49.94,
+        "test_trades": 51
+      },
+      {
+        "trade_model": "ensemble",
+        "min_edge": 0.01,
+        "band_k": 1.0,
+        "train_net": -262.33,
+        "train_trades": 58,
+        "test_net": 63.21,
+        "test_trades": 70
+      },
+      {
+        "trade_model": "ensemble",
+        "min_edge": 0.01,
+        "band_k": 2.0,
+        "train_net": -260.67,
+        "train_trades": 56,
+        "test_net": 6.37,
+        "test_trades": 36
+      },
+      {
+        "trade_model": "ensemble",
+        "min_edge": 0.02,
+        "band_k": 0.0,
+        "train_net": -160.48,
+        "train_trades": 71,
+        "test_net": -45.92,
+        "test_trades": 68
+      },
+      {
+        "trade_model": "ensemble",
+        "min_edge": 0.02,
+        "band_k": 1.0,
+        "train_net": -195.02,
+        "train_trades": 51,
+        "test_net": 18.48,
+        "test_trades": 48
+      },
+      {
+        "trade_model": "ensemble",
+        "min_edge": 0.02,
+        "band_k": 2.0,
+        "train_net": -473.23,
+        "train_trades": 40,
+        "test_net": 35.01,
+        "test_trades": 18
+      },
+      {
+        "trade_model": "ensemble",
+        "min_edge": 0.04,
+        "band_k": 0.0,
+        "train_net": -192.46,
+        "train_trades": 33,
+        "test_net": 64.03,
+        "test_trades": 48
+      },
+      {
+        "trade_model": "ensemble",
+        "min_edge": 0.04,
+        "band_k": 1.0,
+        "train_net": -252.32,
+        "train_trades": 23,
+        "test_net": 19.1,
+        "test_trades": 26
+      },
+      {
+        "trade_model": "ensemble",
+        "min_edge": 0.04,
+        "band_k": 2.0,
+        "train_net": -376.73,
+        "train_trades": 18,
+        "test_net": 43.69,
+        "test_trades": 4
+      }
+    ],
+    "best_in_sample": {
+      "trade_model": "hybrid",
+      "min_edge": 0.04,
+      "band_k": 2.0,
+      "train_net": 98.18,
+      "train_trades": 9,
+      "test_net": -9.88,
+      "test_trades": 14
+    },
+    "default": {
+      "trade_model": "hybrid",
+      "min_edge": 0.02,
+      "band_k": 1.0,
+      "train_net": 66.68,
+      "train_trades": 52,
+      "test_net": -0.86,
+      "test_trades": 36
+    },
+    "note": "Parameters are chosen on the first half (by time) and judged on the second half."
+  },
+  "backfill": {
+    "n_rows": 7803,
+    "n_markets": 2802,
+    "n_events": 327,
+    "horizons_min": [
+      45,
+      30,
+      15,
+      5
+    ],
+    "models": {
+      "mid": "Kalshi mid (market)",
+      "p_dvol": "DVOL implied vol (options proxy)",
+      "p_rv": "Realized vol (1-min, EWMA 60 min)",
+      "p_blend": "Blend of DVOL and realized"
+    },
+    "calibration": {
+      "all": {
+        "n": 7803,
+        "markets": 2802,
+        "base_rate": 0.488,
+        "models": {
+          "mid": {
+            "n": 7803,
+            "brier": 0.10323,
+            "log_loss": 0.33692,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1971,
+                "p_mean": 0.0397,
+                "y_rate": 0.0299
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 663,
+                "p_mean": 0.1431,
+                "y_rate": 0.1207
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 478,
+                "p_mean": 0.2456,
+                "y_rate": 0.1653
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 358,
+                "p_mean": 0.3479,
+                "y_rate": 0.2765
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 362,
+                "p_mean": 0.4476,
+                "y_rate": 0.4171
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 374,
+                "p_mean": 0.5488,
+                "y_rate": 0.5321
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 369,
+                "p_mean": 0.6496,
+                "y_rate": 0.6423
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 482,
+                "p_mean": 0.751,
+                "y_rate": 0.7448
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 700,
+                "p_mean": 0.8555,
+                "y_rate": 0.8614
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 2046,
+                "p_mean": 0.959,
+                "y_rate": 0.9492
+              }
+            ]
+          },
+          "p_dvol": {
+            "n": 7803,
+            "brier": 0.11465,
+            "log_loss": 0.39552,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1299,
+                "p_mean": 0.0418,
+                "y_rate": 0.037
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 837,
+                "p_mean": 0.1476,
+                "y_rate": 0.0538
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 671,
+                "p_mean": 0.249,
+                "y_rate": 0.1222
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 584,
+                "p_mean": 0.3493,
+                "y_rate": 0.2192
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 542,
+                "p_mean": 0.4514,
+                "y_rate": 0.4133
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 539,
+                "p_mean": 0.5473,
+                "y_rate": 0.603
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 598,
+                "p_mean": 0.6517,
+                "y_rate": 0.7592
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 661,
+                "p_mean": 0.7509,
+                "y_rate": 0.8865
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 812,
+                "p_mean": 0.8523,
+                "y_rate": 0.9138
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1260,
+                "p_mean": 0.9603,
+                "y_rate": 0.9317
+              }
+            ]
+          },
+          "p_rv": {
+            "n": 7803,
+            "brier": 0.10697,
+            "log_loss": 0.3627,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1698,
+                "p_mean": 0.0383,
+                "y_rate": 0.0283
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 727,
+                "p_mean": 0.1478,
+                "y_rate": 0.0812
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 567,
+                "p_mean": 0.2495,
+                "y_rate": 0.1693
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 454,
+                "p_mean": 0.3477,
+                "y_rate": 0.2533
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 486,
+                "p_mean": 0.4507,
+                "y_rate": 0.4259
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 483,
+                "p_mean": 0.5503,
+                "y_rate": 0.5859
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 482,
+                "p_mean": 0.6522,
+                "y_rate": 0.7054
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 573,
+                "p_mean": 0.752,
+                "y_rate": 0.8045
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 762,
+                "p_mean": 0.8528,
+                "y_rate": 0.9213
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1571,
+                "p_mean": 0.961,
+                "y_rate": 0.9529
+              }
+            ]
+          },
+          "p_blend": {
+            "n": 7803,
+            "brier": 0.10809,
+            "log_loss": 0.36817,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1605,
+                "p_mean": 0.0412,
+                "y_rate": 0.0262
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 784,
+                "p_mean": 0.1453,
+                "y_rate": 0.0765
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 586,
+                "p_mean": 0.248,
+                "y_rate": 0.157
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 475,
+                "p_mean": 0.3487,
+                "y_rate": 0.2568
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 483,
+                "p_mean": 0.4513,
+                "y_rate": 0.4369
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 469,
+                "p_mean": 0.548,
+                "y_rate": 0.5821
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 506,
+                "p_mean": 0.6512,
+                "y_rate": 0.7095
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 561,
+                "p_mean": 0.7511,
+                "y_rate": 0.8307
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 800,
+                "p_mean": 0.8516,
+                "y_rate": 0.9113
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1534,
+                "p_mean": 0.9579,
+                "y_rate": 0.9478
+              }
+            ]
+          }
+        }
+      },
+      "45 min": {
+        "n": 2689,
+        "markets": 2689,
+        "base_rate": 0.4968,
+        "models": {
+          "mid": {
+            "n": 2689,
+            "brier": 0.10713,
+            "log_loss": 0.34763,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 637,
+                "p_mean": 0.042,
+                "y_rate": 0.0267
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 249,
+                "p_mean": 0.1438,
+                "y_rate": 0.1406
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 166,
+                "p_mean": 0.2466,
+                "y_rate": 0.1928
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 150,
+                "p_mean": 0.3478,
+                "y_rate": 0.3
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 121,
+                "p_mean": 0.4455,
+                "y_rate": 0.405
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 148,
+                "p_mean": 0.5482,
+                "y_rate": 0.5946
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 141,
+                "p_mean": 0.6505,
+                "y_rate": 0.6809
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 178,
+                "p_mean": 0.7526,
+                "y_rate": 0.7753
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 253,
+                "p_mean": 0.8548,
+                "y_rate": 0.8735
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 646,
+                "p_mean": 0.9563,
+                "y_rate": 0.952
+              }
+            ]
+          },
+          "p_dvol": {
+            "n": 2689,
+            "brier": 0.11896,
+            "log_loss": 0.4124,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 400,
+                "p_mean": 0.0471,
+                "y_rate": 0.0425
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 308,
+                "p_mean": 0.148,
+                "y_rate": 0.0584
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 234,
+                "p_mean": 0.2456,
+                "y_rate": 0.1282
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 227,
+                "p_mean": 0.3495,
+                "y_rate": 0.2423
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 183,
+                "p_mean": 0.4519,
+                "y_rate": 0.4262
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 207,
+                "p_mean": 0.5464,
+                "y_rate": 0.6135
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 209,
+                "p_mean": 0.6531,
+                "y_rate": 0.7895
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 238,
+                "p_mean": 0.7498,
+                "y_rate": 0.8992
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 292,
+                "p_mean": 0.8494,
+                "y_rate": 0.9384
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 391,
+                "p_mean": 0.9539,
+                "y_rate": 0.9156
+              }
+            ]
+          },
+          "p_rv": {
+            "n": 2689,
+            "brier": 0.1108,
+            "log_loss": 0.37694,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 570,
+                "p_mean": 0.037,
+                "y_rate": 0.0298
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 248,
+                "p_mean": 0.1475,
+                "y_rate": 0.0887
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 198,
+                "p_mean": 0.2498,
+                "y_rate": 0.2071
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 173,
+                "p_mean": 0.3498,
+                "y_rate": 0.2832
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 164,
+                "p_mean": 0.4501,
+                "y_rate": 0.4207
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 186,
+                "p_mean": 0.5502,
+                "y_rate": 0.6075
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 165,
+                "p_mean": 0.6534,
+                "y_rate": 0.7273
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 198,
+                "p_mean": 0.7517,
+                "y_rate": 0.8283
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 259,
+                "p_mean": 0.852,
+                "y_rate": 0.9344
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 528,
+                "p_mean": 0.962,
+                "y_rate": 0.9451
+              }
+            ]
+          },
+          "p_blend": {
+            "n": 2689,
+            "brier": 0.1121,
+            "log_loss": 0.38309,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 524,
+                "p_mean": 0.0425,
+                "y_rate": 0.0286
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 280,
+                "p_mean": 0.1464,
+                "y_rate": 0.0821
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 207,
+                "p_mean": 0.2477,
+                "y_rate": 0.1836
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 180,
+                "p_mean": 0.3511,
+                "y_rate": 0.2667
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 161,
+                "p_mean": 0.451,
+                "y_rate": 0.4596
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 181,
+                "p_mean": 0.5471,
+                "y_rate": 0.6022
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 167,
+                "p_mean": 0.6496,
+                "y_rate": 0.7126
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 209,
+                "p_mean": 0.7485,
+                "y_rate": 0.8708
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 279,
+                "p_mean": 0.852,
+                "y_rate": 0.9247
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 501,
+                "p_mean": 0.9555,
+                "y_rate": 0.9381
+              }
+            ]
+          }
+        }
+      },
+      "30 min": {
+        "n": 2388,
+        "markets": 2388,
+        "base_rate": 0.4937,
+        "models": {
+          "mid": {
+            "n": 2388,
+            "brier": 0.10129,
+            "log_loss": 0.33509,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 611,
+                "p_mean": 0.0406,
+                "y_rate": 0.0344
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 190,
+                "p_mean": 0.1399,
+                "y_rate": 0.1211
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 155,
+                "p_mean": 0.2452,
+                "y_rate": 0.1419
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 98,
+                "p_mean": 0.3478,
+                "y_rate": 0.2755
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 122,
+                "p_mean": 0.4482,
+                "y_rate": 0.4426
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 104,
+                "p_mean": 0.5481,
+                "y_rate": 0.5481
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 118,
+                "p_mean": 0.6476,
+                "y_rate": 0.6525
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 156,
+                "p_mean": 0.7497,
+                "y_rate": 0.7756
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 217,
+                "p_mean": 0.8556,
+                "y_rate": 0.8802
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 617,
+                "p_mean": 0.9585,
+                "y_rate": 0.9498
+              }
+            ]
+          },
+          "p_dvol": {
+            "n": 2388,
+            "brier": 0.11287,
+            "log_loss": 0.39613,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 406,
+                "p_mean": 0.042,
+                "y_rate": 0.0394
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 255,
+                "p_mean": 0.1472,
+                "y_rate": 0.0471
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 201,
+                "p_mean": 0.25,
+                "y_rate": 0.1343
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 171,
+                "p_mean": 0.3487,
+                "y_rate": 0.1988
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 173,
+                "p_mean": 0.4509,
+                "y_rate": 0.4393
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 152,
+                "p_mean": 0.5512,
+                "y_rate": 0.6579
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 181,
+                "p_mean": 0.6487,
+                "y_rate": 0.7459
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 207,
+                "p_mean": 0.7528,
+                "y_rate": 0.8792
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 244,
+                "p_mean": 0.8531,
+                "y_rate": 0.9303
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 398,
+                "p_mean": 0.9602,
+                "y_rate": 0.9296
+              }
+            ]
+          },
+          "p_rv": {
+            "n": 2388,
+            "brier": 0.10541,
+            "log_loss": 0.37021,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 537,
+                "p_mean": 0.037,
+                "y_rate": 0.0317
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 218,
+                "p_mean": 0.148,
+                "y_rate": 0.0826
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 163,
+                "p_mean": 0.25,
+                "y_rate": 0.1472
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 132,
+                "p_mean": 0.3479,
+                "y_rate": 0.25
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 156,
+                "p_mean": 0.4497,
+                "y_rate": 0.4679
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 136,
+                "p_mean": 0.5544,
+                "y_rate": 0.6324
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 158,
+                "p_mean": 0.6547,
+                "y_rate": 0.7089
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 155,
+                "p_mean": 0.749,
+                "y_rate": 0.8194
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 231,
+                "p_mean": 0.852,
+                "y_rate": 0.9177
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 502,
+                "p_mean": 0.9629,
+                "y_rate": 0.9502
+              }
+            ]
+          },
+          "p_blend": {
+            "n": 2388,
+            "brier": 0.10649,
+            "log_loss": 0.37229,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 508,
+                "p_mean": 0.0406,
+                "y_rate": 0.0295
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 231,
+                "p_mean": 0.1456,
+                "y_rate": 0.0736
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 173,
+                "p_mean": 0.2489,
+                "y_rate": 0.1503
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 139,
+                "p_mean": 0.3489,
+                "y_rate": 0.259
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 155,
+                "p_mean": 0.4505,
+                "y_rate": 0.4581
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 131,
+                "p_mean": 0.5521,
+                "y_rate": 0.626
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 165,
+                "p_mean": 0.6521,
+                "y_rate": 0.7273
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 155,
+                "p_mean": 0.7514,
+                "y_rate": 0.8129
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 244,
+                "p_mean": 0.8516,
+                "y_rate": 0.918
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 487,
+                "p_mean": 0.9589,
+                "y_rate": 0.9487
+              }
+            ]
+          }
+        }
+      },
+      "15 min": {
+        "n": 1793,
+        "markets": 1793,
+        "base_rate": 0.4785,
+        "models": {
+          "mid": {
+            "n": 1793,
+            "brier": 0.09642,
+            "log_loss": 0.31562,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 476,
+                "p_mean": 0.0372,
+                "y_rate": 0.0252
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 142,
+                "p_mean": 0.1453,
+                "y_rate": 0.0986
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 108,
+                "p_mean": 0.2431,
+                "y_rate": 0.1574
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 73,
+                "p_mean": 0.3495,
+                "y_rate": 0.2192
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 75,
+                "p_mean": 0.4484,
+                "y_rate": 0.3733
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 76,
+                "p_mean": 0.5512,
+                "y_rate": 0.5395
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 77,
+                "p_mean": 0.6498,
+                "y_rate": 0.5455
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 97,
+                "p_mean": 0.7513,
+                "y_rate": 0.7113
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 157,
+                "p_mean": 0.8544,
+                "y_rate": 0.8471
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 512,
+                "p_mean": 0.9619,
+                "y_rate": 0.9492
+              }
+            ]
+          },
+          "p_dvol": {
+            "n": 1793,
+            "brier": 0.1071,
+            "log_loss": 0.36845,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 328,
+                "p_mean": 0.038,
+                "y_rate": 0.0335
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 175,
+                "p_mean": 0.1448,
+                "y_rate": 0.0514
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 155,
+                "p_mean": 0.2496,
+                "y_rate": 0.0774
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 123,
+                "p_mean": 0.3509,
+                "y_rate": 0.187
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 108,
+                "p_mean": 0.4497,
+                "y_rate": 0.3611
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 120,
+                "p_mean": 0.5453,
+                "y_rate": 0.5833
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 131,
+                "p_mean": 0.6509,
+                "y_rate": 0.7252
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 146,
+                "p_mean": 0.7525,
+                "y_rate": 0.8699
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 175,
+                "p_mean": 0.8558,
+                "y_rate": 0.8971
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 332,
+                "p_mean": 0.9656,
+                "y_rate": 0.9488
+              }
+            ]
+          },
+          "p_rv": {
+            "n": 1793,
+            "brier": 0.10071,
+            "log_loss": 0.33276,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 404,
+                "p_mean": 0.0389,
+                "y_rate": 0.0223
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 158,
+                "p_mean": 0.1491,
+                "y_rate": 0.0823
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 133,
+                "p_mean": 0.2482,
+                "y_rate": 0.1429
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 99,
+                "p_mean": 0.3472,
+                "y_rate": 0.1515
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 95,
+                "p_mean": 0.4503,
+                "y_rate": 0.4
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 107,
+                "p_mean": 0.5471,
+                "y_rate": 0.5514
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 103,
+                "p_mean": 0.6504,
+                "y_rate": 0.6796
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 144,
+                "p_mean": 0.755,
+                "y_rate": 0.7917
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 162,
+                "p_mean": 0.855,
+                "y_rate": 0.9074
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 388,
+                "p_mean": 0.9607,
+                "y_rate": 0.9639
+              }
+            ]
+          },
+          "p_blend": {
+            "n": 1793,
+            "brier": 0.10119,
+            "log_loss": 0.34021,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 387,
+                "p_mean": 0.04,
+                "y_rate": 0.0233
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 169,
+                "p_mean": 0.1416,
+                "y_rate": 0.0651
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 137,
+                "p_mean": 0.2499,
+                "y_rate": 0.1168
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 97,
+                "p_mean": 0.3454,
+                "y_rate": 0.2062
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 99,
+                "p_mean": 0.448,
+                "y_rate": 0.3838
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 105,
+                "p_mean": 0.545,
+                "y_rate": 0.5714
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 114,
+                "p_mean": 0.6546,
+                "y_rate": 0.6754
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 125,
+                "p_mean": 0.7514,
+                "y_rate": 0.808
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 169,
+                "p_mean": 0.8522,
+                "y_rate": 0.9053
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 391,
+                "p_mean": 0.9601,
+                "y_rate": 0.954
+              }
+            ]
+          }
+        }
+      },
+      "5 min": {
+        "n": 933,
+        "markets": 933,
+        "base_rate": 0.4662,
+        "models": {
+          "mid": {
+            "n": 933,
+            "brier": 0.11004,
+            "log_loss": 0.35163,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 247,
+                "p_mean": 0.0368,
+                "y_rate": 0.0364
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 82,
+                "p_mean": 0.1447,
+                "y_rate": 0.0976
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 49,
+                "p_mean": 0.2492,
+                "y_rate": 0.1633
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 37,
+                "p_mean": 0.3457,
+                "y_rate": 0.2973
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 44,
+                "p_mean": 0.4507,
+                "y_rate": 0.4545
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 46,
+                "p_mean": 0.5483,
+                "y_rate": 0.2826
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 33,
+                "p_mean": 0.6523,
+                "y_rate": 0.6667
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 51,
+                "p_mean": 0.7489,
+                "y_rate": 0.6078
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 73,
+                "p_mean": 0.8601,
+                "y_rate": 0.7945
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 271,
+                "p_mean": 0.9607,
+                "y_rate": 0.941
+              }
+            ]
+          },
+          "p_dvol": {
+            "n": 933,
+            "brier": 0.12128,
+            "log_loss": 0.39734,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 165,
+                "p_mean": 0.0361,
+                "y_rate": 0.0242
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 99,
+                "p_mean": 0.1519,
+                "y_rate": 0.0606
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 81,
+                "p_mean": 0.2552,
+                "y_rate": 0.1605
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 63,
+                "p_mean": 0.3467,
+                "y_rate": 0.254
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 78,
+                "p_mean": 0.4533,
+                "y_rate": 0.3974
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 60,
+                "p_mean": 0.5446,
+                "y_rate": 0.4667
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 77,
+                "p_mean": 0.656,
+                "y_rate": 0.7662
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 70,
+                "p_mean": 0.7458,
+                "y_rate": 0.9
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 101,
+                "p_mean": 0.8522,
+                "y_rate": 0.8317
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 139,
+                "p_mean": 0.9663,
+                "y_rate": 0.9424
+              }
+            ]
+          },
+          "p_rv": {
+            "n": 933,
+            "brier": 0.11196,
+            "log_loss": 0.35999,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 187,
+                "p_mean": 0.0442,
+                "y_rate": 0.0267
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 103,
+                "p_mean": 0.1464,
+                "y_rate": 0.0583
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 73,
+                "p_mean": 0.2503,
+                "y_rate": 0.1644
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 50,
+                "p_mean": 0.341,
+                "y_rate": 0.36
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 71,
+                "p_mean": 0.4546,
+                "y_rate": 0.3803
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 54,
+                "p_mean": 0.5464,
+                "y_rate": 0.463
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 56,
+                "p_mean": 0.645,
+                "y_rate": 0.6786
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 76,
+                "p_mean": 0.7536,
+                "y_rate": 0.7368
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 110,
+                "p_mean": 0.8534,
+                "y_rate": 0.9182
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 153,
+                "p_mean": 0.952,
+                "y_rate": 0.9608
+              }
+            ]
+          },
+          "p_blend": {
+            "n": 933,
+            "brier": 0.11394,
+            "log_loss": 0.36832,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 186,
+                "p_mean": 0.0415,
+                "y_rate": 0.0161
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 104,
+                "p_mean": 0.1476,
+                "y_rate": 0.0865
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 69,
+                "p_mean": 0.2424,
+                "y_rate": 0.1739
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 59,
+                "p_mean": 0.3466,
+                "y_rate": 0.3051
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 68,
+                "p_mean": 0.4585,
+                "y_rate": 0.4118
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 52,
+                "p_mean": 0.547,
+                "y_rate": 0.4231
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 60,
+                "p_mean": 0.6468,
+                "y_rate": 0.7167
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 72,
+                "p_mean": 0.7576,
+                "y_rate": 0.7917
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 108,
+                "p_mean": 0.8499,
+                "y_rate": 0.8704
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 155,
+                "p_mean": 0.957,
+                "y_rate": 0.9613
+              }
+            ]
+          }
+        }
+      },
+      "BTC": {
+        "n": 4545,
+        "markets": 1632,
+        "base_rate": 0.4849,
+        "models": {
+          "mid": {
+            "n": 4545,
+            "brier": 0.10384,
+            "log_loss": 0.33891,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1157,
+                "p_mean": 0.0397,
+                "y_rate": 0.0328
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 390,
+                "p_mean": 0.1434,
+                "y_rate": 0.1205
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 267,
+                "p_mean": 0.2457,
+                "y_rate": 0.1573
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 219,
+                "p_mean": 0.3492,
+                "y_rate": 0.2648
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 207,
+                "p_mean": 0.4471,
+                "y_rate": 0.4155
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 218,
+                "p_mean": 0.5488,
+                "y_rate": 0.5459
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 217,
+                "p_mean": 0.6499,
+                "y_rate": 0.6083
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 280,
+                "p_mean": 0.7527,
+                "y_rate": 0.7429
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 393,
+                "p_mean": 0.8555,
+                "y_rate": 0.8601
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 1197,
+                "p_mean": 0.9598,
+                "y_rate": 0.949
+              }
+            ]
+          },
+          "p_dvol": {
+            "n": 4545,
+            "brier": 0.11415,
+            "log_loss": 0.39652,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 800,
+                "p_mean": 0.0388,
+                "y_rate": 0.0413
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 491,
+                "p_mean": 0.1468,
+                "y_rate": 0.0611
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 385,
+                "p_mean": 0.2501,
+                "y_rate": 0.1247
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 315,
+                "p_mean": 0.3491,
+                "y_rate": 0.219
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 306,
+                "p_mean": 0.4511,
+                "y_rate": 0.402
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 306,
+                "p_mean": 0.5474,
+                "y_rate": 0.6078
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 330,
+                "p_mean": 0.6516,
+                "y_rate": 0.7242
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 375,
+                "p_mean": 0.7516,
+                "y_rate": 0.8907
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 460,
+                "p_mean": 0.8534,
+                "y_rate": 0.9065
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 777,
+                "p_mean": 0.9629,
+                "y_rate": 0.9331
+              }
+            ]
+          },
+          "p_rv": {
+            "n": 4545,
+            "brier": 0.10744,
+            "log_loss": 0.36841,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1031,
+                "p_mean": 0.0379,
+                "y_rate": 0.0339
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 405,
+                "p_mean": 0.1484,
+                "y_rate": 0.084
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 325,
+                "p_mean": 0.249,
+                "y_rate": 0.1692
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 260,
+                "p_mean": 0.3483,
+                "y_rate": 0.2423
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 274,
+                "p_mean": 0.4499,
+                "y_rate": 0.4161
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 275,
+                "p_mean": 0.5491,
+                "y_rate": 0.5891
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 279,
+                "p_mean": 0.6519,
+                "y_rate": 0.6738
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 321,
+                "p_mean": 0.7521,
+                "y_rate": 0.8037
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 435,
+                "p_mean": 0.8538,
+                "y_rate": 0.9149
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 940,
+                "p_mean": 0.9622,
+                "y_rate": 0.9543
+              }
+            ]
+          },
+          "p_blend": {
+            "n": 4545,
+            "brier": 0.10821,
+            "log_loss": 0.37123,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 982,
+                "p_mean": 0.0396,
+                "y_rate": 0.0295
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 451,
+                "p_mean": 0.1452,
+                "y_rate": 0.0887
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 325,
+                "p_mean": 0.2484,
+                "y_rate": 0.1569
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 265,
+                "p_mean": 0.3482,
+                "y_rate": 0.2491
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 274,
+                "p_mean": 0.4505,
+                "y_rate": 0.427
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 266,
+                "p_mean": 0.5475,
+                "y_rate": 0.5865
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 288,
+                "p_mean": 0.6521,
+                "y_rate": 0.6806
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 314,
+                "p_mean": 0.7523,
+                "y_rate": 0.8217
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 444,
+                "p_mean": 0.8514,
+                "y_rate": 0.9032
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 936,
+                "p_mean": 0.9598,
+                "y_rate": 0.9509
+              }
+            ]
+          }
+        }
+      },
+      "ETH": {
+        "n": 3258,
+        "markets": 1170,
+        "base_rate": 0.4923,
+        "models": {
+          "mid": {
+            "n": 3258,
+            "brier": 0.10237,
+            "log_loss": 0.33413,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 814,
+                "p_mean": 0.0398,
+                "y_rate": 0.0258
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 273,
+                "p_mean": 0.1426,
+                "y_rate": 0.1209
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 211,
+                "p_mean": 0.2456,
+                "y_rate": 0.1754
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 139,
+                "p_mean": 0.3459,
+                "y_rate": 0.295
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 155,
+                "p_mean": 0.4484,
+                "y_rate": 0.4194
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 156,
+                "p_mean": 0.5488,
+                "y_rate": 0.5128
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 152,
+                "p_mean": 0.6491,
+                "y_rate": 0.6908
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 202,
+                "p_mean": 0.7486,
+                "y_rate": 0.7475
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 307,
+                "p_mean": 0.8556,
+                "y_rate": 0.8632
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 849,
+                "p_mean": 0.9578,
+                "y_rate": 0.9494
+              }
+            ]
+          },
+          "p_dvol": {
+            "n": 3258,
+            "brier": 0.11535,
+            "log_loss": 0.39413,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 499,
+                "p_mean": 0.0466,
+                "y_rate": 0.0301
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 346,
+                "p_mean": 0.1486,
+                "y_rate": 0.0434
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 286,
+                "p_mean": 0.2475,
+                "y_rate": 0.1189
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 269,
+                "p_mean": 0.3495,
+                "y_rate": 0.2193
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 236,
+                "p_mean": 0.4517,
+                "y_rate": 0.428
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 233,
+                "p_mean": 0.5472,
+                "y_rate": 0.5966
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 268,
+                "p_mean": 0.6518,
+                "y_rate": 0.8022
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 286,
+                "p_mean": 0.75,
+                "y_rate": 0.8811
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 352,
+                "p_mean": 0.8508,
+                "y_rate": 0.9233
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 483,
+                "p_mean": 0.9562,
+                "y_rate": 0.9296
+              }
+            ]
+          },
+          "p_rv": {
+            "n": 3258,
+            "brier": 0.10631,
+            "log_loss": 0.35474,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 667,
+                "p_mean": 0.0388,
+                "y_rate": 0.0195
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 322,
+                "p_mean": 0.1471,
+                "y_rate": 0.0776
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 242,
+                "p_mean": 0.2503,
+                "y_rate": 0.1694
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 194,
+                "p_mean": 0.347,
+                "y_rate": 0.268
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 212,
+                "p_mean": 0.4517,
+                "y_rate": 0.4387
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 208,
+                "p_mean": 0.5519,
+                "y_rate": 0.5817
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 203,
+                "p_mean": 0.6526,
+                "y_rate": 0.7488
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 252,
+                "p_mean": 0.7519,
+                "y_rate": 0.8056
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 327,
+                "p_mean": 0.8516,
+                "y_rate": 0.9297
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 631,
+                "p_mean": 0.9593,
+                "y_rate": 0.9509
+              }
+            ]
+          },
+          "p_blend": {
+            "n": 3258,
+            "brier": 0.10793,
+            "log_loss": 0.3639,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 623,
+                "p_mean": 0.0437,
+                "y_rate": 0.0209
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 333,
+                "p_mean": 0.1455,
+                "y_rate": 0.0601
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 261,
+                "p_mean": 0.2474,
+                "y_rate": 0.1571
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 210,
+                "p_mean": 0.3494,
+                "y_rate": 0.2667
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 209,
+                "p_mean": 0.4523,
+                "y_rate": 0.4498
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 203,
+                "p_mean": 0.5486,
+                "y_rate": 0.5764
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 218,
+                "p_mean": 0.6501,
+                "y_rate": 0.7477
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 247,
+                "p_mean": 0.7496,
+                "y_rate": 0.8421
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 356,
+                "p_mean": 0.8519,
+                "y_rate": 0.9213
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 598,
+                "p_mean": 0.9549,
+                "y_rate": 0.9431
+              }
+            ]
+          }
+        }
+      }
+    },
+    "strategy": {
+      "p_dvol": {
+        "0.0": {
+          "trades": 3524,
+          "pnl_per_contract": -0.0262,
+          "total": -92.24,
+          "hit_rate": 0.31,
+          "ci95": [
+            -0.0354,
+            -0.0163
+          ]
+        },
+        "0.02": {
+          "trades": 2619,
+          "pnl_per_contract": -0.0292,
+          "total": -76.37,
+          "hit_rate": 0.24,
+          "ci95": [
+            -0.0411,
+            -0.018
+          ]
+        },
+        "0.05": {
+          "trades": 1807,
+          "pnl_per_contract": -0.0236,
+          "total": -42.66,
+          "hit_rate": 0.195,
+          "ci95": [
+            -0.0381,
+            -0.0097
+          ]
+        }
+      },
+      "p_rv": {
+        "0.0": {
+          "trades": 3235,
+          "pnl_per_contract": -0.0316,
+          "total": -102.19,
+          "hit_rate": 0.319,
+          "ci95": [
+            -0.0425,
+            -0.0209
+          ]
+        },
+        "0.02": {
+          "trades": 1791,
+          "pnl_per_contract": -0.0385,
+          "total": -68.93,
+          "hit_rate": 0.195,
+          "ci95": [
+            -0.0543,
+            -0.0242
+          ]
+        },
+        "0.05": {
+          "trades": 842,
+          "pnl_per_contract": -0.043,
+          "total": -36.22,
+          "hit_rate": 0.162,
+          "ci95": [
+            -0.0658,
+            -0.0208
+          ]
+        }
+      },
+      "p_blend": {
+        "0.0": {
+          "trades": 3253,
+          "pnl_per_contract": -0.0276,
+          "total": -89.64,
+          "hit_rate": 0.283,
+          "ci95": [
+            -0.0382,
+            -0.0171
+          ]
+        },
+        "0.02": {
+          "trades": 2086,
+          "pnl_per_contract": -0.0386,
+          "total": -80.47,
+          "hit_rate": 0.205,
+          "ci95": [
+            -0.0518,
+            -0.0251
+          ]
+        },
+        "0.05": {
+          "trades": 1066,
+          "pnl_per_contract": -0.0354,
+          "total": -37.72,
+          "hit_rate": 0.198,
+          "ci95": [
+            -0.0553,
+            -0.015
+          ]
+        }
+      }
+    },
+    "vol": {
+      "BTC": {
+        "dvol_mean": 0.3941,
+        "rv_mean": 0.3992
+      },
+      "ETH": {
+        "dvol_mean": 0.5345,
+        "rv_mean": 0.5074
+      }
+    },
+    "market_implied_vol_median": {
+      "BTC": 0.3199,
+      "ETH": 0.397
+    },
+    "period": {
+      "from": "2026-10-31T14:00:00Z",
+      "to": "2026-11-07T14:00:00Z"
+    }
+  },
+  "seconds": 53.7
+}

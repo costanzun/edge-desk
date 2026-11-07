@@ -1,0 +1,134 @@
+{
+  "rows": [
+    {
+      "added_ms": 0,
+      "net": 136.24,
+      "net_settled": 105.34,
+      "fees": 49.65,
+      "trades": 73,
+      "contracts": 4946,
+      "signals": 495,
+      "expected_edge": 361.25,
+      "latency_cost": 0.0,
+      "digest": "189fc5690fc9"
+    },
+    {
+      "added_ms": 100,
+      "net": 127.55,
+      "net_settled": 105.34,
+      "fees": 48.71,
+      "trades": 72,
+      "contracts": 4890,
+      "signals": 495,
+      "expected_edge": 357.66,
+      "latency_cost": 0.0,
+      "digest": "e13370202012"
+    },
+    {
+      "added_ms": 250,
+      "net": 108.8,
+      "net_settled": 105.6,
+      "fees": 47.42,
+      "trades": 66,
+      "contracts": 4848,
+      "signals": 495,
+      "expected_edge": 353.07,
+      "latency_cost": 0.05,
+      "digest": "21f7987c9e54"
+    },
+    {
+      "added_ms": 500,
+      "net": 87.48,
+      "net_settled": 70.07,
+      "fees": 50.04,
+      "trades": 68,
+      "contracts": 5591,
+      "signals": 495,
+      "expected_edge": 386.42,
+      "latency_cost": 0.09,
+      "digest": "d05a8318ca13"
+    },
+    {
+      "added_ms": 1000,
+      "net": 81.35,
+      "net_settled": 69.51,
+      "fees": 50.13,
+      "trades": 68,
+      "contracts": 5591,
+      "signals": 495,
+      "expected_edge": 386.12,
+      "latency_cost": 0.2,
+      "digest": "32645532c9bd"
+    },
+    {
+      "added_ms": 2000,
+      "net": 80.72,
+      "net_settled": 69.51,
+      "fees": 49.58,
+      "trades": 66,
+      "contracts": 5556,
+      "signals": 495,
+      "expected_edge": 383.94,
+      "latency_cost": 0.16,
+      "digest": "1907046becf5"
+    },
+    {
+      "added_ms": 5000,
+      "net": 127.14,
+      "net_settled": 107.99,
+      "fees": 47.15,
+      "trades": 61,
+      "contracts": 4787,
+      "signals": 495,
+      "expected_edge": 349.43,
+      "latency_cost": 1.46,
+      "digest": "e0d683453f9e"
+    },
+    {
+      "added_ms": 10000,
+      "net": 99.02,
+      "net_settled": 96.21,
+      "fees": 42.92,
+      "trades": 55,
+      "contracts": 3490,
+      "signals": 495,
+      "expected_edge": 262.56,
+      "latency_cost": -20.04,
+      "digest": "0703e2106e30"
+    },
+    {
+      "added_ms": 30000,
+      "net": 54.5,
+      "net_settled": 90.8,
+      "fees": 40.88,
+      "trades": 46,
+      "contracts": 3264,
+      "signals": 495,
+      "expected_edge": 241.15,
+      "latency_cost": -16.84,
+      "digest": "903d41bfa9d5"
+    },
+    {
+      "added_ms": 60000,
+      "net": 52.98,
+      "net_settled": 89.42,
+      "fees": 38.89,
+      "trades": 41,
+      "contracts": 3107,
+      "signals": 495,
+      "expected_edge": 244.55,
+      "latency_cost": -16.79,
+      "digest": "4acbdd580e2a"
+    }
+  ],
+  "base_one_way_ms": {
+    "kalshi": 68.3,
+    "polymarket": 39.2
+  },
+  "data": "recorded",
+  "period": {
+    "from": "2026-11-07 14:21 UTC",
+    "to": "2026-11-07 15:30 UTC",
+    "hours": 1.14
+  }
+}

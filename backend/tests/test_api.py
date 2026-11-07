@@ -14,7 +14,7 @@ def client(tmp_path_factory):
     os.environ["EDGE_DATA_DIR"] = str(d)
     os.environ["EDGE_SOURCE"] = "synthetic"
     os.environ["EDGE_SPEED"] = "2000"
-    import edgedesk.api.main as main
+    from edgedesk.api import main
     main = importlib.reload(main)
     with TestClient(main.app) as c:
         for _ in range(100):

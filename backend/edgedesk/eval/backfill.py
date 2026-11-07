@@ -179,6 +179,7 @@ def dataset() -> list[dict]:
                 p_rv = digital_flat(s_t, K, r, T) if r else None
                 p_blend = sigmoid((logit(p_dvol) + logit(p_rv)) / 2) if p_dvol is not None and p_rv is not None else None
                 rows.append({"sym": sym, "event": m["event_ticker"], "ticker": m["ticker"], "h": h, "strike": K,
+                             "close": close,
                              "spot": s_t, "bid": c[1], "ask": c[2], "mid": (c[1] + c[2]) / 2, "y": y,
                              "dvol": dv, "rv": r, "p_dvol": p_dvol, "p_rv": p_rv, "p_blend": p_blend})
     return rows
@@ -245,7 +246,7 @@ def analyse(rows: list[dict]) -> dict[str, Any]:
         if abs(z) > 0.15 and x * z > 0:
             ivs[r["sym"]].append(x / (z * math.sqrt(T)))
     out["market_implied_vol_median"] = {s: round(sorted(v)[len(v) // 2], 4) for s, v in ivs.items() if v}
-    ts = sorted(_ts_close(r["event"]) for r in rows)
+    ts = sorted(r["close"] for r in rows)
     out["period"] = {"from": _iso(ts[0] - 3600),
                      "to": _iso(ts[-1])} if ts else None
     return out
