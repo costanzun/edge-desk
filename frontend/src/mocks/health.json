@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "paper_only": true,
+  "source": "mock",
+  "desk": {
+    "source": "mock",
+    "caught_up": true,
+    "records": 170912,
+    "uptime_s": 16540,
+    "engine_t": 1794065759000,
+    "lag_s": 2.1
+  },
+  "recorder": null,
+  "data_hours": 7,
+  "data_from": "2026-11-07 12:00 UTC"
+}

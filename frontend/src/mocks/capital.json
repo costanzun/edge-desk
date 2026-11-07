@@ -1,0 +1,371 @@
+{
+  "bankroll": 10000.0,
+  "kelly_fraction": 0.25,
+  "equity_curve": [
+    {
+      "t": 1794049230119,
+      "equity": 10000.0,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794053100000,
+      "equity": 9999.9,
+      "drawdown": -0.1
+    },
+    {
+      "t": 1794053100000,
+      "equity": 10148.03,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794053100000,
+      "equity": 10602.86,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794053100000,
+      "equity": 10560.07,
+      "drawdown": -42.79
+    },
+    {
+      "t": 1794053100000,
+      "equity": 10827.1,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794053100000,
+      "equity": 10740.61,
+      "drawdown": -86.49
+    },
+    {
+      "t": 1794053100000,
+      "equity": 10719.91,
+      "drawdown": -107.19
+    },
+    {
+      "t": 1794053100000,
+      "equity": 10720.78,
+      "drawdown": -106.32
+    },
+    {
+      "t": 1794053100000,
+      "equity": 10941.65,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794053100000,
+      "equity": 11184.4,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794056700000,
+      "equity": 11189.79,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794056700000,
+      "equity": 11366.89,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794056700000,
+      "equity": 11343.58,
+      "drawdown": -23.31
+    },
+    {
+      "t": 1794056700000,
+      "equity": 11286.2,
+      "drawdown": -80.69
+    },
+    {
+      "t": 1794056700000,
+      "equity": 11271.96,
+      "drawdown": -94.93
+    },
+    {
+      "t": 1794056700000,
+      "equity": 11411.76,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794056700000,
+      "equity": 11329.34,
+      "drawdown": -82.42
+    },
+    {
+      "t": 1794056700000,
+      "equity": 11279.43,
+      "drawdown": -132.33
+    },
+    {
+      "t": 1794056700000,
+      "equity": 11281.05,
+      "drawdown": -130.71
+    },
+    {
+      "t": 1794056700000,
+      "equity": 11320.26,
+      "drawdown": -91.5
+    },
+    {
+      "t": 1794060300000,
+      "equity": 11304.93,
+      "drawdown": -106.83
+    },
+    {
+      "t": 1794060300000,
+      "equity": 11521.62,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794060300000,
+      "equity": 11436.72,
+      "drawdown": -84.9
+    },
+    {
+      "t": 1794060300000,
+      "equity": 11786.58,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794060300000,
+      "equity": 11912.03,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794060300000,
+      "equity": 11901.78,
+      "drawdown": -10.25
+    },
+    {
+      "t": 1794060300000,
+      "equity": 11859.32,
+      "drawdown": -52.71
+    },
+    {
+      "t": 1794060300000,
+      "equity": 11863.61,
+      "drawdown": -48.42
+    },
+    {
+      "t": 1794060300000,
+      "equity": 11864.09,
+      "drawdown": -47.94
+    },
+    {
+      "t": 1794060300000,
+      "equity": 11849.86,
+      "drawdown": -62.17
+    },
+    {
+      "t": 1794060300000,
+      "equity": 11850.7,
+      "drawdown": -61.33
+    },
+    {
+      "t": 1794063900000,
+      "equity": 11853.46,
+      "drawdown": -58.57
+    },
+    {
+      "t": 1794063900000,
+      "equity": 11857.01,
+      "drawdown": -55.02
+    },
+    {
+      "t": 1794063900000,
+      "equity": 11849.59,
+      "drawdown": -62.44
+    },
+    {
+      "t": 1794063900000,
+      "equity": 11832.66,
+      "drawdown": -79.37
+    },
+    {
+      "t": 1794063900000,
+      "equity": 11986.29,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794063900000,
+      "equity": 12131.05,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794063900000,
+      "equity": 12028.1,
+      "drawdown": -102.95
+    },
+    {
+      "t": 1794063900000,
+      "equity": 12243.02,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794063900000,
+      "equity": 12242.79,
+      "drawdown": -0.23
+    },
+    {
+      "t": 1794063900000,
+      "equity": 12244.49,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794063900000,
+      "equity": 12244.8,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794065759000,
+      "equity": 12938.25,
+      "mark": true,
+      "drawdown": 0.0
+    }
+  ],
+  "max_drawdown": -132.33,
+  "stats": {
+    "n": 113,
+    "mean": 0.0026,
+    "sd": 0.00502,
+    "sharpe_per_trade": 0.518,
+    "hit_rate": 0.6726,
+    "caveat": "Per-trade, not annualised: trades overlap in time and share underlyings, so they are not independent and a daily Sharpe needs many more days of data."
+  },
+  "risk_of_ruin": {
+    "n_source_trades": 113,
+    "n_trades": 500,
+    "paths": 2000,
+    "ruin_level": 0.5,
+    "p_ruin": 0.0,
+    "final_p5": 3.0147,
+    "final_p50": 3.6369,
+    "final_p95": 4.3809,
+    "max_dd_p50": -0.0181,
+    "max_dd_p5": -0.0283
+  },
+  "attribution": {
+    "total": {
+      "edge": 643.83,
+      "latency": -1.81,
+      "slippage": -3.0,
+      "fees": -143.54,
+      "model_luck": 2442.77
+    },
+    "by": {
+      "venue": {
+        "kalshi": {
+          "edge": 579.32,
+          "latency": -1.81,
+          "slippage": -0.0,
+          "fees": -130.6,
+          "model_luck": 1999.84,
+          "pnl": 2446.75,
+          "n": 97
+        },
+        "polymarket": {
+          "edge": 64.51,
+          "latency": 0.0,
+          "slippage": -3.0,
+          "fees": -12.94,
+          "model_luck": 442.93,
+          "pnl": 491.5,
+          "n": 16
+        }
+      },
+      "pairing": {
+        "BTC kalshi": {
+          "edge": 579.32,
+          "latency": -1.81,
+          "slippage": -0.0,
+          "fees": -130.6,
+          "model_luck": 1999.84,
+          "pnl": 2446.75,
+          "n": 97
+        },
+        "BTC polymarket": {
+          "edge": 64.51,
+          "latency": 0.0,
+          "slippage": -3.0,
+          "fees": -12.94,
+          "model_luck": 442.93,
+          "pnl": 491.5,
+          "n": 16
+        }
+      },
+      "model": {
+        "hybrid": {
+          "edge": 643.83,
+          "latency": -1.81,
+          "slippage": -3.0,
+          "fees": -143.54,
+          "model_luck": 2442.77,
+          "pnl": 2938.25,
+          "n": 113
+        }
+      },
+      "tte_bucket": {
+        "15-60 min": {
+          "edge": 318.95,
+          "latency": -1.81,
+          "slippage": -3.0,
+          "fees": -66.25,
+          "model_luck": 1834.57,
+          "pnl": 2082.46,
+          "n": 56
+        },
+        "1-6 h": {
+          "edge": 324.87,
+          "latency": 0.0,
+          "slippage": -0.0,
+          "fees": -77.29,
+          "model_luck": 608.21,
+          "pnl": 855.79,
+          "n": 57
+        }
+      },
+      "edge_bucket": {
+        "2-3c": {
+          "edge": 471.56,
+          "latency": 0.0,
+          "slippage": -0.0,
+          "fees": -108.71,
+          "model_luck": 1385.67,
+          "pnl": 1748.52,
+          "n": 87
+        },
+        "3-5c": {
+          "edge": 161.66,
+          "latency": -0.61,
+          "slippage": -3.0,
+          "fees": -33.01,
+          "model_luck": 983.12,
+          "pnl": 1108.15,
+          "n": 24
+        },
+        "5-10c": {
+          "edge": 10.61,
+          "latency": -1.2,
+          "slippage": 0.0,
+          "fees": -1.82,
+          "model_luck": 73.99,
+          "pnl": 81.58,
+          "n": 2
+        }
+      }
+    }
+  },
+  "allocation": null,
+  "kelly_example": {
+    "cost_per_contract": 0.5673,
+    "edge": 0.0527,
+    "edge_conservative": 0.0327,
+    "kelly_full": 0.1217,
+    "kelly_conservative": 0.0755,
+    "fraction_used": 0.0189,
+    "stake": 188.35,
+    "contracts": 332,
+    "expected_log_growth": 0.001621
+  }
+}

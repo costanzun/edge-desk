@@ -1,0 +1,44 @@
+{
+  "trade_model": "hybrid",
+  "min_edge": 0.02,
+  "band_k": 1.0,
+  "kelly_fraction": 0.25,
+  "bankroll": 10000.0,
+  "order_style": "taker",
+  "added_latency_ms": 0.0,
+  "depth_haircut": 0.5,
+  "lookback_h": 24.0,
+  "kumo_enabled": false,
+  "limits": {
+    "max_cost_per_market": 250.0,
+    "max_cost_per_expiry": 750.0,
+    "max_cost_per_underlying": 1500.0,
+    "max_gross": 3000.0,
+    "max_open_orders": 8,
+    "daily_loss_limit": 300.0,
+    "max_book_age_s": 30.0,
+    "max_spot_age_s": 10.0,
+    "max_chain_age_s": 120.0,
+    "min_price": 0.03,
+    "max_price": 0.97,
+    "max_edge": 0.3,
+    "max_limit_vs_fair": 0.25
+  },
+  "kumo": {
+    "enabled": false,
+    "available": false,
+    "active": false,
+    "message": "Set KUMO_API_KEY in .env to enable"
+  },
+  "source": "mock",
+  "models": [
+    "options",
+    "hybrid",
+    "ensemble",
+    "realized"
+  ],
+  "order_styles": [
+    "taker",
+    "maker"
+  ]
+}
