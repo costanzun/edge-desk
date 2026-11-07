@@ -270,7 +270,7 @@ function SignalsFeed({ desk }: { desk: Desk }) {
               <span className="num w-16 shrink-0 text-ink-3">{utcTime(s.t).replace(" UTC", "")}</span>
               <SideChip side={s.side} />
               <VenueTag venue={s.venue} short />
-              <span className="num min-w-0 truncate text-ink" title={s.cid}>{shortCid(s.cid)}</span>
+              <span className="num min-w-0 truncate text-ink" title={s.cid}>{s.label ?? shortCid(s.cid)}</span>
               <span className="num ml-auto shrink-0 text-ink-2">@ {cents(s.px)}</span>
               <span className="num w-14 shrink-0 text-right text-pos">{edgeCents(s.edge)}</span>
             </li>
@@ -296,7 +296,7 @@ function OrdersFeed({ desk }: { desk: Desk }) {
               <span className="num w-16 shrink-0 text-ink-3">{utcTime(o.t).replace(" UTC", "")}</span>
               <Badge tone={EVENT_TONE[o.event ?? ""] ?? "muted"} className="w-[70px] justify-center">{(o.event ?? o.state ?? "") === "partially_filled" ? "partial" : (o.event ?? o.state ?? "").replace("_", " ")}</Badge>
               <span className="num shrink-0 text-ink-3">#{o.oid}</span>
-              <span className="num min-w-0 truncate text-ink" title={o.cid}>{o.side?.toUpperCase()} {shortCid(o.cid)}</span>
+              <span className="num min-w-0 truncate text-ink" title={o.cid}>{o.side?.toUpperCase()} {o.label ?? shortCid(o.cid)}</span>
               <span className="num ml-auto shrink-0 text-ink-2">
                 {o.event === "filled" || o.event === "partially_filled" ? `${num(o.filled)} @ ${cents(o.avg_px)}` : `${num(o.qty)} ≤ ${cents(o.limit)}`}
               </span>

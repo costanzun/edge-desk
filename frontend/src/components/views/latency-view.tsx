@@ -25,6 +25,11 @@ export function decayTakeaway(rows: DecayRow[]): string | null {
   if (d.length < 2) return null;
   const base = d[0].net as number;
   if (!base) return null;
+  const usdS = (x: number) => `${x < 0 ? "−" : "+"}$${Math.abs(x).toLocaleString("en-US", { maximumFractionDigits: 0 })}`;
+  if (base < 0) {
+    const last = d[d.length - 1];
+    return `There is no positive edge to decay: net is ${usdS(base)} with no added latency and ${usdS(last.net as number)} at ${addedLatency(last.added_ms)}. Speed is not the problem here; the model or the costs are.`;
+  }
   const at = (msv: number) => d.find((r) => r.added_ms === msv) ?? d.filter((r) => r.added_ms <= msv).pop();
   const one = at(1000);
   const ten = at(10000);
@@ -119,7 +124,7 @@ export function LatencyView() {
             </tbody>
           </Table>
         </Panel>
-        <Panel title="Feed lag" sub="Venue event timestamp → local receive time, where the venue provides one." className="xl:col-span-5" testId="feed-lag-panel">
+        <Panel title="Feed lag" sub="Venue event timestamp → local receive time, where the venue provides one. Negative values are clock offset between the venue and this Mac." className="xl:col-span-5" testId="feed-lag-panel">
           <DistGrid dists={lag} unit={ms} kind="lag" cols="single" />
         </Panel>
       </div>

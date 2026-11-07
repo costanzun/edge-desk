@@ -134,7 +134,12 @@
           "ok": true,
           "detail": "day P&L $2937.17"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 77000.0,
+      "expiry_ms": 1794067200000,
+      "venue": "polymarket",
+      "label": "BTC > $77,000"
     },
     {
       "seq": 292874,
@@ -222,7 +227,12 @@
           "ok": true,
           "detail": "day P&L $2860.10"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794070800000,
+      "venue": "kalshi",
+      "label": "BTC > $77,000"
     },
     {
       "seq": 292784,
@@ -312,7 +322,12 @@
           "ok": true,
           "detail": "day P&L $2857.08"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $77,000"
     },
     {
       "seq": 292766,
@@ -402,7 +417,12 @@
           "ok": true,
           "detail": "day P&L $2857.49"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 77000.0,
+      "expiry_ms": 1794067200000,
+      "venue": "polymarket",
+      "label": "BTC > $77,000"
     },
     {
       "seq": 292763,
@@ -492,7 +512,12 @@
           "ok": true,
           "detail": "day P&L $2857.49"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 292140,
@@ -582,7 +607,12 @@
           "ok": true,
           "detail": "day P&L $2811.74"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 290474,
@@ -670,7 +700,12 @@
           "ok": true,
           "detail": "day P&L $2799.04"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 290471,
@@ -758,7 +793,12 @@
           "ok": true,
           "detail": "day P&L $2799.04"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,500"
     },
     {
       "seq": 290444,
@@ -848,7 +888,12 @@
           "ok": true,
           "detail": "day P&L $2782.89"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 77499.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $77,500"
     },
     {
       "seq": 289960,
@@ -938,7 +983,12 @@
           "ok": true,
           "detail": "day P&L $2876.98"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 289192,
@@ -1028,7 +1078,12 @@
           "ok": true,
           "detail": "day P&L $2908.38"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 288764,
@@ -1116,7 +1171,12 @@
           "ok": true,
           "detail": "day P&L $2887.03"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794070800000,
+      "venue": "kalshi",
+      "label": "BTC > $77,000"
     },
     {
       "seq": 288268,
@@ -1204,7 +1264,12 @@
           "ok": true,
           "detail": "day P&L $2802.68"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 288227,
@@ -1294,7 +1359,12 @@
           "ok": true,
           "detail": "day P&L $2817.77"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 287884,
@@ -1382,7 +1452,12 @@
           "ok": true,
           "detail": "day P&L $2756.51"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 287731,
@@ -1472,7 +1547,12 @@
           "ok": true,
           "detail": "day P&L $2734.52"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 286867,
@@ -1562,7 +1642,12 @@
           "ok": true,
           "detail": "day P&L $2591.33"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,500"
     },
     {
       "seq": 286824,
@@ -1650,7 +1735,12 @@
           "ok": true,
           "detail": "day P&L $2593.83"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794070800000,
+      "venue": "kalshi",
+      "label": "BTC > $76,500"
     },
     {
       "seq": 286532,
@@ -1740,7 +1830,12 @@
           "ok": true,
           "detail": "day P&L $2655.35"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,500"
     },
     {
       "seq": 285181,
@@ -1830,7 +1925,12 @@
           "ok": true,
           "detail": "day P&L $2669.35"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,500"
     },
     {
       "seq": 283814,
@@ -1920,7 +2020,12 @@
           "ok": true,
           "detail": "day P&L $2717.70"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 283799,
@@ -2010,7 +2115,12 @@
           "ok": true,
           "detail": "day P&L $2712.65"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76500.0,
+      "expiry_ms": 1794067200000,
+      "venue": "polymarket",
+      "label": "BTC > $76,500"
     },
     {
       "seq": 283795,
@@ -2098,7 +2208,12 @@
           "ok": true,
           "detail": "day P&L $2712.65"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,500"
     },
     {
       "seq": 281163,
@@ -2186,7 +2301,12 @@
           "ok": true,
           "detail": "day P&L $2748.78"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 74249.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $74,250"
     },
     {
       "seq": 280417,
@@ -2274,7 +2394,12 @@
           "ok": true,
           "detail": "day P&L $2686.98"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 279629,
@@ -2362,7 +2487,12 @@
           "ok": true,
           "detail": "day P&L $2667.03"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 276280,
@@ -2452,7 +2582,12 @@
           "ok": true,
           "detail": "day P&L $2632.61"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,500"
     },
     {
       "seq": 273960,
@@ -2542,7 +2677,12 @@
           "ok": true,
           "detail": "day P&L $2715.88"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 271874,
@@ -2632,7 +2772,12 @@
           "ok": true,
           "detail": "day P&L $2651.88"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     },
     {
       "seq": 271823,
@@ -2722,7 +2867,12 @@
           "ok": true,
           "detail": "day P&L $2658.50"
         }
-      ]
+      ],
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "venue": "kalshi",
+      "label": "BTC > $76,750"
     }
   ],
   "halts": [],

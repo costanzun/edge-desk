@@ -110,6 +110,7 @@ export interface SignalEvent {
   t?: number;
   kind?: string;
   cid?: string;
+  label?: string;
   venue?: Venue;
   side?: Side;
   px?: number | null;
@@ -130,6 +131,7 @@ export interface OrderEvent {
   key?: string;
   venue?: Venue;
   cid?: string;
+  label?: string;
   side?: Side;
   limit?: number | null;
   qty?: number | null;

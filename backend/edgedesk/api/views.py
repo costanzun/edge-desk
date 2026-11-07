@@ -100,7 +100,15 @@ def curves(eng: Engine, max_groups: int = 6) -> list[dict]:
 
 def _event_rows(eng: Engine, kinds: tuple[str, ...], limit: int) -> list[dict]:
     evs = [ev for ev in eng.log.events if ev.kind in kinds][-limit:]
-    return [{"seq": ev.seq, "t": _ms(ev.t), "kind": ev.kind, **ev.data} for ev in reversed(evs)]
+    out = []
+    for ev in reversed(evs):
+        row = {"seq": ev.seq, "t": _ms(ev.t), "kind": ev.kind, **ev.data}
+        c = eng.contracts.get(ev.data.get("cid") or "")
+        if c:  # readable contract fields (Polymarket ids are 77-digit token numbers)
+            row.update({"sym": c["sym"], "strike": c["strike"], "expiry_ms": c["expiry_ms"], "venue": c["venue"],
+                        "label": f"{c['sym']} > ${c['strike']:,.0f}"})
+        out.append(row)
+    return out
 
 
 def desk(eng: Engine, recorder: dict | None = None, mode: str = "live") -> dict[str, Any]:

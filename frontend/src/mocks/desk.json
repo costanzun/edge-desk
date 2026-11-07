@@ -824,7 +824,11 @@
       "fee": 0.016317,
       "edge": 0.02036,
       "model": "hybrid",
-      "tte_s": 1442.0
+      "tte_s": 1442.0,
+      "sym": "BTC",
+      "strike": 77000.0,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $77,000"
     },
     {
       "seq": 292873,
@@ -840,7 +844,11 @@
       "fee": 0.015477,
       "edge": 0.031692,
       "model": "hybrid",
-      "tte_s": 5230.0
+      "tte_s": 5230.0,
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $77,000"
     },
     {
       "seq": 292783,
@@ -856,7 +864,11 @@
       "fee": 0.011613,
       "edge": 0.041417,
       "model": "hybrid",
-      "tte_s": 1642.0
+      "tte_s": 1642.0,
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $77,000"
     },
     {
       "seq": 292765,
@@ -872,7 +884,11 @@
       "fee": 0.013125,
       "edge": 0.02335,
       "model": "hybrid",
-      "tte_s": 1646.0
+      "tte_s": 1646.0,
+      "sym": "BTC",
+      "strike": 77000.0,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $77,000"
     },
     {
       "seq": 292762,
@@ -888,7 +904,11 @@
       "fee": 0.017325,
       "edge": 0.050355,
       "model": "hybrid",
-      "tte_s": 1646.0
+      "tte_s": 1646.0,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 292139,
@@ -904,7 +924,11 @@
       "fee": 0.017437,
       "edge": 0.041801,
       "model": "hybrid",
-      "tte_s": 1716.0
+      "tte_s": 1716.0,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 290473,
@@ -920,7 +944,11 @@
       "fee": 0.017472,
       "edge": 0.021808,
       "model": "hybrid",
-      "tte_s": 5498.0
+      "tte_s": 5498.0,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 290470,
@@ -936,7 +964,11 @@
       "fee": 0.011613,
       "edge": 0.021964,
       "model": "hybrid",
-      "tte_s": 1898.0
+      "tte_s": 1898.0,
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 290443,
@@ -952,7 +984,11 @@
       "fee": 0.002037,
       "edge": 0.022146,
       "model": "hybrid",
-      "tte_s": 1900.0
+      "tte_s": 1900.0,
+      "sym": "BTC",
+      "strike": 77499.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $77,500"
     },
     {
       "seq": 289959,
@@ -968,7 +1004,11 @@
       "fee": 0.017388,
       "edge": 0.022261,
       "model": "hybrid",
-      "tte_s": 1950.0
+      "tte_s": 1950.0,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 289191,
@@ -984,7 +1024,11 @@
       "fee": 0.016128,
       "edge": 0.026446,
       "model": "hybrid",
-      "tte_s": 2038.0
+      "tte_s": 2038.0,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 288763,
@@ -1000,7 +1044,11 @@
       "fee": 0.015232,
       "edge": 0.021622,
       "model": "hybrid",
-      "tte_s": 5680.0
+      "tte_s": 5680.0,
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $77,000"
     },
     {
       "seq": 288267,
@@ -1016,7 +1064,11 @@
       "fee": 0.0175,
       "edge": 0.023139,
       "model": "hybrid",
-      "tte_s": 5736.0
+      "tte_s": 5736.0,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 288226,
@@ -1032,7 +1084,11 @@
       "fee": 0.017472,
       "edge": 0.051588,
       "model": "hybrid",
-      "tte_s": 2140.0
+      "tte_s": 2140.0,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 287883,
@@ -1048,7 +1104,11 @@
       "fee": 0.017325,
       "edge": 0.03215,
       "model": "hybrid",
-      "tte_s": 5774.0
+      "tte_s": 5774.0,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 287730,
@@ -1064,7 +1124,11 @@
       "fee": 0.016492,
       "edge": 0.033993,
       "model": "hybrid",
-      "tte_s": 2190.0
+      "tte_s": 2190.0,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 286866,
@@ -1080,7 +1144,11 @@
       "fee": 0.017437,
       "edge": 0.024689,
       "model": "hybrid",
-      "tte_s": 2284.0
+      "tte_s": 2284.0,
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 286823,
@@ -1096,7 +1164,11 @@
       "fee": 0.017472,
       "edge": 0.036164,
       "model": "hybrid",
-      "tte_s": 5890.0
+      "tte_s": 5890.0,
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 286531,
@@ -1112,7 +1184,11 @@
       "fee": 0.0168,
       "edge": 0.05954,
       "model": "hybrid",
-      "tte_s": 2326.0
+      "tte_s": 2326.0,
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 285180,
@@ -1128,7 +1204,11 @@
       "fee": 0.016653,
       "edge": 0.04578,
       "model": "hybrid",
-      "tte_s": 2470.0
+      "tte_s": 2470.0,
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 283813,
@@ -1144,7 +1224,11 @@
       "fee": 0.016317,
       "edge": 0.027736,
       "model": "hybrid",
-      "tte_s": 2620.0
+      "tte_s": 2620.0,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 283798,
@@ -1160,7 +1244,11 @@
       "fee": 0.0147,
       "edge": 0.03931,
       "model": "hybrid",
-      "tte_s": 2620.0
+      "tte_s": 2620.0,
+      "sym": "BTC",
+      "strike": 76500.0,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 283794,
@@ -1176,7 +1264,11 @@
       "fee": 0.015925,
       "edge": 0.031658,
       "model": "hybrid",
-      "tte_s": 2620.0
+      "tte_s": 2620.0,
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 281162,
@@ -1192,7 +1284,11 @@
       "fee": 0.002037,
       "edge": 0.027963,
       "model": "hybrid",
-      "tte_s": 2910.0
+      "tte_s": 2910.0,
+      "sym": "BTC",
+      "strike": 74249.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $74,250"
     },
     {
       "seq": 280416,
@@ -1208,7 +1304,11 @@
       "fee": 0.016317,
       "edge": 0.023967,
       "model": "hybrid",
-      "tte_s": 2994.0
+      "tte_s": 2994.0,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,750"
     }
   ],
   "orders": [
@@ -1232,7 +1332,11 @@
       "maker": false,
       "reason": "edge 0.032 vs fair 0.398",
       "event": "expired",
-      "why": "IOC remainder"
+      "why": "IOC remainder",
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $77,000"
     },
     {
       "seq": 292913,
@@ -1254,7 +1358,11 @@
       "maker": false,
       "reason": "edge 0.032 vs fair 0.398",
       "event": "acked",
-      "touch_arrival": 0.39
+      "touch_arrival": 0.39,
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $77,000"
     },
     {
       "seq": 292875,
@@ -1276,7 +1384,11 @@
       "maker": false,
       "reason": "edge 0.032 vs fair 0.398",
       "event": "new",
-      "signal": 292873
+      "signal": 292873,
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $77,000"
     },
     {
       "seq": 290487,
@@ -1298,7 +1410,11 @@
       "maker": false,
       "reason": "edge 0.022 vs fair 0.426",
       "event": "expired",
-      "why": "IOC remainder"
+      "why": "IOC remainder",
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 290485,
@@ -1319,7 +1435,11 @@
       "t_new": 1794065302000500100,
       "maker": false,
       "reason": "edge 0.022 vs fair 0.426",
-      "event": "partially_filled"
+      "event": "partially_filled",
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 290483,
@@ -1341,7 +1461,11 @@
       "maker": false,
       "reason": "edge 0.022 vs fair 0.426",
       "event": "acked",
-      "touch_arrival": 0.52
+      "touch_arrival": 0.52,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 290481,
@@ -1362,7 +1486,11 @@
       "t_new": 1794065302000500100,
       "maker": false,
       "reason": "edge 0.022 vs fair 0.717",
-      "event": "filled"
+      "event": "filled",
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 290479,
@@ -1384,7 +1512,11 @@
       "maker": false,
       "reason": "edge 0.022 vs fair 0.717",
       "event": "acked",
-      "touch_arrival": 0.21
+      "touch_arrival": 0.21,
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 290475,
@@ -1406,7 +1538,11 @@
       "maker": false,
       "reason": "edge 0.022 vs fair 0.426",
       "event": "new",
-      "signal": 290473
+      "signal": 290473,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 290472,
@@ -1428,7 +1564,11 @@
       "maker": false,
       "reason": "edge 0.022 vs fair 0.717",
       "event": "new",
-      "signal": 290470
+      "signal": 290470,
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794067200000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 288803,
@@ -1450,7 +1590,11 @@
       "maker": false,
       "reason": "edge 0.022 vs fair 0.381",
       "event": "expired",
-      "why": "IOC remainder"
+      "why": "IOC remainder",
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $77,000"
     },
     {
       "seq": 288802,
@@ -1472,7 +1616,11 @@
       "maker": false,
       "reason": "edge 0.022 vs fair 0.381",
       "event": "acked",
-      "touch_arrival": 0.37
+      "touch_arrival": 0.37,
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $77,000"
     },
     {
       "seq": 288765,
@@ -1494,7 +1642,11 @@
       "maker": false,
       "reason": "edge 0.022 vs fair 0.381",
       "event": "new",
-      "signal": 288763
+      "signal": 288763,
+      "sym": "BTC",
+      "strike": 76999.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $77,000"
     },
     {
       "seq": 288276,
@@ -1516,7 +1668,11 @@
       "maker": false,
       "reason": "edge 0.023 vs fair 0.551",
       "event": "expired",
-      "why": "IOC remainder"
+      "why": "IOC remainder",
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 288274,
@@ -1537,7 +1693,11 @@
       "t_new": 1794065064000500100,
       "maker": false,
       "reason": "edge 0.023 vs fair 0.551",
-      "event": "partially_filled"
+      "event": "partially_filled",
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 288272,
@@ -1559,7 +1719,11 @@
       "maker": false,
       "reason": "edge 0.023 vs fair 0.551",
       "event": "acked",
-      "touch_arrival": 0.5
+      "touch_arrival": 0.5,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 288269,
@@ -1581,7 +1745,11 @@
       "maker": false,
       "reason": "edge 0.023 vs fair 0.551",
       "event": "new",
-      "signal": 288267
+      "signal": 288267,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 287891,
@@ -1603,7 +1771,11 @@
       "maker": false,
       "reason": "edge 0.032 vs fair 0.500",
       "event": "expired",
-      "why": "IOC remainder"
+      "why": "IOC remainder",
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 287889,
@@ -1624,7 +1796,11 @@
       "t_new": 1794065026000500100,
       "maker": false,
       "reason": "edge 0.032 vs fair 0.500",
-      "event": "partially_filled"
+      "event": "partially_filled",
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 287887,
@@ -1646,7 +1822,11 @@
       "maker": false,
       "reason": "edge 0.032 vs fair 0.500",
       "event": "acked",
-      "touch_arrival": 0.45
+      "touch_arrival": 0.45,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 287885,
@@ -1668,7 +1848,11 @@
       "maker": false,
       "reason": "edge 0.032 vs fair 0.500",
       "event": "new",
-      "signal": 287883
+      "signal": 287883,
+      "sym": "BTC",
+      "strike": 76749.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,750"
     },
     {
       "seq": 286836,
@@ -1690,7 +1874,11 @@
       "maker": false,
       "reason": "edge 0.036 vs fair 0.542",
       "event": "expired",
-      "why": "IOC remainder"
+      "why": "IOC remainder",
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 286834,
@@ -1711,7 +1899,11 @@
       "t_new": 1794064910000500500,
       "maker": false,
       "reason": "edge 0.036 vs fair 0.542",
-      "event": "partially_filled"
+      "event": "partially_filled",
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 286832,
@@ -1733,7 +1925,11 @@
       "maker": false,
       "reason": "edge 0.036 vs fair 0.542",
       "event": "acked",
-      "touch_arrival": 0.48
+      "touch_arrival": 0.48,
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,500"
     },
     {
       "seq": 286825,
@@ -1755,7 +1951,11 @@
       "maker": false,
       "reason": "edge 0.036 vs fair 0.542",
       "event": "new",
-      "signal": 286823
+      "signal": 286823,
+      "sym": "BTC",
+      "strike": 76499.99,
+      "expiry_ms": 1794070800000,
+      "label": "BTC > $76,500"
     }
   ],
   "config": {
