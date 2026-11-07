@@ -72,7 +72,7 @@ export function LatencyView() {
         ) : null}
       >
         {takeaway ? (
-          <p data-testid="decay-takeaway" className="mb-3 rounded-[5px] border border-brand/25 bg-brand-soft px-3 py-2 text-[13px] text-ink">
+          <p data-testid="decay-takeaway" className="mb-4 rounded-[20px] bg-panel-3 px-4 py-3 text-[13px] text-ink">
             <span className="font-semibold">Takeaway:</span> {takeaway}
           </p>
         ) : null}
@@ -140,9 +140,9 @@ function DistGrid({ dists, unit, kind, cols }: { dists: Record<string, Dist>; un
     <div className={cols === "single" ? "grid gap-3" : "grid gap-3 sm:grid-cols-2 xl:grid-cols-4"}>
       {entries.map(([name, d]) => {
         const venue = name.split(" ")[0];
-        const color = venueColor(venue) === "var(--ink-3)" ? "var(--brand)" : venueColor(venue);
+        const color = venueColor(venue) === "var(--ink-3)" ? "var(--m-mid)" : venueColor(venue);
         return (
-          <div key={name} data-testid={`${kind}-card`} className="rounded-[5px] border border-line bg-panel-2/60 p-3">
+          <div key={name} data-testid={`${kind}-card`} className="rounded-[20px] bg-panel-2 p-3">
             <div className="mb-1 flex items-baseline justify-between gap-2">
               <span className="flex items-center gap-1.5 text-[13px] font-medium capitalize">
                 <span className="inline-block size-2 rounded-[2px]" style={{ background: color }} />

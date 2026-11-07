@@ -8,7 +8,7 @@ import { usePoll } from "@/lib/hooks";
 import type { Limits, Settings, SettingsUpdate } from "@/lib/types";
 import { KumoCard } from "./shared";
 
-const inputCls = "num h-8 w-full rounded-[5px] border border-line bg-panel-2 px-2 text-[13px] outline-none focus:border-brand";
+const inputCls = "num h-9 w-full rounded-full border border-transparent bg-panel-2 px-3.5 text-[13px] outline-none focus:border-ink-3";
 
 type Field = { key: keyof SettingsUpdate; label: string; hint: string; scale?: number; step?: number; unit?: string };
 const FIELDS: Field[] = [
@@ -98,7 +98,7 @@ function SettingsForm({ initial, onSaved }: { initial: Settings; onSaved: () => 
         }
       />
       {msg ? (
-        <div role="status" data-testid="settings-msg" className={cn("rounded-md border px-3 py-2 text-[12.5px]", msg.ok ? "border-pos/30 bg-pos-soft text-pos" : "border-neg/30 bg-neg-soft text-neg")}>{msg.text}</div>
+        <div role="status" data-testid="settings-msg" className={cn("rounded-2xl px-4 py-2.5 text-[12.5px]", msg.ok ? "bg-pos-soft text-pos" : "bg-neg-soft text-neg")}>{msg.text}</div>
       ) : null}
 
       <div className="grid gap-4 xl:grid-cols-12">

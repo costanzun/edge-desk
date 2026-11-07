@@ -58,7 +58,7 @@ function ControlDialog({ mode, open, onClose }: { mode: "kill" | "resume"; open:
             value={reason}
             onChange={(e) => setReason(e.target.value)}
             placeholder={isKill ? "e.g. Polymarket feed looks stale" : "e.g. feed recovered"}
-            className="mt-1 h-9 w-full rounded-[5px] border border-line bg-panel-2 px-2.5 text-[13px] outline-none focus:border-brand"
+            className="mt-1 h-10 w-full rounded-full border border-transparent bg-panel-2 px-4 text-[13px] outline-none focus:border-ink-3"
           />
         </label>
         {err ? <p className="text-[12.5px] text-neg">{err}</p> : null}
@@ -91,10 +91,10 @@ export function HeaderKillSwitch() {
         onClick={() => setOpen(true)}
         title={halted ? "Trading halted: resume" : "Kill switch: halt all paper trading"}
         className={cn(
-          "inline-flex h-7 items-center gap-1.5 rounded-[5px] border px-2 text-[11.5px] font-semibold uppercase tracking-[0.06em] transition-colors",
+          "inline-flex h-7 items-center gap-1.5 rounded-full px-2 text-[11px] font-semibold uppercase tracking-[0.1em] transition-colors sm:px-3",
           halted
-            ? "border-pos/40 bg-pos-soft text-pos hover:opacity-90"
-            : "border-kill/40 bg-kill-soft text-kill hover:bg-kill hover:text-white",
+            ? "bg-pos-soft text-pos hover:opacity-90"
+            : "bg-panel text-kill hover:bg-kill hover:text-white",
         )}
       >
         {halted ? <Play className="size-3.5" /> : <Power className="size-3.5" strokeWidth={2.5} />}
@@ -116,7 +116,7 @@ export function BigKillSwitch() {
           type="button"
           data-testid="resume-button"
           onClick={() => setOpen(true)}
-          className="group flex size-36 shrink-0 flex-col items-center justify-center rounded-full border-4 border-pos/40 bg-pos-soft text-pos transition-transform hover:scale-[1.02]"
+          className="group flex size-36 shrink-0 flex-col items-center justify-center rounded-full bg-pos-soft text-pos transition-transform hover:scale-[1.02]"
         >
           <Play className="size-9" strokeWidth={2.2} />
           <span className="mt-1 text-[12px] font-bold uppercase tracking-[0.12em]">Resume</span>
@@ -126,9 +126,9 @@ export function BigKillSwitch() {
           type="button"
           data-testid="kill-switch"
           onClick={() => setOpen(true)}
-          className="group flex size-36 shrink-0 flex-col items-center justify-center rounded-full border-4 border-kill/30 bg-kill text-white shadow-[0_0_0_6px_var(--kill-soft)] transition-transform hover:scale-[1.02]"
+          className="group flex size-36 shrink-0 flex-col items-center justify-center rounded-full bg-chip text-chip-ink shadow-[0_0_0_8px_var(--panel-2)] transition-transform hover:scale-[1.02]"
         >
-          <Power className="size-10" strokeWidth={2.6} />
+          <Power className="size-10 text-kill" strokeWidth={2.4} />
           <span className="mt-1 text-[12px] font-bold uppercase tracking-[0.14em]">Kill switch</span>
         </button>
       )}

@@ -52,7 +52,7 @@ test.describe("shell", () => {
     await page.getByTestId("theme-toggle").click();
     await expect(page.locator("html")).toHaveClass(/dark/);
     const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
-    expect(bg).toBe("rgb(10, 14, 19)");
+    expect(bg).toBe("rgb(22, 23, 25)");
     await page.getByTestId("theme-toggle").click();
     await expect(page.locator("html")).not.toHaveClass(/dark/);
   });
@@ -295,6 +295,21 @@ test.describe("mobile", () => {
     await expect(page).toHaveURL(/\/latency$/);
     await expect(drawer).toHaveCount(0);
     await expect(page.getByTestId("edge-decay")).toBeVisible();
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    expect(overflow).toBeLessThanOrEqual(1);
+  });
+
+  test("bottom bar navigates, dot-matrix P&L hero fits", async ({ page }) => {
+    await open(page, "/", "pnl-hero");
+    await expect(page.getByTestId("pnl-hero")).toHaveText("+$2,942.87");
+    await expect(page.getByTestId("pnl-direction")).toHaveText(/gain/i);
+    const hero = (await page.getByTestId("pnl-hero").boundingBox())!;
+    expect(hero.x + hero.width).toBeLessThanOrEqual(375);
+    await expect(page.getByTestId("bottom-bar")).toBeVisible();
+    await page.getByTestId("bnav-risk").click();
+    await expect(page).toHaveURL(/\/risk$/);
+    await expect(page.getByTestId("bnav-risk")).toHaveAttribute("aria-current", "page");
+    await expect(page.getByTestId("kill-switch")).toBeVisible();
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     expect(overflow).toBeLessThanOrEqual(1);
   });

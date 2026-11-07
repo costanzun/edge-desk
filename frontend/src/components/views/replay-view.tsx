@@ -13,7 +13,7 @@ import type { ReplayJob, ReplayRequest } from "@/lib/types";
 import { AttributionTable } from "./shared";
 import { decayTakeaway } from "./latency-view";
 
-const inputCls = "num h-8 w-full rounded-[5px] border border-line bg-panel-2 px-2 text-[13px] outline-none focus:border-brand disabled:opacity-50";
+const inputCls = "num h-9 w-full rounded-full border border-transparent bg-panel-2 px-3.5 text-[13px] outline-none focus:border-ink-3 disabled:opacity-50";
 /** "2026-11-07T12:00Z" -> epoch ms */
 const hourMs = (h: string) => Date.parse(h);
 
@@ -80,13 +80,13 @@ export function ReplayView() {
       <ErrorNote error={periods.error} />
 
       <div className="grid gap-4 xl:grid-cols-12">
-        <Panel title="Recorded hours" testId="periods" className="xl:col-span-4" bodyClass="p-0">
+        <Panel title="Recorded hours" testId="periods" className="xl:col-span-4" bodyClass="px-0 pt-1 pb-3">
           {hours.length === 0 ? <Empty>No recorded hours yet.</Empty> : (
-            <ul className="max-h-[380px] divide-y divide-line border-t border-line overflow-y-auto">
+            <ul className="max-h-[380px] divide-y divide-line overflow-y-auto">
               {hours.map((h) => {
                 const inWin = mode === "window" && h.hour >= fromH && h.hour <= toH;
                 return (
-                  <li key={h.hour} className={cn("flex items-center gap-2.5 px-4 py-2 text-[12.5px]", inWin && "bg-brand-soft/60")}>
+                  <li key={h.hour} className={cn("flex items-center gap-2.5 px-4 py-2 text-[12.5px]", inWin && "bg-panel-2")}>
                     <span className={cn("inline-block size-1.5 rounded-full", inWin ? "bg-brand" : "bg-line")} />
                     <span className="num">{h.hour.replace("T", " ").replace("Z", " UTC")}</span>
                     <span className="num ml-auto text-ink-3">{bytes(h.bytes)}</span>
@@ -198,8 +198,8 @@ export function ReplayView() {
 function Digest({ digest, events, seconds }: { digest?: string; events?: number; seconds?: number }) {
   const [copied, setCopied] = useState(false);
   return (
-    <section data-testid="replay-digest" className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-md border border-brand/30 bg-brand-soft px-4 py-3">
-      <Fingerprint className="size-6 shrink-0 text-brand" />
+    <section data-testid="replay-digest" className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-[24px] bg-panel-3 px-5 py-4">
+      <Fingerprint className="size-6 shrink-0 text-ink" strokeWidth={1.6} />
       <div className="min-w-0 flex-1">
         <div className="label">Event-log digest · deterministic: same digest every run</div>
         <div data-testid="digest-value" className="num mt-0.5 break-all text-[13px] text-ink">{digest ?? "—"}</div>

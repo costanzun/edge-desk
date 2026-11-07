@@ -79,30 +79,30 @@ export function Explainer() {
     <section
       data-testid="explainer"
       aria-label="What Edge Desk does"
-      className="relative overflow-hidden rounded-lg border border-brand/25 bg-gradient-to-br from-brand-soft via-panel to-panel p-5 shadow-[0_1px_2px_rgba(16,22,30,0.04)]"
+      className="relative overflow-hidden rounded-[24px] bg-panel p-5 sm:p-6"
     >
       <button
         type="button"
         data-testid="explainer-dismiss"
         onClick={() => setDismissed(true)}
         aria-label="Hide this explanation"
-        className="absolute right-3 top-3 rounded p-1 text-ink-3 hover:bg-panel-2 hover:text-ink"
+        className="absolute right-4 top-4 rounded-full p-1.5 text-ink-3 hover:bg-panel-2 hover:text-ink"
       >
         <X className="size-4" />
       </button>
-      <h2 className="pr-8 text-[16px] font-semibold tracking-tight">What Edge Desk does, in three steps</h2>
+      <h2 className="pr-8 text-[11.5px] font-semibold uppercase tracking-[0.09em]">What Edge Desk does, in three steps</h2>
       <ol className="mt-4 grid gap-3 md:grid-cols-3">
         {STEPS.map((s, i) => (
-          <li key={s.title} className="relative flex flex-col rounded-lg border border-line bg-panel/80 p-4">
+          <li key={s.title} className="relative flex flex-col rounded-[20px] bg-panel-2 p-4">
             <div className="flex items-center gap-2.5">
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand">
-                <s.icon className="size-4" />
+              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-panel text-ink">
+                <s.icon className="size-4" strokeWidth={1.7} />
               </span>
-              <span className="text-[11px] font-medium text-ink-3">Step {i + 1}</span>
+              <span className="text-[10.5px] font-semibold uppercase tracking-[0.1em] text-ink-3">Step {i + 1}</span>
             </div>
-            <h3 className="mt-2.5 text-[14px] font-semibold">{s.title}</h3>
+            <h3 className="mt-2.5 text-[15px] font-medium">{s.title}</h3>
             <p className="mt-1 flex-1 text-[13px] leading-relaxed text-ink-2">{s.body}</p>
-            <div className="mt-3 inline-flex w-fit items-center rounded-full border border-line bg-panel-2 px-2.5 py-1 text-[11.5px] text-ink-2">{s.chip}</div>
+            <div className="mt-3 inline-flex w-fit items-center rounded-full bg-panel px-3 py-1 text-[11.5px] text-ink-2">{s.chip}</div>
             {i < STEPS.length - 1 ? (
               <ArrowRight aria-hidden className="absolute -right-3 top-1/2 z-10 hidden size-5 -translate-y-1/2 rounded-full bg-panel p-0.5 text-ink-3 md:block" />
             ) : null}
@@ -116,7 +116,7 @@ export function Explainer() {
         <Link
           href="/how-it-works"
           data-testid="explainer-link"
-          className="inline-flex items-center gap-1.5 rounded-md border border-line bg-panel px-3 py-1.5 text-[13px] font-medium text-ink hover:border-brand hover:text-brand"
+          className="inline-flex h-9 items-center gap-1.5 rounded-full bg-chip px-4 text-[13px] font-medium text-chip-ink hover:opacity-90"
         >
           How it works <ArrowRight className="size-3.5" />
         </Link>

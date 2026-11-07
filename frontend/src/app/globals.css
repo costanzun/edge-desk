@@ -3,17 +3,24 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Edge Desk: a trading desk on warm paper (light) or graphite-navy (dark).
- * IBM Plex Sans for the interface, IBM Plex Mono for every number. Amber is the brand and the
- * model; teal / red-orange are gain / loss (always paired with a sign or an arrow);
- * indigo = Kalshi, fuchsia = Polymarket, everywhere.
+ * Edge Desk, Nothing-OS style: warm light-grey paper, white and mid-grey cards with generous
+ * radii, a charcoal nav, and one vivid orange-red accent (#FF4A1C) used sparingly.
+ * Inter (thin weights for figures), Doto dot-matrix for the single hero number,
+ * IBM Plex Mono for tables. Gain / loss always carry a sign, an arrow or a word, never colour alone.
+ * Kalshi = charcoal, Polymarket = slate grey, everywhere.
  */
 @theme inline {
-  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-dot: var(--font-doto), var(--font-plex-mono), ui-monospace, monospace;
   --color-bg: var(--bg);
   --color-panel: var(--panel);
   --color-panel-2: var(--panel-2);
+  --color-panel-3: var(--panel-3);
+  --color-nav: var(--nav);
+  --color-nav-ink: var(--nav-ink);
+  --color-chip: var(--chip);
+  --color-chip-ink: var(--chip-ink);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
@@ -36,68 +43,78 @@
 }
 
 :root {
-  --bg: #f6f5f1;
-  --panel: #ffffff;
-  --panel-2: #faf9f6;
-  --ink: #14181f;
-  --ink-2: #4a5160;
-  --ink-3: #7b8190;
-  --line: #e3e1da;
-  --grid: #eeece6;
-  --brand: #c2410c;
-  --brand-2: #d97706;
-  --brand-soft: #fcefe3;
+  --bg: #e4e3e6;
+  --panel: #fbfbfc;
+  --panel-2: #efeef1;
+  --panel-3: #c9c8cc;
+  --nav: #2b2d31;
+  --nav-ink: #8e8f95;
+  --chip: #2b2d31;
+  --chip-ink: #f4f3f6;
+  --ink: #1d1e21;
+  --ink-2: #4f5056;
+  --ink-3: #85858c;
+  --line: #e6e5e9;
+  --grid: #ebeaee;
+  --brand: #ff4a1c;
+  --brand-2: #ff4a1c;
+  --brand-soft: #fde6de;
   --brand-ink: #ffffff;
-  --band: rgba(217, 119, 6, 0.16);
-  --pos: #0d9488;
-  --pos-soft: #e3f4f1;
-  --neg: #dc2626;
-  --neg-soft: #fdeceb;
-  --warn: #b45309;
-  --warn-soft: #fdf3e2;
-  --kalshi: #4f46e5;
-  --poly: #c026d3;
-  --kill: #dc2626;
-  --kill-soft: #fef0ef;
-  --m-options: #2563eb;
-  --m-hybrid: #c2410c;
-  --m-realized: #4d7c0f;
-  --m-ensemble: #be185d;
-  --m-mid: #7b8190;
-  --m-kumo: #0891b2;
+  --band: rgba(255, 74, 28, 0.13);
+  --pos: #1f8a5f;
+  --pos-soft: #e1f0e8;
+  --neg: #c81e3a;
+  --neg-soft: #f8e1e5;
+  --warn: #a8660b;
+  --warn-soft: #f6ead6;
+  --kalshi: #2b2d31;
+  --poly: #7f8ba0;
+  --kill: #c81e3a;
+  --kill-soft: #f8e1e5;
+  --m-options: #2b2d31;
+  --m-hybrid: #ff4a1c;
+  --m-realized: #6f8f6a;
+  --m-ensemble: #5f7896;
+  --m-mid: #9a999f;
+  --m-kumo: #b08968;
   color-scheme: light;
 }
 
 .dark {
-  --bg: #0a0e13;
-  --panel: #10161e;
-  --panel-2: #141b25;
-  --ink: #e6e9ee;
-  --ink-2: #a3abb8;
-  --ink-3: #6f7886;
-  --line: #1d2530;
-  --grid: #18202a;
-  --brand: #f5a524;
-  --brand-2: #f5a524;
-  --brand-soft: #2a1f0c;
-  --brand-ink: #14100a;
-  --band: rgba(245, 165, 36, 0.16);
-  --pos: #2dd4bf;
-  --pos-soft: #0e2a28;
-  --neg: #f87171;
-  --neg-soft: #2e1517;
-  --warn: #fbbf24;
-  --warn-soft: #2a2110;
-  --kalshi: #818cf8;
-  --poly: #e879f9;
-  --kill: #ef4444;
-  --kill-soft: #2c1214;
-  --m-options: #60a5fa;
-  --m-hybrid: #f5a524;
-  --m-realized: #a3e635;
-  --m-ensemble: #f472b6;
-  --m-mid: #8a93a1;
-  --m-kumo: #22d3ee;
+  --bg: #161719;
+  --panel: #2b2d31;
+  --panel-2: #222326;
+  --panel-3: #3d3f44;
+  --nav: #0e0f10;
+  --nav-ink: #7d7e84;
+  --chip: #f0eff2;
+  --chip-ink: #1d1e21;
+  --ink: #eeedf0;
+  --ink-2: #b3b3b9;
+  --ink-3: #85868c;
+  --line: #36383d;
+  --grid: #33353a;
+  --brand: #ff5a2e;
+  --brand-2: #ff5a2e;
+  --brand-soft: #3a2119;
+  --brand-ink: #ffffff;
+  --band: rgba(255, 90, 46, 0.18);
+  --pos: #4cc791;
+  --pos-soft: #183026;
+  --neg: #ff6b81;
+  --neg-soft: #3a1c22;
+  --warn: #e9b44c;
+  --warn-soft: #33291a;
+  --kalshi: #e6e5e9;
+  --poly: #8d9ab0;
+  --kill: #ef4b63;
+  --kill-soft: #3a1c22;
+  --m-options: #e6e5e9;
+  --m-hybrid: #ff5a2e;
+  --m-realized: #8fb389;
+  --m-ensemble: #86a2c4;
+  --m-mid: #8a8a90;
+  --m-kumo: #c9a07d;
   color-scheme: dark;
 }
 
@@ -109,7 +126,7 @@ body {
 
 body {
   font-family: var(--font-sans);
-  font-feature-settings: "ss02";
+  font-feature-settings: "cv11", "ss01";
   -webkit-font-smoothing: antialiased;
 }
 
@@ -123,9 +140,37 @@ body {
   font-feature-settings: "zero" 0;
 }
 
+/* Thin figures with tabular digits (secondary stats). */
+.thin {
+  font-family: var(--font-sans);
+  font-weight: 250;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Dot-matrix figure (the one hero number). */
+.dot {
+  font-family: var(--font-dot);
+  font-weight: 800;
+  font-variation-settings: "ROND" 100;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+/* Small bold uppercase unit next to a thin figure. */
+.unit {
+  font-family: var(--font-sans);
+  font-size: 0.42em;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-left: 0.35em;
+}
+
 .label {
-  font-size: 10.5px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 650;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -191,4 +236,10 @@ body {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Signed / numeric spans inside a thin figure keep the thin face. */
+.thin .num {
+  font-family: inherit;
+  font-weight: inherit;
 }

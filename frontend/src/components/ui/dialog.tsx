@@ -38,15 +38,15 @@ export function Dialog({
         aria-modal="true"
         aria-label={typeof title === "string" ? title : undefined}
         data-testid={testId}
-        className={`fade-in relative w-full max-w-md rounded-md border bg-panel shadow-xl ${tone === "danger" ? "border-kill/50" : "border-line"}`}
+        className={`fade-in relative w-full max-w-md rounded-[24px] bg-panel shadow-[0_20px_60px_rgba(0,0,0,0.25)] ${tone === "danger" ? "ring-2 ring-kill/40" : ""}`}
       >
-        <div className="flex items-center justify-between border-b border-line px-4 py-2.5">
-          <h2 className="text-[14px] font-semibold">{title}</h2>
-          <button type="button" onClick={onClose} aria-label="Close" className="rounded p-1 text-ink-3 hover:bg-panel-2 hover:text-ink">
+        <div className="flex items-center justify-between px-5 pb-1 pt-4">
+          <h2 className="text-[16px] font-semibold tracking-tight">{title}</h2>
+          <button type="button" onClick={onClose} aria-label="Close" className="rounded-full p-1.5 text-ink-3 hover:bg-panel-2 hover:text-ink">
             <X className="size-4" />
           </button>
         </div>
-        <div className="p-4">{children}</div>
+        <div className="px-5 pb-5 pt-2">{children}</div>
       </div>
     </div>
   );

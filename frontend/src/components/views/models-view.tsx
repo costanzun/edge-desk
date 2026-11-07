@@ -158,7 +158,7 @@ export function ModelsView() {
 
 function Mini({ label, v }: { label: string; v: string }) {
   return (
-    <div className="rounded-[5px] border border-line bg-panel-2 px-2.5 py-2">
+    <div className="rounded-[20px] bg-panel-2 px-2.5 py-2">
       <div className="num text-[16px] font-medium">{v}</div>
       <div className="text-[10.5px] uppercase tracking-wide text-ink-3">{label}</div>
     </div>

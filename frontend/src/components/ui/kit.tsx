@@ -12,10 +12,10 @@ export function cn(...inputs: ClassValue[]) {
 
 export function PageHeader({ title, sub, right }: { title: string; sub?: ReactNode; right?: ReactNode }) {
   return (
-    <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+    <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
       <div className="min-w-0">
-        <h1 className="text-[24px] font-semibold tracking-tight text-ink">{title}</h1>
-        {sub ? <p className="mt-1 max-w-3xl text-[13.5px] leading-relaxed text-ink-2">{sub}</p> : null}
+        <h1 className="text-[30px] font-light leading-tight tracking-[-0.02em] text-ink sm:text-[34px]">{title}</h1>
+        {sub ? <p className="mt-1.5 max-w-3xl text-[13.5px] leading-relaxed text-ink-2">{sub}</p> : null}
       </div>
       {right}
     </div>
@@ -32,11 +32,11 @@ export function Info({ text, className }: { text: string; className?: string }) 
         title={text}
         className="inline-flex size-4 items-center justify-center rounded-full text-ink-3 outline-none hover:text-ink focus-visible:text-ink"
       >
-        <InfoIcon className="size-3.5" aria-hidden />
+        <InfoIcon className="size-3.5" strokeWidth={1.75} aria-hidden />
       </button>
       <span
         role="tooltip"
-        className="pointer-events-none absolute left-1/2 top-full z-50 mt-1.5 hidden w-64 max-w-[70vw] -translate-x-1/2 rounded-md border border-line bg-panel px-2.5 py-2 text-left text-[12px] font-normal leading-snug text-ink-2 shadow-lg group-hover/info:block group-focus-within/info:block"
+        className="pointer-events-none absolute left-1/2 top-full z-50 mt-1.5 hidden w-64 max-w-[70vw] -translate-x-1/2 rounded-2xl bg-chip px-3 py-2.5 text-left text-[12px] font-normal leading-snug text-chip-ink shadow-[0_8px_24px_rgba(0,0,0,0.18)] group-hover/info:block group-focus-within/info:block"
       >
         {text}
       </span>
@@ -44,59 +44,97 @@ export function Info({ text, className }: { text: string; className?: string }) 
   );
 }
 
+export type Surface = "white" | "grey" | "accent" | "dark";
+const SURFACE: Record<Surface, string> = {
+  white: "bg-panel text-ink",
+  grey: "bg-panel-3 text-ink",
+  accent: "bg-brand text-white [--ink:#fff] [--ink-2:rgba(255,255,255,0.88)] [--ink-3:rgba(255,255,255,0.78)]",
+  dark: "bg-nav text-white [--ink:#f4f3f6] [--ink-2:#c4c4ca] [--ink-3:#9a9aa1]",
+};
+
+/** Small bold uppercase card label with letter-spacing ("HEART RATE"). */
+export function CardLabel({ children, className }: { children: ReactNode; className?: string }) {
+  return <span className={cn("text-[11.5px] font-semibold uppercase leading-tight tracking-[0.09em] text-ink", className)}>{children}</span>;
+}
+
 export function Panel({
-  title, right, children, className, bodyClass, testId, sub, info,
+  title, right, children, className, bodyClass, testId, sub, info, icon, surface = "white",
 }: {
   title?: ReactNode; right?: ReactNode; children: ReactNode; className?: string; bodyClass?: string; testId?: string; sub?: ReactNode; info?: string;
+  icon?: ReactNode; surface?: Surface;
 }) {
   return (
-    <section data-testid={testId} className={cn("min-w-0 rounded-lg border border-line bg-panel shadow-[0_1px_2px_rgba(16,22,30,0.04)]", className)}>
+    <section data-testid={testId} className={cn("min-w-0 rounded-[24px]", SURFACE[surface], className)}>
       {title || right ? (
-        <header className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2 px-4 pb-1 pt-3.5">
-          <div className="min-w-0">
-            <h2 className="flex items-center gap-1.5 text-[14px] font-semibold tracking-tight text-ink">
-              {title}
+        <header className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2 px-5 pb-1 pt-4.5">
+          <div className="min-w-0 flex-[1_1_15rem]">
+            <h2 className="flex items-center gap-1.5">
+              <CardLabel>{title}</CardLabel>
               {info ? <Info text={info} /> : null}
             </h2>
-            {sub ? <p className="mt-0.5 text-[12.5px] leading-snug text-ink-3">{sub}</p> : null}
+            {sub ? <p className="mt-1 text-[12.5px] leading-snug text-ink-3">{sub}</p> : null}
           </div>
           {right ? <div className="flex min-w-0 max-w-full flex-wrap items-center gap-2">{right}</div> : null}
+          {icon && !right ? <span aria-hidden className="shrink-0 text-ink [&_svg]:size-5 [&_svg]:stroke-[1.6]">{icon}</span> : null}
         </header>
       ) : null}
-      <div className={cn("p-4", (title || right) && "pt-3", bodyClass)}>{children}</div>
+      <div className={cn("p-5", (title || right) && "pt-3", bodyClass)}>{children}</div>
     </section>
   );
 }
 
+/** A stat card: label + muted sub-label on top, thin figure with a bold unit. Pill shape for single numbers. */
 export function Kpi({
-  label, value, sub, tone, testId, icon, hint,
-}: { label: string; value: ReactNode; sub?: ReactNode; tone?: "pos" | "neg" | "brand"; testId?: string; icon?: ReactNode; hint?: string }) {
+  label, value, sub, tone, testId, icon, hint, unit, surface = "white", shape = "card", className,
+}: {
+  label: string; value: ReactNode; sub?: ReactNode; tone?: "pos" | "neg" | "brand"; testId?: string; icon?: ReactNode; hint?: string;
+  unit?: ReactNode; surface?: Surface; shape?: "card" | "pill"; className?: string;
+}) {
+  const pill = shape === "pill";
   return (
-    <div data-testid={testId ?? "kpi"} className="min-w-0 rounded-lg border border-line bg-panel px-4 py-3.5 shadow-[0_1px_2px_rgba(16,22,30,0.04)]">
-      <div className="flex items-center gap-1.5 text-[12px] font-medium text-ink-3">{icon}{label}{hint ? <Info text={hint} /> : null}</div>
-      <div
-        className={cn(
-          "num mt-2 truncate text-[20px] font-medium leading-none tracking-tight",
-          tone === "pos" && "text-pos", tone === "neg" && "text-neg", tone === "brand" && "text-brand",
-        )}
-      >
-        {value}
+    <div
+      data-testid={testId ?? "kpi"}
+      className={cn("relative flex min-w-0 flex-col", SURFACE[surface], pill ? "rounded-full px-5 py-3.5 sm:px-7 sm:py-4" : "rounded-[24px] px-4 py-4 sm:px-5 sm:py-4.5", className)}
+    >
+      {pill ? null : (
+        <div className="flex items-start justify-between gap-2">
+          <div className="flex min-w-0 items-center gap-1.5"><CardLabel className="truncate">{label}</CardLabel>{hint ? <Info text={hint} /> : null}</div>
+          {icon ? <span aria-hidden className="shrink-0 text-ink [&_svg]:size-[18px] [&_svg]:stroke-[1.6]">{icon}</span> : null}
+        </div>
+      )}
+      <div className={cn("flex items-end justify-between gap-2", pill ? "" : "mt-auto pt-5")}>
+        <div
+          className={cn(
+            "thin min-w-0 truncate text-[24px] leading-none text-ink sm:text-[30px]",
+            tone === "pos" && "text-pos", tone === "neg" && "text-neg", tone === "brand" && "text-brand",
+          )}
+        >
+          {value}{unit ? <span className="unit">{unit}</span> : null}
+        </div>
+        {pill && icon ? <span aria-hidden className="mb-0.5 shrink-0 text-ink [&_svg]:size-5 [&_svg]:stroke-[1.6]">{icon}</span> : null}
       </div>
-      {sub ? <div className="mt-1.5 line-clamp-2 text-[12px] leading-snug text-ink-3 [font-variant-numeric:tabular-nums]">{sub}</div> : null}
+      {pill ? (
+        <div className="mt-1.5 flex min-w-0 items-center gap-1.5 text-[11.5px] leading-tight">
+          <CardLabel className="shrink-0">{label}</CardLabel>{hint ? <Info text={hint} /> : null}
+          {sub ? <span className="min-w-0 truncate text-ink-3">/ {sub}</span> : null}
+        </div>
+      ) : sub ? (
+        <div className="mt-2 line-clamp-2 text-[12px] leading-snug text-ink-3 [font-variant-numeric:tabular-nums]">{sub}</div>
+      ) : null}
     </div>
   );
 }
 
-/** The one headline number of a page, with its plain-English caption. */
+/** The one headline number of a page, with its plain-English caption (thin figure, no card fill). */
 export function HeroKpi({
   label, value, caption, detail, testId, hint, className,
 }: { label: string; value: ReactNode; caption?: ReactNode; detail?: ReactNode; testId?: string; hint?: string; className?: string }) {
   return (
-    <div data-testid={testId ?? "kpi"} className={cn("min-w-0 rounded-lg border border-line bg-panel px-5 py-4 shadow-[0_1px_2px_rgba(16,22,30,0.04)]", className)}>
-      <div className="flex items-center gap-1.5 text-[12.5px] font-medium text-ink-2">{label}{hint ? <Info text={hint} /> : null}</div>
-      <div className="num mt-2 text-[34px] font-medium leading-none tracking-tight">{value}</div>
-      {detail ? <div className="mt-2.5 text-[12.5px] text-ink-2 [font-variant-numeric:tabular-nums]">{detail}</div> : null}
-      {caption ? <p className="mt-2 text-[12px] leading-snug text-ink-3">{caption}</p> : null}
+    <div data-testid={testId ?? "kpi"} className={cn("flex min-w-0 flex-col rounded-[24px] bg-panel px-6 py-5", className)}>
+      <div className="flex items-center gap-1.5"><CardLabel>{label}</CardLabel>{hint ? <Info text={hint} /> : null}</div>
+      <div className="thin mt-4 text-[44px] leading-none tracking-[-0.02em]">{value}</div>
+      {detail ? <div className="mt-3 text-[12.5px] text-ink-2 [font-variant-numeric:tabular-nums]">{detail}</div> : null}
+      {caption ? <p className="mt-auto pt-2 text-[12px] leading-snug text-ink-3">{caption}</p> : null}
     </div>
   );
 }
@@ -106,8 +144,24 @@ export function KpiRow({ hero, children, testId }: { hero: ReactNode; children: 
   return (
     <div data-testid={testId} className="grid gap-3 xl:grid-cols-[minmax(0,1.35fr)_minmax(0,3fr)]">
       {hero}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">{children}</div>
+      <div className="grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:grid-cols-3">{children}</div>
     </div>
+  );
+}
+
+/** Small round pie (share filled in the accent, rest a pale tint). */
+export function Pie({ value, size = 72, className }: { value: number | null | undefined; size?: number; className?: string }) {
+  const v = value == null || !Number.isFinite(value) ? 0 : Math.max(0, Math.min(1, value));
+  const r = size / 2;
+  const a = v * Math.PI * 2;
+  const x = r + r * Math.sin(a);
+  const y = r - r * Math.cos(a);
+  const d = v >= 0.9999 ? "" : `M${r},${r} L${r},0 A${r},${r} 0 ${a > Math.PI ? 1 : 0} 1 ${x.toFixed(2)},${y.toFixed(2)} Z`;
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className={className} aria-hidden>
+      <circle cx={r} cy={r} r={r} style={{ fill: "var(--brand)", opacity: 0.28 }} />
+      {v >= 0.9999 ? <circle cx={r} cy={r} r={r} style={{ fill: "var(--brand)" }} /> : <path d={d} style={{ fill: "var(--brand)" }} />}
+    </svg>
   );
 }
 
@@ -124,7 +178,7 @@ export function feedStatus(f: { status?: string | null; ok?: boolean | null; las
 export function StatusPill({ status, testId }: { status: "live" | "slow" | "down"; testId?: string }) {
   const s = STATUS[status];
   return (
-    <span data-testid={testId} className={cn("inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11.5px] font-medium", s.cls)}>
+    <span data-testid={testId} className={cn("inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[11.5px] font-semibold", s.cls)}>
       <span className={cn("size-1.5 rounded-full", s.dot, status === "live" && "live-dot")} />
       {s.label}
     </span>
@@ -164,7 +218,7 @@ export function SideChip({ side, testId }: { side?: string | null; testId?: stri
     <span
       data-testid={testId}
       className={cn(
-        "num inline-flex shrink-0 items-center whitespace-nowrap rounded-[3px] px-1.5 py-0.5 text-[10.5px] font-semibold tracking-wide",
+        "inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-2 py-0.5 text-[10.5px] font-semibold tracking-[0.06em]",
         yes ? "bg-pos-soft text-pos" : "bg-neg-soft text-neg",
       )}
     >
@@ -178,12 +232,12 @@ export function Badge({ children, tone = "muted", className, testId }: { childre
     <span
       data-testid={testId}
       className={cn(
-        "inline-flex items-center gap-1 whitespace-nowrap rounded-[3px] border px-1.5 py-0.5 text-[10.5px] font-semibold uppercase tracking-[0.08em]",
-        tone === "muted" && "border-line bg-panel-2 text-ink-2",
-        tone === "brand" && "border-brand/30 bg-brand-soft text-brand",
-        tone === "pos" && "border-pos/30 bg-pos-soft text-pos",
-        tone === "neg" && "border-neg/30 bg-neg-soft text-neg",
-        tone === "warn" && "border-warn/30 bg-warn-soft text-warn",
+        "inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-transparent px-2 py-0.5 text-[10.5px] font-semibold uppercase tracking-[0.08em]",
+        tone === "muted" && "bg-panel-2 text-ink-2",
+        tone === "brand" && "bg-brand-soft text-brand",
+        tone === "pos" && "bg-pos-soft text-pos",
+        tone === "neg" && "bg-neg-soft text-neg",
+        tone === "warn" && "bg-warn-soft text-warn",
         className,
       )}
     >
@@ -210,12 +264,12 @@ export function Button({
       {...rest}
       disabled={rest.disabled || loading}
       className={cn(
-        "inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-[5px] border font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50",
-        size === "sm" && "h-7 px-2.5 text-[12px]",
-        size === "md" && "h-8 px-3 text-[13px]",
+        "inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50",
+        size === "sm" && "h-7 px-3 text-[12px]",
+        size === "md" && "h-9 px-4 text-[13px]",
         size === "lg" && "h-11 px-5 text-[14px]",
-        variant === "default" && "border-line bg-panel text-ink hover:bg-panel-2",
-        variant === "primary" && "border-brand bg-brand text-brand-ink hover:opacity-90",
+        variant === "default" && "border-transparent bg-panel-2 text-ink hover:bg-panel-3",
+        variant === "primary" && "border-chip bg-chip text-chip-ink hover:opacity-90",
         variant === "danger" && "border-kill bg-kill text-white hover:opacity-90",
         variant === "ghost" && "border-transparent bg-transparent text-ink-2 hover:bg-panel-2 hover:text-ink",
         className,
@@ -231,7 +285,7 @@ export function Segmented<T extends string>({
   value, onChange, options, testIdPrefix, size = "sm",
 }: { value: T; onChange: (v: T) => void; options: { value: T; label: ReactNode }[]; testIdPrefix?: string; size?: "sm" | "md" }) {
   return (
-    <div role="tablist" className="no-scrollbar inline-flex max-w-full overflow-x-auto rounded-[5px] border border-line bg-panel-2 p-0.5">
+    <div role="tablist" className="no-scrollbar inline-flex max-w-full overflow-x-auto rounded-full bg-panel-2 p-1">
       {options.map((o) => (
         <button
           key={o.value}
@@ -241,9 +295,9 @@ export function Segmented<T extends string>({
           data-testid={testIdPrefix ? `${testIdPrefix}-${o.value}` : undefined}
           onClick={() => onChange(o.value)}
           className={cn(
-            "whitespace-nowrap rounded-[3px] px-2.5 font-medium transition-colors",
+            "whitespace-nowrap rounded-full px-2.5 font-medium transition-colors sm:px-3",
             size === "sm" ? "h-6 text-[12px]" : "h-7 text-[13px]",
-            value === o.value ? "bg-panel text-ink shadow-[0_0_0_1px_var(--line)]" : "text-ink-3 hover:text-ink",
+            value === o.value ? "bg-chip text-chip-ink" : "text-ink-3 hover:text-ink",
           )}
         >
           {o.label}
@@ -260,7 +314,7 @@ export function Empty({ children, className }: { children: ReactNode; className?
 export function ErrorNote({ error }: { error: string | null }) {
   if (!error) return null;
   return (
-    <div role="alert" data-testid="api-error" className="mb-3 rounded-md border border-neg/30 bg-neg-soft px-3 py-2 text-[12.5px] text-neg">
+    <div role="alert" data-testid="api-error" className="mb-3 rounded-2xl bg-neg-soft px-4 py-2.5 text-[12.5px] text-neg">
       {error}
     </div>
   );
@@ -309,7 +363,7 @@ export function UsageBar({ used, cap, testId }: { used: number; cap: number; tes
 
 export function Table({ children, className, testId }: { children: ReactNode; className?: string; testId?: string }) {
   return (
-    <div className={cn("-mx-4 overflow-x-auto", className)}>
+    <div className={cn("-mx-5 overflow-x-auto", className)}>
       <table data-testid={testId} className="w-full border-collapse text-[12.5px]">{children}</table>
     </div>
   );
@@ -320,7 +374,7 @@ export function Th({ children, right, className, ...rest }: { children?: ReactNo
     <th
       {...rest}
       className={cn(
-        "whitespace-nowrap border-b border-line bg-panel-2/70 px-2 py-2 text-[11.5px] font-medium text-ink-3 first:pl-4 last:pr-4",
+        "whitespace-nowrap border-b border-line px-2 py-2.5 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-ink-3 first:pl-5 last:pr-5",
         right ? "text-right" : "text-left",
         className,
       )}
@@ -335,7 +389,7 @@ export function Td({ children, right, className, mono, ...rest }: { children?: R
     <td
       {...rest}
       className={cn(
-        "whitespace-nowrap border-b border-line/60 px-2 py-[7px] first:pl-4 last:pr-4",
+        "whitespace-nowrap border-b border-line/70 px-2 py-2 first:pl-5 last:pr-5",
         right && "text-right",
         (mono || right) && "num",
         className,

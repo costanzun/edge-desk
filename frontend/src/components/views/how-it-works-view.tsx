@@ -56,8 +56,8 @@ export function HowItWorksView() {
         <ol data-testid="pipeline-diagram" aria-label="Pipeline diagram" className="flex flex-wrap items-center gap-x-1.5 gap-y-2">
           {STAGES.map((s, i) => (
             <Fragment key={s.title}>
-              <li className="inline-flex items-center gap-2 rounded-full border border-brand/25 bg-brand-soft py-1 pl-1 pr-3 text-[12.5px] font-medium text-ink">
-                <span className="flex size-6 items-center justify-center rounded-full bg-panel text-brand"><s.icon className="size-3.5" /></span>
+              <li className="inline-flex items-center gap-2 rounded-full bg-panel-2 py-1 pl-1 pr-3.5 text-[12.5px] font-medium text-ink">
+                <span className="flex size-6 items-center justify-center rounded-full bg-panel text-ink"><s.icon className="size-3.5" /></span>
                 {s.title}
               </li>
               {i < STAGES.length - 1 ? <li aria-hidden className="text-ink-3"><ArrowRight className="size-4" /></li> : null}
@@ -66,15 +66,15 @@ export function HowItWorksView() {
         </ol>
         <ol className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {STAGES.map((s, i) => (
-            <li key={s.title} data-testid="pipeline-stage" className="rounded-lg border border-line bg-panel-2/60 p-3.5">
+            <li key={s.title} data-testid="pipeline-stage" className="rounded-[20px] bg-panel-2 p-3.5">
               <div className="flex items-center gap-2">
-                <span className="num flex size-6 shrink-0 items-center justify-center rounded-full bg-brand text-[11px] font-semibold text-brand-ink">{i + 1}</span>
+                <span className="num flex size-6 shrink-0 items-center justify-center rounded-full bg-chip text-[11px] font-semibold text-chip-ink">{i + 1}</span>
                 <h3 className="text-[13.5px] font-semibold leading-snug">{s.title}</h3>
               </div>
               <p className="mt-1.5 text-[12.5px] leading-relaxed text-ink-2">{s.body}</p>
             </li>
           ))}
-          <li className="flex items-start gap-2 rounded-lg border border-dashed border-line p-3.5 text-[12.5px] leading-relaxed text-ink-2">
+          <li className="flex items-start gap-2 rounded-[20px] border border-dashed border-ink-3/40 p-3.5 text-[12.5px] leading-relaxed text-ink-2">
             <Database className="mt-0.5 size-4 shrink-0 text-ink-3" />
             <span>
               The same engine runs live and in replay: live trading is a replay of the log as it grows. That is why a day can be audited afterwards, and why the
@@ -85,12 +85,12 @@ export function HowItWorksView() {
       </Panel>
 
       <div className="grid gap-5 xl:grid-cols-2">
-        <Panel title="What each page is for" testId="pages-list" bodyClass="p-0">
-          <ul className="divide-y divide-line border-t border-line">
+        <Panel title="What each page is for" testId="pages-list" bodyClass="px-0 pt-1 pb-3">
+          <ul className="divide-y divide-line">
             {PAGES.map((p) => (
               <li key={p.href}>
                 <Link href={p.href} className="flex items-start gap-3 px-4 py-3 hover:bg-panel-2">
-                  <p.icon className="mt-0.5 size-4 shrink-0 text-brand" />
+                  <p.icon className="mt-0.5 size-4 shrink-0 text-ink-2" strokeWidth={1.7} />
                   <span>
                     <span className="block text-[13.5px] font-medium">{p.name}</span>
                     <span className="block text-[12.5px] leading-relaxed text-ink-2">{p.what}</span>
@@ -113,8 +113,8 @@ export function HowItWorksView() {
         </Panel>
       </div>
 
-      <div data-testid="paper-note" className="flex items-center gap-3 rounded-lg border border-brand/25 bg-brand-soft px-4 py-3 text-[13px] text-ink">
-        <ShieldCheck className="size-5 shrink-0 text-brand" />
+      <div data-testid="paper-note" className="flex items-center gap-3 rounded-[24px] bg-chip px-5 py-3.5 text-[13px] text-chip-ink">
+        <ShieldCheck className="size-5 shrink-0 text-brand" strokeWidth={1.8} />
         <span><span className="font-semibold">Paper only</span> · no real orders · public data · not investment advice.</span>
       </div>
     </div>

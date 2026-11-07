@@ -136,9 +136,9 @@ export function RiskView() {
           )}
           <p className="mt-2 text-[11.5px] leading-relaxed text-ink-3">Guards on every market-data message: duplicates, schema violations, out-of-order sequence, stale timestamps, clock skew.</p>
         </Panel>
-        <Panel title="Halts" info="Times trading was stopped (kill switch, loss limit, reconciliation break) and resumed." testId="halts-panel" bodyClass="p-0">
+        <Panel title="Halts" info="Times trading was stopped (kill switch, loss limit, reconciliation break) and resumed." testId="halts-panel" bodyClass="px-0 pt-1 pb-3">
           {halts.length === 0 ? <Empty className="min-h-0 py-6">No halts in this session.</Empty> : (
-            <ul className="max-h-56 divide-y divide-line border-t border-line overflow-y-auto">
+            <ul className="max-h-56 divide-y divide-line overflow-y-auto">
               {[...halts].reverse().map((h, i) => (
                 <li key={i} className="flex items-center gap-2 px-4 py-2 text-[12px]">
                   <span className="num w-24 shrink-0 whitespace-nowrap text-ink-3">{utcTime(h.t)}</span>
@@ -184,9 +184,9 @@ export function RiskView() {
             </ul>
           )}
         </Panel>
-        <Panel title="Recent risk decisions" info="The last signals and whether they passed. Hover a row to see all 15 checks." testId="recent-decisions" className="xl:col-span-7" bodyClass="p-0">
+        <Panel title="Recent risk decisions" info="The last signals and whether they passed. Hover a row to see all 15 checks." testId="recent-decisions" className="xl:col-span-7" bodyClass="px-0 pt-1 pb-3">
           {(r.recent ?? []).length === 0 ? <Empty>No decisions yet.</Empty> : (
-            <ul className="max-h-[360px] divide-y divide-line border-t border-line overflow-y-auto">
+            <ul className="max-h-[360px] divide-y divide-line overflow-y-auto">
               {(r.recent ?? []).slice(0, 30).map((d, i) => (
                 <li key={d.seq ?? i} className="flex items-center gap-2.5 px-4 py-2 text-[12px]" title={(d.checks ?? []).map((c) => `${c.ok ? "✓" : "✗"} ${c.check}: ${c.detail ?? ""}`).join("\n")}>
                   <span className="num w-16 shrink-0 text-ink-3">{utcTime(d.t).replace(" UTC", "")}</span>
@@ -207,9 +207,9 @@ export function RiskView() {
 
 function Stat({ label, v, tone }: { label: string; v: string; tone?: "pos" | "neg" }) {
   return (
-    <div className="rounded-[5px] border border-line bg-panel-2 px-2 py-2">
-      <div className={cn("num text-[18px] font-medium", tone === "pos" && "text-pos", tone === "neg" && "text-neg")}>{v}</div>
-      <div className="text-[10.5px] uppercase tracking-wide text-ink-3">{label}</div>
+    <div className="rounded-full bg-panel-2 px-2 py-2.5">
+      <div className={cn("thin text-[24px] leading-tight", tone === "pos" && "text-pos", tone === "neg" && "text-neg")}>{v}</div>
+      <div className="truncate text-[10px] font-semibold uppercase tracking-[0.08em] text-ink-2">{label}</div>
     </div>
   );
 }

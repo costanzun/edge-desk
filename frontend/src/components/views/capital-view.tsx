@@ -98,7 +98,7 @@ export function CapitalView() {
             ["Sharpe per trade", num(st?.sharpe_per_trade, 2)],
             ["Hit rate", pct(st?.hit_rate)],
           ]} />
-          {st?.caveat ? <p data-testid="stats-caveat" className="mt-3 rounded-[5px] border border-warn/30 bg-warn-soft px-2.5 py-2 text-[11.5px] leading-relaxed text-ink-2">{st.caveat}</p> : null}
+          {st?.caveat ? <p data-testid="stats-caveat" className="mt-3 rounded-[18px] bg-warn-soft px-2.5 py-2 text-[11.5px] leading-relaxed text-ink-2">{st.caveat}</p> : null}
         </Panel>
         <Panel title="Equity" info="Paper account value over time, with drawdown below." className="xl:col-span-4" sub={`Max drawdown ${usd(data.max_drawdown)}`}>
           <EquityChart points={data.equity_curve ?? []} bankroll={data.bankroll} height={240} testId="capital-equity" />
@@ -139,7 +139,7 @@ function Field({ label, children, hint }: { label: string; children: React.React
   );
 }
 
-const inputCls = "num h-8 w-full rounded-[5px] border border-line bg-panel-2 px-2 text-[13px] outline-none focus:border-brand";
+const inputCls = "num h-9 w-full rounded-full border border-transparent bg-panel-2 px-3.5 text-[13px] outline-none focus:border-ink-3";
 
 function KellyCalculator({ bankroll, fraction }: { bankroll: number; fraction: number }) {
   const [inp, setInp] = useState<KellyInput>({ p: 0.62, price: 0.55, venue: "kalshi", band: 0.02, fraction, bankroll });
@@ -196,7 +196,7 @@ function KellyCalculator({ bankroll, fraction }: { bankroll: number; fraction: n
         className="w-full accent-[var(--brand)]"
       />
       {err ? <p className="text-[12px] text-neg">{err}</p> : null}
-      <div data-testid="kelly-output" className="rounded-[5px] border border-line bg-panel-2 p-3">
+      <div data-testid="kelly-output" className="rounded-[20px] bg-panel-2 p-3">
         <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
           <div>
             <div className="label">Buy</div>
