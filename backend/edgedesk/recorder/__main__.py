@@ -27,6 +27,7 @@ from zoneinfo import ZoneInfo
 import orjson
 
 from edgedesk.recorder.store import RawLog, compress_stale
+from edgedesk.recorder.ws import WsFeeds
 from edgedesk.venues.http import HttpError, PoliteClient
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -73,6 +74,7 @@ class Recorder:
         self.spot: dict[str, float] = {}
         self.health: dict[str, dict] = {}
         self.stop = asyncio.Event()
+        self.ws = WsFeeds(self)
 
     # ------------------------------------------------------------------ state
     def _load_state(self) -> dict:
@@ -294,6 +296,7 @@ class Recorder:
                 self.state["poly_pending"][slug] = {"sym": sym, "end_ms": end_ms}
         self.poly_tokens = tokens
         self._save_state()
+        await self.ws.poly_sync()
 
     async def poly_books_once(self) -> None:
         now = time.time() * 1000
@@ -389,18 +392,25 @@ class Recorder:
         await self.kalshi_discover()
         await self.poly_discover()
         tasks = [
-            self._every(2.0, "spot", self.spot_once),
+            self._every(5.0, "spot", self.spot_once),
             self._every(5.0, "deribit", self.deribit_index_once),
             self._every(30.0, "deribit", self.deribit_chain_once),
             self._every(120.0, "kalshi", self.kalshi_discover),
             self._every(10.0, "kalshi", self.kalshi_markets_once),
             self._every(15.0, "kalshi", self.kalshi_books_once),
             self._every(120.0, "polymarket", self.poly_discover),
-            self._every(5.0, "polymarket", self.poly_books_once),
+            self._every(15.0, "polymarket", self.poly_books_once),
             self._every(300.0, "outcomes", self.outcomes_once),
             self._every(60.0, "status", self.status_once),
+            *self.ws.tasks(self.stop),
         ]
-        await asyncio.gather(*(asyncio.create_task(t) for t in tasks))
+        running = [asyncio.create_task(t) for t in tasks]
+        try:
+            await asyncio.gather(*running)
+        finally:
+            for t in running:
+                t.cancel()
+            await asyncio.gather(*running, return_exceptions=True)
 
 
 def main() -> None:
