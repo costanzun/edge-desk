@@ -22,7 +22,7 @@ NS = 1_000_000_000
 @dataclass
 class Scenario:
     seed: int = 7
-    start_ms: int = 1_794_049_200_000          # 2026-11-07 12:00 UTC
+    start_ms: int = 1_794_049_200_000          # 2026-11-07 11:00 UTC
     hours: float = 3.0
     spot0: float = 76_000.0
     vol: float = 0.45
