@@ -2888,54 +2888,69 @@
   "input_rejects": {},
   "feeds": [
     {
-      "name": "binance",
-      "ok": true,
-      "reason": "",
-      "last_msg_age_s": 1.0,
-      "rtt_ms": 228.4,
-      "errors": 0,
-      "messages": 72850,
-      "websocket": true
-    },
-    {
-      "name": "coinbase",
-      "ok": true,
-      "reason": "",
-      "last_msg_age_s": 1.0,
-      "rtt_ms": 30.9,
-      "errors": 0,
-      "messages": 8320,
-      "websocket": true
-    },
-    {
-      "name": "deribit",
-      "ok": true,
-      "reason": "",
-      "last_msg_age_s": 4.0,
-      "rtt_ms": 41.8,
-      "errors": 0,
-      "messages": 11940,
-      "websocket": true
-    },
-    {
       "name": "kalshi",
+      "label": "Kalshi",
+      "status": "live",
       "ok": true,
       "reason": "",
       "last_msg_age_s": 9.0,
       "rtt_ms": 124.6,
+      "websocket": false,
+      "transport": "REST",
       "errors": 0,
-      "messages": 4210,
-      "websocket": false
+      "messages": 4210
     },
     {
       "name": "polymarket",
+      "label": "Polymarket",
+      "status": "live",
       "ok": true,
       "reason": "",
       "last_msg_age_s": 0.0,
       "rtt_ms": 61.2,
+      "websocket": true,
+      "transport": "WebSocket + REST",
       "errors": 1,
-      "messages": 99941,
-      "websocket": true
+      "messages": 99941
+    },
+    {
+      "name": "deribit",
+      "label": "Deribit",
+      "status": "live",
+      "ok": true,
+      "reason": "",
+      "last_msg_age_s": 4.0,
+      "rtt_ms": 41.8,
+      "websocket": true,
+      "transport": "WebSocket + REST",
+      "errors": 0,
+      "messages": 11940
+    },
+    {
+      "name": "coinbase",
+      "label": "Coinbase",
+      "status": "live",
+      "ok": true,
+      "reason": "",
+      "last_msg_age_s": 1.0,
+      "rtt_ms": 30.9,
+      "websocket": true,
+      "transport": "WebSocket + REST",
+      "errors": 0,
+      "messages": 8320
+    },
+    {
+      "name": "binance",
+      "label": "Binance",
+      "status": "live",
+      "ok": true,
+      "reason": "",
+      "last_msg_age_s": 1.0,
+      "rtt_ms": 228.4,
+      "websocket": true,
+      "transport": "WebSocket + REST",
+      "errors": 0,
+      "messages": 72850
     }
   ],
   "feed_events": []

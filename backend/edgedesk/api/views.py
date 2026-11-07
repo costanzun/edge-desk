@@ -20,17 +20,34 @@ def _ms(t: int) -> int:
     return t // 1_000_000
 
 
+VENUES = {"kalshi": "Kalshi", "polymarket": "Polymarket", "deribit": "Deribit", "coinbase": "Coinbase",
+          "binance": "Binance"}
+
+
 def feeds(eng: Engine, recorder: dict | None = None) -> list[dict]:
-    out = []
+    """One row per venue (WebSocket and REST health folded together) with a status pill:
+    live, slow (data older than expected or slow round trips) or down (guard marked it bad,
+    or nothing for a minute)."""
     rec_health = (recorder or {}).get("health", {})
-    names = sorted(set(eng.guard.feeds) | {"kalshi", "polymarket", "deribit", "coinbase", "binance"})
-    for n in names:
-        fs = eng.guard.feed(n)
-        h = rec_health.get(n, {})
-        ws = rec_health.get(f"{n}_ws", {})
-        out.append({"name": n, "ok": fs.ok, "reason": fs.reason, "last_msg_age_s": round((eng.t - fs.last_t) / NS, 1)
-                    if fs.last_t else None, "rtt_ms": h.get("last_rtt_ms"), "errors": h.get("err", 0) + ws.get("err", 0),
-                    "messages": h.get("ok", 0) + ws.get("ok", 0), "websocket": bool(ws)})
+    out = []
+    for n, label in VENUES.items():
+        parts = [fs for name, fs in eng.guard.feeds.items() if name == n or name.startswith(f"{n}_")]
+        bad = [fs.reason for fs in parts if not fs.ok]
+        last = max((fs.last_t for fs in parts if fs.last_t), default=0)
+        age = round((eng.t - last) / NS, 1) if last else None
+        h, ws = rec_health.get(n, {}), rec_health.get(f"{n}_ws", {})
+        rtt = h.get("last_rtt_ms")
+        slow_after = 30.0 if n == "kalshi" else 15.0   # Kalshi is REST-only, refreshed every 10-15 s
+        if bad or age is None or age > 60:
+            status = "down"
+        elif age > slow_after or (rtt is not None and rtt > 1000):
+            status = "slow"
+        else:
+            status = "live"
+        out.append({"name": n, "label": label, "status": status, "ok": not bad, "reason": "; ".join(bad),
+                    "last_msg_age_s": age, "rtt_ms": rtt, "websocket": bool(ws),
+                    "transport": "WebSocket + REST" if ws else "REST",
+                    "errors": h.get("err", 0) + ws.get("err", 0), "messages": h.get("ok", 0) + ws.get("ok", 0)})
     return out
 
 
