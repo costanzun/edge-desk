@@ -48,6 +48,7 @@ class Order:
     fees: float = 0.0
     history: list[tuple[int, str]] = field(default_factory=list)
     reason: str = ""
+    touch_arrival: float | None = None
 
     @property
     def open(self) -> bool:

@@ -419,7 +419,7 @@ class Engine:
             return
         key = f"{self.cfg.trade_model}:{c['cid']}:{side}:{sig.seq}"
         self.submit(t + self.cfg.decision_us * 1000, c, side, req.limit, qty, key,
-                    reason=f"edge {edge:.3f} vs fair {p:.3f}")
+                    reason=f"edge {edge:.3f} vs fair {p:.3f}", signal=sig.seq)
         if self.measure:
             self._tick("order", t0)
 
@@ -427,7 +427,8 @@ class Engine:
     def _latency_ns(self, venue: str) -> int:
         return int((self.cfg.latency_ms.get(venue, 50.0) + self.cfg.added_latency_ms) * MS)
 
-    def submit(self, t: int, c: dict, side: str, limit: float, qty: int, key: str, reason: str = "") -> Order:
+    def submit(self, t: int, c: dict, side: str, limit: float, qty: int, key: str, reason: str = "",
+               signal: int | None = None) -> Order:
         """Same interface a live adapter would expose. Idempotent on ``key``."""
         if key in self.keys:
             o = self.orders[self.keys[key]]
@@ -439,7 +440,7 @@ class Engine:
                   expire_t=t + int(self.cfg.maker_ttl_s * NS) if maker else None, maker=maker, reason=reason)
         self.orders[o.oid] = o
         self.keys[key] = o.oid
-        self._emit(t, E.ORDER, {**o.as_dict(), "event": "new"})
+        self._emit(t, E.ORDER, {**o.as_dict(), "event": "new", "signal": signal})
         self._schedule(t + self._latency_ns(o.venue), 0, "arrive", o.oid)
         return o
 
@@ -471,6 +472,7 @@ class Engine:
         fills: list[tuple[float, int]] = []
         if b and not o.maker:
             fills = M.take(o.side, o.limit, o.qty, b.bids, b.asks, self.consumed[o.cid], self.cfg.depth_haircut)
+        o.touch_arrival = M.best(o.side, b.bids, b.asks) if b else None
         self._schedule(back, 0, "report", (oid, "ack", "", fills))
 
     def _on_report(self, t: int, payload) -> None:
@@ -481,7 +483,7 @@ class Engine:
                 self._transition(o, REJECTED, t, why=reason)
             return
         if o.state == NEW:
-            self._transition(o, ACKED, t)
+            self._transition(o, ACKED, t, touch_arrival=getattr(o, "touch_arrival", None))
         if not o.open:
             return
         if fills:
