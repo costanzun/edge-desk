@@ -54,6 +54,9 @@ async function main() {
   await p.waitForTimeout(300);
   await shot(p, "desk-light");
 
+  await go(p, "/how-it-works", "how-it-works");
+  await shot(p, "how-it-works");
+
   await go(p, "/positions", "equity-chart");
   await shot(p, "positions");
 
