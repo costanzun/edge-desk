@@ -58,8 +58,15 @@ def _read_file(f: Path) -> list[dict[str, Any]]:
 
 def records(data: Path, start_ns: int | None = None, end_ns: int | None = None) -> Iterator[dict[str, Any]]:
     def raw_iter() -> Iterator[dict[str, Any]]:
+        # an hour can span several files (a restart mid-hour leaves "HH.<ts>.jsonl.gz" next to
+        # "HH.jsonl.gz"): merge each hour's files by receive time, not by file name
+        groups: dict[tuple[str, str], list[Path]] = {}
         for f in hour_files(data / "raw", start_ns, end_ns):
-            for r in _read_file(f):
+            groups.setdefault((f.parent.name, f.name[:2]), []).append(f)
+        for key in sorted(groups):
+            recs = [r for f in groups[key] for r in _read_file(f)]
+            recs.sort(key=lambda r: (r.get("t_recv", 0), r.get("seq", 0)))
+            for r in recs:
                 t = r.get("t_recv", 0)
                 if (start_ns is None or t >= start_ns) and (end_ns is None or t < end_ns):
                     yield r

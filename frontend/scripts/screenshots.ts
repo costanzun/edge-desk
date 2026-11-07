@@ -65,7 +65,7 @@ async function main() {
   await p.waitForTimeout(300);
   await shot(p, "latency");
 
-  await go(p, "/risk", "kill-switch");
+  await go(p, "/risk", "failed-checks");
   await shot(p, "risk");
   // NO_KILL=1: never press the kill switch (use against the live desk; it would be logged)
   if (process.env.NO_KILL !== "1") {

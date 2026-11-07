@@ -1,267 +1,267 @@
 {
-  "cut_ms": 1794063342984,
+  "cut_ms": 1794069349112,
   "rows": [
     {
       "trade_model": "options",
       "min_edge": 0.01,
       "band_k": 0.0,
-      "train_net": -1035.28,
+      "train_net": -1242.53,
       "train_trades": 55,
-      "test_net": -563.72,
-      "test_trades": 90
+      "test_net": -858.8,
+      "test_trades": 60
     },
     {
       "trade_model": "options",
       "min_edge": 0.01,
       "band_k": 1.0,
-      "train_net": -1056.65,
+      "train_net": -1256.88,
       "train_trades": 80,
-      "test_net": -421.08,
-      "test_trades": 89
+      "test_net": -507.51,
+      "test_trades": 60
     },
     {
       "trade_model": "options",
       "min_edge": 0.01,
       "band_k": 2.0,
-      "train_net": -964.6,
+      "train_net": -1121.71,
       "train_trades": 61,
-      "test_net": -258.47,
+      "test_net": -317.81,
+      "test_trades": 42
+    },
+    {
+      "trade_model": "options",
+      "min_edge": 0.02,
+      "band_k": 0.0,
+      "train_net": -1344.09,
+      "train_trades": 43,
+      "test_net": -974.4,
+      "test_trades": 75
+    },
+    {
+      "trade_model": "options",
+      "min_edge": 0.02,
+      "band_k": 1.0,
+      "train_net": -1159.71,
+      "train_trades": 65,
+      "test_net": -550.35,
+      "test_trades": 42
+    },
+    {
+      "trade_model": "options",
+      "min_edge": 0.02,
+      "band_k": 2.0,
+      "train_net": -975.15,
+      "train_trades": 43,
+      "test_net": -447.03,
+      "test_trades": 28
+    },
+    {
+      "trade_model": "options",
+      "min_edge": 0.04,
+      "band_k": 0.0,
+      "train_net": -1159.04,
+      "train_trades": 59,
+      "test_net": -660.59,
+      "test_trades": 39
+    },
+    {
+      "trade_model": "options",
+      "min_edge": 0.04,
+      "band_k": 1.0,
+      "train_net": -943.96,
+      "train_trades": 48,
+      "test_net": -583.59,
+      "test_trades": 29
+    },
+    {
+      "trade_model": "options",
+      "min_edge": 0.04,
+      "band_k": 2.0,
+      "train_net": -795.09,
+      "train_trades": 40,
+      "test_net": -430.46,
+      "test_trades": 20
+    },
+    {
+      "trade_model": "hybrid",
+      "min_edge": 0.01,
+      "band_k": 0.0,
+      "train_net": 617.79,
+      "train_trades": 166,
+      "test_net": -725.08,
+      "test_trades": 59
+    },
+    {
+      "trade_model": "hybrid",
+      "min_edge": 0.01,
+      "band_k": 1.0,
+      "train_net": 237.62,
+      "train_trades": 94,
+      "test_net": -573.78,
+      "test_trades": 62
+    },
+    {
+      "trade_model": "hybrid",
+      "min_edge": 0.01,
+      "band_k": 2.0,
+      "train_net": 299.91,
+      "train_trades": 124,
+      "test_net": -368.22,
+      "test_trades": 44
+    },
+    {
+      "trade_model": "hybrid",
+      "min_edge": 0.02,
+      "band_k": 0.0,
+      "train_net": 575.93,
+      "train_trades": 208,
+      "test_net": -914.47,
       "test_trades": 86
     },
     {
-      "trade_model": "options",
-      "min_edge": 0.02,
-      "band_k": 0.0,
-      "train_net": -1142.76,
-      "train_trades": 43,
-      "test_net": -605.84,
-      "test_trades": 38
-    },
-    {
-      "trade_model": "options",
+      "trade_model": "hybrid",
       "min_edge": 0.02,
       "band_k": 1.0,
-      "train_net": -1001.34,
-      "train_trades": 65,
-      "test_net": -346.36,
-      "test_trades": 67
+      "train_net": 343.13,
+      "train_trades": 149,
+      "test_net": -570.32,
+      "test_trades": 39
     },
     {
-      "trade_model": "options",
+      "trade_model": "hybrid",
       "min_edge": 0.02,
       "band_k": 2.0,
-      "train_net": -824.01,
-      "train_trades": 43,
-      "test_net": -212.58,
-      "test_trades": 72
+      "train_net": 201.0,
+      "train_trades": 84,
+      "test_net": -329.48,
+      "test_trades": 30
     },
     {
-      "trade_model": "options",
+      "trade_model": "hybrid",
       "min_edge": 0.04,
       "band_k": 0.0,
-      "train_net": -1000.01,
-      "train_trades": 59,
-      "test_net": -345.71,
-      "test_trades": 72
+      "train_net": 639.36,
+      "train_trades": 129,
+      "test_net": -626.84,
+      "test_trades": 40
     },
     {
-      "trade_model": "options",
+      "trade_model": "hybrid",
       "min_edge": 0.04,
       "band_k": 1.0,
-      "train_net": -901.32,
-      "train_trades": 48,
-      "test_net": -188.3,
-      "test_trades": 67
+      "train_net": 318.11,
+      "train_trades": 70,
+      "test_net": -463.97,
+      "test_trades": 32
     },
     {
-      "trade_model": "options",
+      "trade_model": "hybrid",
       "min_edge": 0.04,
       "band_k": 2.0,
-      "train_net": -755.12,
-      "train_trades": 40,
-      "test_net": -65.69,
-      "test_trades": 31
+      "train_net": 1343.31,
+      "train_trades": 61,
+      "test_net": -441.26,
+      "test_trades": 20
     },
     {
-      "trade_model": "hybrid",
+      "trade_model": "ensemble",
       "min_edge": 0.01,
       "band_k": 0.0,
-      "train_net": -7.15,
-      "train_trades": 52,
-      "test_net": 29.0,
-      "test_trades": 55
+      "train_net": -202.23,
+      "train_trades": 114,
+      "test_net": -785.73,
+      "test_trades": 71
     },
     {
-      "trade_model": "hybrid",
+      "trade_model": "ensemble",
       "min_edge": 0.01,
       "band_k": 1.0,
-      "train_net": 53.47,
-      "train_trades": 42,
-      "test_net": 41.42,
-      "test_trades": 52
-    },
-    {
-      "trade_model": "hybrid",
-      "min_edge": 0.01,
-      "band_k": 2.0,
-      "train_net": 77.63,
-      "train_trades": 50,
-      "test_net": 16.26,
-      "test_trades": 37
-    },
-    {
-      "trade_model": "hybrid",
-      "min_edge": 0.02,
-      "band_k": 0.0,
-      "train_net": 47.88,
-      "train_trades": 48,
-      "test_net": 42.03,
-      "test_trades": 52
-    },
-    {
-      "trade_model": "hybrid",
-      "min_edge": 0.02,
-      "band_k": 1.0,
-      "train_net": 66.68,
-      "train_trades": 52,
-      "test_net": -0.86,
+      "train_net": -369.67,
+      "train_trades": 64,
+      "test_net": -751.31,
       "test_trades": 36
     },
     {
-      "trade_model": "hybrid",
-      "min_edge": 0.02,
+      "trade_model": "ensemble",
+      "min_edge": 0.01,
       "band_k": 2.0,
-      "train_net": 33.32,
-      "train_trades": 25,
-      "test_net": 69.78,
-      "test_trades": 27
+      "train_net": -338.84,
+      "train_trades": 59,
+      "test_net": -166.78,
+      "test_trades": 86
     },
     {
-      "trade_model": "hybrid",
-      "min_edge": 0.04,
+      "trade_model": "ensemble",
+      "min_edge": 0.02,
       "band_k": 0.0,
-      "train_net": -13.74,
-      "train_trades": 29,
-      "test_net": 162.74,
+      "train_net": 311.32,
+      "train_trades": 121,
+      "test_net": -808.34,
+      "test_trades": 44
+    },
+    {
+      "trade_model": "ensemble",
+      "min_edge": 0.02,
+      "band_k": 1.0,
+      "train_net": -149.16,
+      "train_trades": 98,
+      "test_net": -495.69,
       "test_trades": 34
     },
     {
-      "trade_model": "hybrid",
-      "min_edge": 0.04,
-      "band_k": 1.0,
-      "train_net": -13.52,
-      "train_trades": 17,
-      "test_net": 126.35,
-      "test_trades": 24
-    },
-    {
-      "trade_model": "hybrid",
-      "min_edge": 0.04,
+      "trade_model": "ensemble",
+      "min_edge": 0.02,
       "band_k": 2.0,
-      "train_net": 98.18,
-      "train_trades": 9,
-      "test_net": -9.88,
-      "test_trades": 14
+      "train_net": -611.38,
+      "train_trades": 40,
+      "test_net": -176.25,
+      "test_trades": 35
     },
     {
       "trade_model": "ensemble",
-      "min_edge": 0.01,
+      "min_edge": 0.04,
       "band_k": 0.0,
-      "train_net": -164.33,
-      "train_trades": 74,
-      "test_net": -49.94,
-      "test_trades": 51
+      "train_net": 40.05,
+      "train_trades": 60,
+      "test_net": -674.23,
+      "test_trades": 28
     },
     {
       "trade_model": "ensemble",
-      "min_edge": 0.01,
+      "min_edge": 0.04,
       "band_k": 1.0,
-      "train_net": -262.33,
-      "train_trades": 58,
-      "test_net": 63.21,
-      "test_trades": 70
-    },
-    {
-      "trade_model": "ensemble",
-      "min_edge": 0.01,
-      "band_k": 2.0,
-      "train_net": -260.67,
-      "train_trades": 56,
-      "test_net": 6.37,
+      "train_net": -227.12,
+      "train_trades": 23,
+      "test_net": -355.33,
       "test_trades": 36
     },
     {
       "trade_model": "ensemble",
-      "min_edge": 0.02,
-      "band_k": 0.0,
-      "train_net": -160.48,
-      "train_trades": 71,
-      "test_net": -45.92,
-      "test_trades": 68
-    },
-    {
-      "trade_model": "ensemble",
-      "min_edge": 0.02,
-      "band_k": 1.0,
-      "train_net": -195.02,
-      "train_trades": 51,
-      "test_net": 18.48,
-      "test_trades": 48
-    },
-    {
-      "trade_model": "ensemble",
-      "min_edge": 0.02,
-      "band_k": 2.0,
-      "train_net": -473.23,
-      "train_trades": 40,
-      "test_net": 35.01,
-      "test_trades": 18
-    },
-    {
-      "trade_model": "ensemble",
-      "min_edge": 0.04,
-      "band_k": 0.0,
-      "train_net": -192.46,
-      "train_trades": 33,
-      "test_net": 64.03,
-      "test_trades": 48
-    },
-    {
-      "trade_model": "ensemble",
-      "min_edge": 0.04,
-      "band_k": 1.0,
-      "train_net": -252.32,
-      "train_trades": 23,
-      "test_net": 19.1,
-      "test_trades": 26
-    },
-    {
-      "trade_model": "ensemble",
       "min_edge": 0.04,
       "band_k": 2.0,
-      "train_net": -376.73,
+      "train_net": -394.76,
       "train_trades": 18,
-      "test_net": 43.69,
-      "test_trades": 4
+      "test_net": -526.14,
+      "test_trades": 64
     }
   ],
   "best_in_sample": {
     "trade_model": "hybrid",
     "min_edge": 0.04,
     "band_k": 2.0,
-    "train_net": 98.18,
-    "train_trades": 9,
-    "test_net": -9.88,
-    "test_trades": 14
+    "train_net": 1343.31,
+    "train_trades": 61,
+    "test_net": -441.26,
+    "test_trades": 20
   },
   "default": {
     "trade_model": "hybrid",
     "min_edge": 0.02,
     "band_k": 1.0,
-    "train_net": 66.68,
-    "train_trades": 52,
-    "test_net": -0.86,
-    "test_trades": 36
+    "train_net": 343.13,
+    "train_trades": 149,
+    "test_net": -570.32,
+    "test_trades": 39
   },
   "note": "Parameters are chosen on the first half (by time) and judged on the second half."
 }

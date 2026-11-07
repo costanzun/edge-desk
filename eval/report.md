@@ -1,55 +1,55 @@
 # Edge Desk: evaluation report
 
-Generated 2026-11-07 15:30 UTC by `uv run python -m edgedesk.eval.report`. Paper trading only; not investment advice.
+Generated 2026-11-07 20:29 UTC by `uv run python -m edgedesk.eval.report`. Paper trading only; not investment advice.
 
 ## Data
 
-- Recorded period: **2026-11-07 14:21 UTC to 2026-11-07 15:30 UTC** (1.14 h), 51,232 raw messages, 714 contracts seen.
-- Resolved contracts: Kalshi 242, Polymarket 36.
-- Gaps longer than a minute: 2026-11-07 14:59 UTC to 2026-11-07 15:05 UTC (5.7 min).
-- Determinism: two replays of the period gave the same digest (`189fc5690fc94728...`).
+- Recorded period: **2026-11-07 14:21 UTC to 2026-11-07 20:13 UTC** (5.87 h), 199,031 raw messages, 2109 contracts seen.
+- Resolved contracts: Kalshi 1457, Polymarket 202.
+- Gaps longer than a minute: 2026-11-07 15:00 UTC to 2026-11-07 15:05 UTC (5.7 min), 2026-11-07 15:36 UTC to 2026-11-07 15:39 UTC (3.2 min), 2026-11-07 18:33 UTC to 2026-11-07 18:49 UTC (15.6 min), 2026-11-07 18:50 UTC to 2026-11-07 19:05 UTC (15.2 min), 2026-11-07 19:06 UTC to 2026-11-07 19:22 UTC (16.1 min), 2026-11-07 19:23 UTC to 2026-11-07 19:39 UTC (16.8 min), 2026-11-07 19:40 UTC to 2026-11-07 19:56 UTC (15.8 min), 2026-11-07 19:57 UTC to 2026-11-07 20:13 UTC (15.4 min).
+- Determinism: two replays of the period gave the same digest (`b3422218c913e4bc...`).
 
 ## Paper P&L (default configuration, not tuned)
 
-Model `hybrid`, min edge 0.02 after fees and 1 error band, quarter Kelly on a $10,000 paper bankroll, one-way latency {'kalshi': 68.3, 'polymarket': 39.2} ms (half the measured median round trip).
+Model `hybrid`, min edge 0.02 after fees and 1 error band, quarter Kelly on a $10,000 paper bankroll, one-way latency {'kalshi': 68.6, 'polymarket': 40.5} ms (half the measured median round trip).
 
 | | value |
 |---|---|
-| Trades (orders with fills) | 73 (15 settled, 58 open) |
-| Contracts bought / capital used | 4,946 / $2,685.01 |
-| Gross settled P&L | +$114.42 |
-| Fees paid | -$49.65 |
-| **Net P&L after fees** (settled + open marked) | **+$136.24** |
-| Return on capital used | 5.07% |
-| Win rate (settled) | 53% |
-| Max drawdown | -$23.43 |
+| Trades (orders with fills) | 293 (260 settled, 33 open) |
+| Contracts bought / capital used | 14,275 / $4,581.46 |
+| Gross settled P&L | -$356.90 |
+| Fees paid | -$127.72 |
+| **Net P&L after fees** (settled + open marked) | **-$645.00** |
+| Return on capital used | -14.08% |
+| Win rate (settled) | 21% |
+| Max drawdown | -$1,090.36 |
 
 Attribution of the total (per trade: model edge at decision, minus latency and slippage, minus fees, plus the difference between what happened and the model probability):
 
 | edge at decision | latency | slippage | fees | outcome vs model |
 |---|---|---|---|---|
-| +$361.25 | +$0.00 | -$3.19 | -$49.65 | -$172.18 |
+| +$1,019.82 | +$0.00 | -$65.19 | -$127.72 | -$1,471.92 |
 
 Same data, other traded models (default thresholds):
 
 | model | trades | net after fees | fees |
 |---|---|---|---|
-| options | 65 | -$1,092.03 | -$65.07 |
-| hybrid | 73 | +$136.24 | -$49.65 |
-| ensemble | 98 | -$313.06 | -$66.23 |
-| hybrid (maker orders) | 3 | +$63.50 | +$0.00 |
+| options | 65 | -$1,263.34 | -$65.07 |
+| hybrid | 293 | -$645.00 | -$127.72 |
+| ensemble | 98 | -$173.67 | -$66.23 |
+| hybrid (maker orders) | 18 | -$363.17 | +$0.00 |
 
 ## Calibration on resolved contracts (recorded data)
 
-238 snapshots, 26 contracts, 4 expiries, base rate 0.3529. Lower is better.
+4051 snapshots, 206 contracts, 24 expiries, base rate 0.3303. Lower is better.
 
 | model | Brier | log loss |
 |---|---|---|
-| Options-implied (Deribit) | 0.0146 | 0.0731 |
-| Hybrid (Deribit smile + realized vol) | 0.0041 | 0.0308 |
-| Realized vol (spot) | 0.0031 | 0.0230 |
-| Market ensemble | 0.0065 | 0.0394 |
-| Market mid (baseline) | 0.0056 | 0.0456 |
+| Options-implied (Deribit) | 0.0376 | 0.1326 |
+| Hybrid (Deribit smile + realized vol) | 0.0371 | 0.1300 |
+| Realized vol (spot) | 0.0375 | 0.1302 |
+| Market ensemble | 0.0374 | 0.1318 |
+| Market mid (baseline) | 0.0355 | 0.1323 |
 
 ![Reliability, recorded data](figures/reliability_recorded.png)
 
@@ -89,16 +89,16 @@ Mean DVOL vs mean 1-minute realized vol: {'BTC': {'dvol_mean': 0.3941, 'rv_mean'
 
 | source | n | p50 ms | p95 ms | p99 ms |
 |---|---|---|---|---|
-| binance REST round trip | 1906 | 231 | 258 | 361 |
-| coinbase REST round trip | 1892 | 29 | 98 | 134 |
-| deribit REST round trip | 1754 | 43 | 69 | 92 |
-| kalshi REST round trip | 9143 | 137 | 378 | 401 |
-| polymarket REST round trip | 741 | 78 | 123 | 162 |
-| coinbase trade (ws) (receive minus exchange stamp) | 2020 | 33 | 42 | 86 |
-| deribit index (ws) (receive minus exchange stamp) | 3485 | -9 | 103 | 660 |
-| polymarket book (ws) (receive minus exchange stamp) | 29784 | -11 | 6 | 203 |
+| binance REST round trip | 6408 | 232 | 250 | 305 |
+| coinbase REST round trip | 6346 | 31 | 101 | 141 |
+| deribit REST round trip | 6952 | 47 | 74 | 111 |
+| kalshi REST round trip | 36448 | 137 | 379 | 408 |
+| polymarket REST round trip | 2421 | 81 | 123 | 156 |
+| coinbase trade (ws) (receive minus exchange stamp) | 12055 | 19 | 45 | 121 |
+| deribit index (ws) (receive minus exchange stamp) | 17082 | -7 | 202 | 720 |
+| polymarket book (ws) (receive minus exchange stamp) | 108874 | -12 | 13 | 185 |
 
-Internal hot path per message (µs): guard p50 2.8 / p99 6.2, model p50 13.9 / p99 28.8, signal p50 5.0 / p99 8.6, risk p50 20.7 / p99 35.6, order p50 7.5 / p99 16.8
+Internal hot path per message (µs): guard p50 2.8 / p99 7.0, model p50 16.5 / p99 35.6, signal p50 5.2 / p99 10.0, risk p50 26.6 / p99 56.4, order p50 9.5 / p99 19.5
 
 ![Latency](figures/latency.png)
 
@@ -106,33 +106,33 @@ Internal hot path per message (µs): guard p50 2.8 / p99 6.2, model p50 13.9 / p
 
 | added latency | trades | net after fees | model edge at decision | latency cost |
 |---|---|---|---|---|
-| 0 ms | 73 | +$136.24 | +$361.25 | +$0.00 |
-| 100 ms | 72 | +$127.55 | +$357.66 | +$0.00 |
-| 250 ms | 66 | +$108.80 | +$353.07 | +$0.05 |
-| 500 ms | 68 | +$87.48 | +$386.42 | +$0.09 |
-| 1,000 ms | 68 | +$81.35 | +$386.12 | +$0.20 |
-| 2,000 ms | 66 | +$80.72 | +$383.94 | +$0.16 |
-| 5,000 ms | 61 | +$127.14 | +$349.43 | +$1.46 |
-| 10,000 ms | 55 | +$99.02 | +$262.56 | -$20.04 |
-| 30,000 ms | 46 | +$54.50 | +$241.15 | -$16.84 |
-| 60,000 ms | 41 | +$52.98 | +$244.55 | -$16.79 |
+| 0 ms | 293 | -$614.94 | +$1,019.82 | +$0.00 |
+| 100 ms | 284 | -$552.65 | +$967.54 | +$0.00 |
+| 250 ms | 283 | -$640.76 | +$1,008.10 | +$6.55 |
+| 500 ms | 279 | -$569.19 | +$984.71 | +$6.63 |
+| 1,000 ms | 277 | -$577.73 | +$982.63 | +$6.74 |
+| 2,000 ms | 267 | -$590.73 | +$966.59 | +$9.79 |
+| 5,000 ms | 256 | -$593.41 | +$967.50 | -$0.09 |
+| 10,000 ms | 224 | -$555.86 | +$746.26 | -$22.68 |
+| 30,000 ms | 117 | -$463.15 | +$555.45 | +$49.54 |
+| 60,000 ms | 87 | -$373.21 | +$429.12 | +$48.23 |
 
 ![Edge decay](figures/edge_decay.png)
 
 ## Parameter sweep with out-of-sample check
 
-Chosen on the first half (before 2026-11-07 14:55 UTC), judged on the second half.
+Chosen on the first half (before 2026-11-07 16:35 UTC), judged on the second half.
 
 | | model | min edge | bands | train net | test net |
 |---|---|---|---|---|---|
-| best in-sample | hybrid | 0.04 | 2.0 | +$98.18 | -$9.88 |
-| default | hybrid | 0.02 | 1.0 | +$66.68 | -$0.86 |
+| best in-sample | hybrid | 0.04 | 2.0 | +$1,343.31 | -$441.26 |
+| default | hybrid | 0.02 | 1.0 | +$343.13 | -$570.32 |
 
 ## Risk
 
-- 495 pre-trade risk decisions, 109 reconciliations (all clean), 123 input messages rejected by the ingest guard.
-- Halts: none.
-- Risk of ruin (bootstrap of 73 trade returns over 500 trades, ruin = -50%): 0.0%; median final equity x1.0959. Assumes independent trades: optimistic.
+- 1387 pre-trade risk decisions, 473 reconciliations (all clean), 566 input messages rejected by the ingest guard.
+- Halts: daily loss limit hit (-308.81).
+- Risk of ruin (bootstrap of 293 trade returns over 500 trades, ruin = -50%): 0.0%; median final equity x0.8963. Assumes independent trades: optimistic.
 
 ## Caveats
 

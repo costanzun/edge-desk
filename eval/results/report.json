@@ -1,24 +1,59 @@
 {
-  "generated": "2026-11-07 15:30 UTC",
+  "generated": "2026-11-07 20:29 UTC",
   "period": {
     "from": "2026-11-07 14:21 UTC",
-    "to": "2026-11-07 15:30 UTC",
-    "hours": 1.14
+    "to": "2026-11-07 20:13 UTC",
+    "hours": 5.87
   },
   "gaps": [
     {
-      "from": "2026-11-07 14:59 UTC",
+      "from": "2026-11-07 15:00 UTC",
       "to": "2026-11-07 15:05 UTC",
       "minutes": 5.7
+    },
+    {
+      "from": "2026-11-07 15:36 UTC",
+      "to": "2026-11-07 15:39 UTC",
+      "minutes": 3.2
+    },
+    {
+      "from": "2026-11-07 18:33 UTC",
+      "to": "2026-11-07 18:49 UTC",
+      "minutes": 15.6
+    },
+    {
+      "from": "2026-11-07 18:50 UTC",
+      "to": "2026-11-07 19:05 UTC",
+      "minutes": 15.2
+    },
+    {
+      "from": "2026-11-07 19:06 UTC",
+      "to": "2026-11-07 19:22 UTC",
+      "minutes": 16.1
+    },
+    {
+      "from": "2026-11-07 19:23 UTC",
+      "to": "2026-11-07 19:39 UTC",
+      "minutes": 16.8
+    },
+    {
+      "from": "2026-11-07 19:40 UTC",
+      "to": "2026-11-07 19:56 UTC",
+      "minutes": 15.8
+    },
+    {
+      "from": "2026-11-07 19:57 UTC",
+      "to": "2026-11-07 20:13 UTC",
+      "minutes": 15.4
     }
   ],
-  "records": 51232,
-  "md_events": 60739,
-  "engine_events": 70172,
-  "contracts": 714,
+  "records": 199031,
+  "md_events": 232200,
+  "engine_events": 268048,
+  "contracts": 2109,
   "resolved": {
-    "kalshi": 242,
-    "polymarket": 36
+    "kalshi": 1457,
+    "polymarket": 202
   },
   "config": {
     "trade_model": "hybrid",
@@ -35,8 +70,8 @@
     "kelly_fraction": 0.25,
     "bankroll": 10000.0,
     "latency_ms": {
-      "kalshi": 68.3,
-      "polymarket": 39.2
+      "kalshi": 68.6,
+      "polymarket": 40.5
     },
     "added_latency_ms": 0.0,
     "decision_us": 500,
@@ -67,67 +102,67 @@
     }
   },
   "deterministic": true,
-  "digest": "189fc5690fc947280b27de4c3d8d17669744010e3b6c0d02cae1a38f600eb219",
+  "digest": "b3422218c913e4bc73b5dbed9fab47db3e890415c8878420e216387249df0bc6",
   "summary": {
-    "trades": 73,
-    "settled": 15,
-    "open": 58,
-    "contracts": 4946,
-    "cost": 2685.01,
-    "gross_settled": 114.42,
-    "fees": 49.65,
-    "net_settled": 105.34,
-    "unrealized": 30.9,
-    "net_total": 136.24,
-    "win_rate": 0.533,
-    "return_on_cost": 0.0507,
-    "equity": 10136.24,
+    "trades": 293,
+    "settled": 260,
+    "open": 33,
+    "contracts": 14275,
+    "cost": 4581.46,
+    "gross_settled": -356.9,
+    "fees": 127.72,
+    "net_settled": -456.88,
+    "unrealized": -188.12,
+    "net_total": -645.0,
+    "win_rate": 0.212,
+    "return_on_cost": -0.1408,
+    "equity": 9355.0,
     "bankroll": 10000.0,
-    "signals": 495,
-    "orders": 83,
-    "halted": false,
-    "halt_reason": ""
+    "signals": 1387,
+    "orders": 312,
+    "halted": true,
+    "halt_reason": "daily loss limit hit (-308.81)"
   },
   "by_venue": {
     "kalshi": {
-      "trades": 55,
-      "settled": 15,
-      "open": 40,
-      "contracts": 4050,
-      "cost": 2192.48,
-      "gross_settled": 114.42,
-      "fees": 34.71,
-      "net_settled": 105.34,
-      "unrealized": 1.99,
-      "net_total": 107.33,
-      "win_rate": 0.533,
-      "return_on_cost": 0.049,
-      "equity": 10136.24,
+      "trades": 266,
+      "settled": 240,
+      "open": 26,
+      "contracts": 13293,
+      "cost": 4075.79,
+      "gross_settled": -477.87,
+      "fees": 112.2,
+      "net_settled": -571.5,
+      "unrealized": -139.84,
+      "net_total": -711.34,
+      "win_rate": 0.179,
+      "return_on_cost": -0.1745,
+      "equity": 9355.0,
       "bankroll": 10000.0,
-      "signals": 495,
-      "orders": 83,
-      "halted": false,
-      "halt_reason": ""
+      "signals": 1387,
+      "orders": 312,
+      "halted": true,
+      "halt_reason": "daily loss limit hit (-308.81)"
     },
     "polymarket": {
-      "trades": 18,
-      "settled": 0,
-      "open": 18,
-      "contracts": 896,
-      "cost": 492.53,
-      "gross_settled": 0,
-      "fees": 14.94,
-      "net_settled": 0,
-      "unrealized": 28.91,
-      "net_total": 28.91,
-      "win_rate": null,
-      "return_on_cost": 0.0587,
-      "equity": 10136.24,
+      "trades": 27,
+      "settled": 20,
+      "open": 7,
+      "contracts": 982,
+      "cost": 505.67,
+      "gross_settled": 120.97,
+      "fees": 15.52,
+      "net_settled": 114.62,
+      "unrealized": -48.28,
+      "net_total": 66.34,
+      "win_rate": 0.6,
+      "return_on_cost": 0.1312,
+      "equity": 9355.0,
       "bankroll": 10000.0,
-      "signals": 495,
-      "orders": 83,
-      "halted": false,
-      "halt_reason": ""
+      "signals": 1387,
+      "orders": 312,
+      "halted": true,
+      "halt_reason": "daily loss limit hit (-308.81)"
     }
   },
   "per_model": {
@@ -140,105 +175,105 @@
       "gross_settled": -982.6,
       "fees": 65.07,
       "net_settled": -1040.49,
-      "unrealized": -51.54,
-      "net_total": -1092.03,
+      "unrealized": -222.85,
+      "net_total": -1263.34,
       "win_rate": 0.0,
-      "return_on_cost": -0.8863,
-      "equity": 8907.97,
+      "return_on_cost": -1.0253,
+      "equity": 8736.66,
       "bankroll": 10000.0,
-      "signals": 615,
+      "signals": 1588,
       "orders": 66,
       "halted": true,
       "halt_reason": "daily loss limit hit (-300.87)"
     },
     "hybrid": {
-      "trades": 73,
-      "settled": 15,
-      "open": 58,
-      "contracts": 4946,
-      "cost": 2685.01,
-      "gross_settled": 114.42,
-      "fees": 49.65,
-      "net_settled": 105.34,
-      "unrealized": 30.9,
-      "net_total": 136.24,
-      "win_rate": 0.533,
-      "return_on_cost": 0.0507,
-      "equity": 10136.24,
+      "trades": 293,
+      "settled": 260,
+      "open": 33,
+      "contracts": 14275,
+      "cost": 4581.46,
+      "gross_settled": -356.9,
+      "fees": 127.72,
+      "net_settled": -456.88,
+      "unrealized": -188.12,
+      "net_total": -645.0,
+      "win_rate": 0.212,
+      "return_on_cost": -0.1408,
+      "equity": 9355.0,
       "bankroll": 10000.0,
-      "signals": 495,
-      "orders": 83,
-      "halted": false,
-      "halt_reason": ""
+      "signals": 1387,
+      "orders": 312,
+      "halted": true,
+      "halt_reason": "daily loss limit hit (-308.81)"
     },
     "ensemble": {
       "trades": 98,
-      "settled": 24,
-      "open": 74,
+      "settled": 70,
+      "open": 28,
       "contracts": 8613,
       "cost": 3029.46,
-      "gross_settled": -144.45,
+      "gross_settled": 61.79,
       "fees": 66.23,
-      "net_settled": -167.53,
-      "unrealized": -145.53,
-      "net_total": -313.06,
-      "win_rate": 0.25,
-      "return_on_cost": -0.1033,
-      "equity": 9686.94,
+      "net_settled": 8.66,
+      "unrealized": -182.32,
+      "net_total": -173.67,
+      "win_rate": 0.443,
+      "return_on_cost": -0.0573,
+      "equity": 9826.33,
       "bankroll": 10000.0,
-      "signals": 389,
+      "signals": 1245,
       "orders": 101,
       "halted": true,
       "halt_reason": "daily loss limit hit (-312.56)"
     },
     "hybrid (maker orders)": {
-      "trades": 3,
-      "settled": 0,
-      "open": 3,
-      "contracts": 645,
-      "cost": 428.09,
-      "gross_settled": 0,
+      "trades": 18,
+      "settled": 14,
+      "open": 4,
+      "contracts": 4382,
+      "cost": 1710.21,
+      "gross_settled": -284.22,
       "fees": 0.0,
-      "net_settled": 0,
-      "unrealized": 63.5,
-      "net_total": 63.5,
-      "win_rate": null,
-      "return_on_cost": 0.1483,
-      "equity": 10063.5,
+      "net_settled": -284.22,
+      "unrealized": -78.95,
+      "net_total": -363.17,
+      "win_rate": 0.429,
+      "return_on_cost": -0.2124,
+      "equity": 9636.83,
       "bankroll": 10000.0,
-      "signals": 2595,
-      "orders": 473,
-      "halted": false,
-      "halt_reason": ""
+      "signals": 12351,
+      "orders": 1854,
+      "halted": true,
+      "halt_reason": "daily loss limit hit (-300.18)"
     }
   },
   "attribution": {
     "total": {
-      "edge": 361.25,
+      "edge": 1019.82,
       "latency": 0.0,
-      "slippage": -3.19,
-      "fees": -49.65,
-      "model_luck": -172.18
+      "slippage": -65.19,
+      "fees": -127.72,
+      "model_luck": -1471.92
     },
     "by": {
       "venue": {
         "polymarket": {
-          "edge": 54.55,
+          "edge": 59.05,
           "latency": 0.0,
-          "slippage": -0.91,
-          "fees": -14.94,
-          "model_luck": -9.79,
-          "pnl": 28.91,
-          "n": 18
+          "slippage": -1.13,
+          "fees": -15.52,
+          "model_luck": 23.93,
+          "pnl": 66.34,
+          "n": 27
         },
         "kalshi": {
-          "edge": 306.7,
+          "edge": 960.77,
           "latency": 0.0,
-          "slippage": -2.28,
-          "fees": -34.71,
-          "model_luck": -162.39,
-          "pnl": 107.33,
-          "n": 55
+          "slippage": -64.06,
+          "fees": -112.2,
+          "model_luck": -1495.85,
+          "pnl": -711.34,
+          "n": 266
         }
       },
       "pairing": {
@@ -247,38 +282,47 @@
           "latency": 0.0,
           "slippage": -0.91,
           "fees": -14.94,
-          "model_luck": -9.79,
-          "pnl": 28.91,
+          "model_luck": 35.35,
+          "pnl": 74.06,
           "n": 18
         },
         "BTC kalshi": {
-          "edge": 239.97,
+          "edge": 293.34,
           "latency": 0.0,
           "slippage": -0.0,
-          "fees": -22.11,
-          "model_luck": -76.86,
-          "pnl": 141.0,
-          "n": 18
+          "fees": -35.68,
+          "model_luck": 74.17,
+          "pnl": 331.83,
+          "n": 25
         },
         "ETH kalshi": {
-          "edge": 66.73,
+          "edge": 667.43,
           "latency": 0.0,
-          "slippage": -2.28,
-          "fees": -12.6,
-          "model_luck": -85.52,
-          "pnl": -33.67,
-          "n": 37
+          "slippage": -64.06,
+          "fees": -76.52,
+          "model_luck": -1570.02,
+          "pnl": -1043.17,
+          "n": 241
+        },
+        "ETH polymarket": {
+          "edge": 4.51,
+          "latency": 0.0,
+          "slippage": -0.22,
+          "fees": -0.58,
+          "model_luck": -11.43,
+          "pnl": -7.72,
+          "n": 9
         }
       },
       "model": {
         "hybrid": {
-          "edge": 361.25,
+          "edge": 1019.82,
           "latency": 0.0,
-          "slippage": -3.19,
-          "fees": -49.65,
-          "model_luck": -172.18,
-          "pnl": 136.24,
-          "n": 73
+          "slippage": -65.19,
+          "fees": -127.72,
+          "model_luck": -1471.92,
+          "pnl": -645.0,
+          "n": 293
         }
       },
       "tte_bucket": {
@@ -287,90 +331,90 @@
           "latency": 0.0,
           "slippage": -0.18,
           "fees": -9.16,
-          "model_luck": -45.05,
-          "pnl": -30.17,
+          "model_luck": -63.17,
+          "pnl": -48.28,
           "n": 7
         },
         "15-60 min": {
-          "edge": 127.56,
+          "edge": 732.5,
           "latency": 0.0,
-          "slippage": -1.24,
-          "fees": -13.93,
-          "model_luck": 84.73,
-          "pnl": 197.12,
-          "n": 22
+          "slippage": -56.82,
+          "fees": -86.79,
+          "model_luck": -1128.67,
+          "pnl": -539.78,
+          "n": 212
         },
         "6-24 h": {
           "edge": 100.31,
           "latency": 0.0,
           "slippage": -0.88,
           "fees": -18.55,
-          "model_luck": -141.15,
-          "pnl": -60.27,
+          "model_luck": -220.53,
+          "pnl": -139.65,
           "n": 25
         },
         "1-6 h": {
-          "edge": 30.32,
+          "edge": 30.39,
           "latency": 0.0,
           "slippage": -0.72,
-          "fees": -5.78,
-          "model_luck": 35.26,
-          "pnl": 59.08,
-          "n": 11
+          "fees": -5.8,
+          "model_luck": 98.28,
+          "pnl": 122.15,
+          "n": 12
         },
         "< 15 min": {
-          "edge": 78.83,
+          "edge": 132.39,
           "latency": 0.0,
-          "slippage": -0.16,
-          "fees": -2.23,
-          "model_luck": -105.96,
-          "pnl": -29.52,
-          "n": 8
+          "slippage": -6.58,
+          "fees": -7.42,
+          "model_luck": -157.83,
+          "pnl": -39.44,
+          "n": 37
         }
       },
       "edge_bucket": {
         "2-3c": {
-          "edge": 98.96,
+          "edge": 239.8,
           "latency": 0.0,
           "slippage": -0.24,
-          "fees": -21.49,
-          "model_luck": -64.14,
-          "pnl": 13.1,
-          "n": 44
+          "fees": -44.04,
+          "model_luck": -148.79,
+          "pnl": 46.73,
+          "n": 135
         },
         "10c+": {
-          "edge": 79.26,
+          "edge": 109.34,
           "latency": 0.0,
-          "slippage": 0.0,
-          "fees": -6.09,
-          "model_luck": 44.42,
-          "pnl": 117.59,
-          "n": 4
+          "slippage": -5.29,
+          "fees": -8.57,
+          "model_luck": 13.98,
+          "pnl": 109.46,
+          "n": 12
         },
         "3-5c": {
-          "edge": 99.81,
+          "edge": 374.88,
           "latency": 0.0,
-          "slippage": -1.95,
-          "fees": -18.57,
-          "model_luck": -71.1,
-          "pnl": 8.19,
-          "n": 15
+          "slippage": -24.71,
+          "fees": -50.96,
+          "model_luck": -821.2,
+          "pnl": -521.99,
+          "n": 89
         },
         "5-10c": {
-          "edge": 83.22,
+          "edge": 295.8,
           "latency": 0.0,
-          "slippage": -1.0,
-          "fees": -3.5,
-          "model_luck": -81.36,
-          "pnl": -2.64,
-          "n": 10
+          "slippage": -34.95,
+          "fees": -24.14,
+          "model_luck": -515.91,
+          "pnl": -279.2,
+          "n": 57
         }
       }
     }
   },
   "equity_curve": [
     {
-      "t": 1794062176521,
+      "t": 1794062176524,
       "equity": 10000.0,
       "drawdown": 0.0
     },
@@ -410,84 +454,239 @@
       "drawdown": -5.58
     },
     {
-      "t": 1794065402856,
-      "equity": 10136.24,
-      "mark": true,
+      "t": 1794067708437,
+      "equity": 10107.07,
+      "drawdown": -3.85
+    },
+    {
+      "t": 1794067708437,
+      "equity": 10107.36,
+      "drawdown": -3.56
+    },
+    {
+      "t": 1794067708437,
+      "equity": 10155.55,
       "drawdown": 0.0
+    },
+    {
+      "t": 1794067708670,
+      "equity": 10153.72,
+      "drawdown": -1.83
+    },
+    {
+      "t": 1794067708670,
+      "equity": 10153.88,
+      "drawdown": -1.67
+    },
+    {
+      "t": 1794067708670,
+      "equity": 10105.61,
+      "drawdown": -49.94
+    },
+    {
+      "t": 1794067708670,
+      "equity": 10241.96,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794067708670,
+      "equity": 10225.04,
+      "drawdown": -16.92
+    },
+    {
+      "t": 1794067708670,
+      "equity": 10364.04,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794067708670,
+      "equity": 10364.67,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794071308462,
+      "equity": 10439.2,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794071308462,
+      "equity": 10438.73,
+      "drawdown": -0.47
+    },
+    {
+      "t": 1794071308462,
+      "equity": 10445.36,
+      "drawdown": 0.0
+    },
+    {
+      "t": 1794071308600,
+      "equity": 10408.28,
+      "drawdown": -37.08
+    },
+    {
+      "t": 1794071308600,
+      "equity": 10421.05,
+      "drawdown": -24.31
+    },
+    {
+      "t": 1794071308600,
+      "equity": 10424.07,
+      "drawdown": -21.29
+    },
+    {
+      "t": 1794071308600,
+      "equity": 10423.84,
+      "drawdown": -21.52
+    },
+    {
+      "t": 1794071308600,
+      "equity": 10405.92,
+      "drawdown": -39.44
+    },
+    {
+      "t": 1794071308600,
+      "equity": 10140.84,
+      "drawdown": -304.52
+    },
+    {
+      "t": 1794073708375,
+      "equity": 10263.18,
+      "drawdown": -182.18
+    },
+    {
+      "t": 1794073710847,
+      "equity": 10264.21,
+      "drawdown": -181.15
+    },
+    {
+      "t": 1794073710847,
+      "equity": 10263.43,
+      "drawdown": -181.93
+    },
+    {
+      "t": 1794074908511,
+      "equity": 9997.19,
+      "drawdown": -448.17
+    },
+    {
+      "t": 1794074908511,
+      "equity": 9734.05,
+      "drawdown": -711.31
+    },
+    {
+      "t": 1794074908511,
+      "equity": 9548.26,
+      "drawdown": -897.1
+    },
+    {
+      "t": 1794074908511,
+      "equity": 9540.18,
+      "drawdown": -905.18
+    },
+    {
+      "t": 1794074908652,
+      "equity": 9539.75,
+      "drawdown": -905.61
+    },
+    {
+      "t": 1794074908652,
+      "equity": 9667.93,
+      "drawdown": -777.43
+    },
+    {
+      "t": 1794074908652,
+      "equity": 9551.09,
+      "drawdown": -894.27
+    },
+    {
+      "t": 1794075808415,
+      "equity": 9543.12,
+      "drawdown": -902.24
+    },
+    {
+      "t": 1794082413983,
+      "equity": 9355.0,
+      "mark": true,
+      "drawdown": -1090.36
     }
   ],
-  "max_drawdown": -23.43,
+  "max_drawdown": -1090.36,
   "stats": {
-    "n": 73,
-    "mean": 0.000187,
-    "sd": 0.001529,
-    "sharpe_per_trade": 0.1221,
-    "hit_rate": 0.4795,
+    "n": 293,
+    "mean": -0.00022,
+    "sd": 0.001939,
+    "sharpe_per_trade": -0.1135,
+    "hit_rate": 0.2594,
     "caveat": "Per-trade, not annualised: trades overlap in time and share underlyings, so they are not independent and a daily Sharpe needs many more days of data."
   },
   "risk_of_ruin": {
-    "n_source_trades": 73,
+    "n_source_trades": 293,
     "n_trades": 500,
     "paths": 5000,
     "ruin_level": 0.5,
     "p_ruin": 0.0,
-    "final_p5": 1.0392,
-    "final_p50": 1.0959,
-    "final_p95": 1.1609,
-    "max_dd_p50": -0.0129,
-    "max_dd_p5": -0.0235
+    "final_p5": 0.8329,
+    "final_p50": 0.8963,
+    "final_p95": 0.9615,
+    "max_dd_p50": -0.1135,
+    "max_dd_p5": -0.1723
   },
   "risk": {
-    "decisions": 495,
-    "halts": [],
-    "recon_checks": 109,
+    "decisions": 1387,
+    "halts": [
+      {
+        "halted": true,
+        "reason": "daily loss limit hit (-308.81)"
+      }
+    ],
+    "recon_checks": 473,
     "recon_ok": true,
-    "input_rejects": 123
+    "input_rejects": 566
   },
   "latency": {
     "one_way_ms": {
-      "kalshi": 68.3,
-      "polymarket": 39.2
+      "kalshi": 68.6,
+      "polymarket": 40.5
     },
     "network": {
       "rtt": {
         "coinbase": {
-          "n": 1892,
-          "p50": 28.967,
-          "p95": 98.108,
-          "p99": 133.883,
-          "mean": 36.365,
-          "max": 211.34,
+          "n": 6346,
+          "p50": 31.446,
+          "p95": 100.84,
+          "p99": 140.883,
+          "mean": 39.39,
+          "max": 937.113,
           "hist": [
             {
               "lo": 0,
               "hi": 25,
-              "n": 733
+              "n": 1529
             },
             {
               "lo": 25,
               "hi": 50,
-              "n": 900
+              "n": 3856
             },
             {
               "lo": 50,
               "hi": 100,
-              "n": 165
+              "n": 632
             },
             {
               "lo": 100,
               "hi": 150,
-              "n": 87
+              "n": 296
             },
             {
               "lo": 150,
               "hi": 200,
-              "n": 6
+              "n": 22
             },
             {
               "lo": 200,
               "hi": 300,
-              "n": 1
+              "n": 10
             },
             {
               "lo": 300,
@@ -497,7 +696,7 @@
             {
               "lo": 500,
               "hi": 1000,
-              "n": 0
+              "n": 1
             },
             {
               "lo": 1000,
@@ -512,11 +711,11 @@
           ]
         },
         "binance": {
-          "n": 1906,
-          "p50": 231.107,
-          "p95": 257.941,
-          "p99": 361.211,
-          "mean": 235.995,
+          "n": 6408,
+          "p50": 231.674,
+          "p95": 249.99,
+          "p99": 305.362,
+          "mean": 234.578,
           "max": 664.328,
           "hist": [
             {
@@ -547,17 +746,17 @@
             {
               "lo": 200,
               "hi": 300,
-              "n": 1868
+              "n": 6335
             },
             {
               "lo": 300,
               "hi": 500,
-              "n": 32
+              "n": 65
             },
             {
               "lo": 500,
               "hi": 1000,
-              "n": 6
+              "n": 8
             },
             {
               "lo": 1000,
@@ -572,57 +771,57 @@
           ]
         },
         "kalshi": {
-          "n": 9143,
-          "p50": 136.572,
-          "p95": 377.566,
-          "p99": 400.982,
-          "mean": 207.492,
-          "max": 967.582,
+          "n": 36448,
+          "p50": 137.248,
+          "p95": 378.881,
+          "p99": 407.554,
+          "mean": 209.792,
+          "max": 1161.635,
           "hist": [
             {
               "lo": 0,
               "hi": 25,
-              "n": 527
+              "n": 2015
             },
             {
               "lo": 25,
               "hi": 50,
-              "n": 333
+              "n": 1489
             },
             {
               "lo": 50,
               "hi": 100,
-              "n": 159
+              "n": 575
             },
             {
               "lo": 100,
               "hi": 150,
-              "n": 4585
+              "n": 18178
             },
             {
               "lo": 150,
               "hi": 200,
-              "n": 254
+              "n": 1000
             },
             {
               "lo": 200,
               "hi": 300,
-              "n": 58
+              "n": 258
             },
             {
               "lo": 300,
               "hi": 500,
-              "n": 3213
+              "n": 12769
             },
             {
               "lo": 500,
               "hi": 1000,
-              "n": 14
+              "n": 157
             },
             {
               "lo": 1000,
               "hi": 2000,
-              "n": 0
+              "n": 7
             },
             {
               "lo": 2000,
@@ -632,12 +831,12 @@
           ]
         },
         "deribit": {
-          "n": 1754,
-          "p50": 42.585,
-          "p95": 68.932,
-          "p99": 91.616,
-          "mean": 45.831,
-          "max": 195.195,
+          "n": 6952,
+          "p50": 47.415,
+          "p95": 73.631,
+          "p99": 111.256,
+          "mean": 50.233,
+          "max": 1338.553,
           "hist": [
             {
               "lo": 0,
@@ -647,27 +846,27 @@
             {
               "lo": 25,
               "hi": 50,
-              "n": 1525
+              "n": 4782
             },
             {
               "lo": 50,
               "hi": 100,
-              "n": 220
+              "n": 2077
             },
             {
               "lo": 100,
               "hi": 150,
-              "n": 7
+              "n": 73
             },
             {
               "lo": 150,
               "hi": 200,
-              "n": 2
+              "n": 12
             },
             {
               "lo": 200,
               "hi": 300,
-              "n": 0
+              "n": 7
             },
             {
               "lo": 300,
@@ -682,7 +881,7 @@
             {
               "lo": 1000,
               "hi": 2000,
-              "n": 0
+              "n": 1
             },
             {
               "lo": 2000,
@@ -692,47 +891,47 @@
           ]
         },
         "polymarket": {
-          "n": 741,
-          "p50": 78.305,
+          "n": 2421,
+          "p50": 81.027,
           "p95": 122.666,
-          "p99": 161.626,
-          "mean": 82.843,
-          "max": 242.078,
+          "p99": 155.909,
+          "mean": 84.069,
+          "max": 365.101,
           "hist": [
             {
               "lo": 0,
               "hi": 25,
-              "n": 0
+              "n": 1
             },
             {
               "lo": 25,
               "hi": 50,
-              "n": 15
+              "n": 67
             },
             {
               "lo": 50,
               "hi": 100,
-              "n": 578
+              "n": 1769
             },
             {
               "lo": 100,
               "hi": 150,
-              "n": 136
+              "n": 555
             },
             {
               "lo": 150,
               "hi": 200,
-              "n": 11
+              "n": 21
             },
             {
               "lo": 200,
               "hi": 300,
-              "n": 1
+              "n": 7
             },
             {
               "lo": 300,
               "hi": 500,
-              "n": 0
+              "n": 1
             },
             {
               "lo": 500,
@@ -754,87 +953,137 @@
       },
       "feed_lag": {
         "deribit index (ws)": {
-          "n": 3485,
-          "p50": -8.57,
-          "p95": 102.845,
-          "p99": 660.279,
-          "mean": 8.708,
-          "max": 953.443,
+          "n": 17082,
+          "p50": -7.466,
+          "p95": 202.089,
+          "p99": 719.723,
+          "mean": 406.895,
+          "max": 193094.623,
           "hist": [
             {
               "lo": -200,
               "hi": 0,
-              "n": 3164
+              "n": 10200
             },
             {
               "lo": 0,
               "hi": 50,
-              "n": 121
+              "n": 5136
             },
             {
               "lo": 50,
               "hi": 100,
-              "n": 24
+              "n": 641
             },
             {
               "lo": 100,
               "hi": 200,
-              "n": 39
+              "n": 244
             },
             {
               "lo": 200,
               "hi": 500,
-              "n": 71
+              "n": 438
             },
             {
               "lo": 500,
               "hi": 1000,
-              "n": 66
+              "n": 359
             },
             {
               "lo": 1000,
               "hi": 5000,
-              "n": 0
+              "n": 27
             },
             {
               "lo": 5000,
               "hi": null,
-              "n": 0
+              "n": 37
             }
           ]
         },
         "polymarket book (ws)": {
-          "n": 29784,
-          "p50": -10.669,
-          "p95": 6.281,
-          "p99": 202.848,
-          "mean": 1352.241,
-          "max": 1528177.787,
+          "n": 108874,
+          "p50": -11.865,
+          "p95": 12.578,
+          "p99": 184.842,
+          "mean": 1209.163,
+          "max": 1978920.448,
           "hist": [
             {
               "lo": -200,
               "hi": 0,
-              "n": 27490
+              "n": 76527
             },
             {
               "lo": 0,
               "hi": 50,
-              "n": 1820
+              "n": 30461
             },
             {
               "lo": 50,
               "hi": 100,
-              "n": 113
+              "n": 517
             },
             {
               "lo": 100,
               "hi": 200,
-              "n": 54
+              "n": 317
             },
             {
               "lo": 200,
               "hi": 500,
-              "n": 39
+              "n": 198
+            },
+            {
+              "lo": 500,
+              "hi": 1000,
+              "n": 41
+            },
+            {
+              "lo": 1000,
+              "hi": 5000,
+              "n": 104
+            },
+            {
+              "lo": 5000,
+              "hi": null,
+              "n": 709
+            }
+          ]
+        },
+        "coinbase trade (ws)": {
+          "n": 12055,
+          "p50": 19.324,
+          "p95": 45.304,
+          "p99": 121.42,
+          "mean": 24.298,
+          "max": 4566.164,
+          "hist": [
+            {
+              "lo": -200,
+              "hi": 0,
+              "n": 2189
+            },
+            {
+              "lo": 0,
+              "hi": 50,
+              "n": 9442
+            },
+            {
+              "lo": 50,
+              "hi": 100,
+              "n": 269
+            },
+            {
+              "lo": 100,
+              "hi": 200,
+              "n": 94
+            },
+            {
+              "lo": 200,
+              "hi": 500,
+              "n": 46
             },
             {
               "lo": 500,
@@ -844,57 +1093,7 @@
             {
               "lo": 1000,
               "hi": 5000,
-              "n": 45
-            },
-            {
-              "lo": 5000,
-              "hi": null,
-              "n": 215
-            }
-          ]
-        },
-        "coinbase trade (ws)": {
-          "n": 2020,
-          "p50": 33.413,
-          "p95": 41.706,
-          "p99": 86.136,
-          "mean": 31.462,
-          "max": 3575.122,
-          "hist": [
-            {
-              "lo": -200,
-              "hi": 0,
-              "n": 0
-            },
-            {
-              "lo": 0,
-              "hi": 50,
-              "n": 1961
-            },
-            {
-              "lo": 50,
-              "hi": 100,
-              "n": 42
-            },
-            {
-              "lo": 100,
-              "hi": 200,
-              "n": 12
-            },
-            {
-              "lo": 200,
-              "hi": 500,
-              "n": 2
-            },
-            {
-              "lo": 500,
-              "hi": 1000,
-              "n": 1
-            },
-            {
-              "lo": 1000,
-              "hi": 5000,
-              "n": 2
+              "n": 7
             },
             {
               "lo": 5000,
@@ -910,72 +1109,72 @@
         "n": 0
       },
       "guard": {
-        "n": 60616,
+        "n": 231634,
         "p50": 2.792,
-        "p95": 4.75,
-        "p99": 6.25,
-        "mean": 3.1,
-        "max": 220.542,
+        "p95": 5.0,
+        "p99": 7.0,
+        "mean": 3.22,
+        "max": 1396.75,
         "hist": [
           {
             "lo": 0,
             "hi": 1,
-            "n": 4480
+            "n": 13375
           },
           {
             "lo": 1,
             "hi": 2,
-            "n": 15374
+            "n": 68124
           },
           {
             "lo": 2,
             "hi": 5,
-            "n": 38531
+            "n": 138103
           },
           {
             "lo": 5,
             "hi": 10,
-            "n": 1832
+            "n": 10361
           },
           {
             "lo": 10,
             "hi": 20,
-            "n": 57
+            "n": 311
           },
           {
             "lo": 20,
             "hi": 50,
-            "n": 74
+            "n": 261
           },
           {
             "lo": 50,
             "hi": 100,
-            "n": 12
+            "n": 89
           },
           {
             "lo": 100,
             "hi": 200,
-            "n": 255
+            "n": 1004
           },
           {
             "lo": 200,
             "hi": 500,
-            "n": 1
+            "n": 4
           },
           {
             "lo": 500,
             "hi": null,
-            "n": 0
+            "n": 2
           }
         ]
       },
       "model": {
-        "n": 50967,
-        "p50": 13.875,
-        "p95": 24.292,
-        "p99": 28.833,
-        "mean": 15.009,
-        "max": 267.042,
+        "n": 189575,
+        "p50": 16.5,
+        "p95": 30.292,
+        "p99": 35.584,
+        "mean": 18.241,
+        "max": 535.584,
         "hist": [
           {
             "lo": 0,
@@ -985,57 +1184,57 @@
           {
             "lo": 1,
             "hi": 2,
-            "n": 341
+            "n": 355
           },
           {
             "lo": 2,
             "hi": 5,
-            "n": 60
+            "n": 50
           },
           {
             "lo": 5,
             "hi": 10,
-            "n": 5129
+            "n": 12729
           },
           {
             "lo": 10,
             "hi": 20,
-            "n": 37849
+            "n": 115035
           },
           {
             "lo": 20,
             "hi": 50,
-            "n": 7554
+            "n": 60910
           },
           {
             "lo": 50,
             "hi": 100,
-            "n": 24
+            "n": 392
           },
           {
             "lo": 100,
             "hi": 200,
-            "n": 9
+            "n": 93
           },
           {
             "lo": 200,
             "hi": 500,
-            "n": 1
+            "n": 10
           },
           {
             "lo": 500,
             "hi": null,
-            "n": 0
+            "n": 1
           }
         ]
       },
       "signal": {
-        "n": 35592,
-        "p50": 4.959,
-        "p95": 7.084,
-        "p99": 8.625,
-        "mean": 5.174,
-        "max": 96.875,
+        "n": 153266,
+        "p50": 5.167,
+        "p95": 7.792,
+        "p99": 9.959,
+        "mean": 5.45,
+        "max": 177.833,
         "hist": [
           {
             "lo": 0,
@@ -1050,32 +1249,32 @@
           {
             "lo": 2,
             "hi": 5,
-            "n": 17978
+            "n": 63211
           },
           {
             "lo": 5,
             "hi": 10,
-            "n": 17436
+            "n": 88530
           },
           {
             "lo": 10,
             "hi": 20,
-            "n": 163
+            "n": 1382
           },
           {
             "lo": 20,
             "hi": 50,
-            "n": 13
+            "n": 123
           },
           {
             "lo": 50,
             "hi": 100,
-            "n": 2
+            "n": 17
           },
           {
             "lo": 100,
             "hi": 200,
-            "n": 0
+            "n": 3
           },
           {
             "lo": 200,
@@ -1090,12 +1289,12 @@
         ]
       },
       "risk": {
-        "n": 495,
-        "p50": 20.666,
-        "p95": 26.959,
-        "p99": 35.625,
-        "mean": 21.183,
-        "max": 41.875,
+        "n": 1387,
+        "p50": 26.625,
+        "p95": 45.083,
+        "p99": 56.417,
+        "mean": 28.292,
+        "max": 153.25,
         "hist": [
           {
             "lo": 0,
@@ -1120,22 +1319,22 @@
           {
             "lo": 10,
             "hi": 20,
-            "n": 191
+            "n": 194
           },
           {
             "lo": 20,
             "hi": 50,
-            "n": 304
+            "n": 1157
           },
           {
             "lo": 50,
             "hi": 100,
-            "n": 0
+            "n": 34
           },
           {
             "lo": 100,
             "hi": 200,
-            "n": 0
+            "n": 2
           },
           {
             "lo": 200,
@@ -1150,12 +1349,12 @@
         ]
       },
       "order": {
-        "n": 83,
-        "p50": 7.542,
-        "p95": 11.541,
-        "p99": 16.833,
-        "mean": 8.216,
-        "max": 23.0,
+        "n": 312,
+        "p50": 9.542,
+        "p95": 15.709,
+        "p99": 19.458,
+        "mean": 10.501,
+        "max": 35.709,
         "hist": [
           {
             "lo": 0,
@@ -1175,17 +1374,17 @@
           {
             "lo": 5,
             "hi": 10,
-            "n": 75
+            "n": 174
           },
           {
             "lo": 10,
             "hi": 20,
-            "n": 7
+            "n": 135
           },
           {
             "lo": 20,
             "hi": 50,
-            "n": 1
+            "n": 3
           },
           {
             "lo": 50,
@@ -1215,1481 +1414,2384 @@
     "all": {
       "models": {
         "p_options": {
-          "n": 238,
-          "brier": 0.01464,
-          "log_loss": 0.07306,
+          "n": 4051,
+          "brier": 0.03761,
+          "log_loss": 0.13256,
           "bins": [
             {
               "lo": 0.0,
               "hi": 0.1,
-              "n": 112,
-              "p_mean": 0.0049,
+              "n": 2044,
+              "p_mean": 0.0108,
               "y_rate": 0.0
             },
             {
               "lo": 0.1,
               "hi": 0.2,
-              "n": 17,
-              "p_mean": 0.1606,
+              "n": 226,
+              "p_mean": 0.1488,
               "y_rate": 0.0
             },
             {
               "lo": 0.2,
               "hi": 0.3,
-              "n": 13,
-              "p_mean": 0.2499,
-              "y_rate": 0.0
+              "n": 106,
+              "p_mean": 0.2438,
+              "y_rate": 0.0094
             },
             {
               "lo": 0.3,
               "hi": 0.4,
-              "n": 11,
-              "p_mean": 0.3428,
+              "n": 89,
+              "p_mean": 0.3489,
               "y_rate": 0.0
             },
             {
               "lo": 0.4,
               "hi": 0.5,
-              "n": 1,
-              "p_mean": 0.4111,
-              "y_rate": 0.0
+              "n": 120,
+              "p_mean": 0.4541,
+              "y_rate": 0.2083
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 66,
+              "p_mean": 0.5365,
+              "y_rate": 0.3636
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 76,
+              "p_mean": 0.6459,
+              "y_rate": 0.6316
             },
             {
               "lo": 0.7,
               "hi": 0.8,
-              "n": 7,
-              "p_mean": 0.7859,
-              "y_rate": 1.0
+              "n": 140,
+              "p_mean": 0.7622,
+              "y_rate": 0.7
             },
             {
               "lo": 0.8,
               "hi": 0.9,
-              "n": 15,
-              "p_mean": 0.8434,
-              "y_rate": 1.0
+              "n": 306,
+              "p_mean": 0.8528,
+              "y_rate": 0.8627
             },
             {
               "lo": 0.9,
               "hi": 1.0,
-              "n": 62,
-              "p_mean": 0.9889,
+              "n": 878,
+              "p_mean": 0.9676,
               "y_rate": 1.0
             }
           ],
           "label": "Options-implied (Deribit)"
         },
         "p_hybrid": {
-          "n": 238,
-          "brier": 0.00407,
-          "log_loss": 0.03076,
+          "n": 4051,
+          "brier": 0.03706,
+          "log_loss": 0.13001,
           "bins": [
             {
               "lo": 0.0,
               "hi": 0.1,
-              "n": 136,
-              "p_mean": 0.0118,
+              "n": 2195,
+              "p_mean": 0.011,
               "y_rate": 0.0
             },
             {
               "lo": 0.1,
               "hi": 0.2,
-              "n": 10,
-              "p_mean": 0.1505,
-              "y_rate": 0.0
+              "n": 151,
+              "p_mean": 0.1381,
+              "y_rate": 0.0066
             },
             {
               "lo": 0.2,
               "hi": 0.3,
-              "n": 7,
-              "p_mean": 0.2455,
+              "n": 66,
+              "p_mean": 0.2483,
               "y_rate": 0.0
             },
             {
               "lo": 0.3,
               "hi": 0.4,
-              "n": 1,
-              "p_mean": 0.3221,
-              "y_rate": 0.0
+              "n": 101,
+              "p_mean": 0.3539,
+              "y_rate": 0.0198
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 82,
+              "p_mean": 0.4532,
+              "y_rate": 0.2805
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 52,
+              "p_mean": 0.5378,
+              "y_rate": 0.4423
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 70,
+              "p_mean": 0.6503,
+              "y_rate": 0.6143
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 80,
+              "p_mean": 0.7614,
+              "y_rate": 0.9
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 265,
+              "p_mean": 0.8567,
+              "y_rate": 0.8264
             },
             {
               "lo": 0.9,
               "hi": 1.0,
-              "n": 84,
-              "p_mean": 0.9808,
-              "y_rate": 1.0
+              "n": 989,
+              "p_mean": 0.9688,
+              "y_rate": 0.9656
             }
           ],
           "label": "Hybrid (Deribit smile + realized vol)"
         },
         "p_realized": {
-          "n": 238,
-          "brier": 0.00311,
-          "log_loss": 0.02302,
+          "n": 4051,
+          "brier": 0.03746,
+          "log_loss": 0.13023,
           "bins": [
             {
               "lo": 0.0,
               "hi": 0.1,
-              "n": 139,
-              "p_mean": 0.0088,
+              "n": 2166,
+              "p_mean": 0.0092,
               "y_rate": 0.0
             },
             {
               "lo": 0.1,
               "hi": 0.2,
-              "n": 8,
-              "p_mean": 0.1563,
-              "y_rate": 0.0
+              "n": 175,
+              "p_mean": 0.1421,
+              "y_rate": 0.0057
             },
             {
               "lo": 0.2,
               "hi": 0.3,
-              "n": 7,
-              "p_mean": 0.244,
+              "n": 79,
+              "p_mean": 0.2534,
               "y_rate": 0.0
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 108,
+              "p_mean": 0.3478,
+              "y_rate": 0.0278
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 97,
+              "p_mean": 0.4469,
+              "y_rate": 0.3505
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 57,
+              "p_mean": 0.5546,
+              "y_rate": 0.4912
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 71,
+              "p_mean": 0.6504,
+              "y_rate": 0.8732
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 138,
+              "p_mean": 0.7588,
+              "y_rate": 0.913
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 222,
+              "p_mean": 0.853,
+              "y_rate": 0.8018
             },
             {
               "lo": 0.9,
               "hi": 1.0,
-              "n": 84,
-              "p_mean": 0.9897,
-              "y_rate": 1.0
+              "n": 938,
+              "p_mean": 0.9816,
+              "y_rate": 0.9659
             }
           ],
           "label": "Realized vol (spot)"
         },
         "p_ensemble": {
-          "n": 238,
-          "brier": 0.0065,
-          "log_loss": 0.03944,
+          "n": 4051,
+          "brier": 0.03745,
+          "log_loss": 0.1318,
           "bins": [
             {
               "lo": 0.0,
               "hi": 0.1,
-              "n": 127,
-              "p_mean": 0.0088,
+              "n": 2086,
+              "p_mean": 0.0113,
               "y_rate": 0.0
             },
             {
               "lo": 0.1,
               "hi": 0.2,
-              "n": 15,
-              "p_mean": 0.1513,
+              "n": 218,
+              "p_mean": 0.1474,
               "y_rate": 0.0
             },
             {
               "lo": 0.2,
               "hi": 0.3,
-              "n": 7,
-              "p_mean": 0.2154,
+              "n": 91,
+              "p_mean": 0.2409,
               "y_rate": 0.0
             },
             {
               "lo": 0.3,
               "hi": 0.4,
-              "n": 4,
-              "p_mean": 0.3357,
-              "y_rate": 0.0
+              "n": 72,
+              "p_mean": 0.3519,
+              "y_rate": 0.0139
             },
             {
               "lo": 0.4,
               "hi": 0.5,
-              "n": 1,
-              "p_mean": 0.4372,
-              "y_rate": 0.0
+              "n": 85,
+              "p_mean": 0.4478,
+              "y_rate": 0.0941
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 84,
+              "p_mean": 0.5386,
+              "y_rate": 0.3571
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 61,
+              "p_mean": 0.652,
+              "y_rate": 0.5246
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 66,
+              "p_mean": 0.7551,
+              "y_rate": 0.8182
             },
             {
               "lo": 0.8,
               "hi": 0.9,
-              "n": 5,
-              "p_mean": 0.8499,
-              "y_rate": 1.0
+              "n": 269,
+              "p_mean": 0.857,
+              "y_rate": 0.8364
             },
             {
               "lo": 0.9,
               "hi": 1.0,
-              "n": 79,
-              "p_mean": 0.9871,
-              "y_rate": 1.0
+              "n": 1019,
+              "p_mean": 0.9709,
+              "y_rate": 0.9696
             }
           ],
           "label": "Market ensemble"
         },
         "mid": {
-          "n": 238,
-          "brier": 0.00558,
-          "log_loss": 0.04555,
+          "n": 4051,
+          "brier": 0.03547,
+          "log_loss": 0.13235,
           "bins": [
             {
               "lo": 0.0,
               "hi": 0.1,
-              "n": 130,
-              "p_mean": 0.0259,
+              "n": 2184,
+              "p_mean": 0.0266,
               "y_rate": 0.0
             },
             {
               "lo": 0.1,
               "hi": 0.2,
-              "n": 12,
-              "p_mean": 0.1458,
+              "n": 162,
+              "p_mean": 0.1413,
               "y_rate": 0.0
             },
             {
               "lo": 0.2,
               "hi": 0.3,
-              "n": 8,
-              "p_mean": 0.2356,
+              "n": 92,
+              "p_mean": 0.2426,
               "y_rate": 0.0
             },
             {
               "lo": 0.3,
               "hi": 0.4,
-              "n": 4,
-              "p_mean": 0.3312,
-              "y_rate": 0.0
+              "n": 55,
+              "p_mean": 0.3472,
+              "y_rate": 0.0182
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 94,
+              "p_mean": 0.4486,
+              "y_rate": 0.1702
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 50,
+              "p_mean": 0.5424,
+              "y_rate": 0.54
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 43,
+              "p_mean": 0.6541,
+              "y_rate": 0.3953
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 70,
+              "p_mean": 0.756,
+              "y_rate": 0.8143
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 181,
+              "p_mean": 0.8562,
+              "y_rate": 0.7735
             },
             {
               "lo": 0.9,
               "hi": 1.0,
-              "n": 84,
-              "p_mean": 0.9796,
-              "y_rate": 1.0
+              "n": 1120,
+              "p_mean": 0.9685,
+              "y_rate": 0.9643
             }
           ],
           "label": "Market mid (baseline)"
         }
       },
-      "n_snapshots": 238,
-      "n_contracts": 26,
-      "n_events": 4,
-      "base_rate": 0.3529
+      "n_snapshots": 4051,
+      "n_contracts": 206,
+      "n_events": 24,
+      "base_rate": 0.3303
     },
     "by_venue": {
       "polymarket": {
         "models": {
           "p_options": {
-            "n": 166,
-            "brier": 0.00119,
-            "log_loss": 0.01084,
+            "n": 2404,
+            "brier": 0.01195,
+            "log_loss": 0.04316,
             "bins": [
               {
                 "lo": 0.0,
                 "hi": 0.1,
-                "n": 101,
-                "p_mean": 0.0011,
+                "n": 1657,
+                "p_mean": 0.0043,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.1,
                 "hi": 0.2,
-                "n": 8,
-                "p_mean": 0.1506,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
-                "n": 57,
-                "p_mean": 0.9934,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Options-implied (Deribit)"
-          },
-          "p_hybrid": {
-            "n": 166,
-            "brier": 0.00012,
-            "log_loss": 0.00285,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 109,
-                "p_mean": 0.0035,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
-                "n": 57,
-                "p_mean": 0.9987,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Hybrid (Deribit smile + realized vol)"
-          },
-          "p_realized": {
-            "n": 166,
-            "brier": 0.00011,
-            "log_loss": 0.00226,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 109,
-                "p_mean": 0.0033,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
-                "n": 57,
-                "p_mean": 1.0,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Realized vol (spot)"
-          },
-          "p_ensemble": {
-            "n": 166,
-            "brier": 0.00012,
-            "log_loss": 0.00347,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 109,
-                "p_mean": 0.004,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
-                "n": 57,
-                "p_mean": 0.9978,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Market ensemble"
-          },
-          "mid": {
-            "n": 166,
-            "brier": 0.00047,
-            "log_loss": 0.01983,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 109,
-                "p_mean": 0.0237,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
-                "n": 57,
-                "p_mean": 0.9883,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Market mid (baseline)"
-          }
-        },
-        "n_snapshots": 166,
-        "n_contracts": 18,
-        "n_events": 2,
-        "base_rate": 0.3434
-      },
-      "kalshi": {
-        "models": {
-          "p_options": {
-            "n": 72,
-            "brier": 0.04566,
-            "log_loss": 0.21653,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 11,
-                "p_mean": 0.0397,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.1,
-                "hi": 0.2,
-                "n": 9,
-                "p_mean": 0.1695,
+                "n": 31,
+                "p_mean": 0.1495,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.2,
                 "hi": 0.3,
-                "n": 13,
-                "p_mean": 0.2499,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.3,
-                "hi": 0.4,
-                "n": 11,
-                "p_mean": 0.3428,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.4,
-                "hi": 0.5,
-                "n": 1,
-                "p_mean": 0.4111,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.7,
-                "hi": 0.8,
-                "n": 7,
-                "p_mean": 0.7859,
-                "y_rate": 1.0
-              },
-              {
-                "lo": 0.8,
-                "hi": 0.9,
-                "n": 15,
-                "p_mean": 0.8434,
-                "y_rate": 1.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
-                "n": 5,
-                "p_mean": 0.9378,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Options-implied (Deribit)"
-          },
-          "p_hybrid": {
-            "n": 72,
-            "brier": 0.01317,
-            "log_loss": 0.09509,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 27,
-                "p_mean": 0.0451,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.1,
-                "hi": 0.2,
-                "n": 10,
-                "p_mean": 0.1505,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.2,
-                "hi": 0.3,
-                "n": 7,
-                "p_mean": 0.2455,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.3,
-                "hi": 0.4,
-                "n": 1,
-                "p_mean": 0.3221,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
-                "n": 27,
-                "p_mean": 0.9432,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Hybrid (Deribit smile + realized vol)"
-          },
-          "p_realized": {
-            "n": 72,
-            "brier": 0.01001,
-            "log_loss": 0.0709,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 30,
-                "p_mean": 0.0288,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.1,
-                "hi": 0.2,
-                "n": 8,
-                "p_mean": 0.1563,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.2,
-                "hi": 0.3,
-                "n": 7,
-                "p_mean": 0.244,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
-                "n": 27,
-                "p_mean": 0.968,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Realized vol (spot)"
-          },
-          "p_ensemble": {
-            "n": 72,
-            "brier": 0.02122,
-            "log_loss": 0.12239,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 18,
-                "p_mean": 0.0377,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.1,
-                "hi": 0.2,
-                "n": 15,
-                "p_mean": 0.1513,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.2,
-                "hi": 0.3,
-                "n": 7,
-                "p_mean": 0.2154,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.3,
-                "hi": 0.4,
-                "n": 4,
-                "p_mean": 0.3357,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.4,
-                "hi": 0.5,
-                "n": 1,
-                "p_mean": 0.4372,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.8,
-                "hi": 0.9,
-                "n": 5,
-                "p_mean": 0.8499,
-                "y_rate": 1.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
                 "n": 22,
-                "p_mean": 0.9596,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Market ensemble"
-          },
-          "mid": {
-            "n": 72,
-            "brier": 0.01735,
-            "log_loss": 0.10485,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 21,
-                "p_mean": 0.0374,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.1,
-                "hi": 0.2,
-                "n": 12,
-                "p_mean": 0.1458,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.2,
-                "hi": 0.3,
-                "n": 8,
-                "p_mean": 0.2356,
+                "p_mean": 0.2445,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.3,
                 "hi": 0.4,
                 "n": 4,
-                "p_mean": 0.3312,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
-                "n": 27,
-                "p_mean": 0.9611,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Market mid (baseline)"
-          }
-        },
-        "n_snapshots": 72,
-        "n_contracts": 8,
-        "n_events": 2,
-        "base_rate": 0.375
-      }
-    },
-    "by_sym": {
-      "BTC": {
-        "models": {
-          "p_options": {
-            "n": 155,
-            "brier": 0.01163,
-            "log_loss": 0.0579,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 75,
-                "p_mean": 0.004,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.1,
-                "hi": 0.2,
-                "n": 4,
-                "p_mean": 0.1646,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.2,
-                "hi": 0.3,
-                "n": 7,
-                "p_mean": 0.2426,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.3,
-                "hi": 0.4,
-                "n": 5,
-                "p_mean": 0.3408,
+                "p_mean": 0.3385,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.4,
                 "hi": 0.5,
-                "n": 1,
-                "p_mean": 0.4111,
+                "n": 20,
+                "p_mean": 0.4544,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 5,
+                "p_mean": 0.5433,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 6,
+                "p_mean": 0.6334,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.7,
                 "hi": 0.8,
-                "n": 7,
-                "p_mean": 0.7859,
-                "y_rate": 1.0
+                "n": 17,
+                "p_mean": 0.7572,
+                "y_rate": 0.0588
               },
               {
                 "lo": 0.8,
                 "hi": 0.9,
-                "n": 6,
-                "p_mean": 0.8358,
-                "y_rate": 1.0
+                "n": 82,
+                "p_mean": 0.8608,
+                "y_rate": 0.878
               },
               {
                 "lo": 0.9,
                 "hi": 1.0,
-                "n": 50,
-                "p_mean": 0.9879,
+                "n": 560,
+                "p_mean": 0.9821,
                 "y_rate": 1.0
               }
             ],
             "label": "Options-implied (Deribit)"
           },
           "p_hybrid": {
-            "n": 155,
-            "brier": 0.00256,
-            "log_loss": 0.02091,
+            "n": 2404,
+            "brier": 0.01207,
+            "log_loss": 0.04302,
             "bins": [
               {
                 "lo": 0.0,
                 "hi": 0.1,
-                "n": 85,
-                "p_mean": 0.008,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.1,
-                "hi": 0.2,
-                "n": 4,
-                "p_mean": 0.1376,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.2,
-                "hi": 0.3,
-                "n": 2,
-                "p_mean": 0.2334,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.3,
-                "hi": 0.4,
-                "n": 1,
-                "p_mean": 0.3221,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
-                "n": 63,
-                "p_mean": 0.9843,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Hybrid (Deribit smile + realized vol)"
-          },
-          "p_realized": {
-            "n": 155,
-            "brier": 0.00105,
-            "log_loss": 0.01022,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 88,
-                "p_mean": 0.0052,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.1,
-                "hi": 0.2,
-                "n": 3,
-                "p_mean": 0.1511,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.2,
-                "hi": 0.3,
-                "n": 1,
-                "p_mean": 0.2298,
-                "y_rate": 0.0
-              },
-              {
-                "lo": 0.9,
-                "hi": 1.0,
-                "n": 63,
-                "p_mean": 0.9944,
-                "y_rate": 1.0
-              }
-            ],
-            "label": "Realized vol (spot)"
-          },
-          "p_ensemble": {
-            "n": 155,
-            "brier": 0.00632,
-            "log_loss": 0.033,
-            "bins": [
-              {
-                "lo": 0.0,
-                "hi": 0.1,
-                "n": 77,
+                "n": 1690,
                 "p_mean": 0.0037,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.1,
                 "hi": 0.2,
-                "n": 6,
-                "p_mean": 0.1431,
+                "n": 21,
+                "p_mean": 0.1292,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.2,
                 "hi": 0.3,
                 "n": 4,
-                "p_mean": 0.2033,
+                "p_mean": 0.2501,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.3,
                 "hi": 0.4,
-                "n": 4,
-                "p_mean": 0.3357,
+                "n": 16,
+                "p_mean": 0.3575,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.4,
                 "hi": 0.5,
-                "n": 1,
-                "p_mean": 0.4372,
+                "n": 5,
+                "p_mean": 0.4392,
                 "y_rate": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 3,
+                "p_mean": 0.575,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 5,
+                "p_mean": 0.657,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 7,
+                "p_mean": 0.7745,
+                "y_rate": 0.2857
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 73,
+                "p_mean": 0.8626,
+                "y_rate": 0.8219
               },
               {
                 "lo": 0.9,
                 "hi": 1.0,
-                "n": 63,
-                "p_mean": 0.9881,
-                "y_rate": 1.0
+                "n": 580,
+                "p_mean": 0.9829,
+                "y_rate": 0.9845
+              }
+            ],
+            "label": "Hybrid (Deribit smile + realized vol)"
+          },
+          "p_realized": {
+            "n": 2404,
+            "brier": 0.01163,
+            "log_loss": 0.04062,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1695,
+                "p_mean": 0.0032,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 18,
+                "p_mean": 0.128,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 8,
+                "p_mean": 0.2872,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 13,
+                "p_mean": 0.3339,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 3,
+                "p_mean": 0.449,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 4,
+                "p_mean": 0.5681,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 4,
+                "p_mean": 0.6451,
+                "y_rate": 0.25
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 26,
+                "p_mean": 0.7622,
+                "y_rate": 0.7308
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 70,
+                "p_mean": 0.8515,
+                "y_rate": 0.8429
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 563,
+                "p_mean": 0.9916,
+                "y_rate": 0.984
+              }
+            ],
+            "label": "Realized vol (spot)"
+          },
+          "p_ensemble": {
+            "n": 2404,
+            "brier": 0.01121,
+            "log_loss": 0.0406,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1685,
+                "p_mean": 0.0043,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 25,
+                "p_mean": 0.1404,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 4,
+                "p_mean": 0.2485,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 17,
+                "p_mean": 0.3631,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 6,
+                "p_mean": 0.4399,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 4,
+                "p_mean": 0.5355,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 4,
+                "p_mean": 0.6583,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 12,
+                "p_mean": 0.7574,
+                "y_rate": 0.25
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 77,
+                "p_mean": 0.8586,
+                "y_rate": 0.8442
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 570,
+                "p_mean": 0.984,
+                "y_rate": 0.9912
               }
             ],
             "label": "Market ensemble"
           },
           "mid": {
-            "n": 155,
-            "brier": 0.00497,
-            "log_loss": 0.04094,
+            "n": 2404,
+            "brier": 0.01309,
+            "log_loss": 0.05961,
             "bins": [
               {
                 "lo": 0.0,
                 "hi": 0.1,
-                "n": 80,
-                "p_mean": 0.0238,
+                "n": 1675,
+                "p_mean": 0.0229,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.1,
                 "hi": 0.2,
-                "n": 6,
-                "p_mean": 0.1475,
+                "n": 17,
+                "p_mean": 0.1331,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.2,
                 "hi": 0.3,
-                "n": 3,
-                "p_mean": 0.2417,
+                "n": 19,
+                "p_mean": 0.2358,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.3,
                 "hi": 0.4,
-                "n": 3,
-                "p_mean": 0.3417,
+                "n": 4,
+                "p_mean": 0.3489,
                 "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 22,
+                "p_mean": 0.4417,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 3,
+                "p_mean": 0.5733,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 4,
+                "p_mean": 0.6438,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 6,
+                "p_mean": 0.7775,
+                "y_rate": 0.3333
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 35,
+                "p_mean": 0.8689,
+                "y_rate": 0.6571
               },
               {
                 "lo": 0.9,
                 "hi": 1.0,
-                "n": 63,
-                "p_mean": 0.9788,
-                "y_rate": 1.0
+                "n": 619,
+                "p_mean": 0.9751,
+                "y_rate": 0.9822
               }
             ],
             "label": "Market mid (baseline)"
           }
         },
-        "n_snapshots": 155,
-        "n_contracts": 16,
-        "n_events": 2,
-        "base_rate": 0.4065
+        "n_snapshots": 2404,
+        "n_contracts": 127,
+        "n_events": 12,
+        "base_rate": 0.2633
       },
-      "ETH": {
+      "kalshi": {
         "models": {
           "p_options": {
-            "n": 83,
-            "brier": 0.02027,
-            "log_loss": 0.10138,
+            "n": 1647,
+            "brier": 0.07507,
+            "log_loss": 0.26305,
             "bins": [
               {
                 "lo": 0.0,
                 "hi": 0.1,
-                "n": 37,
-                "p_mean": 0.0067,
+                "n": 387,
+                "p_mean": 0.0386,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.1,
                 "hi": 0.2,
-                "n": 13,
-                "p_mean": 0.1594,
+                "n": 195,
+                "p_mean": 0.1487,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.2,
                 "hi": 0.3,
-                "n": 6,
-                "p_mean": 0.2585,
-                "y_rate": 0.0
+                "n": 84,
+                "p_mean": 0.2437,
+                "y_rate": 0.0119
               },
               {
                 "lo": 0.3,
                 "hi": 0.4,
-                "n": 6,
-                "p_mean": 0.3445,
+                "n": 85,
+                "p_mean": 0.3494,
                 "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 100,
+                "p_mean": 0.454,
+                "y_rate": 0.25
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 61,
+                "p_mean": 0.5359,
+                "y_rate": 0.3934
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 70,
+                "p_mean": 0.647,
+                "y_rate": 0.6857
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 123,
+                "p_mean": 0.7629,
+                "y_rate": 0.7886
               },
               {
                 "lo": 0.8,
                 "hi": 0.9,
-                "n": 9,
-                "p_mean": 0.8485,
-                "y_rate": 1.0
+                "n": 224,
+                "p_mean": 0.8499,
+                "y_rate": 0.8571
               },
               {
                 "lo": 0.9,
                 "hi": 1.0,
-                "n": 12,
-                "p_mean": 0.9933,
+                "n": 318,
+                "p_mean": 0.9419,
                 "y_rate": 1.0
               }
             ],
             "label": "Options-implied (Deribit)"
           },
           "p_hybrid": {
-            "n": 83,
-            "brier": 0.00688,
-            "log_loss": 0.04914,
+            "n": 1647,
+            "brier": 0.07353,
+            "log_loss": 0.25699,
             "bins": [
               {
                 "lo": 0.0,
                 "hi": 0.1,
-                "n": 51,
-                "p_mean": 0.0181,
+                "n": 505,
+                "p_mean": 0.0355,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.1,
                 "hi": 0.2,
-                "n": 6,
-                "p_mean": 0.1591,
-                "y_rate": 0.0
+                "n": 130,
+                "p_mean": 0.1395,
+                "y_rate": 0.0077
               },
               {
                 "lo": 0.2,
                 "hi": 0.3,
-                "n": 5,
-                "p_mean": 0.2503,
+                "n": 62,
+                "p_mean": 0.2482,
                 "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 85,
+                "p_mean": 0.3533,
+                "y_rate": 0.0235
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 77,
+                "p_mean": 0.4542,
+                "y_rate": 0.2987
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 49,
+                "p_mean": 0.5355,
+                "y_rate": 0.4694
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 65,
+                "p_mean": 0.6498,
+                "y_rate": 0.6615
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 73,
+                "p_mean": 0.7601,
+                "y_rate": 0.9589
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 192,
+                "p_mean": 0.8545,
+                "y_rate": 0.8281
               },
               {
                 "lo": 0.9,
                 "hi": 1.0,
-                "n": 21,
-                "p_mean": 0.9705,
-                "y_rate": 1.0
+                "n": 409,
+                "p_mean": 0.9488,
+                "y_rate": 0.9389
               }
             ],
             "label": "Hybrid (Deribit smile + realized vol)"
           },
           "p_realized": {
-            "n": 83,
-            "brier": 0.00695,
-            "log_loss": 0.04693,
+            "n": 1647,
+            "brier": 0.07517,
+            "log_loss": 0.26104,
             "bins": [
               {
                 "lo": 0.0,
                 "hi": 0.1,
-                "n": 51,
-                "p_mean": 0.0151,
+                "n": 471,
+                "p_mean": 0.031,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.1,
                 "hi": 0.2,
-                "n": 5,
-                "p_mean": 0.1594,
-                "y_rate": 0.0
+                "n": 157,
+                "p_mean": 0.1437,
+                "y_rate": 0.0064
               },
               {
                 "lo": 0.2,
                 "hi": 0.3,
-                "n": 6,
-                "p_mean": 0.2464,
+                "n": 71,
+                "p_mean": 0.2495,
                 "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 95,
+                "p_mean": 0.3497,
+                "y_rate": 0.0316
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 94,
+                "p_mean": 0.4468,
+                "y_rate": 0.3617
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 53,
+                "p_mean": 0.5536,
+                "y_rate": 0.5283
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 67,
+                "p_mean": 0.6507,
+                "y_rate": 0.9104
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 112,
+                "p_mean": 0.758,
+                "y_rate": 0.9554
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 152,
+                "p_mean": 0.8537,
+                "y_rate": 0.7829
               },
               {
                 "lo": 0.9,
                 "hi": 1.0,
-                "n": 21,
-                "p_mean": 0.9755,
-                "y_rate": 1.0
+                "n": 375,
+                "p_mean": 0.9666,
+                "y_rate": 0.9387
               }
             ],
             "label": "Realized vol (spot)"
           },
           "p_ensemble": {
-            "n": 83,
-            "brier": 0.00682,
-            "log_loss": 0.05148,
+            "n": 1647,
+            "brier": 0.07575,
+            "log_loss": 0.26491,
             "bins": [
               {
                 "lo": 0.0,
                 "hi": 0.1,
-                "n": 50,
-                "p_mean": 0.0166,
+                "n": 401,
+                "p_mean": 0.0407,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.1,
                 "hi": 0.2,
-                "n": 9,
-                "p_mean": 0.1568,
+                "n": 193,
+                "p_mean": 0.1483,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.2,
                 "hi": 0.3,
-                "n": 3,
-                "p_mean": 0.2316,
+                "n": 87,
+                "p_mean": 0.2406,
                 "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 55,
+                "p_mean": 0.3484,
+                "y_rate": 0.0182
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 79,
+                "p_mean": 0.4484,
+                "y_rate": 0.1013
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 80,
+                "p_mean": 0.5388,
+                "y_rate": 0.375
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 57,
+                "p_mean": 0.6516,
+                "y_rate": 0.5614
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 54,
+                "p_mean": 0.7545,
+                "y_rate": 0.9444
               },
               {
                 "lo": 0.8,
                 "hi": 0.9,
-                "n": 5,
-                "p_mean": 0.8499,
-                "y_rate": 1.0
+                "n": 192,
+                "p_mean": 0.8564,
+                "y_rate": 0.8333
               },
               {
                 "lo": 0.9,
                 "hi": 1.0,
-                "n": 16,
-                "p_mean": 0.9834,
-                "y_rate": 1.0
+                "n": 449,
+                "p_mean": 0.9543,
+                "y_rate": 0.9421
               }
             ],
             "label": "Market ensemble"
           },
           "mid": {
-            "n": 83,
-            "brier": 0.00671,
-            "log_loss": 0.05416,
+            "n": 1647,
+            "brier": 0.06814,
+            "log_loss": 0.23853,
             "bins": [
               {
                 "lo": 0.0,
                 "hi": 0.1,
-                "n": 50,
-                "p_mean": 0.0293,
+                "n": 509,
+                "p_mean": 0.0388,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.1,
                 "hi": 0.2,
-                "n": 6,
+                "n": 145,
+                "p_mean": 0.1423,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 73,
+                "p_mean": 0.2444,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 51,
+                "p_mean": 0.3471,
+                "y_rate": 0.0196
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 72,
+                "p_mean": 0.4507,
+                "y_rate": 0.2222
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 47,
+                "p_mean": 0.5404,
+                "y_rate": 0.5745
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 39,
+                "p_mean": 0.6551,
+                "y_rate": 0.4359
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 64,
+                "p_mean": 0.754,
+                "y_rate": 0.8594
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 146,
+                "p_mean": 0.8532,
+                "y_rate": 0.8014
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 501,
+                "p_mean": 0.9604,
+                "y_rate": 0.9421
+              }
+            ],
+            "label": "Market mid (baseline)"
+          }
+        },
+        "n_snapshots": 1647,
+        "n_contracts": 79,
+        "n_events": 12,
+        "base_rate": 0.4281
+      }
+    },
+    "by_sym": {
+      "BTC": {
+        "models": {
+          "p_options": {
+            "n": 2348,
+            "brier": 0.03205,
+            "log_loss": 0.1161,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1261,
+                "p_mean": 0.0099,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 143,
+                "p_mean": 0.149,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 55,
+                "p_mean": 0.2439,
+                "y_rate": 0.0182
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 46,
+                "p_mean": 0.3493,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 94,
+                "p_mean": 0.4533,
+                "y_rate": 0.266
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 36,
+                "p_mean": 0.5367,
+                "y_rate": 0.5833
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 31,
+                "p_mean": 0.6518,
+                "y_rate": 0.7097
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 87,
+                "p_mean": 0.7661,
+                "y_rate": 0.7356
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 109,
+                "p_mean": 0.8484,
+                "y_rate": 0.9266
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 486,
+                "p_mean": 0.9671,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Options-implied (Deribit)"
+          },
+          "p_hybrid": {
+            "n": 2348,
+            "brier": 0.02969,
+            "log_loss": 0.10583,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1371,
+                "p_mean": 0.0097,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 83,
+                "p_mean": 0.1359,
+                "y_rate": 0.012
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 32,
+                "p_mean": 0.2456,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 61,
+                "p_mean": 0.354,
+                "y_rate": 0.0328
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 57,
+                "p_mean": 0.4501,
+                "y_rate": 0.4035
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 28,
+                "p_mean": 0.5381,
+                "y_rate": 0.7143
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 24,
+                "p_mean": 0.6599,
+                "y_rate": 0.6667
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 39,
+                "p_mean": 0.7685,
+                "y_rate": 0.9231
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 99,
+                "p_mean": 0.8467,
+                "y_rate": 0.7879
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 554,
+                "p_mean": 0.9712,
+                "y_rate": 0.9819
+              }
+            ],
+            "label": "Hybrid (Deribit smile + realized vol)"
+          },
+          "p_realized": {
+            "n": 2348,
+            "brier": 0.03015,
+            "log_loss": 0.10546,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1372,
+                "p_mean": 0.0086,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 85,
+                "p_mean": 0.139,
+                "y_rate": 0.0118
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 37,
+                "p_mean": 0.2553,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 64,
+                "p_mean": 0.344,
+                "y_rate": 0.0469
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 59,
+                "p_mean": 0.4448,
+                "y_rate": 0.5254
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 20,
+                "p_mean": 0.5424,
+                "y_rate": 0.7
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 31,
+                "p_mean": 0.6505,
+                "y_rate": 0.8065
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 70,
+                "p_mean": 0.7574,
+                "y_rate": 0.9571
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 72,
+                "p_mean": 0.8554,
+                "y_rate": 0.7083
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 538,
+                "p_mean": 0.9834,
+                "y_rate": 0.9814
+              }
+            ],
+            "label": "Realized vol (spot)"
+          },
+          "p_ensemble": {
+            "n": 2348,
+            "brier": 0.02966,
+            "log_loss": 0.10702,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1317,
+                "p_mean": 0.0104,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 111,
+                "p_mean": 0.1473,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 53,
+                "p_mean": 0.2397,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 42,
+                "p_mean": 0.3547,
+                "y_rate": 0.0238
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 50,
+                "p_mean": 0.4499,
+                "y_rate": 0.14
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 49,
+                "p_mean": 0.5353,
+                "y_rate": 0.5918
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 27,
+                "p_mean": 0.6545,
+                "y_rate": 0.6296
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 28,
+                "p_mean": 0.7674,
+                "y_rate": 0.8571
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 120,
+                "p_mean": 0.8523,
+                "y_rate": 0.8083
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 551,
+                "p_mean": 0.9735,
+                "y_rate": 0.9891
+              }
+            ],
+            "label": "Market ensemble"
+          },
+          "mid": {
+            "n": 2348,
+            "brier": 0.02997,
+            "log_loss": 0.11543,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 1345,
+                "p_mean": 0.0268,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 94,
+                "p_mean": 0.1393,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 45,
+                "p_mean": 0.2417,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 40,
+                "p_mean": 0.3553,
+                "y_rate": 0.025
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 69,
+                "p_mean": 0.4477,
+                "y_rate": 0.2319
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 35,
+                "p_mean": 0.5457,
+                "y_rate": 0.7714
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 17,
+                "p_mean": 0.6603,
+                "y_rate": 0.5882
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 39,
+                "p_mean": 0.7591,
+                "y_rate": 0.8718
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 95,
+                "p_mean": 0.8525,
+                "y_rate": 0.7474
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 569,
+                "p_mean": 0.9715,
+                "y_rate": 0.9859
+              }
+            ],
+            "label": "Market mid (baseline)"
+          }
+        },
+        "n_snapshots": 2348,
+        "n_contracts": 116,
+        "n_events": 12,
+        "base_rate": 0.3066
+      },
+      "ETH": {
+        "models": {
+          "p_options": {
+            "n": 1703,
+            "brier": 0.04528,
+            "log_loss": 0.15525,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 783,
+                "p_mean": 0.0123,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 83,
+                "p_mean": 0.1484,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 51,
+                "p_mean": 0.2438,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 43,
+                "p_mean": 0.3485,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 26,
+                "p_mean": 0.457,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 30,
+                "p_mean": 0.5363,
+                "y_rate": 0.1
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 45,
+                "p_mean": 0.6419,
+                "y_rate": 0.5778
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 53,
+                "p_mean": 0.7559,
+                "y_rate": 0.6415
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 197,
+                "p_mean": 0.8552,
+                "y_rate": 0.8274
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 392,
+                "p_mean": 0.9682,
+                "y_rate": 1.0
+              }
+            ],
+            "label": "Options-implied (Deribit)"
+          },
+          "p_hybrid": {
+            "n": 1703,
+            "brier": 0.0472,
+            "log_loss": 0.16336,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 824,
+                "p_mean": 0.0132,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 68,
+                "p_mean": 0.1407,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 34,
+                "p_mean": 0.2508,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 40,
+                "p_mean": 0.3539,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 25,
+                "p_mean": 0.4604,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 24,
+                "p_mean": 0.5374,
+                "y_rate": 0.125
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 46,
+                "p_mean": 0.6453,
+                "y_rate": 0.587
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 41,
+                "p_mean": 0.7547,
+                "y_rate": 0.878
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 166,
+                "p_mean": 0.8627,
+                "y_rate": 0.8494
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 435,
+                "p_mean": 0.9657,
+                "y_rate": 0.9448
+              }
+            ],
+            "label": "Hybrid (Deribit smile + realized vol)"
+          },
+          "p_realized": {
+            "n": 1703,
+            "brier": 0.04754,
+            "log_loss": 0.16439,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 794,
+                "p_mean": 0.0103,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 90,
+                "p_mean": 0.145,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 42,
+                "p_mean": 0.2516,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 44,
+                "p_mean": 0.3534,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 38,
+                "p_mean": 0.45,
+                "y_rate": 0.0789
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 37,
+                "p_mean": 0.5612,
+                "y_rate": 0.3784
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 40,
+                "p_mean": 0.6503,
+                "y_rate": 0.925
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 68,
+                "p_mean": 0.7602,
+                "y_rate": 0.8676
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 150,
+                "p_mean": 0.8519,
+                "y_rate": 0.8467
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 400,
+                "p_mean": 0.9793,
+                "y_rate": 0.945
+              }
+            ],
+            "label": "Realized vol (spot)"
+          },
+          "p_ensemble": {
+            "n": 1703,
+            "brier": 0.04819,
+            "log_loss": 0.16596,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 769,
+                "p_mean": 0.0129,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 107,
+                "p_mean": 0.1475,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.2,
+                "hi": 0.3,
+                "n": 38,
+                "p_mean": 0.2426,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.3,
+                "hi": 0.4,
+                "n": 30,
+                "p_mean": 0.3479,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 35,
+                "p_mean": 0.4449,
+                "y_rate": 0.0286
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 35,
+                "p_mean": 0.5434,
+                "y_rate": 0.0286
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 34,
+                "p_mean": 0.65,
+                "y_rate": 0.4412
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 38,
+                "p_mean": 0.746,
+                "y_rate": 0.7895
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 149,
+                "p_mean": 0.8608,
+                "y_rate": 0.8591
+              },
+              {
+                "lo": 0.9,
+                "hi": 1.0,
+                "n": 468,
+                "p_mean": 0.9679,
+                "y_rate": 0.9466
+              }
+            ],
+            "label": "Market ensemble"
+          },
+          "mid": {
+            "n": 1703,
+            "brier": 0.04305,
+            "log_loss": 0.15569,
+            "bins": [
+              {
+                "lo": 0.0,
+                "hi": 0.1,
+                "n": 839,
+                "p_mean": 0.0263,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.1,
+                "hi": 0.2,
+                "n": 68,
                 "p_mean": 0.1442,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.2,
                 "hi": 0.3,
-                "n": 5,
-                "p_mean": 0.232,
+                "n": 47,
+                "p_mean": 0.2435,
                 "y_rate": 0.0
               },
               {
                 "lo": 0.3,
                 "hi": 0.4,
-                "n": 1,
-                "p_mean": 0.3,
+                "n": 15,
+                "p_mean": 0.3257,
                 "y_rate": 0.0
+              },
+              {
+                "lo": 0.4,
+                "hi": 0.5,
+                "n": 25,
+                "p_mean": 0.4512,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.5,
+                "hi": 0.6,
+                "n": 15,
+                "p_mean": 0.5347,
+                "y_rate": 0.0
+              },
+              {
+                "lo": 0.6,
+                "hi": 0.7,
+                "n": 26,
+                "p_mean": 0.65,
+                "y_rate": 0.2692
+              },
+              {
+                "lo": 0.7,
+                "hi": 0.8,
+                "n": 31,
+                "p_mean": 0.7521,
+                "y_rate": 0.7419
+              },
+              {
+                "lo": 0.8,
+                "hi": 0.9,
+                "n": 86,
+                "p_mean": 0.8602,
+                "y_rate": 0.8023
               },
               {
                 "lo": 0.9,
                 "hi": 1.0,
-                "n": 21,
-                "p_mean": 0.9819,
-                "y_rate": 1.0
+                "n": 551,
+                "p_mean": 0.9655,
+                "y_rate": 0.9419
               }
             ],
             "label": "Market mid (baseline)"
           }
         },
-        "n_snapshots": 83,
-        "n_contracts": 10,
-        "n_events": 2,
-        "base_rate": 0.253
+        "n_snapshots": 1703,
+        "n_contracts": 90,
+        "n_events": 12,
+        "base_rate": 0.3629
       }
     }
   },
   "edge_decay": [
     {
       "added_ms": 0,
-      "net": 136.24,
-      "net_settled": 105.34,
-      "fees": 49.65,
-      "trades": 73,
-      "contracts": 4946,
-      "signals": 495,
-      "expected_edge": 361.25,
+      "net": -614.94,
+      "net_settled": -456.88,
+      "fees": 127.72,
+      "trades": 293,
+      "contracts": 14275,
+      "signals": 1376,
+      "expected_edge": 1019.82,
       "latency_cost": 0.0,
-      "digest": "189fc5690fc9"
+      "digest": "7a0d7d1f5359"
     },
     {
       "added_ms": 100,
-      "net": 127.55,
-      "net_settled": 105.34,
-      "fees": 48.71,
-      "trades": 72,
-      "contracts": 4890,
-      "signals": 495,
-      "expected_edge": 357.66,
+      "net": -552.65,
+      "net_settled": -394.59,
+      "fees": 121.66,
+      "trades": 284,
+      "contracts": 13723,
+      "signals": 1376,
+      "expected_edge": 967.54,
       "latency_cost": 0.0,
-      "digest": "e13370202012"
+      "digest": "41405d0550c6"
     },
     {
       "added_ms": 250,
-      "net": 108.8,
-      "net_settled": 105.6,
-      "fees": 47.42,
-      "trades": 66,
-      "contracts": 4848,
-      "signals": 495,
-      "expected_edge": 353.07,
-      "latency_cost": 0.05,
-      "digest": "21f7987c9e54"
+      "net": -640.76,
+      "net_settled": -480.33,
+      "fees": 126.57,
+      "trades": 283,
+      "contracts": 14095,
+      "signals": 1376,
+      "expected_edge": 1008.1,
+      "latency_cost": 6.55,
+      "digest": "f6b2a93a8764"
     },
     {
       "added_ms": 500,
-      "net": 87.48,
-      "net_settled": 70.07,
-      "fees": 50.04,
-      "trades": 68,
-      "contracts": 5591,
-      "signals": 495,
-      "expected_edge": 386.42,
-      "latency_cost": 0.09,
-      "digest": "d05a8318ca13"
+      "net": -569.19,
+      "net_settled": -412.87,
+      "fees": 123.64,
+      "trades": 279,
+      "contracts": 14323,
+      "signals": 1376,
+      "expected_edge": 984.71,
+      "latency_cost": 6.63,
+      "digest": "21a2175b5537"
     },
     {
       "added_ms": 1000,
-      "net": 81.35,
-      "net_settled": 69.51,
-      "fees": 50.13,
-      "trades": 68,
-      "contracts": 5591,
-      "signals": 495,
-      "expected_edge": 386.12,
-      "latency_cost": 0.2,
-      "digest": "32645532c9bd"
+      "net": -577.73,
+      "net_settled": -419.35,
+      "fees": 123.22,
+      "trades": 277,
+      "contracts": 14295,
+      "signals": 1376,
+      "expected_edge": 982.63,
+      "latency_cost": 6.74,
+      "digest": "7cd617fd603d"
     },
     {
       "added_ms": 2000,
-      "net": 80.72,
-      "net_settled": 69.51,
-      "fees": 49.58,
-      "trades": 66,
-      "contracts": 5556,
-      "signals": 495,
-      "expected_edge": 383.94,
-      "latency_cost": 0.16,
-      "digest": "1907046becf5"
+      "net": -590.73,
+      "net_settled": -431.94,
+      "fees": 121.17,
+      "trades": 267,
+      "contracts": 14025,
+      "signals": 1376,
+      "expected_edge": 966.59,
+      "latency_cost": 9.79,
+      "digest": "0a249f50ca17"
     },
     {
       "added_ms": 5000,
-      "net": 127.14,
-      "net_settled": 107.99,
-      "fees": 47.15,
-      "trades": 61,
-      "contracts": 4787,
-      "signals": 495,
-      "expected_edge": 349.43,
-      "latency_cost": 1.46,
-      "digest": "e0d683453f9e"
+      "net": -593.41,
+      "net_settled": -433.89,
+      "fees": 120.19,
+      "trades": 256,
+      "contracts": 13464,
+      "signals": 1376,
+      "expected_edge": 967.5,
+      "latency_cost": -0.09,
+      "digest": "ea6b90fc7f5a"
     },
     {
       "added_ms": 10000,
-      "net": 99.02,
-      "net_settled": 96.21,
-      "fees": 42.92,
-      "trades": 55,
-      "contracts": 3490,
-      "signals": 495,
-      "expected_edge": 262.56,
-      "latency_cost": -20.04,
-      "digest": "0703e2106e30"
+      "net": -555.86,
+      "net_settled": -395.85,
+      "fees": 95.56,
+      "trades": 224,
+      "contracts": 10635,
+      "signals": 1376,
+      "expected_edge": 746.26,
+      "latency_cost": -22.68,
+      "digest": "0f29bf216b5f"
     },
     {
       "added_ms": 30000,
-      "net": 54.5,
-      "net_settled": 90.8,
-      "fees": 40.88,
-      "trades": 46,
-      "contracts": 3264,
-      "signals": 495,
-      "expected_edge": 241.15,
-      "latency_cost": -16.84,
-      "digest": "903d41bfa9d5"
+      "net": -463.15,
+      "net_settled": -212.04,
+      "fees": 73.37,
+      "trades": 117,
+      "contracts": 8125,
+      "signals": 1376,
+      "expected_edge": 555.45,
+      "latency_cost": 49.54,
+      "digest": "5fac10c4767a"
     },
     {
       "added_ms": 60000,
-      "net": 52.98,
-      "net_settled": 89.42,
-      "fees": 38.89,
-      "trades": 41,
-      "contracts": 3107,
-      "signals": 495,
-      "expected_edge": 244.55,
-      "latency_cost": -16.79,
-      "digest": "4acbdd580e2a"
+      "net": -373.21,
+      "net_settled": -231.99,
+      "fees": 58.93,
+      "trades": 87,
+      "contracts": 6246,
+      "signals": 1376,
+      "expected_edge": 429.12,
+      "latency_cost": 48.23,
+      "digest": "2a8a9bf3ef91"
     }
   ],
   "sweep": {
-    "cut_ms": 1794063342984,
+    "cut_ms": 1794069349112,
     "rows": [
       {
         "trade_model": "options",
         "min_edge": 0.01,
         "band_k": 0.0,
-        "train_net": -1035.28,
+        "train_net": -1242.53,
         "train_trades": 55,
-        "test_net": -563.72,
-        "test_trades": 90
+        "test_net": -858.8,
+        "test_trades": 60
       },
       {
         "trade_model": "options",
         "min_edge": 0.01,
         "band_k": 1.0,
-        "train_net": -1056.65,
+        "train_net": -1256.88,
         "train_trades": 80,
-        "test_net": -421.08,
-        "test_trades": 89
+        "test_net": -507.51,
+        "test_trades": 60
       },
       {
         "trade_model": "options",
         "min_edge": 0.01,
         "band_k": 2.0,
-        "train_net": -964.6,
+        "train_net": -1121.71,
         "train_trades": 61,
-        "test_net": -258.47,
+        "test_net": -317.81,
+        "test_trades": 42
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.02,
+        "band_k": 0.0,
+        "train_net": -1344.09,
+        "train_trades": 43,
+        "test_net": -974.4,
+        "test_trades": 75
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.02,
+        "band_k": 1.0,
+        "train_net": -1159.71,
+        "train_trades": 65,
+        "test_net": -550.35,
+        "test_trades": 42
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.02,
+        "band_k": 2.0,
+        "train_net": -975.15,
+        "train_trades": 43,
+        "test_net": -447.03,
+        "test_trades": 28
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.04,
+        "band_k": 0.0,
+        "train_net": -1159.04,
+        "train_trades": 59,
+        "test_net": -660.59,
+        "test_trades": 39
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.04,
+        "band_k": 1.0,
+        "train_net": -943.96,
+        "train_trades": 48,
+        "test_net": -583.59,
+        "test_trades": 29
+      },
+      {
+        "trade_model": "options",
+        "min_edge": 0.04,
+        "band_k": 2.0,
+        "train_net": -795.09,
+        "train_trades": 40,
+        "test_net": -430.46,
+        "test_trades": 20
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.01,
+        "band_k": 0.0,
+        "train_net": 617.79,
+        "train_trades": 166,
+        "test_net": -725.08,
+        "test_trades": 59
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.01,
+        "band_k": 1.0,
+        "train_net": 237.62,
+        "train_trades": 94,
+        "test_net": -573.78,
+        "test_trades": 62
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.01,
+        "band_k": 2.0,
+        "train_net": 299.91,
+        "train_trades": 124,
+        "test_net": -368.22,
+        "test_trades": 44
+      },
+      {
+        "trade_model": "hybrid",
+        "min_edge": 0.02,
+        "band_k": 0.0,
+        "train_net": 575.93,
+        "train_trades": 208,
+        "test_net": -914.47,
         "test_trades": 86
       },
       {
-        "trade_model": "options",
-        "min_edge": 0.02,
-        "band_k": 0.0,
-        "train_net": -1142.76,
-        "train_trades": 43,
-        "test_net": -605.84,
-        "test_trades": 38
-      },
-      {
-        "trade_model": "options",
+        "trade_model": "hybrid",
         "min_edge": 0.02,
         "band_k": 1.0,
-        "train_net": -1001.34,
-        "train_trades": 65,
-        "test_net": -346.36,
-        "test_trades": 67
+        "train_net": 343.13,
+        "train_trades": 149,
+        "test_net": -570.32,
+        "test_trades": 39
       },
       {
-        "trade_model": "options",
+        "trade_model": "hybrid",
         "min_edge": 0.02,
         "band_k": 2.0,
-        "train_net": -824.01,
-        "train_trades": 43,
-        "test_net": -212.58,
-        "test_trades": 72
+        "train_net": 201.0,
+        "train_trades": 84,
+        "test_net": -329.48,
+        "test_trades": 30
       },
       {
-        "trade_model": "options",
+        "trade_model": "hybrid",
         "min_edge": 0.04,
         "band_k": 0.0,
-        "train_net": -1000.01,
-        "train_trades": 59,
-        "test_net": -345.71,
-        "test_trades": 72
+        "train_net": 639.36,
+        "train_trades": 129,
+        "test_net": -626.84,
+        "test_trades": 40
       },
       {
-        "trade_model": "options",
+        "trade_model": "hybrid",
         "min_edge": 0.04,
         "band_k": 1.0,
-        "train_net": -901.32,
-        "train_trades": 48,
-        "test_net": -188.3,
-        "test_trades": 67
+        "train_net": 318.11,
+        "train_trades": 70,
+        "test_net": -463.97,
+        "test_trades": 32
       },
       {
-        "trade_model": "options",
+        "trade_model": "hybrid",
         "min_edge": 0.04,
         "band_k": 2.0,
-        "train_net": -755.12,
-        "train_trades": 40,
-        "test_net": -65.69,
-        "test_trades": 31
+        "train_net": 1343.31,
+        "train_trades": 61,
+        "test_net": -441.26,
+        "test_trades": 20
       },
       {
-        "trade_model": "hybrid",
+        "trade_model": "ensemble",
         "min_edge": 0.01,
         "band_k": 0.0,
-        "train_net": -7.15,
-        "train_trades": 52,
-        "test_net": 29.0,
-        "test_trades": 55
+        "train_net": -202.23,
+        "train_trades": 114,
+        "test_net": -785.73,
+        "test_trades": 71
       },
       {
-        "trade_model": "hybrid",
+        "trade_model": "ensemble",
         "min_edge": 0.01,
         "band_k": 1.0,
-        "train_net": 53.47,
-        "train_trades": 42,
-        "test_net": 41.42,
-        "test_trades": 52
-      },
-      {
-        "trade_model": "hybrid",
-        "min_edge": 0.01,
-        "band_k": 2.0,
-        "train_net": 77.63,
-        "train_trades": 50,
-        "test_net": 16.26,
-        "test_trades": 37
-      },
-      {
-        "trade_model": "hybrid",
-        "min_edge": 0.02,
-        "band_k": 0.0,
-        "train_net": 47.88,
-        "train_trades": 48,
-        "test_net": 42.03,
-        "test_trades": 52
-      },
-      {
-        "trade_model": "hybrid",
-        "min_edge": 0.02,
-        "band_k": 1.0,
-        "train_net": 66.68,
-        "train_trades": 52,
-        "test_net": -0.86,
+        "train_net": -369.67,
+        "train_trades": 64,
+        "test_net": -751.31,
         "test_trades": 36
       },
       {
-        "trade_model": "hybrid",
-        "min_edge": 0.02,
+        "trade_model": "ensemble",
+        "min_edge": 0.01,
         "band_k": 2.0,
-        "train_net": 33.32,
-        "train_trades": 25,
-        "test_net": 69.78,
-        "test_trades": 27
+        "train_net": -338.84,
+        "train_trades": 59,
+        "test_net": -166.78,
+        "test_trades": 86
       },
       {
-        "trade_model": "hybrid",
-        "min_edge": 0.04,
+        "trade_model": "ensemble",
+        "min_edge": 0.02,
         "band_k": 0.0,
-        "train_net": -13.74,
-        "train_trades": 29,
-        "test_net": 162.74,
+        "train_net": 311.32,
+        "train_trades": 121,
+        "test_net": -808.34,
+        "test_trades": 44
+      },
+      {
+        "trade_model": "ensemble",
+        "min_edge": 0.02,
+        "band_k": 1.0,
+        "train_net": -149.16,
+        "train_trades": 98,
+        "test_net": -495.69,
         "test_trades": 34
       },
       {
-        "trade_model": "hybrid",
-        "min_edge": 0.04,
-        "band_k": 1.0,
-        "train_net": -13.52,
-        "train_trades": 17,
-        "test_net": 126.35,
-        "test_trades": 24
-      },
-      {
-        "trade_model": "hybrid",
-        "min_edge": 0.04,
+        "trade_model": "ensemble",
+        "min_edge": 0.02,
         "band_k": 2.0,
-        "train_net": 98.18,
-        "train_trades": 9,
-        "test_net": -9.88,
-        "test_trades": 14
+        "train_net": -611.38,
+        "train_trades": 40,
+        "test_net": -176.25,
+        "test_trades": 35
       },
       {
         "trade_model": "ensemble",
-        "min_edge": 0.01,
+        "min_edge": 0.04,
         "band_k": 0.0,
-        "train_net": -164.33,
-        "train_trades": 74,
-        "test_net": -49.94,
-        "test_trades": 51
+        "train_net": 40.05,
+        "train_trades": 60,
+        "test_net": -674.23,
+        "test_trades": 28
       },
       {
         "trade_model": "ensemble",
-        "min_edge": 0.01,
+        "min_edge": 0.04,
         "band_k": 1.0,
-        "train_net": -262.33,
-        "train_trades": 58,
-        "test_net": 63.21,
-        "test_trades": 70
-      },
-      {
-        "trade_model": "ensemble",
-        "min_edge": 0.01,
-        "band_k": 2.0,
-        "train_net": -260.67,
-        "train_trades": 56,
-        "test_net": 6.37,
+        "train_net": -227.12,
+        "train_trades": 23,
+        "test_net": -355.33,
         "test_trades": 36
       },
       {
         "trade_model": "ensemble",
-        "min_edge": 0.02,
-        "band_k": 0.0,
-        "train_net": -160.48,
-        "train_trades": 71,
-        "test_net": -45.92,
-        "test_trades": 68
-      },
-      {
-        "trade_model": "ensemble",
-        "min_edge": 0.02,
-        "band_k": 1.0,
-        "train_net": -195.02,
-        "train_trades": 51,
-        "test_net": 18.48,
-        "test_trades": 48
-      },
-      {
-        "trade_model": "ensemble",
-        "min_edge": 0.02,
-        "band_k": 2.0,
-        "train_net": -473.23,
-        "train_trades": 40,
-        "test_net": 35.01,
-        "test_trades": 18
-      },
-      {
-        "trade_model": "ensemble",
-        "min_edge": 0.04,
-        "band_k": 0.0,
-        "train_net": -192.46,
-        "train_trades": 33,
-        "test_net": 64.03,
-        "test_trades": 48
-      },
-      {
-        "trade_model": "ensemble",
-        "min_edge": 0.04,
-        "band_k": 1.0,
-        "train_net": -252.32,
-        "train_trades": 23,
-        "test_net": 19.1,
-        "test_trades": 26
-      },
-      {
-        "trade_model": "ensemble",
         "min_edge": 0.04,
         "band_k": 2.0,
-        "train_net": -376.73,
+        "train_net": -394.76,
         "train_trades": 18,
-        "test_net": 43.69,
-        "test_trades": 4
+        "test_net": -526.14,
+        "test_trades": 64
       }
     ],
     "best_in_sample": {
       "trade_model": "hybrid",
       "min_edge": 0.04,
       "band_k": 2.0,
-      "train_net": 98.18,
-      "train_trades": 9,
-      "test_net": -9.88,
-      "test_trades": 14
+      "train_net": 1343.31,
+      "train_trades": 61,
+      "test_net": -441.26,
+      "test_trades": 20
     },
     "default": {
       "trade_model": "hybrid",
       "min_edge": 0.02,
       "band_k": 1.0,
-      "train_net": 66.68,
-      "train_trades": 52,
-      "test_net": -0.86,
-      "test_trades": 36
+      "train_net": 343.13,
+      "train_trades": 149,
+      "test_net": -570.32,
+      "test_trades": 39
     },
     "note": "Parameters are chosen on the first half (by time) and judged on the second half."
   },
@@ -5033,5 +6135,5 @@
       "to": "2026-11-07T14:00:00Z"
     }
   },
-  "seconds": 53.7
+  "seconds": 946.7
 }

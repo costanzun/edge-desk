@@ -1,4 +1,6 @@
 
+import gzip
+
 import orjson
 
 from edgedesk.core.reader import records
@@ -53,3 +55,18 @@ def test_late_record_at_hour_boundary_never_rotates_backwards(tmp_path):
     _t.sleep(0.3)  # let the background compression of the 11:00 file finish
     assert (raw / "2026-11-07" / "12.jsonl").exists()
     assert [r["seq"] for r in records(tmp_path)] == [1, 3, 2, 4]  # ordered by receive time
+
+
+def test_hour_split_across_files_is_merged_by_time(tmp_path):
+    """Regression: a mid-hour restart leaves HH.<ts>.jsonl.gz beside HH.jsonl.gz; the reader
+    must merge them by receive time, not iterate them in file-name order."""
+    d = tmp_path / "raw" / "2026-11-07"
+    d.mkdir(parents=True)
+    t = 1_794_052_800 * 1_000_000_000  # 12:00 UTC
+    late = [orjson.dumps({"seq": i, "src": "a", "kind": "b", "t_recv": t + i * 10**9, "data": {}}) for i in (2, 3)]
+    early = [orjson.dumps({"seq": 1, "src": "a", "kind": "b", "t_recv": t, "data": {}})]
+    with gzip.open(d / "12.1794056000.jsonl.gz", "wb") as fh:  # sorts first by name, holds later data
+        fh.write(b"\n".join(late) + b"\n")
+    with gzip.open(d / "12.jsonl.gz", "wb") as fh:
+        fh.write(b"\n".join(early) + b"\n")
+    assert [r["seq"] for r in records(tmp_path)] == [1, 2, 3]

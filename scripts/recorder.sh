@@ -13,7 +13,7 @@ running() { [ -f "$SUP" ] && kill -0 "$(cat "$SUP")" 2>/dev/null; }
 case "${1:-status}" in
   start)
     if running; then echo "recorder already running (supervisor pid $(cat "$SUP"))"; exit 0; fi
-    nohup caffeinate -i bash -c "
+    nohup caffeinate -is bash -c "
       cd '$ROOT/backend'
       while true; do
         uv run python -m edgedesk.recorder >> '$LOGS/recorder.out' 2>&1 || true
