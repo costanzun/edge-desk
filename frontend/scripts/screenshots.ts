@@ -9,7 +9,7 @@ import { chromium, type BrowserContext, type Page } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";
 
-const OUT = path.resolve(__dirname, "../../docs/screenshots");
+const OUT = process.env.OUT_DIR ?? path.resolve(__dirname, "../../docs/screenshots");
 const BASE = (process.env.BASE_URL ?? "http://localhost:3124").replace(/\/$/, "");
 
 async function ctxFor(browser: import("@playwright/test").Browser, opts: { theme: "light" | "dark"; mobile?: boolean }): Promise<BrowserContext> {
@@ -64,6 +64,8 @@ async function main() {
 
   await go(p, "/risk", "kill-switch");
   await shot(p, "risk");
+  // NO_KILL=1: never press the kill switch (use against the live desk; it would be logged)
+  if (process.env.NO_KILL !== "1") {
   await p.getByTestId("kill-switch").click();
   await p.getByTestId("kill-reason").fill("Polymarket book looks stale");
   await p.getByTestId("kill-confirm").click();
@@ -74,6 +76,7 @@ async function main() {
   await p.getByTestId("resume-reason").fill("feed recovered");
   await p.getByTestId("resume-confirm").click();
   await p.getByTestId("kill-switch").waitFor();
+  }
 
   await go(p, "/capital", "kelly-output");
   await shot(p, "capital");
