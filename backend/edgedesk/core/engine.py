@@ -274,14 +274,19 @@ class Engine:
             return None
         p_rv = self.realized.fair(c["sym"], spot, c["strike"], c["expiry_ms"], t)
         rv = self.realized.sigma(c["sym"])
-        h = self.options.fair(c["sym"], spot, c["strike"], c["expiry_ms"], t, spot_age, short_vol=rv) \
-            if (rv is not None and f.extrapolated) else f
+        if f.extrapolated:
+            # below the front expiry the hybrid needs realized vol; without it there is no hybrid
+            # number (never a silent fall-back to the plain options model)
+            h = self.options.fair(c["sym"], spot, c["strike"], c["expiry_ms"], t, spot_age, short_vol=rv) \
+                if rv is not None else None
+        else:
+            h = f
         b = self.books.get(cid)
         own = M.mid(b.bids, b.asks, 0.10) if b else None
         cross = self._cross_mid(c)
-        p_ens = pool({"options": h.p, "realized": p_rv, "cross": cross, "own": own})
+        p_ens = pool({"options": h.p, "realized": p_rv, "cross": cross, "own": own}) if h else None
         return {"p_options": f.p, "band": f.band, "sigma": f.sigma, "extrap": f.extrapolated,
-                "p_hybrid": h.p, "band_hybrid": h.band, "rv": rv,
+                "p_hybrid": h.p if h else None, "band_hybrid": h.band if h else None, "rv": rv,
                 "p_realized": p_rv, "p_cross": cross, "mid": own, "p_ensemble": p_ens, "spot": spot,
                 "spot_age_s": spot_age}
 
@@ -313,7 +318,10 @@ class Engine:
              "realized": fv["p_realized"]}.get(self.cfg.trade_model)
         if p is None:
             return
-        band = (fv["band_hybrid"] if self.cfg.trade_model in ("hybrid", "ensemble") else fv["band"]) * self.cfg.band_k
+        band = (fv["band_hybrid"] if self.cfg.trade_model in ("hybrid", "ensemble") else fv["band"])
+        if band is None:
+            return
+        band *= self.cfg.band_k
         best = None
         for side in ("yes", "no"):
             px = M.best(side, b.bids, b.asks)
