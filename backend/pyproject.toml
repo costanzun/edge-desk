@@ -34,6 +34,7 @@ testpaths = ["tests"]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
 addopts = "-q"
+filterwarnings = ["ignore:ORJSONResponse is deprecated", "ignore::DeprecationWarning:pytest_asyncio.*"]
 
 [tool.ruff]
 line-length = 110
