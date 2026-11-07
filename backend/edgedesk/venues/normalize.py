@@ -11,7 +11,8 @@ same as hitting a YES bid at 1-q, so the NO side is derived, never stored.
 
 from __future__ import annotations
 
-from typing import Any, Iterator
+from collections.abc import Iterator
+from typing import Any
 
 from edgedesk.core import events as E
 
@@ -64,9 +65,11 @@ class Normalizer:
 
     # ------------------------------------------------------------------ spot / deribit
     def _coinbase_spot(self, rec: Raw, d: dict):
+        # Coinbase's "time" is the last *trade* time, not the quote time: kept as t_trade so the
+        # staleness guard does not mistake a quiet market for a delayed feed.
         if d.get("bid") and d.get("ask"):
             yield E.MD_SPOT, {"src": "coinbase", "sym": d["sym"], "bid": d["bid"], "ask": d["ask"],
-                              "t_exch": rec.get("t_exch"), "rtt_ms": rec.get("rtt_ms")}
+                              "t_trade": rec.get("t_exch"), "rtt_ms": rec.get("rtt_ms")}
 
     def _binance_spot(self, rec: Raw, d: dict):
         if d.get("bid") and d.get("ask"):
@@ -77,6 +80,11 @@ class Normalizer:
         for open_ms, _o, close, close_ms in d.get("rows", []):
             yield "md.kline", {"src": "binance", "sym": d["sym"], "open_ms": open_ms,
                                "close_ms": close_ms + 1, "close": close}
+
+    def _binance_kline_1m(self, rec: Raw, d: dict):
+        rows = [r for r in d.get("rows", []) if r[0] + 60_000 <= rec["t_recv"] // 1_000_000]  # closed bars only
+        if len(rows) > 10:
+            yield "md.kline1m", {"sym": d["sym"], "closes": [r[1] for r in rows]}
 
     def _deribit_index(self, rec: Raw, d: dict):
         yield E.MD_INDEX, {"sym": d["sym"], "price": d["price"], "t_exch": rec.get("t_exch"),
@@ -158,6 +166,19 @@ class Normalizer:
                 continue
             yield from self._book("polymarket", cid, _levels(b.get("bids", [])), _levels(b.get("asks", [])),
                                   b.get("ts") or None, True, rec)
+
+    def _polymarket_ws_top(self, rec: Raw, d: dict):
+        cid = d.get("token")
+        if cid not in self.contracts:
+            return
+        yield from self._book("polymarket", cid, _levels(d.get("bids", [])), _levels(d.get("asks", [])),
+                              d.get("ts") or None, True, rec)
+
+    def _polymarket_ws_trade(self, rec: Raw, d: dict):
+        cid = d.get("token")
+        if cid in self.contracts:
+            yield "md.trade", {"venue": "polymarket", "cid": cid, "px": d.get("price"), "qty": d.get("size"),
+                               "side": d.get("side"), "t_exch": d.get("ts")}
 
     def _polymarket_outcome(self, rec: Raw, d: dict):
         ix = {c: i for i, c in enumerate(d["cols"])}

@@ -20,7 +20,7 @@ import os
 import signal
 import sys
 import time
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -160,7 +160,7 @@ class Recorder:
                 try:
                     _, exp, strike, cp = name.split("-")
                     exp_ms = int(datetime.strptime(exp, "%d%b%y").replace(
-                        hour=8, tzinfo=timezone.utc).timestamp() * 1000)
+                        hour=8, tzinfo=UTC).timestamp() * 1000)
                 except ValueError:
                     continue
                 if exp_ms > horizon:
@@ -246,7 +246,7 @@ class Recorder:
             for h in range(1, 5):  # the next four top-of-hour expiries
                 t = base + timedelta(hours=h)
                 out.append((f"{name}-above-on-{self._date_slug(t)}-{self._hour_slug(t)}-et", sym))
-            for d in range(0, 2):
+            for d in range(2):
                 day = now + timedelta(days=d)
                 out.append((f"{name}-above-on-{self._date_slug(day)}", sym))
         return list(dict.fromkeys(out))
@@ -371,6 +371,15 @@ class Recorder:
                         t_recv=r.t_recv, rtt_ms=r.rtt_ms)
         self.state["klines_done"].append(key)
 
+    async def klines_1m_once(self) -> None:
+        """Last 2 hours of 1-minute candles: lets the realized-vol model start warm, from the log."""
+        for sym in ("BTC", "ETH"):
+            r = await self.http.get("https://api.binance.com/api/v3/klines", symbol=f"{sym}USDT", interval="1m",
+                                    limit=120)
+            self.raw.append("binance", "kline_1m", {"sym": sym, "rows": [[k[0], float(k[4])] for k in r.data]},
+                            t_recv=r.t_recv, rtt_ms=r.rtt_ms)
+            self._ok("binance", r.rtt_ms)
+
     # ------------------------------------------------------------------ status
     async def status_once(self) -> None:
         status = {"t": time.time(), "seq": self.raw.seq, "written": self.raw.written, "pid": os.getpid(),
@@ -401,6 +410,7 @@ class Recorder:
             self._every(120.0, "polymarket", self.poly_discover),
             self._every(15.0, "polymarket", self.poly_books_once),
             self._every(300.0, "outcomes", self.outcomes_once),
+            self._every(600.0, "binance", self.klines_1m_once),
             self._every(60.0, "status", self.status_once),
             *self.ws.tasks(self.stop),
         ]

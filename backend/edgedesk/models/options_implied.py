@@ -111,10 +111,15 @@ class OptionsImplied:
                 return wa + (wb - wa) * (T - a.T) / (b.T - a.T), False
         return sm[-1].atm ** 2 * T, False
 
-    def vol_fn(self, sym: str, spot: float, T: float, scale: float = 1.0):
+    def vol_fn(self, sym: str, spot: float, T: float, scale: float = 1.0, short_vol: float | None = None):
         sm = self.smiles[sym]
         w_atm, extrap = self._atm_var(sm, T)
         atm_T = math.sqrt(w_atm / T)
+        if short_vol is not None and extrap:
+            # hybrid: below the front expiry, lean on realized vol in proportion to how far
+            # inside the front expiry we are (lam -> 1 as T -> 0)
+            lam = max(0.0, 1.0 - T / sm[0].T)
+            atm_T = math.sqrt(lam * short_vol ** 2 + (1 - lam) * atm_T ** 2)
         sdev = atm_T * math.sqrt(T)
         # bracketing smiles for the shape in z-space
         if T <= sm[0].T or len(sm) == 1:
@@ -137,18 +142,18 @@ class OptionsImplied:
         return vol_at, extrap
 
     def fair(self, sym: str, spot: float, strike: float, expiry_ms: int, t_ns: int,
-             spot_age_s: float = 0.0) -> Fair | None:
+             spot_age_s: float = 0.0, short_vol: float | None = None) -> Fair | None:
         if sym not in self.smiles or spot <= 0:
             return None
         T = (expiry_ms - t_ns / 1e6) / 1000 / YEAR_S
         if T <= 0:
             return None
         # time since the chain snapshot shortens the horizon of each smile slightly; ignored
-        vol_at, extrap = self.vol_fn(sym, spot, T)
+        vol_at, extrap = self.vol_fn(sym, spot, T, short_vol=short_vol)
         p = digital_smile(spot, strike, T, vol_at)
         u = self.vol_unc + (self.extrap_unc if extrap else 0.0)
-        hi_fn, _ = self.vol_fn(sym, spot, T, 1 + u)
-        lo_fn, _ = self.vol_fn(sym, spot, T, 1 - u)
+        hi_fn, _ = self.vol_fn(sym, spot, T, 1 + u, short_vol)
+        lo_fn, _ = self.vol_fn(sym, spot, T, 1 - u, short_vol)
         band = abs(digital_smile(spot, strike, T, hi_fn) - digital_smile(spot, strike, T, lo_fn)) / 2
         sig = vol_at(strike)
         # spot staleness: the price may have moved by ~ sig * sqrt(age) since our last quote

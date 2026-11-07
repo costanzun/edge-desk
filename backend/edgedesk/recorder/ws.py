@@ -12,8 +12,9 @@ import asyncio
 import logging
 import random
 import time
+from collections.abc import Awaitable, Callable
 from datetime import datetime
-from typing import Any, Awaitable, Callable
+from typing import Any
 
 import orjson
 import websockets

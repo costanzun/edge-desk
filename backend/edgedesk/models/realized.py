@@ -16,7 +16,7 @@ MIN_RETURNS = 20
 class RealizedVol:
     name = "realized"
 
-    def __init__(self, halflife_min: float = 60.0, floor: float = 0.10) -> None:
+    def __init__(self, halflife_min: float = 60.0, floor: float = 0.05) -> None:
         self.lam = 0.5 ** (1.0 / halflife_min)
         self.floor = floor
         self._minute: dict[str, int] = {}
@@ -44,6 +44,21 @@ class RealizedVol:
             self._last_px[sym] = close
             self._minute[sym] = m
         self._close[sym] = mid
+
+    def seed(self, sym: str, closes: list[float]) -> None:
+        """Warm start from recorded 1-minute closes (only if we are not warm yet)."""
+        if self._n.get(sym, 0) >= MIN_RETURNS:
+            return
+        v = None
+        n = 0
+        for a, b in zip(closes, closes[1:]):
+            if a > 0 and b > 0:
+                r2 = math.log(b / a) ** 2
+                v = r2 if v is None else self.lam * v + (1 - self.lam) * r2
+                n += 1
+        if v is not None:
+            self._var[sym] = v
+            self._n[sym] = max(self._n.get(sym, 0), n)
 
     def sigma(self, sym: str) -> float | None:
         if self._n.get(sym, 0) < MIN_RETURNS:

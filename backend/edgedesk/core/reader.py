@@ -9,9 +9,10 @@ from __future__ import annotations
 
 import gzip
 import heapq
-from datetime import datetime, timezone
+from collections.abc import Iterable, Iterator
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Iterable, Iterator
+from typing import Any
 
 import orjson
 
@@ -24,7 +25,7 @@ def hour_files(raw: Path, start_ns: int | None = None, end_ns: int | None = None
         day = f.parent.name
         hour = f.name.split(".")[0]
         try:
-            t0 = int(datetime.strptime(f"{day} {hour}", "%Y-%m-%d %H").replace(tzinfo=timezone.utc).timestamp())
+            t0 = int(datetime.strptime(f"{day} {hour}", "%Y-%m-%d %H").replace(tzinfo=UTC).timestamp())
         except ValueError:
             continue
         t0_ns, t1_ns = t0 * 1_000_000_000, (t0 + 3600) * 1_000_000_000

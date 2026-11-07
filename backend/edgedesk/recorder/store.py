@@ -26,23 +26,23 @@ def _hour_path(root: Path, t_ns: int) -> Path:
 
 
 def last_seq(root: Path) -> int:
-    """Highest sequence number already on disk (0 if empty), so restarts keep counting up."""
+    """Highest sequence number already on disk (0 if empty), so restarts keep counting up.
+    A torn last line (crash mid-write) is skipped."""
     files = sorted(root.glob("*/*.jsonl*"))
     for f in reversed(files):
         opener = gzip.open if f.suffix == ".gz" else open
+        best = 0
         try:
             with opener(f, "rb") as fh:
-                tail = None
                 for line in fh:
-                    if line.strip():
-                        tail = line
-                if tail:
                     try:
-                        return int(orjson.loads(tail)["seq"])
-                    except Exception:  # noqa: BLE001 - a torn last line: keep looking
+                        best = max(best, int(orjson.loads(line)["seq"]))
+                    except (orjson.JSONDecodeError, KeyError, TypeError, ValueError):
                         continue
         except (OSError, EOFError):
             continue
+        if best:
+            return best
     return 0
 
 

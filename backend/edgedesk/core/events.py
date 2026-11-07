@@ -13,8 +13,9 @@ from __future__ import annotations
 
 import hashlib
 from collections import Counter
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 import orjson
 
@@ -42,7 +43,7 @@ REJECT_INPUT = "input.reject" # malformed / duplicate / stale input dropped by t
 
 
 class Event:
-    __slots__ = ("seq", "t", "kind", "data")
+    __slots__ = ("data", "kind", "seq", "t")
 
     def __init__(self, seq: int, t: int, kind: str, data: dict[str, Any]) -> None:
         self.seq = seq

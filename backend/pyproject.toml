@@ -32,8 +32,12 @@ packages = ["edgedesk"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
 addopts = "-q"
 
 [tool.ruff]
 line-length = 110
 target-version = "py312"
+
+[tool.ruff.lint]
+ignore = ["SIM102", "RUF007", "FURB162", "SIM115", "RUF046", "RUF059", "E741"]
