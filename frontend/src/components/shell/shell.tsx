@@ -1,14 +1,14 @@
 "use client";
 
 import {
-  Activity, ChevronsLeft, ChevronsRight, FlaskConical, Gauge, History, Menu, Moon, Scale, Settings2, ShieldAlert, Sun, Timer,
+  Activity, BookOpen, ChevronsLeft, ChevronsRight, FlaskConical, Gauge, History, Menu, Moon, Scale, Settings2, ShieldAlert, Sun, Timer,
   Wallet, X,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useState, type ReactNode } from "react";
-import { Badge, cn } from "@/components/ui/kit";
+import { Badge, cn, feedStatus } from "@/components/ui/kit";
 import { API_URL, MOCK } from "@/lib/api";
 import { useDesk } from "@/lib/desk-context";
 import { age, ms, price } from "@/lib/format";
@@ -16,6 +16,7 @@ import { HeaderKillSwitch } from "./kill-switch";
 
 const NAV = [
   { href: "/", label: "Desk", icon: Activity },
+  { href: "/how-it-works", label: "How it works", icon: BookOpen },
   { href: "/positions", label: "Positions & P&L", icon: Wallet },
   { href: "/latency", label: "Latency", icon: Timer },
   { href: "/risk", label: "Risk", icon: ShieldAlert },
@@ -101,10 +102,12 @@ function ModeBadge() {
   const { mode, error } = useDesk();
   const m = error && !MOCK ? "offline" : mode || "…";
   return (
-    <Badge testId="mode-badge" tone={m === "offline" ? "neg" : MODE_TONE[m] ?? "muted"} className="num">
-      {m === "live" ? <span className="live-dot inline-block size-1.5 rounded-full bg-pos" /> : null}
-      {m}
-    </Badge>
+    <span title="Data mode. LIVE: real-time public feeds. REPLAY: recorded data. SYNTHETIC: a generated market. MOCK: demo data for screenshots and tests.">
+      <Badge testId="mode-badge" tone={m === "offline" ? "neg" : MODE_TONE[m] ?? "muted"} className="rounded-full px-2 py-1">
+        {m === "live" ? <span className="live-dot inline-block size-1.5 rounded-full bg-pos" /> : null}
+        {m}
+      </Badge>
+    </span>
   );
 }
 
@@ -113,39 +116,37 @@ const SPOT_LABEL: Record<string, string> = { coinbase: "Coinbase", binance: "Bin
 /** Spot prices and feed lights. */
 function Ticker({ testId = "ticker" }: { testId?: string }) {
   const { desk } = useDesk();
-  const spots = Object.entries(desk?.spots ?? {})
-    .filter(([, v]) => v != null)
-    .sort(([a], [b]) => (a.split(":")[1] ?? "").localeCompare(b.split(":")[1] ?? "") || a.localeCompare(b));
+  const bySym = new Map<string, [string, number][]>();
+  for (const [k, v] of Object.entries(desk?.spots ?? {})) {
+    if (v == null) continue;
+    const [src, sym = k] = k.split(":");
+    bySym.set(sym, [...(bySym.get(sym) ?? []), [src, v]]);
+  }
   const feeds = desk?.feeds ?? [];
+  const live = feeds.filter((f) => feedStatus(f) === "live").length;
+  const worst = feeds.some((f) => feedStatus(f) === "down") ? "down" : feeds.some((f) => feedStatus(f) === "slow") ? "slow" : "live";
+  const detail = feeds.map((f) => `${f.label ?? f.name}: ${feedStatus(f)} · updated ${age(f.last_msg_age_s)} ago · ${ms(f.rtt_ms)}`).join("\n");
   return (
-    <div data-testid={testId} className="no-scrollbar flex min-w-0 items-center gap-4 overflow-x-auto text-[12px]">
-      {spots.length === 0 ? <span className="text-ink-3">waiting for spot prices…</span> : null}
-      {spots.map(([k, v]) => {
-        const [src, sym] = k.split(":");
-        return (
-          <span key={k} className="flex shrink-0 items-baseline gap-1.5" data-testid="spot">
-            <span className="font-semibold text-ink">{sym ?? k}</span>
-            <span className="num text-ink">{price(v as number)}</span>
-            <span className="text-[10.5px] text-ink-3">{SPOT_LABEL[src] ?? src}</span>
-          </span>
-        );
-      })}
-      {feeds.length ? <span aria-hidden className="h-4 w-px shrink-0 bg-line" /> : null}
-      <span className="flex shrink-0 items-center gap-2.5">
-        {feeds.map((f) => {
-          const stale = (f.last_msg_age_s ?? 0) > 30;
-          return (
-            <span
-              key={f.name}
-              className="flex items-center gap-1 text-[11px] text-ink-2"
-              title={`${f.name}: ${f.ok ? "ok" : f.reason || "down"} · last msg ${age(f.last_msg_age_s)} ago · rtt ${ms(f.rtt_ms)}`}
-            >
-              <span className={cn("inline-block size-1.5 rounded-full", !f.ok ? "bg-neg" : stale ? "bg-warn" : "bg-pos")} />
-              {f.name}
+    <div data-testid={testId} className="no-scrollbar flex min-w-0 items-center gap-5 overflow-x-auto text-[12.5px]">
+      {bySym.size === 0 ? <span className="text-ink-3">waiting for prices…</span> : null}
+      {[...bySym.entries()].map(([sym, rows]) => (
+        <span key={sym} className="flex shrink-0 items-baseline gap-2" data-testid="spot">
+          <span className="font-semibold text-ink">{sym}</span>
+          {rows.map(([src, v], i) => (
+            <span key={src} className="flex items-baseline gap-1">
+              {i > 0 ? <span aria-hidden className="text-line">/</span> : null}
+              <span className="num text-ink">{price(v, 0)}</span>
+              <span className="text-[11px] text-ink-3">{SPOT_LABEL[src] ?? src}</span>
             </span>
-          );
-        })}
-      </span>
+          ))}
+        </span>
+      ))}
+      {feeds.length ? (
+        <span title={detail} data-testid="feeds-summary" className="flex shrink-0 items-center gap-1.5 text-[12px] text-ink-2">
+          <span className={cn("inline-block size-1.5 rounded-full", worst === "down" ? "bg-neg" : worst === "slow" ? "bg-warn" : "bg-pos live-dot")} />
+          {live} of {feeds.length} feeds live
+        </span>
+      ) : null}
     </div>
   );
 }
@@ -230,8 +231,8 @@ export function Shell({ children }: { children: ReactNode }) {
       ) : null}
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-40 border-b border-line bg-panel/95 backdrop-blur supports-[backdrop-filter]:bg-panel/85">
-          <div className="flex h-12 items-center gap-3 px-3 sm:px-4">
+        <header className="sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur supports-[backdrop-filter]:bg-bg/75">
+          <div className="flex h-13 items-center gap-3 px-3 sm:px-5">
             <button
               type="button"
               data-testid="nav-open"
@@ -244,10 +245,10 @@ export function Shell({ children }: { children: ReactNode }) {
             <div className="lg:hidden"><Logo className="size-6" /></div>
             <div className="hidden min-w-0 flex-1 md:block"><Ticker /></div>
             <div className="ml-auto flex shrink-0 items-center gap-2">
-              <Badge testId="paper-badge" tone="brand" className="hidden sm:inline-flex">
-                <FlaskConical className="size-3" /> Paper only · not investment advice
-              </Badge>
-              <Badge tone="brand" className="sm:hidden">Paper only</Badge>
+              <span data-testid="paper-badge" className="hidden items-center gap-1.5 rounded-full border border-brand/25 bg-brand-soft px-2.5 py-1 text-[11.5px] font-medium text-brand sm:inline-flex">
+                <FlaskConical className="size-3.5" /> Paper only · not investment advice
+              </span>
+              <span className="inline-flex items-center rounded-full border border-brand/25 bg-brand-soft px-2 py-0.5 text-[11px] font-medium text-brand sm:hidden">Paper only</span>
               <ModeBadge />
               <HeaderKillSwitch />
               <ThemeToggle />
@@ -257,7 +258,7 @@ export function Shell({ children }: { children: ReactNode }) {
         </header>
         <HaltBanner />
         <OfflineBanner />
-        <main id="main" className="min-w-0 flex-1 px-3 py-4 sm:px-5 sm:py-5">{children}</main>
+        <main id="main" className="mx-auto w-full min-w-0 max-w-[1500px] flex-1 px-3 py-5 sm:px-6 sm:py-6">{children}</main>
         <footer className="border-t border-line px-4 py-3 text-[11.5px] text-ink-3 sm:px-5">
           Paper trading research. No real orders. Public market data only. Not investment advice.
           <span className="float-right hidden sm:inline">Edge Desk · Costantino Zunino</span>
